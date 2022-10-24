@@ -45,6 +45,38 @@
 <ul>
   <li>Loco wants to register his new little library location and let others know it's available for use. </li>
 </ul>
+<h2>User Story</h2>
+<h3>Establishing a new Little Library Location</h3>
+<div>As a Little Library Steward, Loco just completed construction of his new location and wants to add it to the listing of Little Libraries to promote its use.
+  <h2>User Interaction Flow</h2>
+    <h3>Pre-Condition:</h3>
+      <p>Loco is registered as a Steward and has logged into the site and is on the landing page.</p>
+    <h3>Post-Condition</h3>
+      <p>Loco has listed his new Little Library on the site; it appears on the map and can be searched for by other users.</p>
+    <h3>User Interaction Flow</h3>
+    <ul>
+      <li>Loco scans the landing page and locates the sidebar nav button on the right side of the main element (map) for the "Steward" section and clicks it.</li>
+      <li>Little Library redirects Loco to the "Stewards" page.</li>
+      <li>Loco scans the "Steward" page and finds the Little Library Maintenance menu and selects the "Add a Little Library" button and clicks it.</li>
+      <li>Little Library presents Loco with a form modal with the title "Register a new Little Library" in the center of Loco's screen (need to consider potential pop-up blocking - if that is an issue, will want to redirect to a new page with the form).</li>
+      <li>The form modal is pre-filled with Loco's information as a Steward (name and contact information) and provides Loco with required fields including:
+        <ul>
+          <li>address or latitude-longitude for the location</li>
+          <li>communication preference for alerts concerning this Little Library</li>
+          <li>a photo of the Little Library</li>
+          <ul>
+            <li>optional information includes the option to add a specialization for the Little Library if desired.</li>
+          </ul>
+        </ul>
+      </li>
+      <li>Loco completes the form and presses the "Submit" button.</li>
+      <li>Little Library checks the recorded information against regular expressions (RegEx) and once the input clears the RegEx, Little Library records the information in the database.</li>
+      <ul>
+        <li>Little Library presents Loco with a notification modal stating "Thank you for adding your Little Library!"</li>
+      </ul>
+    </ul>
+
+</div>
 
 </body>
 </html>
