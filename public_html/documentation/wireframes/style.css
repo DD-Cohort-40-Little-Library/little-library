@@ -3,7 +3,7 @@ body{
     margin: 2em;
     font-size: larger;
 }
-.welcome, .user, .user-update {
+.welcome, .user, .library, .events {
     border: darkblue solid thick;
     padding-left: 1em;
     padding-right: 1em;
