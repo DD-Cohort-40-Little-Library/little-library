@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Little Library Content Strategy & Wireframes</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!--Content Strategy Header-->
+<div class="content">
+	<h1>Content Strategy</h1>
+	<p>This website will provide the local Albuquerque community with a tool to better connect neighborhoods to the Little Libraries and those who use them and maintain them.  Additionally, this application will encourage literacy and literary event planning, promotion and attendance. In addition, this site will:</p>
+	<ul>
+		<li>Let users know, once they are logged in, what Little Libraries and public libraries are within walking distance</li>
+		<li>The Who, What, When and Where of literacy and literary events</li>
+		<li>The ability to search for specific types of Little Libraries</li>
+		<li>The ability, as a Steward of a Little Library, to manage their Little Library</li>
+	</ul>
+	<p>The map is critical to the project and will be the central feature of the site.</p>
+</div>
+<!--Welcome area-->
+<div class="welcome">
+	<h2>Landing Page</h2>
+	<h3>Map, event sidebar, nav sidebar and map filters</h3>
+	<ul>
+		<li>Desktop view
+			<ul>
+				<li>The map is centered on the page and illustrates Little Libraries by map pins
+					<ul>
+						<li>By clicking on a map pin the user will be presented with a card for the Little Library location, providing:
+							<ul>
+								<li>Photo of the Little Library (if available)</li>
+								<li>Name</li>
+								<li>Address</li>
+								<li>Specialization (if any)</li>
+								<li>buttons for:
+									<ul>
+										<li>check-in</li>
+										<li>Report issue</li>
+										<li>Upload image</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li>The left sidebar contains a chronological listing of events, presenting the events first by date and then by distance from the user.
+					<ul>
+						<li>The events are clickable and when clicked will expand to provide the full information of the event and enlarges a map pin for the location of the event</li>
+						<li>At the top of the list of events is a button to "Plan An Event"
+							<ul>
+								<li>Clicking this will open a modal with a form for listing an event</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li>The right sidebar contains the navigation buttons for User Login, LL Steward Page and  Registration
+					<ul>
+						<li>Clicking the user login button opens a modal allowing the user to log into the site.</li>
+						<li>Clicking the Steward button will redirect the user to the Steward page.</li>
+						<li>Clicking the registration button will open a modal allowing the user to register for an account on the site</li>
+					</ul>
+				</li>
+				<li>Below the buttons are a search bar for zip, state, city filtering and the radial buttons for filter options that the user can select for the map which are triggered from the search button</li>
+				<li>The header contains the logo to the top left with the name of the site centered over the map</li>
+				<li>The footer will contain credits for the project and links to any additional information relevant to site and the team.</li>
+			</ul>
+		</li>
+		<li>Mobile view
+			<ul>
+				<li>The map is centered at the page and illustrates Little Libraries by map pins
+					<ul>
+						<li>By clicking on a map pin the user will be presented with a card for the Little Library location, providing:
+							<ul>
+								<li>Photo of the Little Library (if available)</li>
+								<li>Name</li>
+								<li>Address</li>
+								<li>Specialization (if any)</li>
+								<li>buttons for:
+									<ul>
+										<li>check-in</li>
+										<li>Report issue</li>
+										<li>Upload image</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li>Below the map are the navigation buttons for user login, steward page and registration</li>
+				<li>Below the buttons are a search bar for zip, state, city filtering and the radial buttons for filter options that the user can select for the map which are triggered from the search button</li>
+				<li>Next is a chronological listing of events, presenting the events first by date and then by distance from the user.
+					<ul>
+						<li>The events are clickable and when clicked will expand to provide the full information of the event and enlarges a map pin for the location of the event on the map</li>
+						<li>At the top of the list of events is a button to "Plan An Event"
+							<ul>
+								<li>Clicking this will open a modal with a form for listing an event</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li>The header contains the logo to the top left with the name of the site centered over the map and the navigation button for login, steward and register will be collapsed in the right edge of the header
+					<ul>
+						<li>Clicking the user login button opens a modal allowing the user to log into the site.</li>
+						<li>Clicking the Steward button will redirect the user to the Steward page.</li>
+						<li>Clicking the registration button will open a modal allowing the user to register for an account on the site</li>
+					</ul>
+				</li>
+				<li>The footer will contain credits for the project and links to any additional information relevant to site and the team.</li>
+			</ul>
+		</li>
+	</ul>
+	<!--Steward section-->
+	<h3>Steward Page</h3>
+	<ul>
+		<p>The steward page will provide library stewards with the ability to manage their library in a variety of ways</p>
+		<li> Desktop view
+			<ul>
+				<li>Stewards will see the following buttons that will open a modal to perform the following actions:
+				<ul>
+					<li>A list of the libraries they are associated with and can be clicked on to:
+						<ul>
+							<li>Add</li>
+							<li>Move</li>
+							<li>Close</li>
+							<li>Edit</li>
+						</ul>
+					</li>
+				</ul>
+				</li>
+				<li>Possibly use a modal that exposes the full list when hovered over</li>
+			</ul>
+		</li>
+		<li>Mobile view
+			<ul>
+				<li>The lists will collapse to a drop-down clickable list that will either expand or open a modal view and will be labeled with Soft and Tech respectively.</li>
+			</ul>
+		</li>
+	</ul>
+
+	<!--Portfolio section-->
+	<h3>Portfolio</h3>
+	<p>The portfolio section will provide six examples of work. The work will be presented in clickable thumbnail images linking to the project depicted in the thumbnail. Each thumbnail will have a semi-transparent label with the title of the example of work. When clicked the location will open in a new tab so that the user can easily move between the main page and the location of the work.</p>
+	<p>Below the thumbnail will be a link to the GitHub repository for the code of the featured project. These links will also open in a new tab.</p>
+	<ul>
+		<li> Desktop view
+			<ul>
+				<li>The thumbnails are arranged in two rows of three evenly spaced with the middle thumbnail centered on the page.</li>
+				<li>Immediately below the thumbnail will be a link to the GitHub repository centered on the above thumbnail.</li>
+			</ul>
+		</li>
+		<li>Mobile view
+			<ul>
+				<li>The thumbnails will move to display as three rows of two, evenly spaced with the GitHub link centered on the thumbnail image just under each thumbnail.</li>
+			</ul>
+		</li>
+	</ul>
+
+</div>
+<!--Additional information area-->
+<div class="additional-information">
+	<h2>Additional information section</h2>
+	<p>The information provided here will only be relevant if the Welcome section hooks the viewer and should be below the scroll.</p>
+	<!--Education section-->
+	<h3>Education</h3>
+	<p>My education will be split between those that are relevant to the technical position I am seeking, this section, and the Other section where non-technical, less relevant education will be listed.</p>
+	<ul>
+		<li>Desktop view
+			<ul>
+				<li>Will provide relevant education starting the with the most recent, Deep Dive Coding, and listing the two Bachelors that with the school attended and dates of attendance.</li>
+				<li>Each entry will occupy a single line with type of education, institution and dates of attendance.</li>
+			</ul>
+		</li>
+	</ul>
+	<ul>
+		<li>Mobile view
+			<ul>
+				<li>The mobile view will present the same information but will split the information into additional lines to improve line length and readability.</li>
+			</ul>
+		</li>
+	</ul>
+	<!--Certification section-->
+	<h3>Certification</h3>
+	<p>This section will list all relevant IT certifications that I have received.</p>
+	<ul>
+		<li>Desktop view
+			<ul>
+				<li>The certifications will be listed in two columns evenly spaced and parallel</li>
+			</ul>
+		</li>
+		<li>Mobile view
+			<ul>
+				<li>The list will stack on the mobile view in a single column aligned to the left</li>
+			</ul>
+		</li>
+	</ul>
+	<!--Experience section-->
+	<h3>Experience</h3>
+	<p>This section will show my last 12 years of work experience, demonstrating longevity and strong, high level responsibility and work.</p>
+	<ul>
+		<li>Desktop view
+			<ul>
+				<li>This will be a list of the positions held over the last 12 years with business, location, title and dates of employment</li>
+				<li>The list will be left aligned with a large white space on either side. The first line of each block has the business name and location with the title and dates indented on a new line. This provides some asymmetry to help the eye flow </li>
+			</ul>
+		</li>
+		<li>Mobile view
+			<ul>
+				<li>Will appear similar to the desktop view but the white space reduced to fit the screen but continuing the same left aligned first line and the additional lines indented.</li>
+			</ul>
+		</li>
+	</ul>
+	<!--Other section-->
+	<h3>Other</h3>
+	<p>This section contains the unrelated education in the same format as the relevant education and also includes my Martial Arts ranking as a demonstration of interests and accomplishments.</p>
+	<ul>
+		<li>Desktop view
+			<ul>
+				<li>The unrelated education will mirror the format of the previous education section</li>
+				<li>The martial arts section will mirror the work experience layout used previously with white space and left aligned first line and indented sub items.</li>
+			</ul>
+		</li>
+		<li>Mobile view
+			<ul>
+				<li>The unrelated education in mobile view will mirror the mobile view of the previous education section, splitting the information into lines per information type instead of on a single line.</li>
+				<li>Similar to the previous work experience section, the martial arts section will maintain the pattern but without the use of the white space on either side.</li>
+			</ul>
+		</li>
+	</ul>
+	<h3>Footer</h3>
+	<p>The footer will be a thick black bar along the bottom and will contain linking icons for LinkedIn, the envelope icon in the center for activating the email contact modal, and FaceBook. </p>
+	<p>This is consistent in both the desktop and mobile views.</p>
+</div>
+<!--Wireframes - Mobile then Desktop-->
+<div class="wireframes">
+	<h2>Wireframes</h2>
+	<h3>Mobile Wireframe</h3>
+	<img src="images/mobile-wireframe.png" alt="mobile wireframe on three screens">
+	<h3>Desktop Wireframe</h3>
+	<img src="images/desktop-wireframe.png" alt="desktop wireframe of long scrolling page">
+</div>
+</body>
+</html>
