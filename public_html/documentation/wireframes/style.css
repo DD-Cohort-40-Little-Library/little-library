@@ -10,3 +10,6 @@ body{
     margin: 2em;
     border-radius: 25px;
 }
+img{
+    max-width: 100%;
+}
