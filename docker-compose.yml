@@ -9,7 +9,7 @@ services:
       # Make sure to update this to match your project.
       - ./project.env
     environment:
-      - MYSQL_HOST=sql
+      - POSTGRESQL_HOST=sql
     ports:
       - 8080:4200
     volumes:
@@ -22,7 +22,7 @@ services:
       - ./project.env
     command: --default-authentication-plugin=mysql_native_password
     volumes:
-      - compose-lesson:/var/lib/mysql
+      - compose-lesson:/var/lib/postgresql
     ports:
       - 33006:3306
 volumes:
