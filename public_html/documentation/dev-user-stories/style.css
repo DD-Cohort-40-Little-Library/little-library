@@ -1,7 +1,7 @@
 body{
     font-family: "Century Gothic", sans-serif;
     margin: 2em;
-    font-size: larger;
+    font-size: x-large;
 }
 h1, h2{
     text-align: center;
@@ -12,4 +12,10 @@ h1, h2{
     padding-right: 1em;
     margin: 2em;
     border-radius: 25px;
+}
+li{
+    margin-bottom: 1em;
+}
+p{
+    font-weight: bold;
 }
