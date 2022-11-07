@@ -1,29 +1,35 @@
 version: "3"
 
 services:
-  node:
-    build: ./backend
-    depends_on:
-      - sql
+  redis:
+    image: 'redis:alpine'
+    volumes:
+      - 'redis:/data'
     env_file:
-      # Make sure to update this to match your project.
       - ./project.env
-    environment:
-      - POSTGRESQL_HOST=sql
+    healthcheck:
+      test: [ "CMD", "redis-cli", "ping"]
+  sql:
+    build: ./sql
     ports:
-      - 8080:4200
+      - '54321:5432'
+    platform: linux/x86_64
+    volumes:
+      - sql:/var/lib/postgresql/data/
+    env_file:
+      - ./project.env
+  node:
+    build: backend
+    env_file:
+      - project.env
+    ports:
+      - '8080:4200'
+    user: "node"
     volumes:
       - ./backend/src:/home/node/app/src
       - ./backend/tsconfig.json:/home/node/app/tsconfig.json
-  sql:
-    build: ./sql
-    # Make sure to update this to match your project.
-    env_file:
-      - ./project.env
-    command: --default-authentication-plugin=mysql_native_password
-    volumes:
-      - compose-lesson:/var/lib/postgresql
-    ports:
-      - 33006:3306
 volumes:
-  compose-lesson:
+  sql:
+    driver: local
+  redis:
+    driver: local
