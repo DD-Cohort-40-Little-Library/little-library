@@ -13,7 +13,14 @@
 		<p>As a developer, I will know that the:</p>
 			<ul>
 				<li>sign-up function works properly when I am able to make several unique accounts and receive and error when it is a duplicate account.</li>
+				<ul>
+					<li>POST/`INSERT INTO profile(profile_id, profile_avatar_url, profile_email, profile_first_name, profile_hash, profile_last_name, profile_name, profile_phone)</li>
+					<li>VALUES(gen_random_uuid(), ${profile_avatar_url}, ${profile_email}, ${profile_first_name}, ${profile_last_name}, ${profile_name}, ${profile_phone})`</li>
+				</ul>
 				<li>sign-in is working when I can sign in to an existing account or will receive an error if I try to sign in but my credentials do not match an existing account.</li>
+				<ul>
+					<li>GET/`SELECT profile_id, profile_avatar_url, profile_email, profile_first_name, profile_hash, profile_last_name, profile_name, profile_phone FROM profile WHERE profile_email = ${profile_email}`</li>
+				</ul>
 				<li>sign-out function is working when a user selects the sign-out option (or has been idle on the site for a set period of time?).</li>
 				<li>edit account function is working when I am able to edit the appropriate fields of a user account and the account reflects those changes.</li>
 				<li>upload avatar function is working when I can upload an avatar to an account and use the avatar on that account.</li>
