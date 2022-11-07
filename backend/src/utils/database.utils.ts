@@ -1,17 +1,13 @@
-import { Pool, createPool, PoolConnection } from 'mysql2/promise'
-let globalPool: Pool | undefined
-export async function connect (): Promise<PoolConnection> {
-    if (globalPool != null) {
-        return await globalPool.getConnection()
+import postgres from 'postgres'
+
+export const sql = postgres({
+    user: process.env.POSTGRES_USER,
+    host: process.env.POSTGRES_HOST,
+    database: process.env.POSTGRES_DB,
+    password: process.env.POSTGRES_PASSWORD,
+    transform: {
+        column: {
+            from: postgres.toCamel, to: postgres.fromCamel
+        }
     }
-    globalPool = await createPool({
-        host: process.env.MYSQL_HOST,
-        user: process.env.MYSQL_USER,
-        password: process.env.MYSQL_PASSWORD,
-        database: process.env.MYSQL_DATABASE,
-        connectionLimit: 10,
-        waitForConnections: true,
-        namedPlaceholders: true
-    })
-    return await globalPool.getConnection()
-}
+})
