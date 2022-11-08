@@ -48,11 +48,19 @@
 		<li>register library function is working when I am able to add a library with all or the minimum fields completed and will receive an error if the library is a duplicate or is missing required fields.
 			<ul>
 				<li>POST/`INSERT INTO library(library_id, library_profile_id, library_address, library_description, library_event_opt_in, library_lat, library_lng, library_name, library_specialization, library_type)</li>
-				<li>VALUES(gen_random_uuid(), ${library_profile_id}, ${library_address}, ${library_description}, ${library_event_opt_in}, ${library_lat}, ${library_lng}, ${library_name}, ${library_specialization}, ${library_type}`</li>
+				<li>VALUES(gen_random_uuid(), ${library_profile_id}, ${library_address}, ${library_description}, ${library_event_opt_in}, ${library_lat}, ${library_lng}, ${library_name}, ${library_specialization}, ${library_type})`</li>
 			</ul>
 		</li>
-		<li>modify library function is working when I am able to modify a library listing that is associated with a specific user account.</li>
-		<li>follow library function is working when I am able to follow or unfollow a library</li>
+		<li>modify library function is working when I am able to modify a library listing that is associated with a specific user account.
+			<ul>
+				<li>PUT/`UPDATE library SET library_profile_id = :libraryProfileId, library_address = :libraryAddress, library_description = libraryDescription, library_event_opt_in = :libraryEventOptIn, library_lat = :libraryLat, library_lng = :libraryLng, library_name = :libraryName, library_specialization = :librarySpecialization`</li>
+			</ul>
+		</li>
+		<li>follow library function is working when I am able to follow or unfollow a library
+			<ul>
+				<li></li>
+			</ul>
+		</li>
 		<li>upload library photo function is working when I can upload a photo of the library and use it for the library that is associated with a specific user account.</li>
 		<li>library map is working when the landing page opens and all libraries show on the map in the appropriate manner.</li>
 		<li>library map modal is working when I click on the map pin and the appropriate library shows in the modal.</li>
