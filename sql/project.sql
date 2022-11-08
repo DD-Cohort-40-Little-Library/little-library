@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS check_in (
                                 check_in_library_id UUID NOT NULL,
                                 check_in_profile_id UUID NOT NULL,
                                 check_in_comment VARCHAR(256),
-                                check_in_follow_library VARCHAR(256),
+                                check_in_follow_library BOOLEAN,
                                 check_in_photo_name VARCHAR(128),
                                 check_in_Photo_url VARCHAR(256),
                                 check_in_date TIMESTAMPTZ NOT NULL,
@@ -66,8 +66,3 @@ CREATE TABLE IF NOT EXISTS check_in (
 CREATE INDEX ON check_in(check_in_library_id);
 CREATE INDEX ON check_in(check_in_profile_id);
 
--- *****************************************************questions***********
---                                 library_eventOptIn, ******************slider?????******************
---                                 library_specialization, ******************checkboxType?????******************
---                                 event_type VARCHAR(128)****************or are they using a pre-seclected set****************
---                                  check_in_report ******************checkboxType?????******************
