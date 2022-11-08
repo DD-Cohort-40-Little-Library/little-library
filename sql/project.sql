@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS profile (
                                 profile_first_name VARCHAR(32) NOT NULL,
                                 profile_hash CHAR(97) NOT NULL,
                                 profile_last_name VARCHAR(32) NOT NULL,
-                                profile_name CHAR(64) NOT NULL UNIQUE,
+                                profile_name VARCHAR(128) NOT NULL UNIQUE,
                                 profile_phone VARCHAR(24),
                                 PRIMARY KEY (profile_id)
 );
@@ -20,13 +20,13 @@ CREATE TABLE IF NOT EXISTS library (
                                 library_id UUID NOT NULL,
                                 library_profile_id UUID NOT NULL,
                                 library_address VARCHAR(258) NOT NULL,
-                                library_charter  VARCHAR(16) UNIQUE,
                                 library_description VARCHAR(256),
                                 library_eventOptIn BOOLEAN,
                                 library_lat CHAR(9),
                                 library_lng CHAR(9),
+                                library_name VARCHAR(128) NOT NULL,
                                 library_specialization INTEGER,
-                                library_type BOOLEAN NOT NULL,
+                                library_type VARCHAR(32) NOT NULL,
                                 FOREIGN KEY (library_profile_id) REFERENCES profile(profile_id),
                                 PRIMARY KEY (library_id)
 );
