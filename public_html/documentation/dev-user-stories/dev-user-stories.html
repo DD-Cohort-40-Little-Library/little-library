@@ -12,24 +12,32 @@
 	<h2>User</h2>
 		<p>As a developer, I will know that the:</p>
 			<ul>
-				<li>sign-up function works properly when I am able to make several unique accounts and receive and error when it is a duplicate account.</li>
+				<li>sign-up function works properly when I am able to make several unique accounts and receive and error when it is a duplicate account.
 				<ul>
 					<li>POST/`INSERT INTO profile(profile_id, profile_activation_token, profile_avatar_url, profile_email, profile_first_name, profile_hash, profile_last_name, profile_name, profile_phone)</li>
 					<li>VALUES(gen_random_uuid(), ${profile_avatar_url}, ${profile_email}, ${profile_first_name}, ${profile_last_name}, ${profile_name}, ${profile_phone})`</li>
 				</ul>
-				<li>sign-in is working when I can sign in to an existing account or will receive an error if I try to sign in but my credentials do not match an existing account.</li>
+				</li>
+				<li>sign-in is working when I can sign in to an existing account or will receive an error if I try to sign in but my credentials do not match an existing account.
 				<ul>
 					<li>GET/`SELECT profile_id, profile_avatar_url, profile_email, profile_first_name, profile_hash, profile_last_name, profile_name, profile_phone FROM profile WHERE profile_email = ${profile_email}`</li>
 				</ul>
-				<li>sign-out function is working when a user selects the sign-out option.</li>
+				</li>
+				<li>sign-out function is working when a user selects the sign-out option.
 				<ul>
 					<li>Written as a JavaScript function: const executeSignOut = () => { session?.destroy() };</li>
 				</ul>
-				<li>edit account function is working when I am able to edit the appropriate fields of a user account and the account reflects those changes.</li>
+				</li>
+				<li>edit account function is working when I am able to edit the appropriate fields of a user account and the account reflects those changes.
 				<ul>
-					<li>PUT/`UPDATE profile SET profile_activation_token = :profileActivationToken, profile_avatar_url = :profileAvatarUrl, profile_email = :profileEmail,  profile_first_name = :profileFirstName, profile_last_name = :profileLastName, profile_name = :profileName, profile_phone = :profilePhone, </li>
+					<li>PUT/`UPDATE profile SET profile_activation_token = :profileActivationToken, profile_avatar_url = :profileAvatarUrl, profile_email = :profileEmail,  profile_first_name = :profileFirstName, profile_last_name = :profileLastName, profile_name = :profileName, profile_phone = :profilePhone WHERE profile_id = :profileId`; </li>
 				</ul>
-				<li>upload avatar function is working when I can upload an avatar to an account and use the avatar on that account.</li>
+				</li>
+				<li>upload avatar function is working when I can upload an avatar to an account and use the avatar on that account.
+					<ul>
+						<li>This will be uploaded to Cloudinary, not sure how to grab the URL and insert, unless it is done via update and creation.</li>
+					</ul>
+				</li>
 			</ul>
 </div>
 <!--LIBRARIES-->
@@ -37,7 +45,12 @@
 	<h2>Library</h2>
 	<p>As a developer, I will know that the:</p>
 	<ul>
-		<li>register library function is working when I am able to add a library with all or the minimum fields completed and will receive an error if the library is a duplicate or is missing required fields.</li>
+		<li>register library function is working when I am able to add a library with all or the minimum fields completed and will receive an error if the library is a duplicate or is missing required fields.
+			<ul>
+				<li>POST/`INSERT INTO library(library_id, library_profile_id, library_address, library_description, library_event_opt_in, library_lat, library_lng, library_name, library_specialization, library_type)</li>
+				<li>VALUES(gen_random_uuid(), ${library_profile_id}, ${library_address}, ${library_description}, ${library_event_opt_in}, ${library_lat}, ${library_lng}, ${library_name}, ${library_specialization}, ${library_type}`</li>
+			</ul>
+		</li>
 		<li>modify library function is working when I am able to modify a library listing that is associated with a specific user account.</li>
 		<li>follow library function is working when I am able to follow or unfollow a library</li>
 		<li>upload library photo function is working when I can upload a photo of the library and use it for the library that is associated with a specific user account.</li>
@@ -69,7 +82,7 @@
 <div class="check-in">
 	<h2>Check-in</h2>
 	<p>As a developer, I will know that the:</p>
-	<ul></ul>
+	<ul>
 		<li>post comment function is working when I am able to post a comment and have it attributed a specific user profile.</li>
 		<li>report damage function is working when I am able to flag a comment as a damage report and it is flagged and routed to the steward as such.</li>
 		<li>post library photo function is working when I am able to post a photo to a specific library and have the photo attributed to the correct user profile.</li>
