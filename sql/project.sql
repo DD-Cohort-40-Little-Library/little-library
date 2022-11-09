@@ -5,14 +5,13 @@ DROP TABLE IF EXISTS profile;
 
 CREATE TABLE IF NOT EXISTS profile (
                                 profile_id UUID NOT NULL,
-                                profile_activation_token UUID NOT NULL,
+                                profile_activation_token UUID,
                                 profile_avatar_url VARCHAR(128),
                                 profile_email  VARCHAR(132) NOT NULL UNIQUE,
                                 profile_first_name VARCHAR(32) NOT NULL,
                                 profile_hash CHAR(97) NOT NULL,
                                 profile_last_name VARCHAR(32) NOT NULL,
                                 profile_name VARCHAR(128) NOT NULL UNIQUE,
-                                profile_phone VARCHAR(24),
                                 PRIMARY KEY (profile_id)
 );
 
