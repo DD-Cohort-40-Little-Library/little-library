@@ -5,7 +5,7 @@ export const signUpValidator: Schema = {
         escape: true,
         trim: true,
         isLength: {
-            errorMessage: 'Profile name must be between 0 and 132 characters.',
+            errorMessage: 'Profile name must be between 0 and 128 characters.',
             options:{min: 1, max:128}
         },
         optional:{
