@@ -53,8 +53,8 @@
 		<li>register library function is working when I am able to add a library with all or the minimum fields completed and will receive an error if the library is a duplicate or is missing required fields.
 			<ul>
 				<li><span>insertLibrary</span></li>
-				<li>POST\ `INSERT INTO library(library_id, library_profile_id, library_address, library_description, library_event_opt_in, library_lat, library_lng, library_name, library_specialization, library_type)</li>
-				<li>VALUES(gen_random_uuid(), ${libraryProfileId}, ${libraryAddress}, ${libraryDescription}, ${libraryEventOptIn}, ${libraryLat}, ${libraryLng}, ${libraryName}, ${librarySpecialization}, ${libraryType})`</li>
+				<li>POST\ `INSERT INTO library(library_id, library_profile_id, library_address, library_description, library_event_opt_in, library_lat, library_lng, library_name, library_specialization, library_type)
+				VALUES(gen_random_uuid(), ${libraryProfileId}, ${libraryAddress}, ${libraryDescription}, ${libraryEventOptIn}, ${libraryLat}, ${libraryLng}, ${libraryName}, ${librarySpecialization}, ${libraryType})`</li>
 			</ul>
 		</li>
 		<li>modify library function is working when I am able to modify a library listing that is associated with a specific user account.
@@ -67,17 +67,32 @@
 		</li>
 		<li>follow library function is working when I am able to follow or unfollow a library
 			<ul>
-				<li>To establish the first follow: <span>insertCheckIn</span></li>
+				<li>To establish the follow: <span>insertCheckIn</span></li>
 				<li>POST| `INSERT INTO check_in(check_in_id, check_in_library_id, check_in_profile_id, check_in_comment, check_in_follow_library, check_in_photo_name, check_in_photo_url, check_in_date, check_in_report)</li>
-				<li>VALUES (gen_random_uuid(), ${checkInLibrary_id}, ${check_in_library_id}, ${checkInProfileId}, ${checkInComment}, true, </li>
+				<li>VALUES (gen_random_uuid(), ${checkInLibrary_id}, ${check_in_library_id}, ${checkInProfileId}, ${checkInComment}, ${checkInLibraryFollow}, ${checkInPhotoName}, ${checkInPhotoUrl}, ${checkInDate}, ${checkInReport}</li>
 				<li>To unfollow: <span>updateCheckInUnfollow</span></li>
-				<li>PUT| `UPDATE check_in SET check_in_follow_library = false WHERE check_in_profile_id = ${checkInProfileId} AND check_in_library_id = ${checkInLibraryId}`</li>
+				<li>PUT| `UPDATE check_in SET check_in_follow_library = :checkInFollowLibrary WHERE check_in_profile_id = ${checkInProfileId} AND check_in_library_id = ${checkInLibraryId}`</li>
 			</ul>
 		</li>
 		<li>upload library photo function is working when I can upload a photo of the library and use it for the library that is associated with a specific user account.</li>
+		<ul>
+			<li>This will be uploaded to Cloudinary, not sure how to grab the URL and insert, unless it is done via update and creation.</li>
+		</ul>
 		<li>library map is working when the landing page opens and all libraries show on the map in the appropriate manner.</li>
+		<ul>
+			<li><span>selectAllLibraries</span></li>
+			<li>GET| `SELECT library_id, library_profile_id, library_address, library_description, library_event_opt_in, library_lat, library_lng, library_name, library_specialization, library_type FROM library`</li>
+		</ul>
 		<li>library map modal is working when I click on the map pin and the appropriate library shows in the modal.</li>
+		<ul>
+			<li><span>selectPartialLibraryByLibraryId</span></li>
+			<li>GET| `SELECT library_id, library_address, library_description, library_name, library_specialization FROM library WHERE library_id = ${libraryId}`</li>
+		</ul>
 		<li>library details function is working when the library detail page opens for the selected library.</li>
+		<ul>
+			<li><span>selectFullLibraryByLibraryId</span></li>
+			<li>GET| `SELECT library_id, library_profile_id, library_address, library_description, library_event_opt_in, library_lat, library_lng, library_name, library_specialization, library_type FROM library WHERE library_id = ${libraryId}`</li>
+		</ul>
 		<li>select library function is working when I can view a specific library that is selected.</li>
 		<li>select library by specialization function is working when I can select a library specialization or specializations from the landing page selectors and have just those libraries with that specialization appear on the map.</li>
 		<li>add specialization function is working when I am able to add a specialization to library that is associated with a specific user account.</li>
