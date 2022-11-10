@@ -16,13 +16,13 @@
 		<ul>
 			<li><span>insertProfile</span>/li>
 			<li>POST| `INSERT INTO profile(profile_id, profile_activation_token, profile_avatar_url, profile_email, profile_first_name, profile_hash, profile_last_name, profile_name, profile_phone)</li>
-			<li>VALUES(gen_random_uuid(), ${profile_avatar_url}, ${profile_email}, ${profile_first_name}, ${profile_last_name}, ${profile_name}, ${profile_phone})`</li>
+			<li>VALUES(gen_random_uuid(), ${profileAvatarUrl}, ${profileEmail}, ${profileFirstName}, ${profileLastName}, ${profileName}`</li>
 		</ul>
 		</li>
 		<li>sign-in is working when I can sign in to an existing account or will receive an error if I try to sign in but my credentials do not match an existing account.
 		<ul>
 			<li>sign-in: <span>selectProfileByProfileEmail</span></li>
-			<li>GET| `SELECT profile_id, profile_avatar_url, profile_email, profile_first_name, profile_hash, profile_last_name, profile_name, profile_phone FROM profile WHERE profile_email = ${profile_email}`</li>
+			<li>GET| `SELECT profile_id, profile_avatar_url, profile_email, profile_first_name, profile_hash, profile_last_name, profile_name, profile_phone FROM profile WHERE profile_email = ${profileEmail}`</li>
 		</ul>
 		</li>
 		<li>sign-out function is working when a user selects the sign-out option.
@@ -33,9 +33,9 @@
 		<li>edit account function is working when I am able to edit the appropriate fields of a user account and the account reflects those changes.
 		<ul>
 			<li>To populate the form pre-update: <span>selectProfileByProfileId</span></li>
-			<li>GET| `SELECT profile_id, profile_activation_token, profile_avatar_url, profile_email, profile_first_name, profile_last_name, profile_name, profile_phone WHERE profile_id = ${profile_id}</li>
+			<li>GET| `SELECT profile_id, profile_activation_token, profile_avatar_url, profile_email, profile_first_name, profile_last_name, profile_name, profile_phone WHERE profile_id = ${profileId}</li>
 			<li>To execute the update on submission: <span>updateProfile</span></li>
-			<li>PUT| `UPDATE profile SET profile_activation_token = :profileActivationToken, profile_avatar_url = :profileAvatarUrl, profile_email = :profileEmail,  profile_first_name = :profileFirstName, profile_last_name = :profileLastName, profile_name = :profileName, profile_phone = :profilePhone WHERE profile_id = :profileId`; </li>
+			<li>PUT| `UPDATE profile SET profile_activation_token = :profileActivationToken, profile_avatar_url = :profileAvatarUrl, profile_email = :profileEmail,  profile_first_name = :profileFirstName, profile_last_name = :profileLastName, profile_name = :profileName WHERE profile_id = :profileId`; </li>
 		</ul>
 		</li>
 		<li>upload avatar function is working when I can upload an avatar to an account and use the avatar on that account.
@@ -54,19 +54,24 @@
 			<ul>
 				<li><span>insertLibrary</span></li>
 				<li>POST\ `INSERT INTO library(library_id, library_profile_id, library_address, library_description, library_event_opt_in, library_lat, library_lng, library_name, library_specialization, library_type)</li>
-				<li>VALUES(gen_random_uuid(), ${library_profile_id}, ${library_address}, ${library_description}, ${library_event_opt_in}, ${library_lat}, ${library_lng}, ${library_name}, ${library_specialization}, ${library_type})`</li>
+				<li>VALUES(gen_random_uuid(), ${libraryProfileId}, ${libraryAddress}, ${libraryDescription}, ${libraryEventOptIn}, ${libraryLat}, ${libraryLng}, ${libraryName}, ${librarySpecialization}, ${libraryType})`</li>
 			</ul>
 		</li>
 		<li>modify library function is working when I am able to modify a library listing that is associated with a specific user account.
 			<ul>
-				<li>Execute to fill the form pre-update: GET| `SELECT library_id, library_profile_id, library_address, library_description, library_event_opt_in, library_lat, library_lng, library_name, library_specialization, library_type FROM library WHERE library_id = ${library_id} AND library_profile_id = ${library_profile_id}` </li>
-				<li>Executes the update: PUT| `UPDATE library SET library_profile_id = :libraryProfileId, library_address = :libraryAddress, library_description = libraryDescription, library_event_opt_in = :libraryEventOptIn, library_lat = :libraryLat, library_lng = :libraryLng, library_name = :libraryName, library_specialization = :librarySpecialization`</li>
+				<li>Execute to fill the form pre-update: <span>selectLibraryByLibraryIdAndLibraryProfileId</span></li>
+				<li>GET| `SELECT library_id, library_profile_id, library_address, library_description, library_event_opt_in, library_lat, library_lng, library_name, library_specialization, library_type FROM library WHERE library_id = ${library_id} AND library_profile_id = ${library_profile_id}` </li>
+				<li>Executes the update <span>updateLibrary</span></li>
+				<li>PUT| `UPDATE library SET library_profile_id = :libraryProfileId, library_address = :libraryAddress, library_description = libraryDescription, library_event_opt_in = :libraryEventOptIn, library_lat = :libraryLat, library_lng = :libraryLng, library_name = :libraryName, library_specialization = :librarySpecialization`</li>
 			</ul>
 		</li>
 		<li>follow library function is working when I am able to follow or unfollow a library
 			<ul>
-				<li>To establish the first follow:POST\`INSERT INTO check_in(check_in_id, check_in_library_id, check_in_profile_id, check_in_comment, check_in_follow_library, check_in_photo_name, check_in_photo_url, check_in_date, check_in_report)</li>
-				<li>VALUES (gen_random_uuid(), ${check_in_library_id}, ${check_in_library_id},</li>
+				<li>To establish the first follow: <span>insertCheckIn</span></li>
+				<li>POST| `INSERT INTO check_in(check_in_id, check_in_library_id, check_in_profile_id, check_in_comment, check_in_follow_library, check_in_photo_name, check_in_photo_url, check_in_date, check_in_report)</li>
+				<li>VALUES (gen_random_uuid(), ${checkInLibrary_id}, ${check_in_library_id}, ${checkInProfileId}, ${checkInComment}, true, </li>
+				<li>To unfollow: <span>updateCheckInUnfollow</span></li>
+				<li>PUT| `UPDATE check_in SET check_in_follow_library = false WHERE check_in_profile_id = ${checkInProfileId} AND check_in_library_id = ${checkInLibraryId}`</li>
 			</ul>
 		</li>
 		<li>upload library photo function is working when I can upload a photo of the library and use it for the library that is associated with a specific user account.</li>
