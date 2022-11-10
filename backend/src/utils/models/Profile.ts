@@ -1,4 +1,5 @@
 import {sql} from "../database.utils";
+import {promises} from "dns";
 
 
 export interface Profile {
@@ -28,4 +29,8 @@ export async function updateProfile (profile: Profile): Promise<string> {
     const {profileId, profileActivationToken, profileAvatarUrl, profileEmail, profileFirstName, profileHash, profileLastName, profileName} = profile
     await sql `UPDATE profile SET profile_activation_token = ${profileActivationToken}, profile_avatar_url = ${profileAvatarUrl}, profile_email = ${profileEmail}, profile_first_name = ${profileFirstName}, profile_hash = ${profileHash}, profile_last_name = ${profileLastName}, profile_name = ${profileName} WHERE profile_id =${profileId}`
     return  'Profile successfully updated.'
+}
+export async function selectProfileByProfileEmail (profileEmail: string): Promise<Profile|null> {
+    const result = <Profile[]>await sql `SELECT profile_id, profile_activation_token, profile_avatar_url, profile_email,profile_first_name, profile_hash, profile_last_name, profile_name FROM profile WHERE profile_email = ${profileEmail}`
+    return result?.length === 1 ? result[0] : null
 }
