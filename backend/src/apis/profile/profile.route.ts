@@ -1,4 +1,4 @@
-import { getProfileByProfileId, putProfileCntroller } from './profile.controller'
+import { getProfileByProfileId, putProfileController } from './profile.controller'
 import {Router} from "express";
 import {asyncValidatorController} from "../../utils/controllers/async-validator.controller";
 import {check, checkSchema} from "express-validator";

@@ -2,6 +2,14 @@ import {sql} from "../database.utils";
 import {promises} from "dns";
 import exp from "constants";
 
+export interface PartialProfile {
+    profileId: string | null,
+    profileAvatarUrl: string | null,
+    profileEmail: string,
+    profileFirstName: string,
+    profileLastName: string,
+    profileName: string
+}
 
 export interface Profile {
     profileId: string | null,
@@ -11,7 +19,7 @@ export interface Profile {
     profileFirstName: string,
     profileHash: string,
     profileLastName: string,
-    profileName: string,
+    profileName: string
 }
 
 export async function insertProfile(profile:Profile){
