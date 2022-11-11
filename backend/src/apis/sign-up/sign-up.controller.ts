@@ -17,7 +17,9 @@ export async function signUpController(request: Request, response: Response) {
         } = request.body
         const profileHash = await setHash(profilePassword)
         const profileActivationToken = setActivationToken()
-        const basePath: string = `${request.protocol}://${request.hostname}/${request.originalUrl}/activation/${profileActivationToken}`
+        const basePath: string = `${request.protocol}://${request
+// TAKE OUT PORT PRIOR TO MAIN? ************************
+            .hostname}:8080${request.originalUrl}activation/${profileActivationToken}`
         const message = `<h2>Welcome to the Little Library Locator!</h2>
 in order to post photos of your Little Library, you must confirm your account
 <a href="${basePath}">${basePath}</a>`
