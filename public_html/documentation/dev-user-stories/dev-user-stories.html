@@ -177,10 +177,26 @@
 				VALUES (gen_random_uuid(), ${checkInLibraryId}, ${checkInProfileId}, ${checkInComment}, ${checkInDate}, ${checkInFollowLibrary}, ${checkInPhotoName}, ${checkInPhotoUrl}, ${checkInReport})`</li>
 			</ul>
 		</li>
-		<li>report damage function is working when I am able to flag a comment as a damage report which is flagged and routed to the steward as such.</li>
-		<li>post library photo function is working when I am able to post a photo to a specific library and have the photo attributed to the correct user profile.</li>
-		<li>follow library function is working when I am able to click the follow button on a library which will appear in the list of followed libraries for a specific user profile.</li>
-		<li>unfollow library function is working when I am able to deselect a library from a user profile's list of followed libraries and that library no longer appears on the list of followed libraries.</li>
+		<li>report damage function is working when I am able to flag a comment as a damage report which is flagged and routed to the steward as such.
+			<ul>
+				<li>Need to develop the ability to flag and send email to steward</li>
+			</ul>
+		</li>
+		<li>post library photo function is working when I am able to post a photo to a specific library and have the photo attributed to the correct user profile.
+			<ul>
+				<li>This will be uploaded to Cloudinary, not sure how to grab the URL and insert, unless it is done via update and creation.</li>
+			</ul>
+		</li>
+		<li>follow library function is working when I am able to click the follow button on a library which will appear in the list of followed libraries for a specific user profile.
+			<ul>
+				<li>See follow library under library above</li>
+			</ul>
+		</li>
+		<li>unfollow library function is working when I am able to deselect a library from a user profile's list of followed libraries and that library no longer appears on the list of followed libraries.
+			<ul>
+				<li>See follow library under library above</li>
+			</ul>
+		</li>
 		<li>quick check in function is working when I am able to click on the quick check in button which records my visit in the guest book for the library.</li>
 		<li>full check in function is working when I am able to select check in from the library detail page and am able to complete the full check in information and have it record properly.</li>
 	</ul>
