@@ -173,7 +173,8 @@
 		<li>post comment function is working when I am able to post a comment and have it attributed a specific user profile.
 			<ul>
 				<li><span>insertCheckIn</span></li>
-				<li>POST| `INSERT INTO check_in (check_in_id, check_in_library_id, check_in_profile_id, check_in_comment, check_in_follow_library, check_in_photo_name, check_in_photo_url,  </li>
+				<li>POST| `INSERT INTO check_in (check_in_id, check_in_library_id, check_in_profile_id, check_in_comment, check_in_date, check_in_follow_library, check_in_photo_name, check_in_photo_url, check_in_report)
+				VALUES (gen_random_uuid(), ${checkInLibraryId}, ${checkInProfileId}, ${checkInComment}, ${checkInDate}, ${checkInFollowLibrary}, ${checkInPhotoName}, ${checkInPhotoUrl}, ${checkInReport})`</li>
 			</ul>
 		</li>
 		<li>report damage function is working when I am able to flag a comment as a damage report which is flagged and routed to the steward as such.</li>
