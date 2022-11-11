@@ -20,8 +20,7 @@ export async function insertProfile(profile:Profile){
     return 'Profile successfully created.'
 }
 
-export async function
-  selectProfileByProfileActivationToken (profileActivationToken: string): Promise<Profile|null> {
+export async function selectProfileByProfileActivationToken (profileActivationToken: string): Promise<Profile|null> {
     const result = <Profile[]>await sql `SELECT profile_id, profile_activation_token, profile_avatar_url, profile_email, profile_first_name, profile_hash, profile_last_name, profile_name FROM profile WHERE profile_activation_token = ${profileActivationToken}`
     return result?.length === 1 ? result[0] : null
 }
@@ -35,7 +34,6 @@ export async function selectProfileByProfileEmail (profileEmail: string): Promis
     const result = <Profile[]>await sql `SELECT profile_id, profile_activation_token, profile_avatar_url, profile_email,profile_first_name, profile_hash, profile_last_name, profile_name FROM profile WHERE profile_email = ${profileEmail}`
     return result?.length === 1 ? result[0] : null
 }
-
 
 export async function selectPartialProfileByProfileId(profileId:
 string): Promise<Profile|null> {
