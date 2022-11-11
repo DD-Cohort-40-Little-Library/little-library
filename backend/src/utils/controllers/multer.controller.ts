@@ -5,10 +5,11 @@ import {Express, Request} from "express";
  * @see https://medium.com/@joeokpus/uploading-images-to-cloudinary-using-multer-and-expressjs-f0b9a4e14c54 */
 
 const storage:StorageEngine = multer.memoryStorage();
-const limits = { fields: , files: , parts: };*********************************************************************************************
-const fileFilter = (request: Request, file: Express.Multer.File, callBack: FileFilterCallback): void => {
-    const {originalName} = file
-    return (originalName.match(/\.(jpg|jpeg|png|gif)$/) != null)
+const limits = { fields: 2, files: 1, parts: 2 };
+// *********************************************************************************************
+const fileFilter = (request: Request, file: Express.Multer.File, callback: FileFilterCallback): void => {
+    const {originalname} = file
+    return (originalname.match(/\.(jpg|jpeg|png|gif)$/) != null)
     ? callback(null, true)
     : callback(null, false)
 }

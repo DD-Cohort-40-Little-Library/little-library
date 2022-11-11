@@ -16,7 +16,7 @@ export async function putProfileController (request: Request, response: Response
         const profile = request.session.profile as Profile
         const profileIdFromSession = profile.profileId as string
 
-        const preformUpdate = async (partProfile: PartialProfile):
+        const preformUpdate = async (partialProfile: PartialProfile):
         Promise<Response> => {
             const previousProfile: Profile = await selectWholeProfileByProfileId (partialProfile.profileId as string) as Profile
             const newProfile: Profile = { ...previousProfile, ...partialProfile }

@@ -4,7 +4,7 @@ import {Profile} from "../models/Profile";
 import {IncomingHttpHeaders} from "http";
 import {Status} from "../interfaces/Status";
 
-export function isLoggedIn (request: Request, response: Response, next: NextFuction): any {
+export function isLoggedIn (request: Request, response: Response, next: NextFunction): any {
     const status: Status = { status:400, message: 'Please login', data:null }
 
 
@@ -48,7 +48,7 @@ boolean => {
     return result as boolean
 }
 
-if (isJwtVaild(unverifiedJwtToken) && isSessionActive(sessionProfile((request))) {
+if (isJwtVaild(unverifiedJwtToken) && isSessionActive(sessionProfile(request))) {
  return next()
 }
 isJwtVaild(unverifiedJwtToken) && isSessionActive
