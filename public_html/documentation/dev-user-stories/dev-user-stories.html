@@ -9,34 +9,36 @@
 <!--USER ACCOUNT ACTIONS-->
 <h1>Developer User Stories by Entity</h1>
 <div class="user-accounts">
-	<h2>User</h2>
+	<h2>Profile</h2>
 	<p>As a developer, I will know that the:</p>
 	<ul>
 		<li>sign-up function works properly when I am able to make several unique accounts and receive and error when it is a duplicate account.
-		<ul>
-			<li><span>insertProfile</span>/li>
-			<li>POST| `INSERT INTO profile(profile_id, profile_activation_token, profile_avatar_url, profile_email, profile_first_name, profile_hash, profile_last_name, profile_name, profile_phone)</li>
-			<li>VALUES(gen_random_uuid(), ${profileAvatarUrl}, ${profileEmail}, ${profileFirstName}, ${profileLastName}, ${profileName}`</li>
-		</ul>
+			<ul>
+				<li><span>insertProfile</span>/li>
+				<li>POST| `INSERT INTO profile(profile_id, profile_activation_token, profile_avatar_url, profile_email, profile_first_name, profile_hash, profile_last_name, profile_name)</li>
+				<li>VALUES(gen_random_uuid(), ${profileAvatarUrl}, ${profileEmail}, ${profileFirstName}, ${profileLastName}, ${profileName}`</li>
+			</ul>
 		</li>
 		<li>sign-in is working when I can sign in to an existing account or will receive an error if I try to sign in but my credentials do not match an existing account.
-		<ul>
-			<li>sign-in: <span>selectProfileByProfileEmail</span></li>
-			<li>GET| `SELECT profile_id, profile_avatar_url, profile_email, profile_first_name, profile_hash, profile_last_name, profile_name, profile_phone FROM profile WHERE profile_email = ${profileEmail}`</li>
-		</ul>
+			<ul>
+				<li>sign-in: <span>selectProfileByProfileEmail</span></li>
+				<li>GET| `SELECT profile_id, profile_avatar_url, profile_email, profile_first_name, profile_hash, profile_last_name, profile_name FROM profile WHERE profile_email = ${profileEmail}`</li>
+				<li>sign-in: <span>selectProfileByProfileId</span></li>
+				<li>GET| `SELECT profile_id, profile_avatar_url, profile_email, profile_first_name, profile_hash, profile_last_name, profile_name FROM profile WHERE profile_id = ${profileId}`</li>
+			</ul>
 		</li>
 		<li>sign-out function is working when a user selects the sign-out option.
-		<ul>
-			<li>Written as a JavaScript function: const executeSignOut = () => { session?.destroy() };</li>
-		</ul>
+			<ul>
+				<li>Written as a JavaScript function: const executeSignOut = () => { session?.destroy() };</li>
+			</ul>
 		</li>
 		<li>edit account function is working when I am able to edit the appropriate fields of a user account and the account reflects those changes.
-		<ul>
-			<li>To populate the form pre-update: <span>selectProfileByProfileId</span></li>
-			<li>GET| `SELECT profile_id, profile_activation_token, profile_avatar_url, profile_email, profile_first_name, profile_last_name, profile_name, profile_phone WHERE profile_id = ${profileId}</li>
-			<li>To execute the update on submission: <span>updateProfile</span></li>
-			<li>PUT| `UPDATE profile SET profile_activation_token = :profileActivationToken, profile_avatar_url = :profileAvatarUrl, profile_email = :profileEmail,  profile_first_name = :profileFirstName, profile_last_name = :profileLastName, profile_name = :profileName WHERE profile_id = :profileId`; </li>
-		</ul>
+			<ul>
+				<li>To populate the form pre-update: <span>selectPartialProfileByProfileId</span></li>
+				<li>GET| `SELECT profile_id, profile_avatar_url, profile_email, profile_first_name, profile_last_name, profile_name WHERE profile_id = ${profileId}`</li>
+				<li>To execute the update on submission: <span>updateProfile</span></li>
+				<li>PUT| `UPDATE profile SET profile_avatar_url = :profileAvatarUrl, profile_email = :profileEmail,  profile_first_name = :profileFirstName, profile_last_name = :profileLastName, profile_name = :profileName WHERE profile_id = :profileId`; </li>
+			</ul>
 		</li>
 		<li>upload avatar function is working when I can upload an avatar to an account and use the avatar on that account.
 			<ul>
@@ -59,43 +61,55 @@
 		</li>
 		<li>modify library function is working when I am able to modify a library listing that is associated with a specific user account.
 			<ul>
-				<li>Execute to fill the form pre-update: <span>selectLibraryByLibraryIdAndLibraryProfileId</span></li>
-				<li>GET| `SELECT library_id, library_profile_id, library_address, library_description, library_event_opt_in, library_lat, library_lng, library_name, library_specialization, library_type FROM library WHERE library_id = ${library_id} AND library_profile_id = ${library_profile_id}` </li>
-				<li>Executes the update <span>updateLibrary</span></li>
-				<li>PUT| `UPDATE library SET library_profile_id = :libraryProfileId, library_address = :libraryAddress, library_description = libraryDescription, library_event_opt_in = :libraryEventOptIn, library_lat = :libraryLat, library_lng = :libraryLng, library_name = :libraryName, library_specialization = :librarySpecialization`</li>
+				<li>Execute to fill the form pre-update: <span>selectPartialLibraryByLibraryIdAndLibraryProfileId</span></li>
+				<li>GET| `SELECT library_id, library_profile_id, library_address, library_description, library_event_opt_in, library_name, library_specialization FROM library WHERE library_id = ${library_id} AND library_profile_id = ${library_profile_id}` </li>
+				<li>Execute the update <span>updateLibrary</span></li>
+				<li>PUT| `UPDATE library SET library_address = :libraryAddress, library_description = libraryDescription, library_event_opt_in = :libraryEventOptIn, library_name = :libraryName, library_specialization = :librarySpecialization WHERE library_id = ${library_id} AND library_profile_id = ${library_profile_id}`</li>
 			</ul>
 		</li>
 		<li>follow library function is working when I am able to follow or unfollow a library
 			<ul>
 				<li>To establish the follow: <span>insertCheckIn</span></li>
-				<li>POST| `INSERT INTO check_in(check_in_id, check_in_library_id, check_in_profile_id, check_in_comment, check_in_follow_library, check_in_photo_name, check_in_photo_url, check_in_date, check_in_report)</li>
-				<li>VALUES (gen_random_uuid(), ${checkInLibrary_id}, ${check_in_library_id}, ${checkInProfileId}, ${checkInComment}, ${checkInLibraryFollow}, ${checkInPhotoName}, ${checkInPhotoUrl}, ${checkInDate}, ${checkInReport}</li>
+				<li>POST| `INSERT INTO check_in(check_in_id, check_in_library_id, check_in_profile_id, check_in_comment, check_in_follow_library, check_in_photo_name, check_in_photo_url, check_in_date, check_in_report)
+				VALUES (gen_random_uuid(), ${checkInLibrary_id}, ${check_in_library_id}, ${checkInProfileId}, ${checkInComment}, ${checkInLibraryFollow}, ${checkInPhotoName}, ${checkInPhotoUrl}, ${checkInDate}, ${checkInReport}</li>
 				<li>To unfollow: <span>updateCheckInUnfollow</span></li>
 				<li>PUT| `UPDATE check_in SET check_in_follow_library = :checkInFollowLibrary WHERE check_in_profile_id = ${checkInProfileId} AND check_in_library_id = ${checkInLibraryId}`</li>
 			</ul>
 		</li>
-		<li>upload library photo function is working when I can upload a photo of the library and use it for the library that is associated with a specific user account.</li>
-		<ul>
-			<li>This will be uploaded to Cloudinary, not sure how to grab the URL and insert, unless it is done via update and creation.</li>
-		</ul>
-		<li>library map is working when the landing page opens and all libraries show on the map in the appropriate manner.</li>
-		<ul>
-			<li><span>selectAllLibraries</span></li>
-			<li>GET| `SELECT library_id, library_profile_id, library_address, library_description, library_event_opt_in, library_lat, library_lng, library_name, library_specialization, library_type FROM library`</li>
-		</ul>
-		<li>library map modal is working when I click on the map pin and the appropriate library shows in the modal.</li>
-		<ul>
-			<li><span>selectPartialLibraryByLibraryId</span></li>
-			<li>GET| `SELECT library_id, library_address, library_description, library_name, library_specialization FROM library WHERE library_id = ${libraryId}`</li>
-		</ul>
-		<li>library details function is working when the library detail page opens for the selected library.</li>
-		<ul>
-			<li><span>selectFullLibraryByLibraryId</span></li>
-			<li>GET| `SELECT library_id, library_profile_id, library_address, library_description, library_event_opt_in, library_lat, library_lng, library_name, library_specialization, library_type FROM library WHERE library_id = ${libraryId}`</li>
-		</ul>
-		<li>select library function is working when I can view a specific library that is selected.</li>
-		<li>select library by specialization function is working when I can select a library specialization or specializations from the landing page selectors and have just those libraries with that specialization appear on the map.</li>
-		<li>add specialization function is working when I am able to add a specialization to library that is associated with a specific user account.</li>
+		<li>upload library photo function is working when I can upload a photo of the library and use it for the library that is associated with a specific user account.
+			<ul>
+				<li>This will be uploaded to Cloudinary, not sure how to grab the URL and insert, unless it is done via update and creation.</li>
+			</ul>
+		</li>
+		<li>library map is working when the landing page opens and all libraries show on the map in the appropriate manner.
+			<ul>
+				<li><span>selectAllLibraries</span></li>
+				<li>GET| `SELECT library_id, library_profile_id, library_address, library_description, library_event_opt_in, library_lat, library_lng, library_name, library_specialization, library_type FROM library`</li>
+			</ul>
+		</li>
+		<li>library map modal is working when I click on the map pin and the appropriate library shows in the modal.
+			<ul>
+				<li><span>selectPartialLibraryByLibraryId</span></li>
+				<li>GET| `SELECT library_id, library_address, library_description, library_name, library_specialization FROM library WHERE library_id = ${libraryId}`</li>
+			</ul>
+		</li>
+		<li>library details function is working when the library detail page opens for the selected library.
+			<ul>
+				<li><span>selectFullLibraryByLibraryId</span></li>
+				<li>GET| `SELECT library_id, library_profile_id, library_address, library_description, library_event_opt_in, library_lat, library_lng, library_name, library_specialization, library_type FROM library WHERE library_id = ${libraryId}`</li>
+			</ul>
+		</li>
+		<li>select library by specialization function is working when I can select a library specialization or specializations from the landing page selectors and have just those libraries with that specialization appear on the map.
+			<ul>
+				<li><span>selectLibraryBySpecialization</span></li>
+				<li>GET| `SELECT library_id, library_id, library_address, library_description, library_name, library_specialization FROM library WHERE library_id = ${libraryId}`</li>
+			</ul>
+		</li>
+		<li>add/remove specialization function is working when I am able to add a specialization to library that is associated with a specific user account.
+			<ul>
+				<li><span>see modify library</span></li>
+			</ul>
+		</li>
 	</ul>
 </div>
 
@@ -104,11 +118,35 @@
 	<h2>Event</h2>
 	<p>As a developer, I will know that the:</p>
 	<ul>
-		<li>add event function is working properly when I can add an event for a specific library that allows for events.</li>
-		<li>get all events function is working when the left column of the landing page populates with the top events.</li>
-		<li>get events by library function is working when the library details page loads with the most recent events listed on the page.</li>
-		<li>cancel event function is working when I can edit an event while signed in as the owner of that event and see the changes reflected on the event list.</li>
-		<li>cancel event function is working when only the owner of an event is able to delete an event from a library</li>
+		<li>add event function is working properly when I can add an event for a specific library that allows for events.
+			<ul>
+				<li><span>insertEvent</span></li>
+				<li>POST| `INSERT INTO event (event_id, event_library_id, event_profile_id, event_date, event_description, event_end, event_start, event_title, event_type) VALUES (gen_random_uuid(), ${eventLibraryId}, ${eventProfileId}, ${eventDate}, ${eventDescription}, ${eventEnd}, ${eventStart}, ${eventTitle}, ${event_type}) WHERE`</li>
+			</ul>
+		</li>
+		<li>get all events function is working when the left column of the landing page populates with the top events.
+			<ul>
+				<li><span>selectAllEventsOrderByDate</span></li>
+				<li>GET| `SELECT event_id, event_library_id, event_profile_id, event_date, event_description, event_end, event_start, event_title, event_type FROM event ORDER BY date`</li>
+			</ul>
+		</li>
+		<li>get events by library function is working when the library details page loads with the most recent events listed on the page.
+			<ul>
+				<li><span>selectEventsByLibraryId</span></li>
+				<li>GET| `SELECT event_library_id, event_date, event_description, event_end, event_start, event_title, event_type FROM event WHERE event_library_id = ${eventLibraryId}`</li>
+			</ul>
+		</li>
+		<li>Edit event function is working when I can edit an event while signed in as the owner of that event and see the changes reflected on the event list.
+			<ul>
+				<li><span>updateEvent</span></li>
+			</ul>
+		</li>
+		<li>cancel event function is working when only the owner of an event is able to delete an event from a library
+			<ul>
+				<li><span>deleteEventByEventLibraryIdAndEventProfileId</span></li>
+				<li>DELETE| `DELETE FROM event WHERE event_id = ${eventId} AND event_profile_id = ${eventProfileId}</li>
+			</ul>
+		</li>
 		<li>get event function is working when I can select an event from a list and have the event details page open for that event.</li>
 		<li>get events by date function is working when I can choose a specific date and return a list of events on that date to the user.</li>
 	</ul>
