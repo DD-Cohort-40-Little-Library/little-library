@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS library (
                                 library_profile_id UUID NOT NULL,
                                 library_address VARCHAR(258) NOT NULL,
                                 library_description VARCHAR(256),
-                                library_eventOptIn BOOLEAN,
+                                library_event_opt_in BOOLEAN,
                                 library_lat CHAR(9),
                                 library_lng CHAR(9),
                                 library_name VARCHAR(128) NOT NULL,
@@ -33,6 +33,7 @@ CREATE INDEX ON library(library_profile_id);
 
 CREATE TABLE IF NOT EXISTS event (
                                 event_id UUID NOT NULL,
+                                event_library_event_opt_in BOOLEAN,
                                 event_library_id UUID NOT NULL,
                                 event_profile_id UUID NOT NULL,
                                 event_date TIMESTAMPTZ NOT NULL,
@@ -41,6 +42,7 @@ CREATE TABLE IF NOT EXISTS event (
                                 event_start TIMESTAMPTZ NOT NULL,
                                 event_title VARCHAR(128) NOT NULL,
                                 event_type VARCHAR(128),
+                                FOREIGN KEY (event_library_event_opt_in) REFERENCES library(library_event_opt_in),
                                 FOREIGN KEY (event_library_id) REFERENCES library(library_id),
                                 FOREIGN KEY (event_profile_id) REFERENCES profile(profile_id),
                                 PRIMARY KEY (event_id)
