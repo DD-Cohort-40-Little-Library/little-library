@@ -197,8 +197,20 @@
 				<li>See follow library under library above</li>
 			</ul>
 		</li>
-		<li>quick check in function is working when I am able to click on the quick check in button which records my visit in the guest book for the library.</li>
-		<li>full check in function is working when I am able to select check in from the library detail page and am able to complete the full check in information and have it record properly.</li>
+		<li>quick check in function is working when I am able to click on the quick check in button which records my visit in the guest book for the library.
+			<ul>
+				<li><span>insertQuickCheckIn</span></li>
+				<li>POST| `INSERT INTO check_in (check_in_id, check_in_library_id, check_in_profile_id, check_in_date)
+					VALUES (gen_random_uuid(), ${checkInLibraryId}, ${checkInProfileId}, ${checkInDate})`</li>
+			</ul>
+		</li>
+		<li>full check in function is working when I am able to select check in from the library detail page and am able to complete the full check in information and have it record properly.
+			<ul>
+				<li><span>insertCheckIn</span></li>
+				<li>POST| `INSERT INTO check_in (check_in_id, check_in_library_id, check_in_profile_id, check_in_comment, check_in_date, check_in_follow_library, check_in_photo_name, check_in_photo_url, check_in_report)
+					VALUES (gen_random_uuid(), ${checkInLibraryId}, ${checkInProfileId}, ${checkInComment}, ${checkInDate}, ${checkInFollowLibrary}, ${checkInPhotoName}, ${checkInPhotoUrl}, ${checkInReport})`</li>
+			</ul>
+		</li>
 	</ul>
 </div>
 
