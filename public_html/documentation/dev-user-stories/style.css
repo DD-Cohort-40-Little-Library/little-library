@@ -15,7 +15,11 @@ h1, h2{
 }
 li{
     margin-bottom: 1em;
+    list-style: none;
 }
 p{
+    font-weight: bold;
+}
+span{
     font-weight: bold;
 }
