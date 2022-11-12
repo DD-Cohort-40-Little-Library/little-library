@@ -4,7 +4,7 @@ export const eventValidator: Schema = {
     eventLibraryId: {
         isUUID: {
             errorMessage: 'Please provide a valid eventLibraryId'}
-        }
+    },
     eventProfileId: {
         isUUID: {
             errorMessage: 'Please provide a valid eventProfileId.'}
@@ -32,5 +32,6 @@ export const eventValidator: Schema = {
     },
     eventType: {
                 boolean: 'true' | false
+        **********************************CORRECT ******************************** THIS*********************************************
     },
 }
