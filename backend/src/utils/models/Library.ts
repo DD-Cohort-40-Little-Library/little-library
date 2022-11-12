@@ -1,4 +1,4 @@
-import s from "connect-redis";
+import sql from "connect-redis";
 
 export interface Library {
     libraryId: string|null
@@ -11,6 +11,16 @@ export interface Library {
     libraryName: string
     librarySpecialization: string
     libraryType: string
+}
+
+export interface PartialLibrary {
+    libraryId: string|null
+    libraryProfileId: string
+    libraryAddress: string
+    libraryDescription: string
+    libraryEventOptIn: boolean
+    libraryName: string
+    librarySpecialization: string
 }
 
 export async function insertLibrary (library: Library): Promise<string> {
@@ -31,3 +41,14 @@ export async function selectLibraryByLibraryId (libraryId: string): Promise<Libr
 export async function selectLibrariesByLibraryProfileId (libraryProfileId: string): Promise<Library[]> {
     return <Library[]> await sql `SELECT library_id, library_profile_id, library_address, library_description, library_event_opt_in, library_lat, library_lng, library_name, library_specialization, library_type FROM library WHERE library_profile_id = ${libraryProfileId}`
 }
+
+export async function selectPartialLibraryByLibraryId (libraryId: string): Promise<Library[]> {
+    return <Library[]> await sql `SELECT library_id, library_address, library_description, library_name, library_specialization FROM library WHERE library_id = ${libraryId}`
+}
+
+export async function selectPartialLibraryByLibraryIdAndLibraryProfileId (libraryId: string, libraryProfileId: string): Promise<Library[]> {
+    return <Library[]> await sql `SELECT library_id, library_profile_id, library_address, library_description, library_name, library_specialization, library_type FROM library WHERE library_id = {${libraryId} AND library_profile_id = ${libraryProfileId}`
+}
+
+export async function updateLibrary (libraryId: string, libraryProfileId: string): Promise<Library[]> {
+    return <Library[]> await sql `UPDATE library SET library_address = :libraryAddress, library_description = :libraryDescription, library_event_opt_in = :libraryEventOptIn, library_name = :libraryName, library_specialization = :librarySpecialization WHERE library_id = ${library_id} AND library_profile_id = ${library_profile_id}`
