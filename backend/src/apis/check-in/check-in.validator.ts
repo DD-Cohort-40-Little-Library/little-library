@@ -17,7 +17,7 @@ export const checkInValidator: Schema = {
     checkInComment: {
         isLength:{
             errorMessage: 'A checkInComment cannot be more than 256 characters',
-            options: { max: 256 }
+            options: { min:1, max: 256 }
         },
         trim: true,
         escape: true
