@@ -30,7 +30,7 @@ export async function getAllLibrariesController (request: Request, response: Res
     }
 }
 
-export async function getLibrariesByLibraryProfileIdController (request: Request, response: Response, nextFunction: NextFunction): Promise<Response<Status>> {
+export async function getLibraryByLibraryProfileIdController (request: Request, response: Response, nextFunction: NextFunction): Promise<Response<Status>> {
     try {
         const { libraryProfileId } = request.params
         const data = await selectLibrariesByLibraryProfileId(libraryProfileId)
@@ -71,20 +71,6 @@ export async function getLibraryByLibraryIdController (request: Request, respons
         })
     }
 }
-
-// export async function getLibraryByLibraryIdController (request: Request, response: Response, nextFunction: NextFunction): Promise<Response<Status>> {
-//     try {
-//         const { libraryId } = request.params
-//         const data = await selectLibraryByLibraryId(libraryId)
-//         return response.json({ status: 200, message: null, data })
-//     } catch (error) {
-//         return response.json({
-//             status: 500,
-//             message: '',
-//             data: null
-//         })
-//     }
-// }
 
 export async function postLibrary (request: Request, response: Response): Promise<Response<Status>> {
     try {
@@ -138,7 +124,7 @@ export async function getPartialLibraryByLibraryIdAndLibraryProfileIdController 
     }
 }
 
-export async function putLibrary (request: Request, response: Response): Promise<Response> => {
+export async function putLibraryController (request: Request, response: Response): Promise<Response> => {
     const previousLibrary: Library = await selectLibraryByLibraryId(partialLibrary.libraryId as string) as Library
     const newLibrary: Library = { ...previousLibrary, ...partialLibrary}
     await updateLibrary (newLibrary)
