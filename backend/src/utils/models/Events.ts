@@ -1,5 +1,4 @@
 import {sql} from '../database.utils';
-import exp from 'constants';
 export interface Event {
     eventId: string|null,
     eventLibraryId: string,
