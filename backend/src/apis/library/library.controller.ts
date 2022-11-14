@@ -1,4 +1,4 @@
-import e, {NextFunction, Request, response, Response} from 'express';
+import { Request, Response, NextFunction } from 'express';
 import {Status} from '../../utils/interfaces/Status';
 import {Profile} from '../../utils/models/Profile';
 import {
@@ -74,30 +74,13 @@ export async function getLibraryByLibraryIdController (request: Request, respons
 
 export async function postLibrary (request: Request, response: Response): Promise<Response<Status>> {
     try {
-        const { libraryAddress, libraryDescription, libraryEventOptIn, libraryName, librarySpecialization, libraryType } = request.body
-        const profile: Profile = request.session.profile as Profile
-        const libraryProfileId: string = profile.profileId as string
-
-        const library: Library = {
-            libraryId: null,
-            libraryProfileId,
-            libraryAddress,
-            libraryDescription,
-            libraryEventOptIn,
-            libraryLat,
-            libraryLng,
-            libraryName,
-            librarySpecialization,
-            libraryType
-        }
-        const result = await insertLibrary(library)
-        const status: Status = {
-            status: 200,
-            message: result,
-            data: null
-        }
-        return response.json(status)
-    } catch (error) {
+        const profile = request.session.profile as Profile
+        const libraryProfileId = profile.profileId as string
+        const { libraryAddress, libraryDescription, libraryEventOptIn, libraryLat, libraryLng, libraryName, librarySpecialization, libraryType } = request.body
+        const library: Library = { libraryId: null, libraryProfileId, libraryAddress, libraryDescription, libraryEventOptIn, libraryLat, libraryLng, libraryName, librarySpecialization, libraryType }
+        const message: string = await insertLibrary(library)
+        return response.json({status: 200, data: null, message})
+        } catch (error) {
         return response.json({
             status: 500,
             message: 'Error creating the library. Try again later.',
@@ -124,13 +107,33 @@ export async function getPartialLibraryByLibraryIdAndLibraryProfileIdController 
     }
 }
 
-export async function putLibraryController (request: Request, response: Response): Promise<Response> => {
-    const previousLibrary: Library = await selectLibraryByLibraryId(partialLibrary.libraryId as string) as Library
-    const newLibrary: Library = { ...previousLibrary, ...partialLibrary}
-    await updateLibrary (newLibrary)
-    return response.json({status: 200, data: null, message: 'Library successfully update.'})
+export async function putLibraryController (request: Request, response: Response): Promise<Response> {
+    try {
+        const { libraryId } = request.params
+        const profile = request.session.profile as Profile
+        const libraryProfileId = profile.profileId as string
+        const {libraryAddress, libraryDescription, libraryEventOptIn, libraryName, librarySpecialization} = request.body
+        // @ts-ignore
+        const previousLibrary: Library | null = await selectPartialLibraryByLibraryIdAndLibraryProfileId(libraryId, libraryProfileId)
+
+        if (previousLibrary === null) {
+            return response.json({ status: 404, data: null, message: 'Library does not exist'})
+        }
+
+        if ( libraryProfileId !== previousLibrary.libraryProfileId ) {
+            return response.json({ status: 404, data: null, message: 'You are not allowed to perform this task!'})
+        }
+
+        const updatedValues = { libraryAddress, libraryDescription, libraryEventOptIn, libraryName, librarySpecialization }
+
+        const newLibrary = { libraryAddress, libraryDescription, libraryEventOptIn, libraryName, librarySpecialization}
+        // @ts-ignore
+        const message = await updateLibrary(newLibrary, updatedValues)
+        return response.json({ status: 200, data: null, message })
+        } catch (error: any) {
+        return response.json({ status: 500, data: null, message: 'internal server error' })
     }
 
-    const updateFailed = (message: string): Response => {
-    return response.json({status:400, data: null, message })
     }
+
+
