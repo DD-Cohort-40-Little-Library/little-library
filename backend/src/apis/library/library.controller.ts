@@ -85,6 +85,7 @@ export async function postLibrary (request: Request, response: Response): Promis
 
         return response.json({status: 200, data: null, message})
         } catch (error) {
+        console.error(error)
         return response.json({
             status: 500,
             message: 'Error creating the library. Try again later.',

@@ -8,8 +8,8 @@ export interface Library {
     libraryAddress: string
     libraryDescription: string
     libraryEventOptIn: boolean
-    libraryLat: string
-    libraryLng: string
+    libraryLat: number
+    libraryLng: number
     libraryName: string
     librarySpecialization: number
     libraryType: string
@@ -26,10 +26,8 @@ export interface PartialLibrary {
 }
 
 export async function insertLibrary (library: Library): Promise<string> {
-    const profile = request.session.profile as Profile
-    // const libraryProfileId = profile.profileId as string
-    const { libraryProfileId, libraryAddress, libraryDescription, libraryEventOptIn, libraryName, librarySpecialization } = library
-    await sql `INSERT INTO library(library_id, library_profile_id, library_address, library_description, library_event_opt_in, library_name, library_specialization) VALUES(gen_random_uuid(), ${libraryProfileId}, ${libraryAddress}, ${libraryDescription}, ${libraryEventOptIn}, ${libraryName}, ${librarySpecialization})`
+    const { libraryProfileId, libraryAddress, libraryDescription, libraryEventOptIn, libraryLat, libraryLng, libraryName, librarySpecialization, libraryType } = library
+    await sql `INSERT INTO library(library_id, library_profile_id, library_address, library_description, library_event_opt_in, library_lat, library_lng, library_name, library_specialization, library_type) VALUES(gen_random_uuid(), ${libraryProfileId}, ${libraryAddress}, ${libraryDescription}, ${libraryEventOptIn}, ${libraryLat}, ${libraryLng}, ${libraryName}, ${librarySpecialization}, ${libraryType})`
     return 'Library created successfully!'
 }
 

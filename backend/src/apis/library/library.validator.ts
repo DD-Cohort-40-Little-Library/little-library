@@ -7,11 +7,11 @@ export const libraryValidator: Schema = {
     //         errorMessage: 'Please provide a valid libraryId.'
     //     }
     // },
-    libraryProfileId: {
-        isUUID: {
-            errorMessage: 'Please provide a valid libraryProfileId.'
-        }
-    },
+    // libraryProfileId: {
+    //     isUUID: {
+    //         errorMessage: 'Please provide a valid libraryProfileId.'
+    //     }
+    // },
     libraryAddress: {
         isLength: {
             errorMessage: 'A libraryAddress must be between 1 and 258 characters.',
