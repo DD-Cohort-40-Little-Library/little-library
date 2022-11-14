@@ -74,11 +74,15 @@ export async function getLibraryByLibraryIdController (request: Request, respons
 
 export async function postLibrary (request: Request, response: Response): Promise<Response<Status>> {
     try {
-        const profile = request.session.profile as Profile
-        const libraryProfileId = profile.profileId as string
         const { libraryAddress, libraryDescription, libraryEventOptIn, libraryLat, libraryLng, libraryName, librarySpecialization, libraryType } = request.body
+
+        const profile: Profile = request.session.profile as Profile
+        const libraryProfileId: string = profile.profileId as string
+
         const library: Library = { libraryId: null, libraryProfileId, libraryAddress, libraryDescription, libraryEventOptIn, libraryLat, libraryLng, libraryName, librarySpecialization, libraryType }
+
         const message: string = await insertLibrary(library)
+
         return response.json({status: 200, data: null, message})
         } catch (error) {
         return response.json({

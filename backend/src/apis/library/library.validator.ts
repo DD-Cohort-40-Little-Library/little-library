@@ -2,11 +2,11 @@ import {Schema} from 'express-validator';
 
 
 export const libraryValidator: Schema = {
-    libraryId: {
-        isUUID: {
-            errorMessage: 'Please provide a valid libraryId.'
-        }
-    },
+    // libraryId: {
+    //     isUUID: {
+    //         errorMessage: 'Please provide a valid libraryId.'
+    //     }
+    // },
     libraryProfileId: {
         isUUID: {
             errorMessage: 'Please provide a valid libraryProfileId.'
