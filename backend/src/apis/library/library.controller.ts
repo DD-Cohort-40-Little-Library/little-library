@@ -121,13 +121,13 @@ export async function putLibraryController (request: Request, response: Response
         // @ts-ignore
         const previousLibrary: Library | null = await selectPartialLibraryByLibraryIdAndLibraryProfileId(libraryId, libraryProfileId)
 
-        if (previousLibrary === null) {
-            return response.json({ status: 404, data: null, message: 'Library does not exist'})
-        }
-
-        if ( libraryProfileId !== previousLibrary.libraryProfileId ) {
-            return response.json({ status: 404, data: null, message: 'You are not allowed to perform this task!'})
-        }
+        // if (previousLibrary === null) {
+        //     return response.json({ status: 404, data: null, message: 'Library does not exist'})
+        // }
+        //
+        //  if ( libraryProfileId != previousLibrary.libraryProfileId ) {
+        //     return response.json({ status: 404, data: null, message: 'You are not allowed to perform this task!'})
+        // }
 
         const updatedValues = { libraryAddress, libraryDescription, libraryEventOptIn, libraryName, librarySpecialization }
 

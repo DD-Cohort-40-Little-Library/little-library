@@ -40,9 +40,9 @@ libraryRoute.route('/libraryId/:libraryId, /libraryProfileId/:libraryProfileId')
     .get(getPartialLibraryByLibraryIdAndLibraryProfileIdController)
     .post(isLoggedIn, asyncValidatorController(checkSchema((libraryValidator))), postLibrary)
 
-libraryRoute.route('/libraryAddress/:libraryAddress, /libraryDescription/:libraryDescription, /libraryEventOptIn/:libraryEventOptIn, /libraryName/:libraryName, /librarySpecialization/:librarySpecialization')
-    .post(putLibraryController)
-
+libraryRoute.route('/:libraryId')
+    // .get (asyncValidatorController([check('libraryId', 'Please provide a valid library Id.').isUUID()]), getLibraryByLibraryIdController)
+    .put(isLoggedIn, asyncValidatorController(checkSchema(libraryValidator)),putLibraryController)
 
 
 
