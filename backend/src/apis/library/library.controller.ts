@@ -3,7 +3,6 @@ import {Status} from '../../utils/interfaces/Status';
 import {Profile} from '../../utils/models/Profile';
 import {
     Library,
-    PartialLibrary,
     insertLibrary,
     selectAllLibraries,
     selectLibraryByLibraryId,

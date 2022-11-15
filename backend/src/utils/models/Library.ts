@@ -15,15 +15,15 @@ export interface Library {
     libraryType: string
 }
 
-export interface PartialLibrary {
-    libraryId: string|null
-    libraryProfileId: string
-    libraryAddress: string
-    libraryDescription: string
-    libraryEventOptIn: boolean
-    libraryName: string
-    librarySpecialization: string
-}
+// export interface PartialLibrary {
+//     libraryId: string|null
+//     libraryProfileId: string
+//     libraryAddress: string
+//     libraryDescription: string
+//     libraryEventOptIn: boolean
+//     libraryName: string
+//     librarySpecialization: string
+// }
 
 export async function insertLibrary (library: Library): Promise<string> {
     const { libraryProfileId, libraryAddress, libraryDescription, libraryEventOptIn, libraryLat, libraryLng, libraryName, librarySpecialization, libraryType } = library

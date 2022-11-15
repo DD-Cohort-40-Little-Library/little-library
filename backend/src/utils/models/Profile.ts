@@ -1,6 +1,7 @@
 import {sql} from "../database.utils";
 import {promises} from "dns";
 import exp from "constants";
+import {Library} from "./Library";
 
 export interface PartialProfile {
     profileId: string | null,
@@ -43,9 +44,9 @@ export async function selectProfileByProfileEmail (profileEmail: string): Promis
     return result?.length === 1 ? result[0] : null
 }
 
-export async function selectPartialProfileByProfileId(profileId:
-string): Promise<PartialProfile|null> {
-    const result = await sql<Profile[]> `SELECT profile_id, profile_avatar_url, profile_email, profile_first_name, profile_last_name, profile_name FROM profile WHERE profile_id = ${profileId}`
+export async function selectPartialProfileByProfileId (profileId:
+string): Promise<Profile|null> {
+    const result = <Profile[]>await sql `SELECT profile_id, profile_avatar_url, profile_email, profile_first_name, profile_last_name, profile_name FROM profile WHERE profile_id = ${profileId}`
     return result?.length === 1 ? result[0] : null
 }
 
@@ -53,4 +54,12 @@ export async function selectWholeProfileByProfileId(profileId:
 string): Promise<Profile|null> {
     const result = <Profile[]>await sql `SELECT profile_id, profile_activation_token, profile_avatar_url,  profile_email, profile_first_name, profile_hash, profile_last_name, profile_name FROM profile WHERE profile_id = ${profileId}`
     return result?.length === 1 ? result[0] : null
+}
+
+export async function deleteProfile (profile: Profile): Promise<string> {
+    const result = await sql `DELETE FROM profile WHERE profile_id = ${profile.profileId}`
+    if (result.count < 0) {
+        return 'Profile does not exist!'
+    }
+    return 'Profile was deleted.'
 }

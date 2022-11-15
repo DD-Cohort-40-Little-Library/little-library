@@ -16,7 +16,7 @@ export const signUpValidator: Schema = {
     },
     profileEmail: {
         isEmail:{
-            errorMessage: 'Please provide a valid email address.'
+            errorMessage: 'Please provide a valid eMail address.'
         },
         escape: true,
         trim: true,
