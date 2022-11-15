@@ -77,7 +77,7 @@ export async function getAllEventsOrderByEventDateController (request: Request, 
     }
 }
 
-export async function getEventByEventDate (request: Request, response: Response):Promise<Response<Status>> {
+export async function getEventByEventDateController (request: Request, response: Response):Promise<Response<Status>> {
     try {
         const data = await selectEventByEventDate(eventDate)
         return response.json ({status:200, message:null, data})
@@ -86,25 +86,35 @@ export async function getEventByEventDate (request: Request, response: Response)
     }
 }
 
-export async function getEventByEventIdAndEventProfileId (request: Request, response: Response): Promise<Response<Status>> {
+export async function getEventByEventIdAndEventProfileIdController (request: Request, response: Response): Promise<Response<Status>> {
     try {
         const {eventId, eventLibraryId} = request.body
         const data = await selectEventByEventIdAndEventProfileId(eventId, eventLibraryId)
-        return response.json({
-            status: 200,
-            message: '',
-            data: null
-        })
+        return response.json({status: 200, message: '', data: null})
     } catch (error) {
-        return response.json({
-            status: 500,
-            message: '',
-            data: null
-        })
+        return response.json({status: 500, message: '', data: null})
     }
 }
 
+export async function deleteEventByEventLibraryIdAndEventProfileIdController (request: Request, response: Response): Promise<Response<Status>> {
+    try {
+        const { eventLibraryId } = request.params
+        const profile = request.session.profile as Profile
+        const eventProfileId = profile.profileId as string
+        const previousEvent: Event|null = await deleteEventByEventLibraryIdAndEventProfileId (eventLibraryId, eventProfileId)
 
-deleteEventByEventLibraryIdAndEventProfileId
+        if (previousEvent === null) {
+            return response.json({ status: 404, data: null, message: 'EventId does not exist.'})
+        }
 
+        if ( previousEvent.eventProfileId !== eventProfileId) {
+            return response.json({ status: 404, data: null, message: 'You are not allowed to perform this task.'})
+        }
+
+        const message = await deleteEventByEventLibraryIdAndEventProfileId(previousEvent)
+        return response.json({status: 200, data: null, message})
+    } catch (error: any) {
+        return response.json({status: 500, data: null, message: 'Internal server error.'})
+    }
+}
 
