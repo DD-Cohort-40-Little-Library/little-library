@@ -16,8 +16,8 @@ export async function insertEvent (event:Event) {
     await sql `INSERT INTO event (event_id, event_library_id, event_profile_id, event_date, event_description, event_end, event_start, event_title, event_type) VALUES(gen_random_uuid(), ${eventLibraryId}, ${eventProfileId}, ${eventDate}, ${eventDescription}, ${eventEnd}, ${eventStart}, ${eventTitle}, ${eventType}) WHERE`
 
 
-    **************** FIND A WAY TO ONLY ALLOW OPTED IN LIBRARIES ****************
-    **************** SOME ITEMS NOT 'const'd DUE TO EXAMPLE EXCLUDING THERE RETURN TYPE *****
+    // **************** FIND A WAY TO ONLY ALLOW OPTED IN LIBRARIES ****************
+    // **************** SOME ITEMS NOT 'const'd DUE TO EXAMPLE EXCLUDING THERE RETURN TYPE *****
 
     return 'Event created successfully.'
 

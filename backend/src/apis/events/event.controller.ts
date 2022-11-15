@@ -11,18 +11,18 @@ import {
 } from '../../utils/models/Events';
 import {Status} from "../../utils/interfaces/Status";
 import {Profile} from "../../utils/models/Profile";
-import s from "connect-redis";
 
-export async function postEventController (request:Request, response: Response): Promise<Response> {
+
+export async function postEventController (request:Request, response: Response): Promise<Response<Status>> {
     try {
         const {eventDate, eventDescription, eventEnd, eventStart, eventTitle, eventType} = request.body
-        const profile = request.session.profile as Profile
+        const profile:Profile = request.session.profile as Profile
         const eventProfileId: string = profile.profileId as string
-        const event:Event = {eventId:null, eventLibraryId, eventProfileId, eventDate, eventDescription, eventEnd, eventStart, eventTitle, eventType}
+        const event: Event = {eventId: null, eventLibraryId, eventProfileId, eventDate, eventDescription, eventEnd, eventStart, eventTitle, eventType}
         const message: string = await insertEvent(event)
         return response.json({status:200, data: null, message})
     } catch (error) {
-        return response.json({status:500, message: 'Internal server error (1).'})
+        return response.json({status:500, message: 'Internal server error (1).', data: null})
     }
 }
 
