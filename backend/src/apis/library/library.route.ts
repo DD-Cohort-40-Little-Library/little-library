@@ -1,5 +1,6 @@
 import {Router} from "express"
 import {
+    deleteLibraryController,
     getAllLibrariesController, getLibraryByLibraryIdAndLibraryProfileIdController,
     getLibraryByLibraryIdController,
     getLibraryByLibraryProfileIdController,
@@ -42,6 +43,7 @@ libraryRoute.route('/:libraryId')
     // .get (asyncValidatorController([check('libraryId', 'Please provide a valid library Id.').isUUID()]), getLibraryByLibraryIdController)
     .put(isLoggedIn, asyncValidatorController(checkSchema(libraryValidator)),putLibraryController)
 
-
+libraryRoute.route('/:libraryId')
+    .delete(isLoggedIn, deleteLibraryController)
 
 // export default libraryRoute

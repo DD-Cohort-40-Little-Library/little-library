@@ -56,7 +56,14 @@ export async function selectLibraryByLibraryIdAndLibraryProfileId (libraryId: st
 
 export async function updateLibrary (library: Library): Promise<string> {
      const { libraryId, libraryAddress, libraryDescription, libraryEventOptIn, libraryLat, libraryLng, libraryName, librarySpecialization, libraryType } = library
-     // const { libraryId, libraryAddress, libraryDescription, libraryEventOptIn, libraryLat, libraryLng, libraryName, librarySpecialization, libraryType } = updatedValues
     await sql `UPDATE library SET library_address = ${libraryAddress}, library_description = ${libraryDescription}, library_event_opt_in = ${libraryEventOptIn}, library_lat = ${libraryLat}, library_lng = ${libraryLng}, library_name = ${libraryName}, library_specialization = ${librarySpecialization}, library_type = ${libraryType} WHERE library_id = ${libraryId}`
     return 'Library updated successfully!'
+}
+
+export async function deleteLibrary (library: Library): Promise<string> {
+    const result = await sql `DELETE FROM library WHERE library_id = ${library.libraryId}`
+    if (result.count < 0) {
+        return 'Library does not exist'
+    }
+    return 'Library was deleted.'
 }

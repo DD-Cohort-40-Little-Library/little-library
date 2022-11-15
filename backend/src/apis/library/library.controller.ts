@@ -8,7 +8,7 @@ import {
     selectAllLibraries,
     selectLibraryByLibraryId,
     selectLibrariesByLibraryProfileId,
-    updateLibrary, selectLibraryByLibraryIdAndLibraryProfileId
+    updateLibrary, selectLibraryByLibraryIdAndLibraryProfileId, deleteLibrary
 } from '../../utils/models/Library';
 
 
@@ -126,3 +126,24 @@ export async function putLibraryController (request: Request, response: Response
 
 }
 
+export async function deleteLibraryController (request: Request, response: Response): Promise<Response<Status>> {
+    try {
+        const { libraryId } = request.params
+        const profile = request.session.profile as Profile
+        const libraryProfileId = profile.profileId as string
+        const previousLibrary: Library|null = await selectLibraryByLibraryId(libraryId)
+
+        if (previousLibrary === null) {
+            return response.json({ status: 404, data: null, message: 'Library does not exist'})
+        }
+
+        if ( previousLibrary.libraryProfileId !== libraryProfileId) {
+            return response.json({ status: 404, data: null, message: 'You are not allowed to perform this task!'})
+        }
+
+        const message = await deleteLibrary(previousLibrary)
+        return response.json({status: 200, data: null, message})
+    } catch (error: any) {
+        return response.json({status: 500, data: null, message: 'internal server error'})
+    }
+}
