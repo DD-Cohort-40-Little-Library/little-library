@@ -1,4 +1,4 @@
-import {Request, response, Response} from "express"
+import {Request, Response} from "express"
 import {
     PartialProfile,
     Profile,
@@ -37,7 +37,7 @@ export async function putProfileController (request: Request, response: Response
 }
 
 
-export async function getProfileByProfileId (request: Request, response: Response): Promise<Response> {
+export async function getProfileByProfileIdController (request: Request, response: Response): Promise<Response> {
     try {
         const { profileId } = request.params
         const mySqlResult = await selectPartialProfileByProfileId(profileId)

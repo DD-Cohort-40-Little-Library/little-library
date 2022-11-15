@@ -1,8 +1,8 @@
-import { getProfileByProfileId, putProfileController } from './profile.controller'
+import { getProfileByProfileIdController, putProfileController } from './profile.controller'
 import {Router} from "express";
 import {asyncValidatorController} from "../../utils/controllers/async-validator.controller";
 import {check, checkSchema} from "express-validator";
-import {isLoggedIn} from "../../utils/controllers/isLoggedIn.controller";
+import {isLoggedInController} from "../../utils/controllers/isLoggedIn.controller";
 import { profileValidator } from './profile.validator'
 
 
@@ -13,12 +13,12 @@ ProfileRoute.route('/')
 ProfileRoute.route('/')
     .post(putProfileController)
 
-ProfileRoute.route('/:profileID')
+ProfileRoute.route('/:profileId')
     .get(
         asyncValidatorController([
-            check('profileId', 'please provide a vaild profileId')
+            check('profileId', 'please provide a valid profileId')
                 .isUUID()
         ])
-        , getProfileByProfileId
+        , getProfileByProfileIdController
     )
-    .put(isLoggedIn, asyncValidatorController(checkSchema(profileValidator)), putProfileController)
+    .put(isLoggedInController, asyncValidatorController(checkSchema(profileValidator)), putProfileController)
