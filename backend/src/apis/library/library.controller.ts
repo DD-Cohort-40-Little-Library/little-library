@@ -42,20 +42,6 @@ export async function getLibraryByLibraryProfileIdController (request: Request, 
     }
 }
 
-// export async function getLibraryByLibraryIdController (request: Request, response: Response, nextFunction: NextFunction): Promise<Response<Status>> {
-//     try {
-//         const { libraryId } = request.params
-//         const data = await selectLibraryByLibraryId(libraryId)
-//         return response.json({ status: 200, message: null, data })
-//     } catch (error) {
-//         return response.json({
-//             status: 500,
-//             message: '',
-//             data: null
-//         })
-//     }
-// }
-
 export async function getLibraryByLibraryIdController (request: Request, response: Response, nextFunction: NextFunction): Promise<Response<Status>> {
     try {
         const { libraryId } = request.params
@@ -110,33 +96,33 @@ export async function getLibraryByLibraryIdAndLibraryProfileIdController (reques
     }
 }
 
+// @ts-ignore
 export async function putLibraryController (request: Request, response: Response): Promise<Response> {
     try {
         const { libraryId } = request.params
         const profile = request.session.profile as Profile
         const libraryProfileId = profile.profileId as string
         const {libraryAddress, libraryDescription, libraryEventOptIn, libraryLat, libraryLng, libraryName, librarySpecialization, libraryType} = request.body
-        const previousLibrary: Library | null = await selectLibraryByLibraryIdAndLibraryProfileId(libraryId, libraryProfileId)
+        const previousLibrary: Library | null = await selectLibraryByLibraryId(libraryId)
 
         if (previousLibrary === null) {
             return response.json({ status: 404, data: null, message: 'Library does not exist'})
         }
 
-         if ( libraryProfileId !== previousLibrary.libraryProfileId ) {
+         if ( previousLibrary.libraryProfileId !== libraryProfileId) {
             return response.json({ status: 404, data: null, message: 'You are not allowed to perform this task!'})
         }
 
-        const updatedValues = { updatedLibraryAddress, updatedLibraryDescription, updatedLibraryEventOptIn, updatedLibraryName, updatedLibrarySpecialization }
+        const updatedValues = { libraryAddress, libraryDescription, libraryEventOptIn, libraryLat, libraryLng, libraryName, librarySpecialization, libraryType }
 
-        const newLibrary = { newLibraryAddress, libraryDescription, libraryEventOptIn, libraryName, librarySpecialization}
-        const message = await updateLibrary(newLibrary, updatedValues)
-        console.log(message)
-        console.log(newLibrary)
+        const newLibrary = { ...previousLibrary, ...updatedValues}
+        const message = await updateLibrary(newLibrary)
+        // console.log(message)
+        // console.log(newLibrary)
         return response.json({ status: 200, data: null, message })
         } catch (error: any) {
         return response.json({ status: 500, data: null, message: 'Internal server error' })
     }
 
-    }
-
+}
 

@@ -54,9 +54,9 @@ export async function selectLibraryByLibraryIdAndLibraryProfileId (libraryId: st
     return result?.length === 1 ? result[0] : null
 }
 
-export async function updateLibrary (newLibrary: Library, updatedValues: Library): Promise<string> {
-     const { libraryId, libraryAddress, libraryDescription, libraryEventOptIn, libraryLat, libraryLng, libraryName, librarySpecialization, libraryType } = newLibrary
-     const { libraryId, libraryAddress, libraryDescription, libraryEventOptIn, libraryLat, libraryLng, libraryName, librarySpecialization, libraryType } = updatedValues
+export async function updateLibrary (library: Library): Promise<string> {
+     const { libraryId, libraryAddress, libraryDescription, libraryEventOptIn, libraryLat, libraryLng, libraryName, librarySpecialization, libraryType } = library
+     // const { libraryId, libraryAddress, libraryDescription, libraryEventOptIn, libraryLat, libraryLng, libraryName, librarySpecialization, libraryType } = updatedValues
     await sql `UPDATE library SET library_address = ${libraryAddress}, library_description = ${libraryDescription}, library_event_opt_in = ${libraryEventOptIn}, library_lat = ${libraryLat}, library_lng = ${libraryLng}, library_name = ${libraryName}, library_specialization = ${librarySpecialization}, library_type = ${libraryType} WHERE library_id = ${libraryId}`
     return 'Library updated successfully!'
 }
