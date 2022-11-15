@@ -86,9 +86,25 @@ export async function getEventByEventDate (request: Request, response: Response)
     }
 }
 
+export async function getEventByEventIdAndEventProfileId (request: Request, response: Response): Promise<Response<Status>> {
+    try {
+        const {eventId, eventLibraryId} = request.body
+        const data = await selectEventByEventIdAndEventProfileId(eventId, eventLibraryId)
+        return response.json({
+            status: 200,
+            message: '',
+            data: null
+        })
+    } catch (error) {
+        return response.json({
+            status: 500,
+            message: '',
+            data: null
+        })
+    }
+}
 
 
-selectEventByEventIdAndEventProfileId
 deleteEventByEventLibraryIdAndEventProfileId
 
 
