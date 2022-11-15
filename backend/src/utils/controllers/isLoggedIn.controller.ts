@@ -4,7 +4,7 @@ import {Profile} from "../models/Profile";
 import {IncomingHttpHeaders} from "http";
 import {Status} from "../interfaces/Status";
 
-export function isLoggedIn (request: Request, response: Response, next: NextFuction): any {
+export function isLoggedInController (request: Request, response: Response, next: NextFunction): any {
     const status: Status = { status:400, message: 'Please login', data:null }
 
 
@@ -33,7 +33,7 @@ export function isLoggedIn (request: Request, response: Response, next: NextFuct
 // : false;
 
 
-const isJwtVaild = (unverifiedJwtToken: string | undefined):
+const isJwtValid = (unverifiedJwtToken: string | undefined):
 boolean => {
     if (unverifiedJwtToken === undefined){
         return false
@@ -48,10 +48,10 @@ boolean => {
     return result as boolean
 }
 
-if (isJwtVaild(unverifiedJwtToken) && isSessionActive(sessionProfile((request))) {
+if (isJwtValid(unverifiedJwtToken) && isSessionActive(sessionProfile(request))) {
  return next()
 }
-isJwtVaild(unverifiedJwtToken) && isSessionActive
+isJwtValid(unverifiedJwtToken) && isSessionActive
 (sessionProfile(request)) ? next() : response.json
 (status)
 }

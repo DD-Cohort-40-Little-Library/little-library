@@ -102,7 +102,7 @@
 		<li>select library by specialization function is working when I can select a library specialization or specializations from the landing page selectors and have just those libraries with that specialization appear on the map.
 			<ul>
 				<li><span>selectLibraryBySpecialization</span></li>
-				<li>GET| `SELECT library_id, library_id, library_address, library_description, library_name, library_specialization FROM library WHERE library_id = ${libraryId}`</li>
+				<li>GET| `SELECT library_id, library_id, library_address, library_description, library_name, library_specialization FROM library WHERE library_specialization = ${librarySpecialization}`</li>
 			</ul>
 		</li>
 		<li>add/remove specialization function is working when I am able to add a specialization to library that is associated with a specific user account.

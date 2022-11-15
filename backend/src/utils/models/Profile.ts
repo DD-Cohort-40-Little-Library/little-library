@@ -1,5 +1,15 @@
 import {sql} from "../database.utils";
 
+
+export interface PartialProfile {
+    profileId: string | null,
+    profileAvatarUrl: string | null,
+    profileEmail: string,
+    profileFirstName: string,
+    profileLastName: string,
+    profileName: string
+}
+
 export interface Profile {
     profileId: string | null,
     profileActivationToken: string | null,
@@ -8,7 +18,7 @@ export interface Profile {
     profileFirstName: string,
     profileHash: string,
     profileLastName: string,
-    profileName: string,
+    profileName: string
 }
 
 export async function insertProfile(profile:Profile){
@@ -33,9 +43,9 @@ export async function selectProfileByProfileEmail (profileEmail: string): Promis
 }
 
 export async function selectPartialProfileByProfileId(profileId:
-string): Promise<Profile|null> {
-    const result = <Profile[]>await sql `SELECT profile_id, profile_avatar_url, profile_email, profile_first_name, profile_last_name, profile_name FROM profile WHERE profile_id = ${profileId}`
-        return result?.length === 1 ? result[0] : null
+string): Promise<PartialProfile|null> {
+    const result = await sql<Profile[]> `SELECT profile_id, profile_avatar_url, profile_email, profile_first_name, profile_last_name, profile_name FROM profile WHERE profile_id = ${profileId}`
+    return result?.length === 1 ? result[0] : null
 }
 
 export async function selectWholeProfileByProfileId(profileId:
