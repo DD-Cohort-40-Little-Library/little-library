@@ -1,13 +1,14 @@
 import {Request, Response, NextFunction} from 'express';
 import {
-    deleteEventByEventLibraryIdAndEventProfileId,
+    deleteEvent,
     insertEvent,
     selectAllEventsOrderByEventDate,
     selectEventByEventLibraryId,
     updateEvent,
     selectEventByEventId,
     selectEventByEventIdAndEventProfileId,
-    selectEventByEventDate
+    selectEventByEventDate,
+    Event
 } from '../../utils/models/Events';
 import {Status} from "../../utils/interfaces/Status";
 import {Profile} from "../../utils/models/Profile";
@@ -15,7 +16,7 @@ import {Profile} from "../../utils/models/Profile";
 
 export async function postEventController (request:Request, response: Response): Promise<Response<Status>> {
     try {
-        const {eventDate, eventDescription, eventEnd, eventStart, eventTitle, eventType} = request.body
+        const {eventLibraryId,eventDate, eventDescription, eventEnd, eventStart, eventTitle, eventType} = request.body
         const profile:Profile = request.session.profile as Profile
         const eventProfileId: string = profile.profileId as string
         const event: Event = {eventId: null, eventLibraryId, eventProfileId, eventDate, eventDescription, eventEnd, eventStart, eventTitle, eventType}
@@ -29,19 +30,19 @@ export async function postEventController (request:Request, response: Response):
 export async function putEventController (request:Request, response:Response): Promise<Response> {
     try {
         const {eventId} = request.params
-        const profile =request.session.profile as Profile
+        const profile = request.session.profile as Profile
         const eventProfileId = profile.profileId as string
         const {eventDate, eventDescription, eventEnd, eventStart, eventTitle, eventType} = request.body
         const previousEvent: Event|null = await selectEventByEventId(eventId)
         if (previousEvent === null) {
-            return response.json {status:404, data: null, message: 'EventId does not exist (1).'}
+            return response.json({status:404, data: null, message: 'EventId does not exist (1).'})
         }
-        if (eventProfileId !== previousEvent.eventProfileId) {
+        if (previousEvent.eventProfileId !== eventProfileId) {
             return response.json({status:401, data: null, message: 'You are not allowed to perform this task.'})
         }
         const updatedValues = {eventDate, eventDescription, eventEnd, eventStart, eventTitle, eventType}
         const newEvent: Event = { ...previousEvent, ...updatedValues}
-        const message: string = await updateEvent(newEvent)
+        const message = await updateEvent(newEvent)
         return response.json({status: 200, data: null, message})
     } catch (error: any) {
         return response.json({status:500, data: null, message: 'Internal server error (2).'})
@@ -54,7 +55,7 @@ export async function getEventByEventIdController (request:Request, response:Res
         const data = await selectEventByEventId(eventId)
         return response.json({status:200, message:null, data})
     } catch (error) {
-        return response.json({status:500, message: 'EventId does not exist (2).', data:[]})
+        return response.json({status:500, message: 'EventId does not exist (2).', data:null})
     }
 }
 
@@ -64,27 +65,37 @@ export async function getEventByEventLibraryIdController (request: Request, resp
         const data = await selectEventByEventLibraryId (eventLibraryId)
         return response.json({status:200, message: null, data})
     } catch (error) {
-        return response.json({status:500, message: 'EventLibraryId does not exist.', data:[]})
+        return response.json({status:500, message: 'EventLibraryId does not exist.', data:null})
     }
 }
 
-export async function getAllEventsOrderByEventDateController (request: Request, response: Response):Promise<Response<Status>> {
+export async function getAllEventsOrderByEventDateController (request : Request, response: Response):Promise<Response<Status>> {
     try {
-        const data = await selectAllEventsOrderByEventDate(eventDate)
+        const {eventDate} = request.params
+        const date = new Date (eventDate)
+        const data = await selectAllEventsOrderByEventDate(date)
         return response.json ({status:200, message:null, data})
     } catch (error) {
-        return response.json ({status:500, message: 'Internal server error (3)', data:[]})
+        return response.json ({status:500, message: 'Internal server error (3)', data:null})
     }
 }
 
 export async function getEventByEventDateController (request: Request, response: Response):Promise<Response<Status>> {
     try {
-        const data = await selectEventByEventDate(eventDate)
+        const {eventDate} = request.params
+        const date = new Date (eventDate)
+        const data = await selectEventByEventDate(date)
         return response.json ({status:200, message:null, data})
     } catch (error) {
-        return response.json ({status:500, message: 'Internal server error (3)', data:[]})
+        return response.json ({status:500, message: 'Internal server error (3)', data:null})
     }
 }
+
+
+
+*****************************************************
+
+
 
 export async function getEventByEventIdAndEventProfileIdController (request: Request, response: Response): Promise<Response<Status>> {
     try {
@@ -101,7 +112,7 @@ export async function deleteEventByEventLibraryIdAndEventProfileIdController (re
         const { eventLibraryId } = request.params
         const profile = request.session.profile as Profile
         const eventProfileId = profile.profileId as string
-        const previousEvent: Event|null = await deleteEventByEventLibraryIdAndEventProfileId (eventLibraryId, eventProfileId)
+        const previousEvent: Event|null = await deleteEvent (eventLibraryId, eventProfileId)
 
         if (previousEvent === null) {
             return response.json({ status: 404, data: null, message: 'EventId does not exist.'})
@@ -111,7 +122,7 @@ export async function deleteEventByEventLibraryIdAndEventProfileIdController (re
             return response.json({ status: 404, data: null, message: 'You are not allowed to perform this task.'})
         }
 
-        const message = await deleteEventByEventLibraryIdAndEventProfileId(previousEvent)
+        const message = await deleteEvent(previousEvent)
         return response.json({status: 200, data: null, message})
     } catch (error: any) {
         return response.json({status: 500, data: null, message: 'Internal server error.'})

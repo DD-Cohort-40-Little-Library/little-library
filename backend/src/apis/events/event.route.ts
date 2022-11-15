@@ -1,6 +1,6 @@
 import {Router} from "express";
 import {
-    deleteEventByEventLibraryIdAndEventProfileId
+    deleteEvent
     getAllEventsController,
     getAllEventsOrderByEventDateController,
     getEventByEventIdController,
