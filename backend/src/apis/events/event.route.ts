@@ -1,9 +1,10 @@
 import {Router} from "express";
 import {
     getAllEventsController,
+    getAllEventsOrderByEventDateController,
     getEventByEventIdController,
-    getEventByLibraryIdController,
-    getEventByProfileIdController,
+    getEventByEventLibraryIdController,
+    getEventByEventProfileIdController,
     postEvent
 }   from './event.controller';
 import {asyncValidatorController} from '../../utils/controllers/async-validator.controller';
@@ -17,10 +18,10 @@ router.route('/:eventId').get(asyncValidatorController([check('eventId', 'Please
 
 router.route('/eventLibraryId/:eventLibraryId').get(asyncValidatorController
 ([check('eventLibraryId', 'Please provide a valid eventLibraryId.').isUUID()
-]), getEventByLibraryIdController)
+]), getEventByEventLibraryIdController)
 
 router.route('/eventProfileId/:eventProfileId').get(asyncValidatorController([check('eventProfileId', 'Please provide a valid eventProfileId.').isUUID()
-]), getEventByProfileIdController)
+]), getEventByEventProfileIdController)
 
 router.route('/')
     .get(getAllEventsController)

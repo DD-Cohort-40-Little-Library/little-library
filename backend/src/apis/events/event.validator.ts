@@ -31,7 +31,9 @@ export const eventValidator: Schema = {
         }
     },
     eventType: {
-                boolean: 'true' | false
-        **********************************CORRECT ******************************** THIS*********************************************
-    },
+        isLength: {
+            errorMessage: 'An eventType must be less than 128 characters.',
+            options: { max: 128}
+            }
+        },
 }
