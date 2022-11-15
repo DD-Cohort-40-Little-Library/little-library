@@ -1,11 +1,9 @@
 import {Router} from "express"
 import {
-    getAllLibrariesController,
+    getAllLibrariesController, getLibraryByLibraryIdAndLibraryProfileIdController,
     getLibraryByLibraryIdController,
     getLibraryByLibraryProfileIdController,
-    getPartialLibraryByLibraryIdController,
     postLibrary,
-    getPartialLibraryByLibraryIdAndLibraryProfileIdController,
     putLibraryController
 } from './library.controller'
 import {asyncValidatorController} from "../../utils/controllers/async-validator.controller"
@@ -33,11 +31,11 @@ libraryRoute.route('/')
     .post(isLoggedIn,asyncValidatorController(checkSchema((libraryValidator))), postLibrary)
 
 libraryRoute.route('/libraryId/:libraryId')
-    .get(getPartialLibraryByLibraryIdController)
+    .get(getLibraryByLibraryIdController)
     .post(isLoggedIn, asyncValidatorController(checkSchema((libraryValidator))), postLibrary)
 
 libraryRoute.route('/libraryId/:libraryId, /libraryProfileId/:libraryProfileId')
-    .get(getPartialLibraryByLibraryIdAndLibraryProfileIdController)
+    .get(getLibraryByLibraryIdAndLibraryProfileIdController)
     .post(isLoggedIn, asyncValidatorController(checkSchema((libraryValidator))), postLibrary)
 
 libraryRoute.route('/:libraryId')

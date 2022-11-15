@@ -8,9 +8,7 @@ import {
     selectAllLibraries,
     selectLibraryByLibraryId,
     selectLibrariesByLibraryProfileId,
-    selectPartialLibraryByLibraryId,
-    selectPartialLibraryByLibraryIdAndLibraryProfileId,
-    updateLibrary
+    updateLibrary, selectLibraryByLibraryIdAndLibraryProfileId
 } from '../../utils/models/Library';
 
 
@@ -44,19 +42,19 @@ export async function getLibraryByLibraryProfileIdController (request: Request, 
     }
 }
 
-export async function getPartialLibraryByLibraryIdController (request: Request, response: Response, nextFunction: NextFunction): Promise<Response<Status>> {
-    try {
-        const { libraryId } = request.params
-        const data = await selectPartialLibraryByLibraryId(libraryId)
-        return response.json({ status: 200, message: null, data })
-    } catch (error) {
-        return response.json({
-            status: 500,
-            message: '',
-            data: null
-        })
-    }
-}
+// export async function getLibraryByLibraryIdController (request: Request, response: Response, nextFunction: NextFunction): Promise<Response<Status>> {
+//     try {
+//         const { libraryId } = request.params
+//         const data = await selectLibraryByLibraryId(libraryId)
+//         return response.json({ status: 200, message: null, data })
+//     } catch (error) {
+//         return response.json({
+//             status: 500,
+//             message: '',
+//             data: null
+//         })
+//     }
+// }
 
 export async function getLibraryByLibraryIdController (request: Request, response: Response, nextFunction: NextFunction): Promise<Response<Status>> {
     try {
@@ -94,10 +92,10 @@ export async function postLibrary (request: Request, response: Response): Promis
     }
 }
 
-export async function getPartialLibraryByLibraryIdAndLibraryProfileIdController (request: Request, response: Response): Promise<Response<Status>> {
+export async function getLibraryByLibraryIdAndLibraryProfileIdController (request: Request, response: Response): Promise<Response<Status>> {
     try {
         const {libraryId, libraryProfileId, libraryAddress, libraryDescription, libraryEventOptIn, libraryName, librarySpecialization} = request.body
-        const data = await selectPartialLibraryByLibraryIdAndLibraryProfileId(libraryId, libraryProfileId)
+        const data = await selectLibraryByLibraryIdAndLibraryProfileId(libraryId, libraryProfileId)
         return response.json({
             status: 200,
             message: '',
@@ -117,26 +115,26 @@ export async function putLibraryController (request: Request, response: Response
         const { libraryId } = request.params
         const profile = request.session.profile as Profile
         const libraryProfileId = profile.profileId as string
-        const {libraryAddress, libraryDescription, libraryEventOptIn, libraryName, librarySpecialization} = request.body
-        // @ts-ignore
-        const previousLibrary: Library | null = await selectPartialLibraryByLibraryIdAndLibraryProfileId(libraryId, libraryProfileId)
+        const {libraryAddress, libraryDescription, libraryEventOptIn, libraryLat, libraryLng, libraryName, librarySpecialization, libraryType} = request.body
+        const previousLibrary: Library | null = await selectLibraryByLibraryIdAndLibraryProfileId(libraryId, libraryProfileId)
 
-        // if (previousLibrary === null) {
-        //     return response.json({ status: 404, data: null, message: 'Library does not exist'})
-        // }
-        //
-        //  if ( libraryProfileId != previousLibrary.libraryProfileId ) {
-        //     return response.json({ status: 404, data: null, message: 'You are not allowed to perform this task!'})
-        // }
+        if (previousLibrary === null) {
+            return response.json({ status: 404, data: null, message: 'Library does not exist'})
+        }
 
-        const updatedValues = { libraryAddress, libraryDescription, libraryEventOptIn, libraryName, librarySpecialization }
+         if ( libraryProfileId !== previousLibrary.libraryProfileId ) {
+            return response.json({ status: 404, data: null, message: 'You are not allowed to perform this task!'})
+        }
 
-        const newLibrary = { libraryAddress, libraryDescription, libraryEventOptIn, libraryName, librarySpecialization}
-        // @ts-ignore
+        const updatedValues = { updatedLibraryAddress, updatedLibraryDescription, updatedLibraryEventOptIn, updatedLibraryName, updatedLibrarySpecialization }
+
+        const newLibrary = { newLibraryAddress, libraryDescription, libraryEventOptIn, libraryName, librarySpecialization}
         const message = await updateLibrary(newLibrary, updatedValues)
+        console.log(message)
+        console.log(newLibrary)
         return response.json({ status: 200, data: null, message })
         } catch (error: any) {
-        return response.json({ status: 500, data: null, message: 'internal server error' })
+        return response.json({ status: 500, data: null, message: 'Internal server error' })
     }
 
     }
