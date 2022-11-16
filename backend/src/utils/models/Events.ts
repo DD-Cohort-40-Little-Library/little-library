@@ -1,5 +1,4 @@
 import {sql} from '../database.utils'
-import {Library} from "./Library"
 
 export interface Event {
     eventId: string|null,

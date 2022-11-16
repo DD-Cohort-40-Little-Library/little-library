@@ -91,35 +91,19 @@ export async function getEventByEventDateController (request: Request, response:
     }
 }
 
-
-
-*****************************************************
-
-
-
-export async function getEventByEventIdAndEventProfileIdController (request: Request, response: Response): Promise<Response<Status>> {
+export async function deleteEventController (request: Request, response: Response): Promise<Response<Status>> {
     try {
-        const {eventId, eventLibraryId} = request.body
-        const data = await selectEventByEventIdAndEventProfileId(eventId, eventLibraryId)
-        return response.json({status: 200, message: '', data: null})
-    } catch (error) {
-        return response.json({status: 500, message: '', data: null})
-    }
-}
-
-export async function deleteEventByEventLibraryIdAndEventProfileIdController (request: Request, response: Response): Promise<Response<Status>> {
-    try {
-        const { eventLibraryId } = request.params
+        const { eventId } = request.params
         const profile = request.session.profile as Profile
         const eventProfileId = profile.profileId as string
-        const previousEvent: Event|null = await deleteEvent (eventLibraryId, eventProfileId)
+        const previousEvent: Event|null = await selectEventByEventId (eventId)
 
         if (previousEvent === null) {
             return response.json({ status: 404, data: null, message: 'EventId does not exist.'})
         }
 
         if ( previousEvent.eventProfileId !== eventProfileId) {
-            return response.json({ status: 404, data: null, message: 'You are not allowed to perform this task.'})
+            return response.json({ status: 401, data: null, message: 'You are not allowed to perform this task.'})
         }
 
         const message = await deleteEvent(previousEvent)
