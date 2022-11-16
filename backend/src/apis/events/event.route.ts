@@ -1,13 +1,13 @@
 import {Router} from "express";
 import {
     deleteEventController,
-    getAllEventsOrderByEventDateController,
+    getAllEventsOrderByEventDateController, getEventByEventDateController,
     getEventByEventIdController,
     getEventByEventLibraryIdController,
     // getEventByEventProfileIdController,
     postEventController,
     putEventController
-}   from './event.controller';
+} from './event.controller';
 import {asyncValidatorController} from '../../utils/controllers/async-validator.controller';
 import {check, checkSchema} from 'express-validator';
 import {isLoggedInController} from '../../utils/controllers/isLoggedIn.controller';
@@ -35,5 +35,12 @@ eventRoute.route('/eventId/:eventId')
 eventRoute.route('/eventId/:eventId')
     .delete(isLoggedInController, deleteEventController)
 
-eventRoute.route('/')
+eventRoute.route('/:eventLibraryId')
     .post(isLoggedInController, asyncValidatorController(checkSchema(eventValidator)), postEventController)
+
+eventRoute.route('/:eventDate')
+    .get(getEventByEventDateController)
+    .post(isLoggedInController, asyncValidatorController(checkSchema(eventValidator)), postEventController)
+
+eventRoute.route('/:eventId')
+    .delete(isLoggedInController, deleteEventController)

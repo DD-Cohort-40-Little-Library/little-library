@@ -16,7 +16,8 @@ import {Profile} from "../../utils/models/Profile";
 
 export async function postEventController (request:Request, response: Response): Promise<Response<Status>> {
     try {
-        const {eventLibraryId,eventDate, eventDescription, eventEnd, eventStart, eventTitle, eventType} = request.body
+        const {eventLibraryId} = request.params
+        const {eventDate, eventDescription, eventEnd, eventStart, eventTitle, eventType} = request.body
         const profile:Profile = request.session.profile as Profile
         const eventProfileId: string = profile.profileId as string
         const event: Event = {eventId: null, eventLibraryId, eventProfileId, eventDate, eventDescription, eventEnd, eventStart, eventTitle, eventType}
@@ -71,9 +72,9 @@ export async function getEventByEventLibraryIdController (request: Request, resp
 
 export async function getAllEventsOrderByEventDateController (request : Request, response: Response):Promise<Response<Status>> {
     try {
-        const {eventDate} = request.params
-        const date = new Date (eventDate)
-        const data = await selectAllEventsOrderByEventDate(date)
+        // const {eventDate} = request.params
+        // const date = new Date (eventDate)
+        const data = await selectAllEventsOrderByEventDate()
         return response.json ({status:200, message:null, data})
     } catch (error) {
         return response.json ({status:500, message: 'Internal server error (3)', data:null})

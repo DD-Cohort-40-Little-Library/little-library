@@ -18,8 +18,8 @@ export async function insertEvent (event:Event): Promise<string> {
     return 'Event created successfully.'
 }
 
-export async function selectAllEventsOrderByEventDate (eventDate:Date): Promise<Event[]> {
-    return <Event[]> <unknown> await sql `SELECT event_id, event_library_id, event_profile_id, event_date, event_description, event_end, event_start, event_title, event_type FROM event ORDER BY ${eventDate}`
+export async function selectAllEventsOrderByEventDate (): Promise<Event[]> {
+    return <Event[]> <unknown> await sql `SELECT event_id, event_library_id, event_profile_id, event_date, event_description, event_end, event_start, event_title, event_type FROM event ORDER BY event_date`
 }
 
 export async function selectEventByEventLibraryId (eventLibraryId: string): Promise<Event[]> {
