@@ -56,8 +56,6 @@ export async function getProfileByProfileIdController (request: Request, respons
 export async function deleteProfileController (request: Request, response: Response): Promise<Response<Status>> {
     try {
         const { profileId } = request.params
-        // const profile = request.session.profile as Profile
-        // const profileId = profile.profileId as string
         const previousProfile: Profile|null = await selectWholeProfileByProfileId(profileId)
 
         if (previousProfile === null) {
@@ -65,7 +63,7 @@ export async function deleteProfileController (request: Request, response: Respo
         }
 
         if ( previousProfile.profileId !== profileId) {
-            return response.json({ status: 404, data: null, message: 'You are not allowed to perform this task!'})
+            return response.json({ status: 401, data: null, message: 'You are not allowed to perform this task!'})
         }
 
         const profileMessage = await deleteProfile(previousProfile)
