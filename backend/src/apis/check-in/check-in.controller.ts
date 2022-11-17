@@ -101,7 +101,7 @@ export async function putCheckInController (request: Request, response: Response
             return response.json({status: 404, data: null, message: 'Unable to CheckIn'})
         }
 
-        if (previousCheckIn.checkInId !== checkInId) {
+        if (previousCheckIn.checkInProfileId !== checkInProfileId) {
             return response.json({status: 404, data: null, message: 'You are not allowed to perform this task!'})
         }
 
@@ -119,6 +119,7 @@ export async function putCheckInController (request: Request, response: Response
         const message = await updateCheckIn(newCheckIn)
         return response.json({status: 200, data: null, message})
     } catch (error: any) {
+        console.error(error)
         return response.json({status: 500, data: null, message: 'Internal server error'})
     }
 }

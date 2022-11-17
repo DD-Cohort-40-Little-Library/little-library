@@ -4,6 +4,7 @@ import {check, checkSchema} from "express-validator";
 import {isLoggedInController} from "../../utils/controllers/isLoggedIn.controller";
 import {checkInValidator} from "./check-in.validator";
 import {
+    postCheckInController,
     deleteCheckInController,
     getCheckInByCheckInIdController,
     getCheckInByCheckInProfileIdController,
@@ -12,6 +13,11 @@ import {
 import {Router} from "express";
 
 export const checkInRoute=Router()
+
+
+
+checkInRoute.route('/:checkInLibraryId')
+    .post(isLoggedInController, asyncValidatorController(checkSchema(checkInValidator)),postCheckInController)
 
 
 checkInRoute.route('/:checkInId')

@@ -2,17 +2,17 @@ import {Schema} from 'express-validator';
 
 export const checkInValidator: Schema = {
 
-    checkInLibraryId: {
-        isUUID: {
-            errorMessage: 'please provide a valid checkInLibraryId'
-        }
-    },
+    // checkInLibraryId: {
+    //     isUUID: {
+    //         errorMessage: 'please provide a valid checkInLibraryId'
+    //     }
+    // },
 
-    checkInProfileId: {
-        isUUID: {
-            errorMessage: 'please provide a valid CheckInProfileId'
-        }
-    },
+    // checkInProfileId: {
+    //     isUUID: {
+    //         errorMessage: 'please provide a valid CheckInProfileId'
+    //     }
+    // },
 
     checkInComment: {
         isLength:{
@@ -24,7 +24,8 @@ export const checkInValidator: Schema = {
     },
 
     checkInDate: {
-        toDate: true
+        isISO8601: true,
+        errorMessage: 'CheckIn date is malformed'
     },
 
     checkInPhotoName: {

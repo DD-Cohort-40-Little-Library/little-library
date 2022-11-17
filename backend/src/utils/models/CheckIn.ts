@@ -40,7 +40,7 @@ export async function updateCheckIn (checkIn: CheckIn): Promise<string>{
 
 
 export async function selectCheckInByCheckInId (checkInId: string): Promise<CheckIn|null> {
-    const result = <CheckIn[]>await sql `SELECT check_in_id, check_in_library_id, check_in_profile_id, check_in_comment, check_in_date, check_in_follow_library, check_in_photo_name, check_in_photo_url, check_in_report FROM check_in WHERE check_in = ${checkInId}`
+    const result = <CheckIn[]>await sql `SELECT check_in_id, check_in_library_id, check_in_profile_id, check_in_comment, check_in_date, check_in_follow_library, check_in_photo_name, check_in_photo_url, check_in_report FROM check_in WHERE check_in_id = ${checkInId}`
 
     return result?.length === 1 ? result[0] : null
 }
