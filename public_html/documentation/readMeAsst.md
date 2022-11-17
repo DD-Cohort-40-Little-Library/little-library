@@ -20,7 +20,7 @@ http://147.182.***.**:****/apis/sign-up/activation/da1642354d49039af7490db279cec
 "profilePassword" : "*****"}
 ### SELECT Profile By Profile Id
 http://147.182.***.**:****/apis/profile/c690865c-c69a-48e3-a579-e5a916da1545
-### UPDATE Field Data Profile
+### UPDATE Attri Data Profile
 http://147.182.***.**:****/apis/profile/c690865c-c69a-48e3-a579-e5a916da1545
 {"profileId":"c69*******1545",
 "profileAvatarUrl":"http://something.com/whatever.jpg",
@@ -46,7 +46,7 @@ http://147.182.***.**:****/apis/library
 http://147.182.***.**:****/apis/library/libraryId/80f1dea2-1bc6-4747-aa1d-97e6f0ff93e2
 ### SELECT Library By Library Profile Id
 http://147.182.***.**:****/apis/library/libraryProfileId/c690865c-c69a-48e3-a579-e5a916da1545
-### UPDATE Field Data Library
+### UPDATE Attri Data Library
 http://147.182.***.**:****/apis/library/80f1dea2-1bc6-4747-aa1d-97e6f0ff93e2
 {"libraryAddress":"another street",
 "libraryDescription":"not my library still",
@@ -72,7 +72,7 @@ http://147.182.***.**:****/apis/event/2024-01-25T17:10:10.000Z
 http://147.182.***.**:****/apis/event/eventId/145087ed-0bfd-457a-83af-e676ed66ebae
 ### SELECT Event By Event Library Id
 http://147.182.***.**:****/apis/event/eventLibraryId/80f1dea2-1bc6-4747-aa1d-97e6f0ff93e2
-### UPDATE Field Data Event
+### UPDATE Attri Data Event
 http://147.182.***.**:****/apis/event/eventId/145087ed-0bfd-457a-83af-e676ed66ebae
 {"eventDate":"2024-01-25T10:10:10-07:00",
 "eventDescription": "Awesome!",
