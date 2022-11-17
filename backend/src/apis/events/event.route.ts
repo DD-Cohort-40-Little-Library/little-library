@@ -35,12 +35,12 @@ eventRoute.route('/eventId/:eventId')
 eventRoute.route('/eventId/:eventId')
     .delete(isLoggedInController, deleteEventController)
 
-eventRoute.route('/:eventLibraryId')
+eventRoute.route('/eventLibraryId/:eventLibraryId')
     .post(isLoggedInController, asyncValidatorController(checkSchema(eventValidator)), postEventController)
 
-eventRoute.route('/:eventDate')
+eventRoute.route('/eventDate/:eventDate')
     .get(getEventByEventDateController)
     .post(isLoggedInController, asyncValidatorController(checkSchema(eventValidator)), postEventController)
 
-eventRoute.route('/:eventId')
+eventRoute.route('/eventId/:eventId')
     .delete(isLoggedInController, deleteEventController)

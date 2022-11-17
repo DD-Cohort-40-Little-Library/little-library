@@ -16,11 +16,11 @@ export const checkInRoute=Router()
 
 
 
-checkInRoute.route('/:checkInLibraryId')
+checkInRoute.route('/checkInLibraryId/:checkInLibraryId')
     .post(isLoggedInController, asyncValidatorController(checkSchema(checkInValidator)),postCheckInController)
 
 
-checkInRoute.route('/:checkInId')
+checkInRoute.route('/checkInId/:checkInId')
     .get (asyncValidatorController([check('checkInId', 'Please provide a valid checkIn Id.').isUUID()]), getCheckInByCheckInIdController)
     .put(isLoggedInController, asyncValidatorController(checkSchema(checkInValidator)),putCheckInController)
 
@@ -38,5 +38,5 @@ checkInRoute.route('/checkInProfileId/:checkInProfileId')
 
 
 
-checkInRoute.route('/:checkInId')
+checkInRoute.route('/checkInId/:checkInId')
     .delete(isLoggedInController, deleteCheckInController)
