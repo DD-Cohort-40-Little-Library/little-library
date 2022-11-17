@@ -1,4 +1,6 @@
 import {sql} from "../database.utils";
+import {Status} from "../interfaces/Status";
+import {Profile} from "./Profile";
 
 export interface CheckIn {
     checkInId: string | null
@@ -12,44 +14,47 @@ export interface CheckIn {
     checkInReport: Boolean
 }
 
-export interface PartialCheckIn {
-    checkInLibraryId: string
-    checkInProfileId: string
-    checkInComment: string
-    checkInDate: Date
-    checkInFollowLibrary: Boolean
-    checkInPhotoName: string | null
-    checkInPhotoUrl: string | null
-    checkInReport: Boolean
-}
-
-
 export async function insertCheckIn (checkIn: CheckIn): Promise<string>{
     const {checkInLibraryId, checkInProfileId, checkInComment, checkInDate, checkInFollowLibrary, checkInPhotoName,checkInPhotoUrl, checkInReport} = checkIn
+    // @ts-ignore
     await sql `INSERT INTO check_in (check_in_id, check_in_library_id, check_in_profile_id, check_in_comment, check_in_date, check_in_follow_library, check_in_photo_name, check_in_photo_url, check_in_report)
 	VALUES (gen_random_uuid(), ${checkInLibraryId}, ${checkInProfileId}, ${checkInComment}, ${checkInDate}, ${checkInFollowLibrary}, ${checkInPhotoName}, ${checkInPhotoUrl}, ${checkInReport})`
     return 'CheckIn successfully created!'
 }
 
 export async function insertQuickCheckIn (checkIn: CheckIn): Promise<string>{
-    const {checkInLibraryId, checkInProfileId, checkInDate, checkInFollowLibrary, checkInReport} = checkIn
-    await sql `INSERT INTO check_in (check_in_id, check_in_library_id, check_in_profile_id, check_in_date, check_in_follow_library, check_in_report)
-	VALUES (gen_random_uuid(), ${checkInLibraryId}, ${checkInProfileId}, ${checkInDate}, ${checkInFollowLibrary}, ${checkInReport})`
+    const {checkInLibraryId, checkInProfileId, checkInDate} = checkIn
+    await sql `INSERT INTO check_in (check_in_id, check_in_library_id, check_in_profile_id, check_in_date)
+	VALUES (gen_random_uuid(), ${checkInLibraryId}, ${checkInProfileId}, ${checkInDate})`
     return 'Quick CheckIn successfully created!'
 }
 
 
-//Used to update the editable portions of a checkin
 export async function updateCheckIn (checkIn: CheckIn): Promise<string>{
-    const {checkInLibraryId, checkInProfileId, checkInComment, checkInFollowLibrary, checkInPhotoName,checkInPhotoUrl, checkInReport} = checkIn
-    await sql `UPDATE check_in SET check_in_id, check_in_library_id = ${checkInLibraryId}, check_in_profile_id = ${checkInProfileId}, check_in_comment = ${checkInComment}, check_in_date = ${checkInDate},check_in_follow_library = ${checkInFollowLibrary}, check_in_photo_name = ${checkInPhotoName}, check_in_photo_url = ${checkInPhotoUrl}, check_in_report= ${checkInReport})`
+    const {checkInId, checkInComment, checkInFollowLibrary, checkInPhotoName,checkInPhotoUrl, checkInReport} = checkIn
+    // @ts-ignore
+    await sql `UPDATE check_in SET check_in_comment = ${checkInComment}, check_in_follow_library = ${checkInFollowLibrary}, check_in_photo_name = ${checkInPhotoName}, check_in_photo_url = ${checkInPhotoUrl}, check_in_report = ${checkInReport} WHERE check_in_id = ${checkInId}`
     return 'CheckIn successfully update!'
 }
 
 
-//Used to get the editable portions of a checkin and ensure it is selected by the library and user it belongs to
-export async function selectPartialCheckInByCheckInLibraryIdAndCheckInProfileID (checkIn: string): Promise<CheckIn|null> {
-    const result = <CheckIn[]>await sql `SELECT check_in_id, check_in_library_id, check_in_profile_id, check_in_comment, check_in_date, check_in_follow_library, check_in_photo_name, check_in_photo_url, check_in_report =${checkIn}`
+
+export async function selectCheckInByCheckInId (checkInId: string): Promise<CheckIn|null> {
+    const result = <CheckIn[]>await sql `SELECT check_in_id, check_in_library_id, check_in_profile_id, check_in_comment, check_in_date, check_in_follow_library, check_in_photo_name, check_in_photo_url, check_in_report FROM check_in WHERE check_in = ${checkInId}`
 
     return result?.length === 1 ? result[0] : null
+}
+
+export async function selectCheckInByCheckInProfileId (checkInProfileId: string): Promise<CheckIn|null> {
+    const result = <CheckIn[]>await sql `SELECT check_in_id, check_in_library_id, check_in_profile_id, check_in_comment, check_in_date, check_in_follow_library, check_in_photo_name, check_in_photo_url, check_in_report FROM check_in WHERE check_in_profile_id = ${checkInProfileId}`
+
+    return result?.length === 1 ? result[0] : null
+}
+
+export async function deleteCheckIn (checkIn: CheckIn): Promise<string>{
+    const result = await sql `DELETE FROM check_in WHERE check_in_id = ${checkIn.checkInId}`
+    if (result.count < 0) {
+        return 'CheckIn does not exist'
+    }
+    return 'CheckIn was deleted'
 }
