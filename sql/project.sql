@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS library (
                                 library_name VARCHAR(128) NOT NULL,
                                 library_specialization VARCHAR(32),
                                 library_type VARCHAR(32) NOT NULL,
-                                FOREIGN KEY (library_profile_id) REFERENCES profile(profile_id),
+                                FOREIGN KEY (library_profile_id) REFERENCES profile(profile_id) ON DELETE CASCADE,
                                 PRIMARY KEY (library_id)
 );
 CREATE INDEX ON library(library_profile_id);
@@ -41,8 +41,8 @@ CREATE TABLE IF NOT EXISTS event (
                                 event_start TIMESTAMPTZ NOT NULL,
                                 event_title VARCHAR(128) NOT NULL,
                                 event_type VARCHAR(128),
-                                FOREIGN KEY (event_library_id) REFERENCES library(library_id),
-                                FOREIGN KEY (event_profile_id) REFERENCES profile(profile_id),
+                                FOREIGN KEY (event_library_id) REFERENCES library(library_id) ON DELETE CASCADE,
+                                FOREIGN KEY (event_profile_id) REFERENCES profile(profile_id) ON DELETE CASCADE,
                                 PRIMARY KEY (event_id)
 );
 CREATE INDEX ON event(event_library_id);
@@ -58,8 +58,8 @@ CREATE TABLE IF NOT EXISTS check_in (
                                 check_in_photo_name VARCHAR(128),
                                 check_in_Photo_url VARCHAR(256),
                                 check_in_report BOOLEAN,
-                                FOREIGN KEY (check_in_library_id) REFERENCES library(library_id),
-                                FOREIGN KEY (check_in_profile_id) REFERENCES profile(profile_id),
+                                FOREIGN KEY (check_in_library_id) REFERENCES library(library_id) ON DELETE CASCADE,
+                                FOREIGN KEY (check_in_profile_id) REFERENCES profile(profile_id) ON DELETE CASCADE,
                                 PRIMARY KEY (check_in_library_id, check_in_profile_id)
 );
 CREATE INDEX ON check_in(check_in_library_id);
