@@ -12,7 +12,7 @@ export const ProfileRoute: Router = Router()
 ProfileRoute.route('/')
     .post(putProfileController)
 
-ProfileRoute.route('/profileId/:profileId')
+ProfileRoute.route('/:profileId')
     .get(
         asyncValidatorController([
             check('profileId', 'please provide a valid profileId')
@@ -21,6 +21,4 @@ ProfileRoute.route('/profileId/:profileId')
         , getProfileByProfileIdController
     )
     .put(isLoggedInController, asyncValidatorController(checkSchema(profileValidator)), putProfileController)
-
-ProfileRoute.route('/profileId/:profileId')
     .delete(isLoggedInController, deleteProfileController)
