@@ -40,7 +40,7 @@ libraryRoute.route('/libraryId/:libraryId, /libraryProfileId/:libraryProfileId')
     .post(isLoggedInController, asyncValidatorController(checkSchema((libraryValidator))), postLibrary)
 
 libraryRoute.route('/:libraryId')
-    // .get (asyncValidatorController([check('libraryId', 'Please provide a valid library Id.').isUUID()]), getLibraryByLibraryIdController)
+    .get (asyncValidatorController([check('libraryId', 'Please provide a valid library Id.').isUUID()]), getLibraryByLibraryIdController)
     .put(isLoggedInController, asyncValidatorController(checkSchema(libraryValidator)),putLibraryController)
 
 libraryRoute.route('/:libraryId')

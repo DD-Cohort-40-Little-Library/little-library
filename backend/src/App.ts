@@ -15,6 +15,10 @@ import {checkInRoute} from "./apis/check-in/check-in.route";
 import {ImageUploadRouter} from "./apis/image-upload/image-upload.route";
 
 
+
+import {eventRoute} from "./apis/events/event.route";
+
+
 const redisClient = createClient({ legacyMode: true, socket: { host: process.env.REDIS_HOST } })
 redisClient.connect().catch(console.error)
 const RedisStore = RedisConnect(session)
@@ -57,6 +61,7 @@ export class App {
         this.app.use('/apis', indexRoute)
         this.app.use('/apis/sign-up', signUpRoute)
         this.app.use('/apis/sign-in', SignInRouter)
+        this.app.use('/apis/event', eventRoute)
         this.app.use('/apis/sign-out', SignOutRoute)
         this.app.use('/apis/profile', ProfileRoute)
         this.app.use('/apis/image-upload', ImageUploadRouter)
