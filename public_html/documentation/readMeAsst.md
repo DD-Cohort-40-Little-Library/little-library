@@ -82,8 +82,25 @@ http://147.182.***.**:****/apis/event/eventId/145087ed-0bfd-457a-83af-e676ed66eb
 "eventType": "Test Put" }
 ### DELETE Event
 http://147.182.***.**:****/apis/event/145087ed-0bfd-457a-83af-e676ed66ebae
-### 
-### 
-### 
-### 
-### 
+### INSERT CheckIn
+http://147.182.***.**:****/apis/checkin/
+{"checkInComment":"I LOVE TESTING AND DEBUGGING!",
+"checkInDate":"2022-01-25T17:10:10.000Z",
+"checkInFollowLibrary":true,
+"checkInPhotoName":"WinnerWinner",
+"checkInPhotoUrl":"https://getphotos.com",
+"checkInReport":false}
+### SELECT Check-In By Check-In Id
+http://147.182.***.**:****/apis/checkin/checkInId/145087ed-0bfd-457a-83af-e676ed66ebae
+### SELECT Check-In By Check-In Profile Id
+http://147.182.***.**:****/apis/checkin/checkInId/80f1dea2-1bc6-4747-aa1d-97e6f0ff93e2
+### UPDATE Check-In Attri Data
+http://147.182.***.**:****/apis/checkin/checkInId/145087ed-0bfd-457a-83af-e676ed66ebae
+{"checkInComment":"I hate TESTING AND DEBUGGING!",
+"checkInDate":"2022-01-25T17:10:10.000Z",
+"checkInFollowLibrary":false,
+"checkInPhotoName":"WinnerWinner",
+"checkInPhotoUrl":"https://getphotos.com",
+"checkInReport":false}
+### DELETE Check-in
+http://147.182.***.**:****/apis/checkin/145087ed-0bfd-457a-83af-e676ed66ebae
