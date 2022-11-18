@@ -1,14 +1,14 @@
 import {Schema} from 'express-validator'
 
 export const eventValidator: Schema = {
-    // eventLibraryId: {
-    //     isUUID: {
-    //         errorMessage: 'Please provide a valid eventLibraryId'}
-    // },
-    // eventProfileId: {
-    //     isUUID: {
-    //         errorMessage: 'Please provide a valid eventProfileId.'}
-    // },
+    eventLibraryId: {
+        isUUID: {
+            errorMessage: 'Please provide a valid eventLibraryId'}
+    },
+    eventProfileId: {
+        isUUID: {
+            errorMessage: 'Please provide a valid eventProfileId.'}
+    },
     eventDate:{
         isISO8601: true,
         errorMessage: 'Event date is malformed.'

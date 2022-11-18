@@ -2,17 +2,17 @@ import {Schema} from 'express-validator';
 
 export const checkInValidator: Schema = {
 
-    // checkInLibraryId: {
-    //     isUUID: {
-    //         errorMessage: 'please provide a valid checkInLibraryId'
-    //     }
-    // },
+    checkInLibraryId: {
+        isUUID: {
+            errorMessage: 'please provide a valid checkInLibraryId'
+        }
+    },
 
-    // checkInProfileId: {
-    //     isUUID: {
-    //         errorMessage: 'please provide a valid CheckInProfileId'
-    //     }
-    // },
+    checkInProfileId: {
+        isUUID: {
+            errorMessage: 'please provide a valid CheckInProfileId'
+        }
+    },
 
     checkInComment: {
         isLength:{

@@ -30,7 +30,7 @@ export async function selectAllEventsByEventProfileId (eventProfileId:string): P
 
 
 export async function selectEventByEventLibraryId (eventLibraryId: string): Promise<Event[]> {
-    return <Event[]> <unknown> await sql `SELECT event_library_id, event_date, event_description, event_end, event_start, event_title, event_type FROM event WHERE event_library_id = ${eventLibraryId} ORDER BY event_date`
+    return <Event[]> <unknown> await sql `SELECT event_library_id, event_profile_id, event_date, event_description, event_end, event_start, event_title, event_type FROM event WHERE event_library_id = ${eventLibraryId} ORDER BY event_date`
 }
 
 export async function selectEventByEventProfileId (eventProfileId:string): Promise<Event[]> {

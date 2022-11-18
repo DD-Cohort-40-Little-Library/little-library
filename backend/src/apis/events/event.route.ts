@@ -14,33 +14,26 @@ import {isLoggedInController} from '../../utils/controllers/isLoggedIn.controlle
 import {eventValidator} from './event.validator';
 
 export const eventRoute = Router()
-eventRoute.route('/eventId/:eventId').get(asyncValidatorController([check('eventId', 'Please provide a valid eventId.').isUUID()
-]), getEventByEventIdController)
+eventRoute.route('/:eventId')
+    .get(asyncValidatorController([check('eventId', 'Please provide a valid eventId.').isUUID()]), getEventByEventIdController)
+    .delete(isLoggedInController, deleteEventController)
+    .put(isLoggedInController, asyncValidatorController(checkSchema(eventValidator)),putEventController)
 
-eventRoute.route('/eventLibraryId/:eventLibraryId').get(asyncValidatorController
-([check('eventLibraryId', 'Please provide a valid eventLibraryId.').isUUID()
-]), getEventByEventLibraryIdController)
 
-eventRoute.route('/eventProfileId/:eventProfileId').get(asyncValidatorController([check('eventProfileId', 'Please provide a valid eventProfileId.').isUUID()
-]), getAllEventsByEventProfileIdController)
+eventRoute.route('/eventLibraryId/:eventLibraryId')
+    .get(asyncValidatorController
+([check('eventLibraryId', 'Please provide a valid eventLibraryId.').isUUID()]), getEventByEventLibraryIdController)
+
+eventRoute.route('/eventProfileId/:eventProfileId')
+    .get(asyncValidatorController([check('eventProfileId', 'Please provide a valid eventProfileId.').isUUID()]), getAllEventsByEventProfileIdController)
 
 eventRoute.route('/')
     .get(getAllEventsOrderByEventDateController)
     .post(isLoggedInController, asyncValidatorController(checkSchema((eventValidator))), postEventController)
 
-eventRoute.route('/eventId/:eventId')
-    .get(asyncValidatorController([check('libraryId', 'Please provide a valid eventId.').isUUID()]), getEventByEventIdController)
-    .put(isLoggedInController, asyncValidatorController(checkSchema(eventValidator)),putEventController)
-
-eventRoute.route('/eventId/:eventId')
-    .delete(isLoggedInController, deleteEventController)
-
-eventRoute.route('/eventLibraryId/:eventLibraryId')
-    .post(isLoggedInController, asyncValidatorController(checkSchema(eventValidator)), postEventController)
 
 eventRoute.route('/eventDate/:eventDate')
     .get(getEventByEventDateController)
     .post(isLoggedInController, asyncValidatorController(checkSchema(eventValidator)), postEventController)
 
 eventRoute.route('/eventId/:eventId')
-    .delete(isLoggedInController, deleteEventController)

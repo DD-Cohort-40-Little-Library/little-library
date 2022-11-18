@@ -16,8 +16,7 @@ import {Profile} from "../../utils/models/Profile";
 
 export async function postEventController (request:Request, response: Response): Promise<Response<Status>> {
     try {
-        const {eventLibraryId} = request.params
-        const {eventDate, eventDescription, eventEnd, eventStart, eventTitle, eventType} = request.body
+        const {eventDate, eventDescription, eventEnd, eventStart, eventTitle, eventType, eventLibraryId} = request.body
         const profile:Profile = request.session.profile as Profile
         const eventProfileId: string = profile.profileId as string
         const event: Event = {eventId: null, eventLibraryId, eventProfileId, eventDate, eventDescription, eventEnd, eventStart, eventTitle, eventType}

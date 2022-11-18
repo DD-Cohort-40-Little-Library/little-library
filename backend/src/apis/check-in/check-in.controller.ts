@@ -51,15 +51,14 @@ export async function deleteCheckInController (request: Request, response: Respo
     try {
         const { checkInId } = request.params
         const profile = request.session.profile as Profile
-        // @ts-ignore
         const previousCheckIn: CheckIn|null = await selectCheckInByCheckInId(checkInId)
 
         if (previousCheckIn === null) {
             return response.json({ status: 404, data: null, message: 'CheckIn does not exist'})
         }
 
-        if ( previousCheckIn.checkInId !== checkInId) {
-            return response.json({ status: 404, data: null, message: 'You are not allowed to perform this task!'})
+        if ( previousCheckIn.checkInProfileId !== profile?.profileId) {
+            return response.json({ status: 400, data: null, message: 'You are not allowed to perform this task!'})
         }
 
         const message = await deleteCheckIn(previousCheckIn)
@@ -108,11 +107,10 @@ export async function getCheckInByCheckInLibraryIdController (request: Request, 
 
 export async function postCheckInController (request: Request, response: Response): Promise<Response<Status>> {
     try {
-        const {checkInComment, checkInDate, checkInFollowLibrary, checkInPhotoName,checkInPhotoUrl, checkInReport } = request.body
+        const {checkInComment, checkInDate, checkInFollowLibrary, checkInPhotoName,checkInPhotoUrl, checkInReport, checkInLibraryId } = request.body
 
         const profile: Profile = request.session.profile as Profile
         const checkInProfileId: string = profile.profileId as string
-        const {checkInLibraryId} = request.params
 
         const checkIn: CheckIn = {checkInId: null, checkInLibraryId, checkInProfileId, checkInComment, checkInDate, checkInFollowLibrary, checkInPhotoName, checkInPhotoUrl, checkInReport}
 
