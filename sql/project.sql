@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS check_in (
                                 check_in_report BOOLEAN,
                                 FOREIGN KEY (check_in_library_id) REFERENCES library(library_id) ON DELETE CASCADE,
                                 FOREIGN KEY (check_in_profile_id) REFERENCES profile(profile_id) ON DELETE CASCADE,
-                                PRIMARY KEY (check_in_library_id, check_in_profile_id)
+                                PRIMARY KEY (check_in_id)
 );
 CREATE INDEX ON check_in(check_in_library_id);
 CREATE INDEX ON check_in(check_in_profile_id);

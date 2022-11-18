@@ -4,9 +4,29 @@ import {Profile} from "../../utils/models/Profile";
 import {
     CheckIn, deleteCheckIn,
     insertCheckIn,
-    selectCheckInByCheckInId,
+    selectCheckInByCheckInId, selectCheckInByCheckInLibraryId,
     selectCheckInByCheckInProfileId, updateCheckIn
 } from "../../utils/models/CheckIn";
+
+
+export async function getCheckInByCheckInProfileIdController (request: Request, response: Response, nextFunction: NextFunction):
+    Promise<Response<Status>> {
+    try{
+        const profile = request.session.profile as Profile
+        const checkInProfileId = profile.profileId
+        // @ts-ignore
+        const data = await selectCheckInByCheckInProfileId(checkInProfileId)
+        return response.json({ status: 200, message: null, data })
+    } catch (error) {
+        return response.json({
+            status: 500,
+            message: '',
+            data: null
+        })
+    }
+}
+
+
 
 export async function deleteCheckInController (request: Request, response: Response): Promise<Response<Status>> {
     try {
@@ -46,11 +66,11 @@ Promise<Response<Status>> {
 }
 
 
-export async function getCheckInByCheckInProfileIdController (request: Request, response: Response, nextFunction: NextFunction):
+export async function getCheckInByCheckInLibraryIdController (request: Request, response: Response, nextFunction: NextFunction):
     Promise<Response<Status>> {
     try{
-        const { checkInProfileId } = request.params
-        const data = await selectCheckInByCheckInProfileId(checkInProfileId)
+        const { checkInLibraryId } = request.params
+        const data = await selectCheckInByCheckInLibraryId(checkInLibraryId)
         return response.json({ status: 200, message: null, data })
     } catch (error) {
         return response.json({
@@ -60,6 +80,10 @@ export async function getCheckInByCheckInProfileIdController (request: Request, 
         })
     }
 }
+
+
+
+
 
 
 export async function postCheckInController (request: Request, response: Response): Promise<Response<Status>> {

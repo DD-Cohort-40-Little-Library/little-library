@@ -8,7 +8,7 @@ import {
     deleteCheckInController,
     getCheckInByCheckInIdController,
     getCheckInByCheckInProfileIdController,
-    putCheckInController
+    putCheckInController, getCheckInByCheckInLibraryIdController
 } from "./check-in.controller";
 import {Router} from "express";
 
@@ -26,10 +26,13 @@ checkInRoute.route('/checkInId/:checkInId')
 
 
 
-checkInRoute.route('/checkInProfileId/:checkInProfileId')
+checkInRoute.route('/')
     .get(asyncValidatorController( [check('checkInProfileId', 'Please provide a valid checkInProfileId').isUUID()]), getCheckInByCheckInProfileIdController)
 
 
+
+checkInRoute.route('/checkInLibraryId/:checkInLibraryId')
+    .get(asyncValidatorController( [check('checkInLibraryId', 'Please provide a valid checkInLibraryId').isUUID()]), getCheckInByCheckInLibraryIdController)
 
 // checkInRoute.route('/')
 //     .get(getAllCheckInController)
