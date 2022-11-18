@@ -4,7 +4,7 @@ import {
     getAllEventsOrderByEventDateController, getEventByEventDateController,
     getEventByEventIdController,
     getEventByEventLibraryIdController,
-    // getEventByEventProfileIdController,
+    getAllEventsByEventProfileIdController,
     postEventController,
     putEventController
 } from './event.controller';
@@ -21,8 +21,8 @@ eventRoute.route('/eventLibraryId/:eventLibraryId').get(asyncValidatorController
 ([check('eventLibraryId', 'Please provide a valid eventLibraryId.').isUUID()
 ]), getEventByEventLibraryIdController)
 
-// eventRoute.route('/eventProfileId/:eventProfileId').get(asyncValidatorController([check('eventProfileId', 'Please provide a valid eventProfileId.').isUUID()
-// ]), getEventByEventProfileIdController)
+eventRoute.route('/eventProfileId/:eventProfileId').get(asyncValidatorController([check('eventProfileId', 'Please provide a valid eventProfileId.').isUUID()
+]), getAllEventsByEventProfileIdController)
 
 eventRoute.route('/')
     .get(getAllEventsOrderByEventDateController)

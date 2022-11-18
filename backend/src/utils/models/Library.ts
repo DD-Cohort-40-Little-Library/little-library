@@ -35,6 +35,12 @@ export async function selectAllLibraries(): Promise<Library[]> {
     return <Library[]><unknown>await sql`SELECT library_id,  library_profile_id, library_address, library_description, library_event_opt_in, library_lat, library_lng, library_name, library_specialization, library_type FROM library`
 }
 
+
+export async function selectAllLibrariesOptIn(): Promise<Library[]> {
+    return <Library[]><unknown>await sql`SELECT library_id,  library_profile_id, library_address, library_description, library_event_opt_in, library_lat, library_lng, library_name, library_specialization, library_type FROM library WHERE library_event_opt_in = true`
+}
+
+
 export async function selectLibraryByLibraryId (libraryId: string): Promise<Library | null> {
     const result = <Library[]> await sql `SELECT library_id, library_profile_id, library_address, library_description, library_event_opt_in, library_lat, library_lng, library_name, library_specialization, library_type FROM library WHERE library_id = ${libraryId}`
     return result?.length === 1 ? result[0] : null

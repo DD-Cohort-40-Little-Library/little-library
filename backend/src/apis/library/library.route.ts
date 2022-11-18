@@ -1,7 +1,7 @@
 import {Router} from "express"
 import {
     deleteLibraryController,
-    getAllLibrariesController, getLibraryByLibraryIdAndLibraryProfileIdController,
+    getAllLibrariesController, getAllLibrariesOptInController, getLibraryByLibraryIdAndLibraryProfileIdController,
     getLibraryByLibraryIdController,
     getLibraryByLibraryProfileIdController,
     postLibrary,
@@ -17,6 +17,11 @@ export const libraryRoute = Router()
 libraryRoute.route('/')
     .post(isLoggedInController, asyncValidatorController(checkSchema(libraryValidator)), postLibrary)
     .get(getAllLibrariesController)
+
+
+libraryRoute.route('/libraryEventOptIn')
+    .get(getAllLibrariesOptInController)
+
 
 libraryRoute.route('/:libraryId')
     .get (asyncValidatorController([check('libraryId', 'Please provide a valid library ID').isUUID()

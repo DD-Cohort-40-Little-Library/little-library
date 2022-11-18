@@ -7,7 +7,7 @@ import {
     selectAllLibraries,
     selectLibraryByLibraryId,
     selectLibrariesByLibraryProfileId,
-    updateLibrary, selectLibraryByLibraryIdAndLibraryProfileId, deleteLibrary
+    updateLibrary, selectLibraryByLibraryIdAndLibraryProfileId, deleteLibrary, selectAllLibrariesOptIn
 } from '../../utils/models/Library';
 
 
@@ -26,6 +26,28 @@ export async function getAllLibrariesController (request: Request, response: Res
         })
     }
 }
+
+
+
+export async function getAllLibrariesOptInController (request: Request, response: Response): Promise<Response<Status>> {
+    try {
+        const data = await selectAllLibrariesOptIn()
+        // return the response
+        const status: Status = { status: 200, message: null, data }
+        return response.json(status)
+    } catch (error) {
+        return response.json({
+            status: 500,
+            message: '',
+            data: []
+        })
+    }
+}
+
+
+
+
+
 
 export async function getLibraryByLibraryProfileIdController (request: Request, response: Response, nextFunction: NextFunction): Promise<Response<Status>> {
     try {

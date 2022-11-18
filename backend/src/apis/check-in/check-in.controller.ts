@@ -3,11 +3,31 @@ import {Status} from '../../utils/interfaces/Status';
 import {Profile} from "../../utils/models/Profile";
 import {
     CheckIn, deleteCheckIn,
-    insertCheckIn,
+    insertCheckIn, selectAllCheckInByCheckInProfileId,
     selectCheckInByCheckInId, selectCheckInByCheckInLibraryId,
     selectCheckInByCheckInProfileId, updateCheckIn
 } from "../../utils/models/CheckIn";
+import {selectAllLibrariesOptIn, selectLibrariesByLibraryProfileId} from "../../utils/models/Library";
 
+
+
+export async function getAllCheckInByCheckInProfileIdController (request: Request, response: Response): Promise<Response<Status>> {
+    try {
+        const profile = request.session.profile as Profile
+        const checkInProfileId = profile.profileId
+        // @ts-ignore
+        const data = await selectAllCheckInByCheckInProfileId(checkInProfileId)
+        // return the response
+        const status: Status = { status: 200, message: null, data }
+        return response.json(status)
+    } catch (error) {
+        return response.json({
+            status: 500,
+            message: '',
+            data: []
+        })
+    }
+}
 
 export async function getCheckInByCheckInProfileIdController (request: Request, response: Response, nextFunction: NextFunction):
     Promise<Response<Status>> {
@@ -27,11 +47,11 @@ export async function getCheckInByCheckInProfileIdController (request: Request, 
 }
 
 
-
 export async function deleteCheckInController (request: Request, response: Response): Promise<Response<Status>> {
     try {
         const { checkInId } = request.params
         const profile = request.session.profile as Profile
+        // @ts-ignore
         const previousCheckIn: CheckIn|null = await selectCheckInByCheckInId(checkInId)
 
         if (previousCheckIn === null) {
@@ -119,6 +139,7 @@ export async function putCheckInController (request: Request, response: Response
             checkInPhotoUrl,
             checkInReport
         } = request.body
+        // @ts-ignore
         const previousCheckIn: CheckIn | null = await selectCheckInByCheckInId(checkInId)
 
         if (previousCheckIn === null) {

@@ -8,12 +8,19 @@ import {
     deleteCheckInController,
     getCheckInByCheckInIdController,
     getCheckInByCheckInProfileIdController,
-    putCheckInController, getCheckInByCheckInLibraryIdController
+    putCheckInController, getCheckInByCheckInLibraryIdController, getAllCheckInByCheckInProfileIdController
 } from "./check-in.controller";
 import {Router} from "express";
+import {libraryValidator} from "../library/library.validator";
+import {getAllLibrariesController, postLibrary} from "../library/library.controller";
+import {libraryRoute} from "../library/library.route";
+import {selectAllCheckInByCheckInProfileId} from "../../utils/models/CheckIn";
 
 export const checkInRoute=Router()
 
+checkInRoute.route('/')
+    .post(isLoggedInController, asyncValidatorController(checkSchema(checkInValidator)), postCheckInController)
+    .get(getAllCheckInByCheckInProfileIdController)
 
 
 checkInRoute.route('/checkInLibraryId/:checkInLibraryId')
@@ -33,12 +40,6 @@ checkInRoute.route('/')
 
 checkInRoute.route('/checkInLibraryId/:checkInLibraryId')
     .get(asyncValidatorController( [check('checkInLibraryId', 'Please provide a valid checkInLibraryId').isUUID()]), getCheckInByCheckInLibraryIdController)
-
-// checkInRoute.route('/')
-//     .get(getAllCheckInController)
-//     .post(isLoggedIn, asyncValidatorController(checkSchema((checkInValidator))), postCheckInController)
-
-
 
 
 checkInRoute.route('/checkInId/:checkInId')

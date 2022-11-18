@@ -6,9 +6,9 @@ import {
     selectEventByEventLibraryId,
     updateEvent,
     selectEventByEventId,
-    selectEventByEventIdAndEventProfileId,
+    selectEventByEventProfileId,
     selectEventByEventDate,
-    Event
+    Event, selectAllEventsByEventProfileId
 } from '../../utils/models/Events';
 import {Status} from "../../utils/interfaces/Status";
 import {Profile} from "../../utils/models/Profile";
@@ -60,6 +60,23 @@ export async function getEventByEventIdController (request:Request, response:Res
     }
 }
 
+
+
+export async function getAllEventsByEventProfileIdController (request:Request, response:Response): Promise<Response> {
+    try {
+        const {eventProfileId}=request.params
+        const data = await selectAllEventsByEventProfileId(eventProfileId)
+        return response.json({status:200, message:null, data})
+    } catch (error) {
+        return response.json({
+            status: 500,
+            message: '',
+            data: []
+        })
+    }
+}
+
+
 export async function getEventByEventLibraryIdController (request: Request, response: Response):Promise<Response<Status>> {
     try {
         const {eventLibraryId} = request.params
@@ -77,7 +94,11 @@ export async function getAllEventsOrderByEventDateController (request : Request,
         const data = await selectAllEventsOrderByEventDate()
         return response.json ({status:200, message:null, data})
     } catch (error) {
-        return response.json ({status:500, message: 'Internal server error (3)', data:null})
+        return response.json({
+            status: 500,
+            message: '',
+            data: []
+        })
     }
 }
 
