@@ -35,28 +35,42 @@ function LLibraryDataDownloader() : Promise<any> {
                             profileId: uuid(),
                             profileActivationToken: null,
                             profileAvatarUrl: "http://www.fillmurray.com/150/150",
-                            profileEmail: "mxFakeAccount@fake-acounts.rus",
-                            profileFirstName: "Phil",
+                            profileEmail: "mxFakeAccount+1@fake-acounts.rus",
+                            profileFirstName: "Private",
                             profileHash,
-                            profileLastName: "Murray",
-                            profileName: "MurrayTheLegend"
+                            profileLastName: "Libraries",
+                            profileName: "MurrayTheFirst"
+                        },
+                        {
+                            //A fake profile must be created to own the tweets being imported for the data downloader
+                            const profileHash = await setHash("SecondILikeFakePasswordsWithNoSpaces");
+                            const profile: Profile = {
+                            profileId: uuid(),
+                            profileActivationToken: null,
+                            profileAvatarUrl: "http://www.fillmurray2.com/150/150",
+                            profileEmail: "SecondMxFakeAccount+1@fake-acounts.rus",
+                            profileFirstName: "Public",
+                            profileHash,
+                            profileLastName: "Libraries",
+                            profileName: "MurrayTheSecond"
                         }
                         console.log(await insertProfile(profile))
                         for (let result of results) {
 
-                            const {libraryAddress, libraryDescription, libraryEventOptIn, libraryLat, libraryLng, libraryName, librarySpecialization, libraryType} = result
+                            ****************** IFIFIFIFIFFIFif
                             const library: Library = {
                                 libraryId: null,
                                 libraryProfileId: profile.profileId,
-                                libraryAddress,
-                                libraryDescription,
-                                libraryEventOptIn,
-                                libraryLat,
-                                libraryLng,
-                                libraryName,
-                                librarySpecialization,
-                                libraryType
+                                libraryAddress: result['library_address'],
+                                libraryDescription: result['library_description'],
+                                libraryEventOptIn: result['library_event_opt_in'],
+                                libraryLat: result['library_lat'],
+                                libraryLng: result['library_lng'],
+                                libraryName: result['library_name'],
+                                librarySpecialization: result['library_specialization'],
+                                libraryType: result['library_type']
                             }
+                            console.log(library)
                             console.log(await insertLibrary(library))
                         }
                     } catch (error) {
