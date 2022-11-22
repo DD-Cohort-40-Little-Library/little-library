@@ -4,6 +4,7 @@ import {Library, insertLibrary} from '../models/Library';
 import {setHash} from '../auth.utils';
 import {Profile, insertProfile, } from '../models/Profile';
 import {finished} from 'stream';
+import {getLibraryByLibraryProfileIdController} from "../../apis/library/library.controller";
 const fs = require('fs')
 const csv = require('csv-parser')
 
@@ -57,13 +58,12 @@ function LLibraryDataDownloader() : Promise<any> {
 
                         for (let result of results) {
 
-                            // ****************** IFIFIFIFIFFIFif
                             const {libraryId, libraryProfileId, libraryAddress, libraryDescription, libraryEventOptIn, libraryLat, libraryLng, libraryName, librarySpecialization, libraryType} = result
                                 if (result.libraryType === 'Little Library') {
-                                    const {profileId1} = profile1.profileId
+                                    const profileId1 = profile1.profileId
                                     const littleLibrary: Library = {
                                         libraryId: null,
-                                        libraryProfileId: profileId1,
+                                        libraryProfileId: 'profileId1',
                                         libraryAddress: result['library_address'],
                                         libraryDescription: result['library_description'],
                                         libraryEventOptIn: result['library_event_opt_in'],
@@ -73,12 +73,13 @@ function LLibraryDataDownloader() : Promise<any> {
                                         librarySpecialization: result['library_specialization'],
                                         libraryType: result['library_type']
                                     }
+                                    console.log(await insertLibrary(littleLibrary))
                                 }
                                 else {
                                     const profileId2 = profile2.profileId
                                     const publicLibrary: Library = {
                                         libraryId: null,
-                                        libraryProfileId: profileId2,
+                                        libraryProfileId: 'profileId2',
                                         libraryAddress: result['library_address'],
                                         libraryDescription: result['library_description'],
                                         libraryEventOptIn: result['library_event_opt_in'],
@@ -88,10 +89,9 @@ function LLibraryDataDownloader() : Promise<any> {
                                         librarySpecialization: result['library_specialization'],
                                         libraryType: result['library_type']
                                     }
+                                    console.log(await insertLibrary(publicLibrary))
                                 }
-                            console.log(littleLibrary),
-                            console.log(await insertLibrary(littlelibrary),
-                            console.log(await insertLibrary(publicLibrary))
+                            console.log('TEST101010')
                         }
                     } catch (error) {
                         throw error
