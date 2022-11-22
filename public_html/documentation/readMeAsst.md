@@ -16,6 +16,7 @@ http://147.182.***.**:****/apis/sign-up/
 ### SELECT Activate
 http://147.182.***.**:****/apis/sign-up/activation/da1642354d49039af7490db279cec2eb
 ### INSERT Sign In
+http://143.198.***.**:****/apis/sign-in/
 {"profileEmail" : "JeffHigha@netscape.com",
 "profilePassword" : "*****"}
 ### SELECT Profile By Profile Id
