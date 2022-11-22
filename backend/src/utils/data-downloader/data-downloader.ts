@@ -60,9 +60,10 @@ function LLibraryDataDownloader() : Promise<any> {
                             // ****************** IFIFIFIFIFFIFif
                             const {libraryId, libraryProfileId, libraryAddress, libraryDescription, libraryEventOptIn, libraryLat, libraryLng, libraryName, librarySpecialization, libraryType} = result
                                 if (result.libraryType === 'Little Library') {
-                                    const library: Library = {
+                                    const {profileId1} = profile1.profileId
+                                    const littleLibrary: Library = {
                                         libraryId: null,
-                                        libraryProfileId: result.libraryProfileId,
+                                        libraryProfileId: profileId1,
                                         libraryAddress: result['library_address'],
                                         libraryDescription: result['library_description'],
                                         libraryEventOptIn: result['library_event_opt_in'],
@@ -74,9 +75,10 @@ function LLibraryDataDownloader() : Promise<any> {
                                     }
                                 }
                                 else {
-                                    const library: Library = {
+                                    const profileId2 = profile2.profileId
+                                    const publicLibrary: Library = {
                                         libraryId: null,
-                                        libraryProfileId: profile1.profileId,
+                                        libraryProfileId: profileId2,
                                         libraryAddress: result['library_address'],
                                         libraryDescription: result['library_description'],
                                         libraryEventOptIn: result['library_event_opt_in'],
@@ -87,8 +89,9 @@ function LLibraryDataDownloader() : Promise<any> {
                                         libraryType: result['library_type']
                                     }
                                 }
-                            console.log(library)
-                            console.log(await insertLibrary(library))
+                            console.log(littleLibrary),
+                            console.log(await insertLibrary(littlelibrary),
+                            console.log(await insertLibrary(publicLibrary))
                         }
                     } catch (error) {
                         throw error
