@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS library (
                                 library_id UUID NOT NULL,
                                 library_profile_id UUID NOT NULL,
                                 library_address VARCHAR(258) NOT NULL,
-                                library_description VARCHAR(256),
+                                library_description VARCHAR(512),
                                 library_event_opt_in BOOLEAN NOT NULL DEFAULT false,
                                 library_lat DECIMAL(7,5) NOT NULL ,
                                 library_lng DECIMAL(8,5) NOT NULL ,

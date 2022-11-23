@@ -5,6 +5,7 @@ import {setHash} from '../auth.utils';
 import {Profile, insertProfile, } from '../models/Profile';
 import {finished} from 'stream';
 import {getLibraryByLibraryProfileIdController} from "../../apis/library/library.controller";
+import {UUIDVersion} from "express-validator/src/options";
 const fs = require('fs')
 const csv = require('csv-parser')
 
@@ -33,9 +34,9 @@ function LLibraryDataDownloader() : Promise<any> {
                         //A fake profile must be created to own the libraries being imported for the data downloader
                         const profileHash1 = await setHash("ILikeFakePasswordsWithNoSpaces");
                         const profile1: Profile = {
-                            profileId: uuid(),
+                            profileId: null,
                             profileActivationToken: null,
-                            profileAvatarUrl: "http://www.fillmurray.com/150/150",
+                            profileAvatarUrl: "https://dangerousminds.net/content/uploads/images/throwpillow,36x36,750x1000-bg,f8f8f8.jpg",
                             profileEmail: "mxFakeAccount+1@fake-acounts.rus",
                             profileFirstName: "Private",
                             profileHash: profileHash1,
@@ -44,26 +45,24 @@ function LLibraryDataDownloader() : Promise<any> {
                         }
                         const profileHash2 = await setHash("SecondILikeFakePasswordsWithNoSpaces");
                         const profile2: Profile = {
-                            profileId: uuid(),
+                            profileId: null,
                             profileActivationToken: null,
-                            profileAvatarUrl: "http://www.fillmurray2.com/150/150",
+                            profileAvatarUrl: "https://dangerousminds.net/content/uploads/images/61ubRnaBlwL._SL1000_.jpg",
                             profileEmail: "SecondMxFakeAccount+1@fake-acounts.rus",
                             profileFirstName: "Public",
                             profileHash: profileHash2,
                             profileLastName: "Libraries",
                             profileName: "MurrayTheSecond"
                         }
-                        console.log(await insertProfile(profile1))
-                        console.log(await insertProfile(profile2))
+                        const profileId1 = await insertProfile(profile1)
+                        const profileId2 = await insertProfile(profile2)
 
                         for (let result of results) {
 
-                            const {libraryId, libraryProfileId, libraryAddress, libraryDescription, libraryEventOptIn, libraryLat, libraryLng, libraryName, librarySpecialization, libraryType} = result
                                 if (result.libraryType === 'Little Library') {
-                                    const profileId1 = profile1.profileId
                                     const littleLibrary: Library = {
                                         libraryId: null,
-                                        libraryProfileId: 'profileId1',
+                                        libraryProfileId: profileId1,
                                         libraryAddress: result['library_address'],
                                         libraryDescription: result['library_description'],
                                         libraryEventOptIn: result['library_event_opt_in'],
@@ -76,10 +75,9 @@ function LLibraryDataDownloader() : Promise<any> {
                                     console.log(await insertLibrary(littleLibrary))
                                 }
                                 else {
-                                    const profileId2 = profile2.profileId
                                     const publicLibrary: Library = {
                                         libraryId: null,
-                                        libraryProfileId: 'profileId2',
+                                        libraryProfileId: profileId2,
                                         libraryAddress: result['library_address'],
                                         libraryDescription: result['library_description'],
                                         libraryEventOptIn: result['library_event_opt_in'],
@@ -91,7 +89,6 @@ function LLibraryDataDownloader() : Promise<any> {
                                     }
                                     console.log(await insertLibrary(publicLibrary))
                                 }
-                            console.log('TEST101010')
                         }
                     } catch (error) {
                         throw error

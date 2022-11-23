@@ -1,9 +1,5 @@
 import {sql} from "../database.utils";
 
-import {promises} from "dns";
-import exp from "constants";
-import {Library} from "./Library";
-
 
 
 export interface PartialProfile {
@@ -28,8 +24,9 @@ export interface Profile {
 
 export async function insertProfile(profile:Profile){
     const {profileId, profileActivationToken, profileAvatarUrl, profileEmail, profileFirstName, profileHash, profileLastName, profileName} = profile
-    await sql`INSERT INTO profile(profile_id, profile_activation_token, profile_avatar_url, profile_email, profile_first_name, profile_hash, profile_last_name, profile_name) VALUES (gen_random_uuid(), ${profileActivationToken}, ${profileAvatarUrl}, ${profileEmail}, ${profileFirstName}, ${profileHash}, ${profileLastName}, ${profileName})`
-    return 'Profile successfully created.'
+    const result = await sql`INSERT INTO profile(profile_id, profile_activation_token, profile_avatar_url, profile_email, profile_first_name, profile_hash, profile_last_name, profile_name) VALUES (gen_random_uuid(), ${profileActivationToken}, ${profileAvatarUrl}, ${profileEmail}, ${profileFirstName}, ${profileHash}, ${profileLastName}, ${profileName}) returning profile_id`
+    console.log(result)
+    return result [0].profileId
 }
 
 export async function selectProfileByProfileActivationToken (profileActivationToken: string): Promise<Profile|null> {
