@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import './App.css'
 import { Home } from './Home.jsx'
 import { FourOhFour } from './FourOhFour'
-
+import 'mapbox-gl/dist/mapbox-gl.css'
 
 export function App() {
 	return (
