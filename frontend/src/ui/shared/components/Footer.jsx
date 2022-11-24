@@ -1,6 +1,6 @@
 import React from "react";
 import {Container, Col, Row} from "react-bootstrap";
-import styles from "./navFooter.module.css";
+import styles from "./nav-footer.module.css";
 
 export function Footer() {
     return (
