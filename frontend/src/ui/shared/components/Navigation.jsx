@@ -1,5 +1,5 @@
 import React from "react";
-import {Container, Nav, Navbar, NavDropdown} from "react-bootstrap";
+import {Container, Nav, Navbar, NavDropdown, Button} from "react-bootstrap";
 import {Link} from "react-router-dom";
 import styles from "./nav-footer.module.css";
 //PUT IN OUR LLL LOGO ONCE COMPLETE
@@ -39,8 +39,7 @@ export function Navigation() {
             {/* ***************************** option2, all encompassing modal *************** */}
                    <Nav>
                         <Container>
-                            <button type={"button"} className={"btn btn-primary"} data-target="#signInSignUpModalId" data-toggle="modal">Sign-In</button>
-                            <SignInSignUpModal id="signInSignUpModalId"/>
+                            <SignInSignUpModal id="signInSignUpModal"/>
                         </Container>
                    </Nav>
             </Container>
