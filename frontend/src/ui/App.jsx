@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import './App.css'
 import { Home } from './Home.jsx'
 import { FourOhFour } from './FourOhFour'
+import {EventCreateModal} from "./EventCreateModal";
 
 
 export function App() {
@@ -10,8 +11,9 @@ export function App() {
 		<>
 			<BrowserRouter>
 				<Routes>
-					<Route  path='/' element={<Home />} />
+					<Route path='/' element={<Home />} />
 					<Route path={"*"} element={<FourOhFour />} />
+					<Route path='/event-create-modal'element={<EventCreateModal />} />
 				</Routes>
 			</BrowserRouter>
 		</>
