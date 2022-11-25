@@ -4,8 +4,8 @@ import 'bootstrap/dist/css/bootstrap.css'
 import './App.css'
 import { Home } from './Home.jsx'
 import { FourOhFour } from './FourOhFour'
-import { Navigation } from "./shared/components/Navigation.jsx";
-import { Footer } from "./shared/components/Footer.jsx";
+import { Navigation } from "./shared/components/nav-foot-bar/Navigation.jsx";
+import { Footer } from "./shared/components/nav-foot-bar/Footer.jsx";
 
 
 export function App() {
