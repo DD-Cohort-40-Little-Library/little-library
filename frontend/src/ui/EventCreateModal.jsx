@@ -29,7 +29,7 @@ export function EventCreateModal(){
 					<Form.Control type={"input"} placeholder={"Date of event"} controlId={"eventDate"}/>
 					<Form.Label className={"mt-2"}>Type of Event</Form.Label>
 					<Form.Select aria-label={"event-type"}>
-						<option>Select an event type</option>
+						<option>Select type</option>
 						<option value={'1'}>Story Time - Children's</option>
 						<option value={'2'}>Story Telling - Adult</option>
 						<option value={'3'}>Reading Circle - Family</option>
