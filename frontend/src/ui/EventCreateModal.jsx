@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {Button, Col, Form, Modal, Row} from "react-bootstrap";
+import {Button, Col, FloatingLabel, Form, Modal, Row} from "react-bootstrap";
 
 
 export function EventCreateModal(){
@@ -12,7 +12,12 @@ export function EventCreateModal(){
 		<Button variant={'light'} onClick={handleShow} className={"border border-dark"}>
 			Plan An Event
 		</Button>
-		<Modal show={show} onHide={handleClose}>
+		<Modal
+			show={show}
+			onHide={handleClose}
+			backdrop="static"
+			keyboard={false}
+		>
 			<Form>
 				<Row>
 					<h3 className={"text-center"}>Plan An Event</h3>
@@ -21,7 +26,7 @@ export function EventCreateModal(){
 
 					{/*TODO Do we want a list or open input?*/}
 					<Form.Label>Event Date</Form.Label>
-					<Form.Control type={"input"} placeholder={"Date of event"} />
+					<Form.Control type={"input"} placeholder={"Date of event"} controlId={"eventDate"}/>
 					<Form.Label className={"mt-2"}>Type of Event</Form.Label>
 					<Form.Select aria-label={"event-type"}>
 						<option>Select an event type</option>
@@ -37,12 +42,11 @@ export function EventCreateModal(){
 					</Col>
 					<Col>
 						{/*TODO Is there a date-time picker that we can use?*/}
-						<Form.Group className={"m-3"} controlId={"eventDateStart"}>
-
+						<Form.Group className={"m-3"} >
 							<Form.Label>Event Start Time</Form.Label>
-							<Form.Control type={"input"} placeholder={"Event start time"} />
+							<Form.Control type={"input"} placeholder={"Event start time"} controlId={"eventStart"}/>
 							<Form.Label className={"mt-2"}>Event End Time</Form.Label>
-							<Form.Control type={"input"} placeholder={"Event end time"} />
+							<Form.Control type={"input"} placeholder={"Event end time"} controlId={"eventEnd"}/>
 						</Form.Group>
 					</Col>
 				</Row>
@@ -51,10 +55,20 @@ export function EventCreateModal(){
 					<Form.Control type={"input"} placeholder={"Title of your event"} />
 				</Form.Group>
 				<Form.Group className={"m-3"} controlId={"eventDescription.ControlTextarea"}>
-					<Form.Label className={"mt-2"}>Event Description</Form.Label>
-					<Form.Control type={"text-area"} rows={3} placeholder={"Describe your event (256 characters max)"} />
+					<FloatingLabel controlId="floatingTextarea" label="Describe your event (256 characters max)">
+						<Form.Control
+							as="textarea"
+							style={{ height: '100px' }}
+						/>
+					</FloatingLabel>
 				</Form.Group>
 			</Form>
+			<Modal.Footer>
+				<Button variant="secondary" onClick={handleClose}>
+					Close
+				</Button>
+				<Button type={'submit'} variant="light">Submit</Button>
+			</Modal.Footer>
 		</Modal>
 	</>
 	)
