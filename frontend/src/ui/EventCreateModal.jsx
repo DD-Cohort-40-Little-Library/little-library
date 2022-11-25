@@ -26,7 +26,7 @@ export function EventCreateModal(){
 
 					{/*TODO Do we want a list or open input?*/}
 					<Form.Label>Event Date</Form.Label>
-					<Form.Control type={"input"} placeholder={"Date of event"} controlId={"eventDate"}/>
+					<Form.Control type={"date"} placeholder={"Date of event"} controlId={"eventDate"}/>
 					<Form.Label className={"mt-2"}>Type of Event</Form.Label>
 					<Form.Select aria-label={"event-type"}>
 						<option>Select type</option>
@@ -44,9 +44,9 @@ export function EventCreateModal(){
 						{/*TODO Is there a date-time picker that we can use?*/}
 						<Form.Group className={"m-3"} >
 							<Form.Label>Event Start Time</Form.Label>
-							<Form.Control type={"input"} placeholder={"Event start time"} controlId={"eventStart"}/>
+							<Form.Control type={"time"} placeholder={"Event start time"} controlId={"eventStart"}/>
 							<Form.Label className={"mt-2"}>Event End Time</Form.Label>
-							<Form.Control type={"input"} placeholder={"Event end time"} controlId={"eventEnd"}/>
+							<Form.Control type={"time"} placeholder={"Event end time"} controlId={"eventEnd"}/>
 						</Form.Group>
 					</Col>
 				</Row>
