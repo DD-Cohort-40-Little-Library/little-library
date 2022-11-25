@@ -1,0 +1,11 @@
+.mapLibraryPinModalColor {
+    background-color: aqua;
+    text-align: center;
+    width: border-box;
+}
+
+.mapLibraryPinModalText {
+    font-family: Papyrus;
+    color: red;
+}
+
