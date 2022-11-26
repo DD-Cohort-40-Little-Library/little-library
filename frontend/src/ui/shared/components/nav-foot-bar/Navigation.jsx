@@ -39,6 +39,7 @@ export function Navigation() {
             {/* ***************************** option2, all encompassing modal *************** */}
                    <Nav>
                         <Container>
+                            <button type={"submit"}>RENDER MY ACCOUNT</button>
                             <SignInSignUpModal id="signInSignUpModal"/>
                         </Container>
                    </Nav>
