@@ -9,8 +9,8 @@ export function EventUpdateModal(){
 
 	return(
 		<>
-			<Button variant={'light'} onClick={handleShow} className={"border border-dark"}>
-				Update Your Event
+			<Button variant={'light'} onClick={handleShow} className={"border border-dark" } size={"sm"}>
+				Update
 			</Button>
 			<Modal
 				show={show}
