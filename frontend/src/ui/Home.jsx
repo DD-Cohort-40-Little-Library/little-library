@@ -1,5 +1,7 @@
 import React from "react"
 import {Col, Container, Form, Row, Stack} from "react-bootstrap";
+import {LibraryMap} from "./LibraryMap";
+
 
 export function Home() {
 	return (
@@ -18,7 +20,7 @@ export function Home() {
 						</Stack>
 					</Col>
 					<Col id={"map"} className={"border border-warning col-md-7"}>
-						<h2>Map</h2>
+						<LibraryMap/>
 					</Col>
 					<Col id={"filters"} className={"col-md-2"}>
 						<h2>Filters</h2>

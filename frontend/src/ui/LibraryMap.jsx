@@ -15,7 +15,7 @@ export function LibraryMap (){
 	// console.log(import.meta.env.VITE_MAP_ACCESS_TOKEN)
 	return (
 		<>
-			<h1>Map</h1>
+			<h1>Map Test</h1>
 			<Container className={'justify-content-center'} fluid={true}>
 				<Map initialViewState={{
 					latitude: 35.18,
@@ -23,12 +23,12 @@ export function LibraryMap (){
 					zoom: 9
 				}}
 				            mapboxAccessToken={import.meta.env.VITE_MAPBOX_ACCESS_TOKEN}
-				            style={{width: 600, height: 400}}
+				            style={{width: 100, height: 100}}
 				            mapStyle='mapbox://styles/mapbox/satellite-streets-v12'
 				>
 					{points.map((point, index) => <MapPin lat={point.lat} lng={point.lng}
 						index={index} key={index} />)}
-			</Map>
+				</Map>
 			</Container>
 		</>
 	)
