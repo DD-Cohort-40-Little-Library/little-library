@@ -15,6 +15,7 @@ import {ProfileUpdate} from "./ProfileUpdate.jsx";
 import {LibraryCreate} from "./LibraryCreate";
 import {LibraryUpdate} from "./LibraryUpdate";
 import {CheckIn} from "./CheckIn.jsx";
+import {AboutUs} from "./AboutUs.jsx";
 
 
 export function App() {
@@ -33,6 +34,7 @@ export function App() {
 					<Route path={"/library-create"} element={<LibraryCreate/>}/>
 					<Route path={"/library-update"} element={<LibraryUpdate/>}/>
 					<Route path='/check-in' element={<CheckIn/>} />
+					<Route path='/about-us' element={<AboutUs/>} />
 				</Routes>
 				<Footer/>
 			</BrowserRouter>
