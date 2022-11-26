@@ -1,5 +1,7 @@
 import {Marker} from "react-map-gl";
 
+
+// TODO add mapPinModal to Pin and change Pin to our icon
 export function MapPin(props){
 	const {lat, lng, index} = props
 

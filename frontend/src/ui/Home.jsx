@@ -3,7 +3,7 @@ import {Col, Container, Form, Row, Stack} from "react-bootstrap";
 import {LibraryMap} from "./LibraryMap";
 import {EventShortListing} from "./EventShortListing.jsx";
 import {EventCreateModal} from "./EventCreateModal";
-
+import {MapLibraryPinModal} from "./shared/components/map-library-pin-modal/MapLibraryPinModal";
 
 export function Home() {
 	return (
