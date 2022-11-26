@@ -1,6 +1,7 @@
 import React from "react"
 import {Col, Container, Form, Row, Stack} from "react-bootstrap";
 import {LibraryMap} from "./LibraryMap";
+import {EventShortListing} from "./EventShortListing.jsx";
 
 
 export function Home() {
@@ -11,7 +12,7 @@ export function Home() {
 					<Col id={"events-column"} className={"border border-dark col-md-3"}>
 						<h2>Events</h2>
 						<Stack gap={3}>
-							<div className="bg-light border">First event</div>
+							<div className="bg-light border"><EventShortListing/></div>
 							<div className="bg-light border">Second event</div>
 							<div className="bg-light border">Third event</div>
 							<div className="bg-light border">Fourth event</div>
