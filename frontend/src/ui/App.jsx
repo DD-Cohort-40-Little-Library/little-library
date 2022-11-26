@@ -9,6 +9,8 @@ import { Footer } from "./shared/components/nav-foot-bar/Footer.jsx";
 import 'mapbox-gl/dist/mapbox-gl.css'
 import {EventCreateModal} from "./EventCreateModal";
 import {EventUpdateModal} from "./EventUpdateModal.jsx";
+import {ProfileRegistration} from './ProfileRegistration.jsx';
+
 
 export function App() {
 	return (
@@ -20,6 +22,7 @@ export function App() {
 					<Route path={"*"} element={<FourOhFour />} />
 					<Route path='/event-create-modal'element={<EventCreateModal />} />
 					<Route path='/event-update-modal'element={<EventUpdateModal />} />
+					<Route path='/profile-registration' element={<ProfileRegistration />} />
 				</Routes>
 				<Footer/>
 			</BrowserRouter>

@@ -48,6 +48,7 @@ export function SignInSignUpModal() {
                                 <div>
                                     <h4 className={"pt-3"}>Sign Up</h4>
                                 </div>
+                                {/* TODO take out entry fields and just link page */}
                                 <Modal.Body>
                                     <Form>
                                         <Row>
