@@ -12,6 +12,8 @@ import {EventUpdateModal} from "./EventUpdateModal.jsx";
 import {ProfileRegistration} from './ProfileRegistration.jsx';
 import {ProfileLanding} from "./ProfileLanding.jsx";
 import {ProfileUpdate} from "./ProfileUpdate.jsx";
+import {LibraryCreate} from "./LibraryCreate";
+import {LibraryUpdate} from "./LibraryUpdate";
 
 
 export function App() {
@@ -27,6 +29,8 @@ export function App() {
 					<Route path='/profile-registration' element={<ProfileRegistration />} />
 					<Route path='/profile-landing' element={<ProfileLanding />} />
 					<Route path='/profile-update' element={<ProfileUpdate />} />
+					<Route path={"/library-create"} element={<LibraryCreate/>}/>
+					<Route path={"/library-update"} element={<LibraryUpdate/>}/>
 				</Routes>
 				<Footer/>
 			</BrowserRouter>
