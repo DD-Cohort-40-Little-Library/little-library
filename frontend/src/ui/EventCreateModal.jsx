@@ -26,7 +26,7 @@ export function EventCreateModal(){
 
 					{/*TODO Do we want a list or open input?*/}
 					<Form.Label>Event Date</Form.Label>
-					<Form.Control type={"date"} placeholder={"Date of event"} controlId={"eventDate"}/>
+					<Form.Control type={"date"} placeholder={"Date of event"} id={"eventDate"}/>
 					<Form.Label className={"mt-2"}>Type of Event</Form.Label>
 					<Form.Select aria-label={"event-type"}>
 						<option>Select type</option>
@@ -36,7 +36,8 @@ export function EventCreateModal(){
 						<option value={'4'}>Reading Circle - Children</option>
 						<option value={'5'}>Reading Circle - Adult</option>
 						<option value={'6'}>Speaker</option>
-						<option value={'7'}>Other</option>
+						<option value={'7'}>Book Swap</option>
+						<option value={'8'}>Other</option>
 					</Form.Select>
 				</Form.Group>
 					</Col>
@@ -44,18 +45,18 @@ export function EventCreateModal(){
 						{/*TODO Is there a date-time picker that we can use?*/}
 						<Form.Group className={"m-3"} >
 							<Form.Label>Event Start Time</Form.Label>
-							<Form.Control type={"time"} placeholder={"Event start time"} controlId={"eventStart"}/>
+							<Form.Control type={"time"} placeholder={"Event start time"} id={"eventStart"}/>
 							<Form.Label className={"mt-2"}>Event End Time</Form.Label>
-							<Form.Control type={"time"} placeholder={"Event end time"} controlId={"eventEnd"}/>
+							<Form.Control type={"time"} placeholder={"Event end time"} id={"eventEnd"}/>
 						</Form.Group>
 					</Col>
 				</Row>
-				<Form.Group className={"m-3"} controlId={"eventTitle"}>
+				<Form.Group className={"m-3"} id={"eventTitle"}>
 					<Form.Label>Event Title</Form.Label>
 					<Form.Control type={"input"} placeholder={"Title of your event"} />
 				</Form.Group>
-				<Form.Group className={"m-3"} controlId={"eventDescription.ControlTextarea"}>
-					<FloatingLabel controlId="floatingTextarea" label="Describe your event (256 characters max)">
+				<Form.Group className={"m-3"} id={"eventDescription.ControlTextarea"}>
+					<FloatingLabel id="floatingTextarea" label="Describe your event (256 characters max)">
 						<Form.Control
 							as="textarea"
 							style={{ height: '100px' }}
@@ -64,10 +65,10 @@ export function EventCreateModal(){
 				</Form.Group>
 			</Form>
 			<Modal.Footer>
-				<Button variant="secondary" onClick={handleClose}>
+				<Button variant="light" onClick={handleClose}>
 					Close
 				</Button>
-				<Button type={'submit'} variant="light">Submit</Button>
+				<Button type={'submit'} variant="secondary">Submit</Button>
 			</Modal.Footer>
 		</Modal>
 	</>
