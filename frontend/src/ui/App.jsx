@@ -14,6 +14,7 @@ import {ProfileLanding} from "./ProfileLanding.jsx";
 import {ProfileUpdate} from "./ProfileUpdate.jsx";
 import {LibraryCreate} from "./LibraryCreate";
 import {LibraryUpdate} from "./LibraryUpdate";
+import {CheckIn} from "./CheckIn.jsx";
 
 
 export function App() {
@@ -31,6 +32,7 @@ export function App() {
 					<Route path='/profile-update' element={<ProfileUpdate />} />
 					<Route path={"/library-create"} element={<LibraryCreate/>}/>
 					<Route path={"/library-update"} element={<LibraryUpdate/>}/>
+					<Route  path='/check-in' element={<CheckIn/>} />
 				</Routes>
 				<Footer/>
 			</BrowserRouter>

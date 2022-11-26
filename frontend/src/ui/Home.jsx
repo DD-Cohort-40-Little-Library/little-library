@@ -4,6 +4,7 @@ import {LibraryMap} from "./LibraryMap";
 import {EventShortListing} from "./EventShortListing.jsx";
 import {EventCreateModal} from "./EventCreateModal";
 import {MapLibraryPinModal} from "./shared/components/map-library-pin-modal/MapLibraryPinModal";
+import {LibraryDetails} from "./LibraryDetails";
 
 export function Home() {
 	return (
