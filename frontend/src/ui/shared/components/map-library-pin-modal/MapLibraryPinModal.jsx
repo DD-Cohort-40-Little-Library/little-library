@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {Button, Col, Container, Form, FormLabel, Modal, Row} from 'react-bootstrap';
 import styles from "./map-library-pin-modal.module.css";
-import linkedin from "../../uiSharedImages/linkedin-icon-classic-footer.webp";
+import linkedin from "../../../../../images/uiSharedImages/linkedin-icon-classic-footer.webp";
 
 export function MapLibraryPinModal() {
 

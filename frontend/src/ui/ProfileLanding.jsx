@@ -1,5 +1,13 @@
 import React from "react";
 import {Col, Container, Row, Form, Image, Button, Tabs, Tab, FormText} from "react-bootstrap";
+import {ProfileUpdate} from "./ProfileUpdate";
+import {EventListing} from "./EventListing";
+import {CheckInDisplay} from "./CheckInDisplay";
+import {LibraryDetails} from "./LibraryDetails";
+import {BioBlock} from "./BioBlock";
+import {Link} from "react-router-dom";
+import {LibraryDetailBlock} from "./LibraryDetailBlock.jsx"
+import {EventCreateModal} from "./EventCreateModal";
 
 export const ProfileLanding = () => {
     return (
@@ -8,12 +16,13 @@ export const ProfileLanding = () => {
             <Container>
                 <Row className={"gx-md-3 p-3"}>
                     <Col id={"user registration"} md={4} className={"text-center"} >
-                        <h3>User Registration</h3>
-                        <Form className={"border border-dark px-3"}>
-                            <Form.Group className="mb-3" controlId="formFirstName">
-                                <Form.Label>First Name: </Form.Label>
-                                <Form.Text> First name from profile</Form.Text>
-                            </Form.Group>
+                        <h3>User Information</h3>
+                        {/*change from form to div*/}
+                        <div className={"border border-dark px-3"}>
+                            <div className="mb-3" controlId="formFirstName">
+                                <div>First Name: </div>
+                                <div> First name from profile</div>
+                            </div>
 
                             <Form.Group className="mb-3" controlId="formLastName">
                                 <Form.Label>Last Name: </Form.Label>
@@ -29,9 +38,11 @@ export const ProfileLanding = () => {
                                 <Form.Label>User Name: </Form.Label>
                                 <Form.Text> User name from profile</Form.Text>
                             </Form.Group>
-                        </Form>
+                        </div>
 
-                        <Button type={"submit"} variant={"success"} className={"m-5"}>Update Profile</Button>
+                        <Link to={"/profile-update"} className={"btn-primary"}> <Button> Update Profile</Button></Link>
+                        <Link to={"/library-create"} className={"btn-primary"}> <Button> Add a Library</Button></Link>
+                        <EventCreateModal />
 
                     </Col>
                     <Col id={"selected avatar"} md={3} className={"text-center"} >
@@ -54,6 +65,7 @@ export const ProfileLanding = () => {
                         <Container>
                             <Row>
                                 <p>TEST 1</p>
+                                <EventListing />
                             </Row>
                         </Container>
                     </Tab>
@@ -61,6 +73,7 @@ export const ProfileLanding = () => {
                         <Container>
                             <Row>
                                 <p>TEST 2</p>
+                                <CheckInDisplay />
                             </Row>
                         </Container>
                     </Tab>
@@ -68,6 +81,7 @@ export const ProfileLanding = () => {
                         <Container>
                             <Row>
                                 <p>TEST 3</p>
+                                <LibraryDetailBlock />
                             </Row>
                         </Container>
                     </Tab>

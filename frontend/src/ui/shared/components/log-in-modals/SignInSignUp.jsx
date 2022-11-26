@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import {Button, Col, Container, Form, FormLabel, Modal, Row} from 'react-bootstrap';
 import styles from "./sign-in-sign-up.module.css";
-import googleLogo from "../../uiSharedImages/google-logo-2.webp"
+import googleLogo from "../../../../../images/uiSharedImages/google-logo-2.webp"
+import {Link} from "react-router-dom";
 
 export function SignInSignUpModal() {
     const [show, setShow] = useState(false);
@@ -41,39 +42,16 @@ export function SignInSignUpModal() {
                                         <a className={"text-decoration-none"} href={'/'}>Forgot Password</a>
                                     </div>
                                 </Col>
-                                <p className={"mt-3"}>&mdash; Or Sign In With &mdash;</p>
-                                <a href={"#"} className={"rounded-2"}><img src={googleLogo} className={"img-fluid"}></img></a>
-                            </Col>
-                            <Col>
-                                <div>
-                                    <h4 className={"pt-3"}>Sign Up</h4>
-                                </div>
-                                {/* TODO take out entry fields and just link page */}
-                                <Modal.Body>
-                                    <Form>
-                                        <Row>
-                                            <input type={"text"} className={"form-control my-1"} placeholder={"First Name"}/>
-                                        </Row>
-                                        <Row>
-                                            <input type={"text"} className={"form-control my-1"} placeholder={"Last Name"}/>
-                                        </Row>
-                                        <Row>
-                                            <input type={"username"} className={"form-control my-1"} placeholder={"Profile Name"}/>
-                                        </Row>
-                                        <Row>
-                                            <input type={"email"} className={"form-control my-1"} placeholder={"Profile Email"}/>
-                                        </Row>
-                                        <Row>
-                                            <input type={"password"} className={"form-control my-1"} placeholder={"Password"}/>
-                                        </Row>
-                                        <Row>
-                                            <input type={"password"} className={"form-control my-1"} placeholder={"Confirm Password"}/>
-                                        </Row>
-                                        <div className={""}>
-                                            <Button type={"submit"} className={"btn-primary btn rounded-2"}>Submit</Button>
-                                        </div>
-                                    </Form>
-                                </Modal.Body>
+                                <Row>
+                                    <Col>
+                                        <p className={"mt-3"}>&mdash; Sign In With &mdash;</p>
+                                        <a href={"#"} className={"rounded-2"}><img src={googleLogo} className={"img-fluid"}></img></a>
+                                    </Col>
+                                    <Col>
+                                        <p className={"mt-3"}>&mdash; If Are You New &mdash;</p>
+                                        <Link to={"/profile-registration"} className={"btn-primary"}> <Button> Create Account</Button></Link>
+                                    </Col>
+                                </Row>
                             </Col>
                         </Row>
                     </Container>

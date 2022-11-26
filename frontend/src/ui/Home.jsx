@@ -1,10 +1,14 @@
 import React from "react"
-import {Col, Container, Form, Row, Stack} from "react-bootstrap";
+import {Button, Col, Container, Form, Row, Stack} from "react-bootstrap";
 import {LibraryMap} from "./LibraryMap";
 import {EventShortListing} from "./EventShortListing.jsx";
 import {EventCreateModal} from "./EventCreateModal";
 import {MapLibraryPinModal} from "./shared/components/map-library-pin-modal/MapLibraryPinModal";
 import {LibraryDetails} from "./LibraryDetails";
+import {Link} from "react-router-dom";
+import {CheckInDisplay} from "./CheckInDisplay";
+import {CheckInModal} from "./CheckInModal.jsx";
+import {CheckInForm} from "./CheckInForm";
 
 export function Home() {
 	return (
@@ -42,6 +46,7 @@ export function Home() {
 								<Form.Check type="radio" label="Lil Library Specialization" />
 							</Form.Group>
 						</Form>
+						<Link to={"/library-create"} className={"btn-primary"}> <Button> Add Library</Button></Link>
 					</Col>
 				</Row>
 			</Container>
