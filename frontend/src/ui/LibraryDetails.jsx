@@ -1,11 +1,14 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import React from "react";
-import {Col, Container, Image, Row, Stack} from "react-bootstrap";
+import {Col, Container, Image, Row, Stack, Tab, Tabs} from "react-bootstrap";
+
+
 
 export function LibraryDetails() {
     return (
-        <Container style={{paddingBlock: '2rem'}}>
+        <>
+        <div style={{paddingBlock: '2rem'}}>
         <Card className="text-center">
             <Card.Header>Library Location Details and Type</Card.Header>
             <Card.Body>
@@ -26,7 +29,30 @@ export function LibraryDetails() {
             </Card.Body>
             <Card.Footer className="text-muted">Next Event in 3 Days</Card.Footer>
         </Card>
-        </Container>
+
+        <Tabs
+            defaultActiveKey="profile"
+            id="library-details-tabs"
+            className="mb-3"
+        >
+            <Tab eventKey="events" title="Events">
+                <Container>
+                    <Row>
+                        <p>TEST 1</p>
+                    </Row>
+                </Container>
+            </Tab>
+            <Tab eventKey="check-ins" title="Check-Ins">
+                <Container>
+                    <Row>
+                        <p>TEST 2</p>
+                    </Row>
+                </Container>
+            </Tab>
+        </Tabs>
+        </div>
+        </>
     );
-}
+    }
+
 
