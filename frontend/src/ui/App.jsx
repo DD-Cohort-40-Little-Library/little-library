@@ -10,6 +10,7 @@ import 'mapbox-gl/dist/mapbox-gl.css'
 import {EventCreateModal} from "./EventCreateModal";
 import {EventUpdateModal} from "./EventUpdateModal.jsx";
 import {ProfileRegistration} from './ProfileRegistration.jsx';
+import {ProfileLanding} from "./ProfileLanding.jsx";
 
 
 export function App() {
@@ -23,6 +24,7 @@ export function App() {
 					<Route path='/event-create-modal'element={<EventCreateModal />} />
 					<Route path='/event-update-modal'element={<EventUpdateModal />} />
 					<Route path='/profile-registration' element={<ProfileRegistration />} />
+					<Route path='/profile-landing' element={<ProfileLanding />} />
 				</Routes>
 				<Footer/>
 			</BrowserRouter>
