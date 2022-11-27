@@ -5,7 +5,7 @@ export const LibraryCreate = () => {
 	return(
 		<>
 			<Form>
-			<div fluid="true">
+			<div>
 				<div className={"text-center"}>
 					<h1>Register Your Library</h1>
 				</div>
