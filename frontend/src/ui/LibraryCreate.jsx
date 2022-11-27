@@ -2,13 +2,9 @@ import React, {useState} from 'react'
 import {Button, Card, Col, Figure, Form, Row} from "react-bootstrap";
 
 export const LibraryCreate = () => {
-	const Specialization = () => {
-		const [item, setItem] = useState({kindOfSpecialization: "", another: "another"})
-
-
-	}
 	return(
 		<>
+			<Form>
 			<div fluid="true">
 				<div className={"text-center"}>
 					<h1>Register Your Library</h1>
@@ -16,18 +12,20 @@ export const LibraryCreate = () => {
 
 				{/*Row 1 with User image and upload image*/}
 				<Row className={"mx-0"}>
-					<Col md={6} className={"m-2 text-center"}>
+					<Col md={5} className={"m-2 text-center"}>
 						<Figure fluid="true">
 							<Figure.Image
-
 								alt={"placeholder kitten"}
-								src={"http://placekitten.com/200/200"}
+								src={"http://placekitten.com/210/210"}
 								roundedCircle={true}
 								/>
 							<Figure.Caption className={"text-center"}>userName</Figure.Caption>
 						</Figure>
+						<Card>
+
+						</Card>
 					</Col>
-					<Col md={6} className={"m-2 text-center"}>
+					<Col md={5} className={"m-2 text-center"}>
 						<Figure fluid="true">
 							<Figure.Image
 
@@ -36,9 +34,13 @@ export const LibraryCreate = () => {
 							/>
 							<Figure.Caption className={"text-center"}><Button size="sm" variant={"outline-secondary"} >Upload</Button></Figure.Caption>
 						</Figure>
+						<Card>
+
+						</Card>
 					</Col>
 				</Row>
 			</div>
+			</Form>
 		</>
 	)
 }
