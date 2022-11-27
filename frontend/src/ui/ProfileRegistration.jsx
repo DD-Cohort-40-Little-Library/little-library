@@ -2,15 +2,15 @@ import React from "react";
 import {Button, Form, Col, Container, Image, Row} from "react-bootstrap";
 
 
-export const ProfileUpdate = () => {
+export const ProfileRegistration = () => {
     return (
         <>
-            <h1>Update Profile Page</h1>
+            <h1>Profile Registration</h1>
             <Container>
                 <Row className={"gx-md-3 p-3"}>
-                    <Col id={"update profile"} md={4} className={"text-start"} >
-                        <h3>Account Update</h3>
-                        <Form className={"border border-dark px-3"}>
+                    <Col id={"user registration"} md={4} className={"text-center"} >
+                        <h3>User Registration</h3>
+                        <Form className={"border border-dark"}>
                             <Form.Group className="mb-3" controlId="formFirstName">
                                 <Form.Label>First Name</Form.Label>
                                 <Form.Control type="text" placeholder="Enter First Name" />
@@ -46,9 +46,8 @@ export const ProfileUpdate = () => {
                         </Form>
                     </Col>
                     <Col id={"selected avatar"} md={3} className={"text-center"} >
-                        <Image src={'http://placekitten.com/400/400'} fluid={true} alt={'selected avatar'} className={"rounded-circle mt-5"} ></Image>
-                        <Button className={"m-4"}>Upload Photo</Button>
-                        <Button className={"m-5"} variant={"warning"}>Close Account</Button>
+                        <h3>Selected Avatar</h3>
+                        <Image src={'http://placekitten.com/400/400'} fluid={true} alt={'selected avatar'} ></Image>
                     </Col>
                     <Col id={"user avatars"} md={5} className={"text-center"}>
                         <h3>User Avatars</h3>
