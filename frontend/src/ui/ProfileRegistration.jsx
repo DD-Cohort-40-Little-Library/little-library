@@ -47,7 +47,7 @@ export const ProfileRegistration = () => {
                     </Col>
                     <Col id={"selected avatar"} md={3} className={"text-center"} >
                         <h3>Selected Avatar</h3>
-                        <Image src={'http://placekitten.com/400/400'} fluid={true} alt={'selected avatar'} ></Image>
+                        <Image src={'http://placekitten.com/400/400'} fluid={true} className={"rounded-circle"} alt={'selected avatar'} ></Image>
                     </Col>
                     <Col id={"user avatars"} md={5} className={"text-center"}>
                         <h3>User Avatars</h3>
