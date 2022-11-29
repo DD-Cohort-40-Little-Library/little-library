@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS check_in (
                                 check_in_date TIMESTAMPTZ NOT NULL,
                                 check_in_follow_library BOOLEAN,
                                 check_in_photo_name VARCHAR(128),
-                                check_in_Photo_url VARCHAR(256),
+                                check_in_photo_url VARCHAR(256),
                                 check_in_report BOOLEAN,
                                 FOREIGN KEY (check_in_library_id) REFERENCES library(library_id) ON DELETE CASCADE,
                                 FOREIGN KEY (check_in_profile_id) REFERENCES profile(profile_id) ON DELETE CASCADE,
