@@ -2,8 +2,8 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import React from "react";
 import {Col, Container, Image, Row, Stack, Tab, Tabs} from "react-bootstrap";
-import {EventListing} from "./EventListing";
-import {CheckInDisplay} from "./CheckInDisplay";
+import {EventListing} from "../shared/components/EventListing.jsx";
+import {CheckInDisplay} from "../shared/components/CheckInDisplay.jsx";
 
 
 

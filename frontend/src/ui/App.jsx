@@ -2,21 +2,21 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.css'
 import './App.css'
-import { Home } from './Home.jsx'
+import { Home } from './home/Home.jsx'
 import { FourOhFour } from './FourOhFour'
 import { Navigation } from "./shared/components/nav-foot-bar/Navigation.jsx";
 import { Footer } from "./shared/components/nav-foot-bar/Footer.jsx";
 import 'mapbox-gl/dist/mapbox-gl.css'
-import {EventCreateModal} from "./EventCreateModal";
-import {EventUpdateModal} from "./EventUpdateModal.jsx";
+import {EventCreateModal} from "./shared/components/EventCreateModal.jsx";
+import {EventUpdateModal} from "./profile-landing/EventUpdateModal.jsx";
 import {ProfileRegistration} from './ProfileRegistration.jsx';
-import {ProfileLanding} from "./ProfileLanding.jsx";
-import {ProfileUpdate} from "./ProfileUpdate.jsx";
+import {ProfileLanding} from "./profile-landing/ProfileLanding.jsx";
+import {ProfileUpdate} from "./profile-landing/ProfileUpdate.jsx";
 import {LibraryCreate} from "./LibraryCreate";
-import {LibraryUpdate} from "./LibraryUpdate";
+import {LibraryUpdate} from "./profile-landing/LibraryUpdate.jsx";
 import {CheckIn} from "./CheckIn.jsx";
 import {AboutUs} from "./AboutUs.jsx";
-import {LibraryDetails} from "./LibraryDetails.jsx";
+import {LibraryDetails} from "./library-details/LibraryDetails.jsx";
 import {Provider} from "react-redux";
 
 export function App({store}) {

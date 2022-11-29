@@ -1,14 +1,14 @@
 import React from "react"
 import {Button, Col, Container, Form, Row, Stack} from "react-bootstrap";
-import {LibraryMap} from "./LibraryMap";
+import {LibraryMap} from "./LibraryMap.jsx";
 import {EventShortListing} from "./EventShortListing.jsx";
-import {EventCreateModal} from "./EventCreateModal";
-import {MapLibraryPinModal} from "./shared/components/map-library-pin-modal/MapLibraryPinModal";
-import {LibraryDetails} from "./LibraryDetails";
+import {EventCreateModal} from "../shared/components/EventCreateModal.jsx";
+import {MapLibraryPinModal} from "../shared/components/map-library-pin-modal/MapLibraryPinModal.jsx";
+import {LibraryDetails} from "../library-details/LibraryDetails.jsx";
 import {Link} from "react-router-dom";
-import {CheckInDisplay} from "./CheckInDisplay";
-import {CheckInModal} from "./CheckInModal.jsx";
-import {CheckInForm} from "./CheckInForm";
+import {CheckInDisplay} from "../shared/components/CheckInDisplay.jsx";
+import {CheckInModal} from "../library-details/CheckInModal.jsx";
+import {CheckInForm} from "../shared/components/CheckInForm.jsx";
 
 export function Home() {
 	return (

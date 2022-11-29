@@ -1,6 +1,6 @@
 import React from 'react'
 import {Button, Col, Container, Row} from "react-bootstrap";
-import {EventUpdateModal} from "./EventUpdateModal";
+import {EventUpdateModal} from "./EventUpdateModal.jsx";
 
 export const EventOwnerListing = () => {
 	return(

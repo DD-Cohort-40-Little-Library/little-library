@@ -1,6 +1,6 @@
 import {Col, Image, Row} from "react-bootstrap";
 import React from "react";
-import {LibraryDetails} from "./LibraryDetails";
+import {LibraryDetails} from "../library-details/LibraryDetails.jsx";
 
 
 export function LibraryDetailBlock() {

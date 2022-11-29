@@ -1,13 +1,13 @@
 import React from "react";
 import {Col, Container, Row, Form, Image, Button, Tabs, Tab, FormText} from "react-bootstrap";
-import {ProfileUpdate} from "./ProfileUpdate";
-import {EventListing} from "./EventListing";
-import {CheckInDisplay} from "./CheckInDisplay";
-import {LibraryDetails} from "./LibraryDetails";
-import {BioBlock} from "./BioBlock";
+import {ProfileUpdate} from "./ProfileUpdate.jsx";
+import {EventListing} from "../shared/components/EventListing.jsx";
+import {CheckInDisplay} from "../shared/components/CheckInDisplay.jsx";
+import {LibraryDetails} from "../library-details/LibraryDetails.jsx";
+import {BioBlock} from "../BioBlock.jsx";
 import {Link} from "react-router-dom";
 import {LibraryDetailBlock} from "./LibraryDetailBlock.jsx"
-import {EventCreateModal} from "./EventCreateModal";
+import {EventCreateModal} from "../shared/components/EventCreateModal.jsx";
 
 export const ProfileLanding = () => {
     return (

@@ -3,7 +3,7 @@ import {MapPin} from "./MapPin.jsx";
 import {Container} from "react-bootstrap";
 import Map from "react-map-gl";
 import {useDispatch, useSelector} from "react-redux";
-import {fetchAllLibraries} from "../store/libraries.js";
+import {fetchAllLibraries} from "../../store/libraries.js";
 
 export function LibraryMap (){
 	//TODO: figure out how to feed the lat/lng for all libraries
