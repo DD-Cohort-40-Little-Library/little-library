@@ -17,11 +17,12 @@ import {LibraryUpdate} from "./LibraryUpdate";
 import {CheckIn} from "./CheckIn.jsx";
 import {AboutUs} from "./AboutUs.jsx";
 import {LibraryDetails} from "./LibraryDetails.jsx";
+import {Provider} from "react-redux";
 
-
-export function App() {
+export function App({store}) {
 	return (
 		<>
+			<Provider store={store}>
 			<BrowserRouter>
 				<Navigation/>
 				<Routes>
@@ -40,6 +41,7 @@ export function App() {
 				</Routes>
 				<Footer/>
 			</BrowserRouter>
+			</Provider>
 		</>
 	)
 }
