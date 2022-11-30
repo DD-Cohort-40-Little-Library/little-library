@@ -9,7 +9,7 @@ import {DisplayStatus} from "../../display-status/DisplayStatus";
 import jwtDecode from "jwt-decode";
 import {useDispatch} from "react-redux";
 import * as Yup from "yup";
-import { getAuth } from
+import { getAuth } from '../../../../../store/auth.js';
 
 
 export const SignInForm = () => {
@@ -81,7 +81,7 @@ function SignInFormContent(props) {
                     <Form.Label>Email</Form.Label>
                         <InputGroup>
                             <InputGroup.Text>
-                                <FontAwesomeIcon icon={"envelope"}/>
+                                {/*<FontAwesomeIcon icon={"envelope"}/>*/}
                             </InputGroup.Text>
                             <FormControl
                                 className={"form-control"}
@@ -97,12 +97,12 @@ function SignInFormContent(props) {
                     <DisplayError errors={errors} touched={touched} field={"profileEmail"}/>
                 </Form.Group>
 
-                <FontAwesomeIcon icon={"key"}/>
+                {/*<FontAwesomeIcon icon={"key"}/>*/}
                 <Form.Group className={"mb-1"} controlId={"profileName"}>
                     <Form.Label>Password</Form.Label>
                         <InputGroup>
                             <InputGroup.Text>
-                                <FontAwesomeIcon icon={"key"}/>
+                                {/*<FontAwesomeIcon icon={"key"}/>*/}
                             </InputGroup.Text>
                             <FormControl
                                 className={"form-control"}
