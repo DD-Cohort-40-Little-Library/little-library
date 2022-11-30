@@ -114,7 +114,7 @@ function SignInFormContent(props) {
                                 onBlur={handleBlur}
                                 />
                         </InputGroup>
-                    <DisplayError error={errors} touched={touched} field={"profilePassword"} />
+                    <DisplayError errors={errors} touched={touched} field={"profilePassword"} />
                 </Form.Group>
 
                 <Form.Group className={"mt-3"}>

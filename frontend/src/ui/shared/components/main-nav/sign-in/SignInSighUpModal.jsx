@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {Button, Col, Container, Form, FormLabel, Modal, Row} from 'react-bootstrap';
+import {Button, Col, Container, Modal, Row} from 'react-bootstrap';
 import styles from "./sign-in-sign-up-modal.module.css";
 import googleLogo from "../../../../../../images/uiSharedImages/google-logo-2.webp"
 import {Link} from "react-router-dom";
@@ -36,7 +36,7 @@ export function SignInSignUpModal() {
                                 <Row>
                                     <Col>
                                         <p className={"mt-3"}>&mdash; Sign In With &mdash;</p>
-                                        <a href={"#"} className={"rounded-2"}><img src={googleLogo} className={"img-fluid"}></img></a>
+                                        <a href={"#"} className={"rounded-2"}><img src={googleLogo} className={"img-fluid"} alt={"Google Logo"}></img></a>
                                     </Col>
                                     <Col>
                                         <p className={"mt-3"}>&mdash; If Are You New &mdash;</p>

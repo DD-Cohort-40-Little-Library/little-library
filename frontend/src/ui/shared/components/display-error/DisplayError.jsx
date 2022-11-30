@@ -2,9 +2,7 @@ import React from 'react'
 import styles from './DisplayError.module.css'
 
 export function DisplayError(props){
-	console.log("Test")
 	const { errors, touched, field } = props
-	console.log(props)
 	if (errors[field] && touched[field]){
 		 return(
 			 <>
