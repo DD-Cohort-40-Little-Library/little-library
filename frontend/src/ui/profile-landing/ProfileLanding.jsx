@@ -9,7 +9,9 @@ import {Link} from "react-router-dom";
 import {LibraryDetailBlock} from "./LibraryDetailBlock.jsx"
 import {EventCreateModal} from "../shared/components/EventCreateModal.jsx";
 
-export const ProfileLanding = () => {
+export function ProfileLanding({profile}) {
+    console.log(profile)
+    const {profileFirstName, profileLastName, profileEmail, profileName} = profile
     return (
         <>
             <h1>User Landing Page</h1>
@@ -19,25 +21,25 @@ export const ProfileLanding = () => {
                         <h3>User Information</h3>
                         {/*change from form to div*/}
                         <div className={"border border-dark px-3"}>
-                            <div className="mb-3" controlId="formFirstName">
+                            <div className="mb-3" >
                                 <div>First Name: </div>
-                                <div> First name from profile</div>
+                                <div> {profileFirstName}</div>
                             </div>
 
-                            <Form.Group className="mb-3" controlId="formLastName">
-                                <Form.Label>Last Name: </Form.Label>
-                                <Form.Text> Last name from profile</Form.Text>
-                            </Form.Group>
+                            <div className="mb-3" >
+                                <div>Last Name: </div>
+                                <div>{profileLastName}</div>
+                            </div>
 
-                            <Form.Group className="mb-3" controlId="formBasicEmail">
-                                <Form.Label>Email address: </Form.Label>
-                                <Form.Text> email from profile</Form.Text>
-                            </Form.Group>
+                            <div className="mb-3" >
+                                <div>Email address: </div>
+                                <div>{profileEmail}</div>
+                            </div>
 
-                            <Form.Group className="mb-3" controlId="formUserName">
-                                <Form.Label>User Name: </Form.Label>
-                                <Form.Text> User name from profile</Form.Text>
-                            </Form.Group>
+                            <div className="mb-3">
+                                <div>User Name: </div>
+                                <div>{profileName}</div>
+                            </div>
                         </div>
 
                         <Link to={"/profile-update"} className={"btn-primary"}> <Button> Update Profile</Button></Link>
