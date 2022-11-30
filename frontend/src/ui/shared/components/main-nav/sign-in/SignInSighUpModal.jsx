@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {Button, Col, Container, Form, FormLabel, Modal, Row} from 'react-bootstrap';
-import styles from "./sign-in-sign-up.module.css";
-import googleLogo from "../../../../../images/uiSharedImages/google-logo-2.webp"
+import styles from "./sign-in-sign-up-modal.module.css";
+import googleLogo from "../../../../../../images/uiSharedImages/google-logo-2.webp"
 import {Link} from "react-router-dom";
 
 export function SignInSignUpModal() {
@@ -12,27 +12,22 @@ export function SignInSignUpModal() {
 
         return (
             <>
-                <Button variant="primary" onClick={handleShow}>Sign In</Button>
+                <Button variant="primary" onClick={handleShow}>Sign In/Sign Up</Button>
 
                 <Modal className={""} show={show} onHide={handleClose} backdrop="static" keyboard={false}>
                     <Container className={styles.signInModalColor}>
                         <Row className={styles.signInModalText}>
                             <Col >
                                 <div>
-                                    <h4 className={"pt-3 "}>Sign In</h4>
+                                    <h4 className={"pt-3 "}>Sign In/Sign Up</h4>
                                 </div>
                                 <Modal.Body>
-                                    <Form>
-                                        <Row>
-                                            <input type={"username"} className={"form-control my-1"} placeholder={"Username"}/>
-                                        </Row>
-                                        <Row>
-                                            <input type={"password"} className={"form-control my-1"} placeholder={"Password"}/>
-                                        </Row>
-                                        <div className={""}>
-                                            <Button type={"submit"} className={"btn-primary btn rounded-2 "}>Submit</Button>
-                                        </div>
-                                    </Form>
+
+
+
+
+
+
                                 </Modal.Body>
                                 <Col>
                                     <div className={"w-45"}>

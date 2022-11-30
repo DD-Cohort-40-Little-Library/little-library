@@ -4,9 +4,9 @@ import {Link} from "react-router-dom";
 import styles from "./nav-footer.module.css";
 //PUT IN OUR LLL LOGO ONCE COMPLETE
 import linkedIn from "../../../../../images/uiSharedImages/linkedin-icon-classic-footer.webp";
-import {SignInSignUpModal} from "../log-in-modals/SignInSignUp.jsx";
+import {SignInSignUpModal} from "../main-nav/sign-in/SignInSighUpModal.jsx";
 
-export function Navigation() {
+export function NavigationBar() {
     return (
         <Navbar className={styles.navFootBgColor} expand='xxl'>
             <Container className={"d-flex justify-content-between"}>
