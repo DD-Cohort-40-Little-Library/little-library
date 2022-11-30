@@ -1,8 +1,15 @@
 import React from "react";
-import {Button, Form, Row} from "react-bootstrap";
+import {Button, Form, FormControl, InputGroup, Row} from "react-bootstrap";
 import {configureStore} from "@reduxjs/toolkit";
 import {httpConfig} from "../../../utils/http-config.js";
 import {Formik} from "formik";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {DisplayError} from "../../display-error/DisplayError";
+import {DisplayStatus} from "../../display-status/DisplayStatus";
+import jwtDecode from "jwt-decode";
+import {useDispatch} from "react-redux";
+import * as Yup from "yup";
+import { getAuth } from
 
 
 export const SignInForm = () => {
@@ -69,19 +76,61 @@ function SignInFormContent(props) {
     return (
         <>
 
-            <Form>
-                <Row>
-                    <input type={"username"} className={"form-control my-1"} placeholder={"Username"}/>
-                </Row>
-                <Row>
-                    <input type={"password"} className={"form-control my-1"} placeholder={"Password"}/>
-                </Row>
-                <div className={""}>
-                    <Button type={"submit"} className={"btn-primary btn rounded-2 "}>Submit</Button>
-                </div>
+            <Form onSubmit={handleSubmit}>
+                <Form.Group className={"mb-1"} controlId={"profileEmail"}>
+                    <Form.Label>Email</Form.Label>
+                        <InputGroup>
+                            <InputGroup.Text>
+                                <FontAwesomeIcon icon={"envelope"}/>
+                            </InputGroup.Text>
+                            <FormControl
+                                className={"form-control"}
+                                name={"profileEmail"}
+                                type={"text"}
+                                value={values.profileEmail}
+                                placeholder={"your@email.you"}
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+
+                            />
+                        </InputGroup>
+                    <DisplayError errors={errors} touched={touched} field={"profileEmail"}/>
+                </Form.Group>
+
+                <FontAwesomeIcon icon={"key"}/>
+                <Form.Group className={"mb-1"} controlId={"profileName"}>
+                    <Form.Label>Password</Form.Label>
+                        <InputGroup>
+                            <InputGroup.Text>
+                                <FontAwesomeIcon icon={"key"}/>
+                            </InputGroup.Text>
+                            <FormControl
+                                className={"form-control"}
+                                name={"profilePassword"}
+                                type={"text"}
+                                value={values.profilePassword}
+                                placeholder={"password"}
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                                />
+                        </InputGroup>
+                    <DisplayError error={errors} touched={touched} field={"profilePassword"} />
+                </Form.Group>
+
+                <Form.Group className={"mt-3"}>
+                    <Button className={"btn btn-primary"} type={"submit"}>Submit</Button>
+                    {" "}
+                    <Button
+                        className={"btn btn-danger"}
+                        onClick={handleReset}
+                        disabled={!dirty || isSubmitting}
+                        >Reset
+                    </Button>
+                </Form.Group>
             </Form>
-        </>
+            <div className={"pt-3"}>
+                <DisplayStatus status={status}/>
+            </div>
+                </>
     )
-};
-
-
+}

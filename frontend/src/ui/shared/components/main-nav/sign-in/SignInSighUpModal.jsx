@@ -3,6 +3,7 @@ import {Button, Col, Container, Form, FormLabel, Modal, Row} from 'react-bootstr
 import styles from "./sign-in-sign-up-modal.module.css";
 import googleLogo from "../../../../../../images/uiSharedImages/google-logo-2.webp"
 import {Link} from "react-router-dom";
+import {SignInForm} from "./SignInForm.jsx";
 
 export function SignInSignUpModal() {
     const [show, setShow] = useState(false);
@@ -14,7 +15,7 @@ export function SignInSignUpModal() {
             <>
                 <Button variant="primary" onClick={handleShow}>Sign In/Sign Up</Button>
 
-                <Modal className={""} show={show} onHide={handleClose} backdrop="static" keyboard={false}>
+                <Modal className={""} show={show} onHide={handleClose} >
                     <Container className={styles.signInModalColor}>
                         <Row className={styles.signInModalText}>
                             <Col >
@@ -22,12 +23,7 @@ export function SignInSignUpModal() {
                                     <h4 className={"pt-3 "}>Sign In/Sign Up</h4>
                                 </div>
                                 <Modal.Body>
-
-
-
-
-
-
+                                    <SignInForm />
                                 </Modal.Body>
                                 <Col>
                                     <div className={"w-45"}>
