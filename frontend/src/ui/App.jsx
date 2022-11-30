@@ -4,12 +4,12 @@ import 'bootstrap/dist/css/bootstrap.css'
 import './App.css'
 import { Home } from './home/Home.jsx'
 import { FourOhFour } from './FourOhFour'
-import { Navigation } from "./shared/components/nav-foot-bar/Navigation.jsx";
+import { NavigationBar } from "./shared/components/nav-foot-bar/NavigationBar.jsx";
 import { Footer } from "./shared/components/nav-foot-bar/Footer.jsx";
 import 'mapbox-gl/dist/mapbox-gl.css'
 import {EventCreateModal} from "./shared/components/EventCreateModal.jsx";
 import {EventUpdateModal} from "./profile-landing/EventUpdateModal.jsx";
-import {ProfileRegistration} from './ProfileRegistration.jsx';
+import {ProfileRegistration} from './shared/components/main-nav/sign-up/ProfileRegistration.jsx';
 import {ProfileLanding} from "./profile-landing/ProfileLanding.jsx";
 import {ProfileUpdate} from "./profile-landing/ProfileUpdate.jsx";
 import {LibraryCreate} from "./LibraryCreate";
@@ -24,7 +24,7 @@ export function App({store}) {
 		<>
 			<Provider store={store}>
 			<BrowserRouter>
-				<Navigation/>
+				<NavigationBar/>
 				<Routes>
 					<Route path='/' element={<Home />} />
 					<Route path={"*"} element={<FourOhFour />} />
