@@ -5,6 +5,8 @@ import {httpConfig} from "../../utils/http-config.js";
 import {Button, Form, FormControl, InputGroup} from "react-bootstrap";
 import {DisplayError} from "../display-error/DisplayError.jsx";
 import {DisplayStatus} from "../display-status/DisplayStatus.jsx";
+import {addressToLatLng} from "./LibraryAddressToLatLng.jsx";
+
 
 export const LibraryCreateForm = () => {
     const createLibrary ={
@@ -70,7 +72,6 @@ function LibraryCreateFormContent (props){
                             Library Address
                         </InputGroup.Text>
                         <FormControl
-                            // className="form-control"
                             name="libraryAddress"
                             type="text"
                             value={values.libraryAddress}
@@ -83,14 +84,12 @@ function LibraryCreateFormContent (props){
                     <DisplayError errors={errors} touched={touched} field={'libraryAddress'}/>
                 </Form.Group>
 
+                addressToLatLng(libraryAddress)
+
                 <Form.Group controlId={'libraryDescription'}>
                     <Form.Label>Library Description</Form.Label>
                     <InputGroup>
-                        {/*<InputGroup.Text>*/}
-                        {/*    UserName*/}
-                        {/*</InputGroup.Text>*/}
                         <FormControl
-                            // className="form-control"
                             name='libraryDescription'
                             type='text'
                             value={values.libraryDescription}
@@ -147,7 +146,6 @@ function LibraryCreateFormContent (props){
                             library Specialization
                         </InputGroup.Text>
                         <FormControl
-                            // className="form-control"
                             name='librarySpecialization'
                             type='select'
                             value={values.librarySpecialization}
@@ -158,26 +156,6 @@ function LibraryCreateFormContent (props){
                     </InputGroup>
                     <DisplayError errors={errors} touched={touched} field={'librarySpecialization'}/>
                 </Form.Group>
-
-                {/*<Form.Group controlId={'profilePasswordConfirm'}>*/}
-                {/*    <Form.Label>Password Confirm</Form.Label>*/}
-                {/*    <InputGroup>*/}
-                {/*        <InputGroup.Text>*/}
-                {/*            Please confirm password*/}
-                {/*        </InputGroup.Text>*/}
-                {/*        <FormControl*/}
-                {/*            // className="form-control"*/}
-                {/*            name='profilePasswordConfirm'*/}
-                {/*            type='password'*/}
-                {/*            value={values.profilePasswordConfirm}*/}
-                {/*            placeholder='P@ssword!Confirm'*/}
-                {/*            onChange={handleChange}*/}
-                {/*            onBlur={handleBlur}*/}
-                {/*        />*/}
-                {/*    </InputGroup>*/}
-                {/*    <DisplayError errors={errors} touched={touched} field={'profilePasswordConfirm'}/>*/}
-                {/*</Form.Group>*/}
-
                 <Form.Group className={"mt-3"}>
                     <Button className={"btn btn-primary"} type={"submit"}>Submit</Button>
                     {" "}

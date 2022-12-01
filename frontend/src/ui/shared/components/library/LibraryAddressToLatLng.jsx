@@ -2,28 +2,22 @@ import React from "react";
 
 
 const Geocodio = require('geocodio-library-node');
-const geocoder = new Geocodio('YOUR_API_KEY');
+const geocoder = new Geocodio('');
 
 
-export function LibraryAddressToLatLng(){
-    async function main() {
-        try {
-            await addressToLatLng()
-        } catch (error) {
-            console.error(error)
-        }
-    }
-
-    return main()
-
-async function addressToLatLng() {
+export async function addressToLatLng(libAddress) {
         try {
             geocoder
-                .geocode('1109 N Highland St, Arlington, VA')
+                .geocode(`${libAddress}`)
                 //format is Street# Direction Street, City, StateAbbrev
-                .then(response => {
+                let response
+
+
+                (response => {
                     console.log(response);
-                    return response
+                    // let libraryLat = response.results[0].location.lat
+                    // let libraryLng = response.results[0].location.lng
+                    return {libraryLat, libraryLng}
                 })
                 .catch(error => {
                     console.error(error);
@@ -33,5 +27,5 @@ async function addressToLatLng() {
             throw error
         }
 }
-}
+
 
