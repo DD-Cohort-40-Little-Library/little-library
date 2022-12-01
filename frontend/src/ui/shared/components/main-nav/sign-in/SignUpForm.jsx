@@ -1,12 +1,9 @@
 import React from "react";
-import {Form, Formik} from "formik";
-import jwtDecode from "jwt-decode";
+import {Formik} from "formik";
 import * as Yup from "yup";
 import {httpConfig} from "../../../utils/http-config.js";
-import {values} from "mapbox-gl/src/util/util.js";
 import {DisplayStatus} from "../../display-status/DisplayStatus";
-import {FormControl, InputGroup} from "react-bootstrap";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {Button, Form, FormControl, InputGroup} from "react-bootstrap";
 import {DisplayError} from "../../display-error/DisplayError";
 
 
@@ -87,7 +84,7 @@ function SignUpFormContent(props){
                               name="profileEmail"
                               type="text"
                               value={values.profileEmail}
-                              placeholder="your@email.you"
+                              placeholder="your@email.com"
                               onChange={handleChange}
                               onBlur={handleBlur}
                           />
@@ -188,6 +185,17 @@ function SignUpFormContent(props){
                         />
                     </InputGroup>
                     <DisplayError errors={errors} touched={touched} field={'profilePasswordConfirm'}/>
+                </Form.Group>
+
+                <Form.Group className={"mt-3"}>
+                    <Button className={"btn btn-primary"} type={"submit"}>Submit</Button>
+                    {" "}
+                    <Button
+                        className={"btn btn-danger"}
+                        onClick={handleReset}
+                        disabled={!dirty || isSubmitting}
+                    >Reset
+                    </Button>
                 </Form.Group>
 
             </Form>
