@@ -83,9 +83,6 @@ function LibraryCreateFormContent (props){
                     </InputGroup>
                     <DisplayError errors={errors} touched={touched} field={'libraryAddress'}/>
                 </Form.Group>
-
-                addressToLatLng(libraryAddress)
-
                 <Form.Group controlId={'libraryDescription'}>
                     <Form.Label>Library Description</Form.Label>
                     <InputGroup>
