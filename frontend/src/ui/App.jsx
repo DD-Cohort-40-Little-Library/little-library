@@ -18,6 +18,7 @@ import {CheckIn} from "./CheckIn.jsx";
 import {AboutUs} from "./AboutUs.jsx";
 import {LibraryDetails} from "./library-details/LibraryDetails.jsx";
 import {Provider} from "react-redux";
+import {MapLibraryPinModal} from "./shared/components/map-library-pin-modal/MapLibraryPinModal.jsx";
 
 export function App({store}) {
 	return (
@@ -38,6 +39,7 @@ export function App({store}) {
 					{/*<Route path='/check-in' element={<CheckIn/>} />*/}
 					<Route path='/about-us' element={<AboutUs/>} />
 					<Route path={'/library-landing'} element={LibraryDetails} />
+					<Route path={'/map-library-pin-modal'} elememt ={MapLibraryPinModal} />
 				</Routes>
 				<Footer/>
 			</BrowserRouter>
