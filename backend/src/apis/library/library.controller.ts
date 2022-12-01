@@ -9,6 +9,10 @@ import {
     selectLibrariesByLibraryProfileId,
     updateLibrary, selectLibraryByLibraryIdAndLibraryProfileId, deleteLibrary, selectAllLibrariesOptIn
 } from '../../utils/models/Library';
+import {CONNREFUSED} from "dns";
+
+
+const Geocodio = require('geocodio-library-node');
 
 
 
@@ -79,8 +83,12 @@ export async function getLibraryByLibraryIdController (request: Request, respons
 
 export async function postLibrary (request: Request, response: Response): Promise<Response<Status>> {
     try {
-        const { libraryAddress, libraryDescription, libraryEventOptIn, libraryLat, libraryLng, libraryName, librarySpecialization, libraryType } = request.body
+        const geocoder = new Geocodio(process.env.GEOCODIO_API_KEY);
+        const { libraryAddress, libraryDescription, libraryEventOptIn, libraryName, librarySpecialization, libraryType } = request.body
 
+        const result = await geocoder.geocode(libraryAddress)
+        const libraryLat = result.results[0].location['lat']
+        const libraryLng = result.results[0].location['lng']
         const profile: Profile = request.session.profile as Profile
         const libraryProfileId: string = profile.profileId as string
 
