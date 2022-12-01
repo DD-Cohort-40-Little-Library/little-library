@@ -4,6 +4,7 @@ import styles from "./sign-in-sign-up-modal.module.css";
 import googleLogo from "../../../../../../images/uiSharedImages/google-logo-2.webp"
 import {Link} from "react-router-dom";
 import {SignInForm} from "./SignInForm.jsx";
+import {SignUpForm} from "./SignUpForm.jsx";
 
 export function SignInSignUpModal() {
     const [show, setShow] = useState(false);
@@ -24,6 +25,7 @@ export function SignInSignUpModal() {
                                 </div>
                                 <Modal.Body>
                                     <SignInForm />
+                                    <SignUpForm />
                                 </Modal.Body>
                                 <Col>
                                     <div className={"w-45"}>

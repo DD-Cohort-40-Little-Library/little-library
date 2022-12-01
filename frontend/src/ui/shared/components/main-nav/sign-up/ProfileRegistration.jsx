@@ -1,8 +1,10 @@
-import React from "react";
+import React, {useState} from "react";
 import {Button, Form, Col, Container, Image, Row} from "react-bootstrap";
 
 
 export const ProfileRegistration = () => {
+
+
     return (
         <>
             <h1>Profile Registration</h1>
