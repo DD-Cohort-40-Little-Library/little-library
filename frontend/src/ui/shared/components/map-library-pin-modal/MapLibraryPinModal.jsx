@@ -15,7 +15,7 @@ export function MapLibraryPinModal() {
 
     return (
         <>
-            <Button variant="primary" onClick={handleShow}>CHANGE BUTTON TO PIN</Button>
+            {/*<Button variant="primary" onClick={handleShow}>CHANGE BUTTON TO PIN</Button>*/}
 
             <Modal show={show} onHide={handleClose}>
                     <Modal.Body>

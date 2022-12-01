@@ -1,22 +1,24 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import {MapPin} from "./MapPin.jsx";
-import {Container} from "react-bootstrap";
+import {Button, Col, Container, Modal, Row} from "react-bootstrap";
 import Map from "react-map-gl";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchAllLibraries} from "../../store/libraries.js";
+import {Link} from "react-router-dom";
 
 export function LibraryMap (){
 	//TODO: figure out how to feed the lat/lng for all libraries
 	//TODO: Do we need a get library by lat/lng? Yes on second pass of the DB
-	const libraries = useSelector(state => state.libraries ? state.libraries : [])
+	const libraries = useSelector(state => state.libraries ?? [])
 	const dispatch = useDispatch()
 	const initialEffects = () => {
 		dispatch(fetchAllLibraries())
 	}
-	useEffect(initialEffects, [dispatch])
+	React.useEffect(initialEffects, [dispatch])
+
 	return (
 		<>
-			<Container className={'justify-content-center'} fluid={true}>
+			<div className={'justify-content-center'}>
 				<Map initialViewState={{
 					latitude: 35.18,
 					longitude: -106.49,
@@ -26,9 +28,10 @@ export function LibraryMap (){
 				            style={{width: 600, height: 400}}
 				            mapStyle='mapbox://styles/mapbox/satellite-streets-v12'
 				>
-					{libraries.map(library => <MapPin lat={library.libraryLat} lng={library.libraryLng} key={library.libraryId} />)}
+					{libraries.map((libraries, index)=>
+							<MapPin libraries={libraries} index={index} key={index} />)}
 				</Map>
-			</Container>
+			</div>
 		</>
 	)
 }
