@@ -75,7 +75,6 @@ function LibraryCreateFormContent (props){
                             name="libraryAddress"
                             type="text"
                             value={values.libraryAddress}
-                            // TODO: fix address input
                             placeholder='Example: 1109 N Highland St, Arlington, VA'
                             onChange={handleChange}
                             onBlur={handleBlur}
