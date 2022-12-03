@@ -9,7 +9,7 @@ import {Link} from "react-router-dom";
 
 const styles = {
 	map:{
-		height: "500px",
+		height: "50vh",
 		width: "auto",
 		position: "relative"
 	},
