@@ -7,7 +7,7 @@ import {LibraryDetails} from "../library-details/LibraryDetails.jsx";
 import {BioBlock} from "../BioBlock.jsx";
 import {Link} from "react-router-dom";
 import {LibraryDetailBlock} from "./LibraryDetailBlock.jsx"
-import {EventCreateModal} from "../shared/components/EventCreateModal.jsx";
+// import {EventCreateModal} from "../shared/components/EventCreateModal.jsx";
 
 export function ProfileLanding({profile}) {
     console.log(profile)
