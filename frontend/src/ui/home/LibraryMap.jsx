@@ -11,17 +11,9 @@ const styles = {
 		width: "auto",
 		position: "relative"
 	},
-	// mapbox:{
-	// 	position: "relative",
-	// }
 }
 
 export function LibraryMap (){
-<<<<<<< HEAD
-	//TODO: Do we need a get library by lat/lng? Yes on second pass of the DB
-=======
-
->>>>>>> react-map-pins-display
 	const libraries = useSelector(state => state.libraries ?? [])
 	const dispatch = useDispatch()
 	const initialEffects = () => {
