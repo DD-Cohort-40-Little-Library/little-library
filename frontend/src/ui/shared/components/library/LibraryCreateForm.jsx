@@ -11,9 +11,10 @@ export const LibraryCreateForm = () => {
     const createLibrary ={
         libraryAddress: "",
         libraryDescription: "",
-        libraryEventOptIn: "",
+        libraryEventOptIn: false,
         libraryName: "",
         librarySpecialization: "",
+        libraryType: "LL"
 }
     const validator = Yup.object().shape({
         libraryAddress: Yup.string()
@@ -22,9 +23,11 @@ export const LibraryCreateForm = () => {
         libraryEventOptIn: Yup.boolean(),
         libraryName: Yup.string()
             .required('Name is required'),
-        librarySpecialization: Yup.string()
+        librarySpecialization: Yup.string(),
+        libraryType: Yup.string()
     })
     const submitLibraryCreate = (values, {resetForm, setStatus}) => {
+        console.log(values)
         httpConfig.post('/apis/library/', values)
             .then(reply => {
                     let {message, type}=reply
@@ -61,6 +64,10 @@ function LibraryCreateFormContent (props){
     } = props
     return (
         <>
+            <div className={"text-center"}>
+                <h1>Register Your Library</h1>
+            </div>
+            <Card>
             <Form onSubmit={handleSubmit}>
                 <Row>
                     {/*<Col>*/}
@@ -95,16 +102,15 @@ function LibraryCreateFormContent (props){
                         <Form.Group controlId={'libraryEventOptIn'}>
                             <Form.Label>Library Event Opt In</Form.Label>
                             <InputGroup>
-                                <Form.Check className="mt-1" inline label="Available for events?"type="checkbox"/>
-                                {/*<FormControl*/}
-                                {/*    // className="form-control"*/}
-                                {/*    name='libraryEventOptIn'*/}
-                                {/*    type='checkbox'*/}
-                                {/*    value={values.libraryEventOptIn}*/}
-                                {/*    // initialValue='False'*/}
-                                {/*    onChange={handleChange}*/}
-                                {/*    onBlur={handleBlur}*/}
-                                {/*/>*/}
+                                {/*<Form.Check className="mt-1" inline label="Available for events?"type="checkbox"/>*/}
+                                <FormControl
+                                    className="form-control"
+                                    name='toggle'
+                                    type='checkbox'
+                                    value={values.libraryEventOptIn}
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                />
                             </InputGroup>
                             <DisplayError errors={errors} touched={touched} field={'libraryEventOptIn'}/>
                         </Form.Group>
@@ -129,7 +135,7 @@ function LibraryCreateFormContent (props){
                             <Form.Label>Library Specialization</Form.Label>
                             <InputGroup>
                                 <FormControl
-                                    name='Library Specialization'
+                                    name='librarySpecialization'
                                     type='select'
                                     value={values.librarySpecialization}
                                     placeholder='Library Specialization'
@@ -204,6 +210,7 @@ function LibraryCreateFormContent (props){
                 </Form.Group>
                 </Row>
             </Form>
+            </Card>
             <DisplayStatus status={status} />
         </>
     )

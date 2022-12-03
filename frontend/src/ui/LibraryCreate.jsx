@@ -9,11 +9,8 @@ function LibraryCreateFormContent() {
 export const LibraryCreate = () => {
 	return(
 		<>
-			<Form>
 			<div>
-				<div className={"text-center"}>
-					<h1>Register Your Library</h1>
-				</div>
+
 
 				{/*Row 1 with User image and upload image*/}
 				{/*<Row className={"mx-0"}>*/}
@@ -80,7 +77,6 @@ export const LibraryCreate = () => {
 				{/*</Row>*/}
 
 			</div>
-			</Form>
 		</>
 	)
 }

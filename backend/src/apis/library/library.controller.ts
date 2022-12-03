@@ -93,6 +93,7 @@ export async function postLibrary (request: Request, response: Response): Promis
         const libraryProfileId: string = profile.profileId as string
 
         const library: Library = { libraryId: null, libraryProfileId, libraryAddress, libraryDescription, libraryEventOptIn, libraryLat, libraryLng, libraryName, librarySpecialization, libraryType }
+        console.log(`libraryAddress: ${libraryAddress}`)
 
         const message: string = await insertLibrary(library)
 
