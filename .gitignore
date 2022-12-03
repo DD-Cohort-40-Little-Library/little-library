@@ -29,5 +29,7 @@ node-modules
 */yarn-debug.log*
 */yarn-error.log*
 
+*/.env
+/.env
 
 /frontend/setupProxy.js
