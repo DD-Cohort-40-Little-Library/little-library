@@ -3,6 +3,8 @@ import React from "react"
 import * as Yup from 'yup'
 import {httpConfig} from "../utils/http-config.js";
 import {Formik, useField} from "formik";
+import {useDispatch, useSelector} from "react-redux";
+import {fetchAllLibraries} from "../../../store/libraries.js";
 
 // const EventCheckbox = ({ children, ...props }) => {
 // 	const [field, meta] = useField({ ...props, type: "checkbox" });
@@ -18,6 +20,7 @@ import {Formik, useField} from "formik";
 // 		</>
 // 	);
 // };
+
 
 const EventTypeSelect = ({ label, ...props }) => {
 	// useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
@@ -37,6 +40,7 @@ const EventTypeSelect = ({ label, ...props }) => {
 const EventLibrarySelect = ({ label, ...props }) => {
 	// useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
 	// which we can spread on <input> and alse replace ErrorMessage entirely.
+
 	const [field, meta] = useField(props);
 	return (
 		<>
@@ -48,7 +52,16 @@ const EventLibrarySelect = ({ label, ...props }) => {
 		</>
 	);
 };
-
+// const library = () => {
+// 	const dispatch = useDispatch()
+// 	useSelector(state => state.libraryEventOptIn ? state.libraryEventOptIn=true : null)
+// }
+// console.log(library)
+// function libraryWithEvents(){
+// 	const dispatch = useDispatch()
+// 	const library = useSelector(state => state.libraryEventOptIn ? state.libraryEventOptIn=true : null)
+// 	return console.log(library)
+// }
 export const EventCreateModalForm = () => {
 	const createEvent = {
 		libraryName: "",
@@ -59,12 +72,27 @@ export const EventCreateModalForm = () => {
 		eventTitle: "",
 		eventType: ""
 	}
+	const dispatch = useDispatch()
+	const effects = () => {
+		dispatch(fetchAllLibraries())
+	}
+	React.useEffect(effects, [dispatch])
+	const libraries = useSelector(state => {
+			let libraryWithEvent = []
+		for(let i=0; i<=state.libraries.length; i++){
+			if(state.libraries[i]?.libraryEventOptIn === true){
+			libraryWithEvent.push(state.libraries[i])
+			}
+		}
+		return libraryWithEvent
+	}
+)
 	const validator = Yup.object().shape({
 		libraryName: Yup.string()
 			.oneOf(
-				[]
-			.required('Choose a library for your event')
-			),
+				[libraries]
+			)
+			.required('Choose a library for your event'),
 		eventDate: Yup.date()
 			.required('Please select a date'),
 		eventDescription: Yup.string()
@@ -121,6 +149,10 @@ function EventCreateModalFormContent(props) {
 			<Form onSubmit={handleSubmit}>
 				<Row>
 					<h3 className={"text-center"}>Plan An Event</h3>
+					<EventLibrarySelect label={'Library to hold the event'} name={'libraryName'}>
+						<option value={''}>Select a library for your event</option>
+						<option value={`${libraries.libraryName}`}
+					</EventLibrarySelect>
 					<Col>
 						<Form.Group className={"m-3"} >
 							{/*TODO Do we want a list or open input?*/}
