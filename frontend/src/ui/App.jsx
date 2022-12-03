@@ -14,10 +14,10 @@ import {ProfileLanding} from "./profile-landing/ProfileLanding.jsx";
 import {ProfileUpdate} from "./profile-landing/ProfileUpdate.jsx";
 import {LibraryCreate} from "./LibraryCreate.jsx";
 import {LibraryUpdate} from "./profile-landing/LibraryUpdate.jsx";
-import {CheckIn} from "./CheckIn.jsx";
 import {AboutUs} from "./AboutUs.jsx";
 import {LibraryDetails} from "./library-details/LibraryDetails.jsx";
 import {Provider} from "react-redux";
+
 
 
 export function App({store}) {
