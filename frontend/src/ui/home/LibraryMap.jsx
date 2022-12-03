@@ -5,6 +5,7 @@ import Map from "react-map-gl";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchAllLibraries} from "../../store/libraries.js";
 import {Link} from "react-router-dom";
+import {MapCustomPin} from "../shared/MapCustomPin.jsx";
 
 export function LibraryMap (){
 	//TODO: figure out how to feed the lat/lng for all libraries
@@ -29,7 +30,7 @@ export function LibraryMap (){
 				            mapStyle='mapbox://styles/mapbox/satellite-streets-v12'
 				>
 					{libraries.map((libraries, index)=>
-							<MapPin libraries={libraries} index={index} key={index} />)}
+							<MapCustomPin libraries={libraries} index={index} key={index} />)}
 				</Map>
 			</div>
 		</>
