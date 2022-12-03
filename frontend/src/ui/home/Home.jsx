@@ -2,11 +2,9 @@ import React from "react"
 import {Button, Col, Container, Form, Row, Stack} from "react-bootstrap";
 import {LibraryMap} from "./LibraryMap.jsx";
 import {EventShortListing} from "./EventShortListing.jsx";
-// import {EventCreateModal} from "../shared/components/EventCreateModal.jsx";
 import {LibraryDetails} from "../library-details/LibraryDetails.jsx";
 import {Link} from "react-router-dom";
 import {CheckInDisplay} from "../shared/components/CheckInDisplay.jsx";
-import {CheckInModal} from "../library-details/CheckInModal.jsx";
 import {CheckInForm} from "../shared/components/CheckInForm.jsx";
 
 export function Home() {
@@ -16,7 +14,7 @@ export function Home() {
 				<Row>
 					<Col id={"events-column"} className={"border border-dark col-md-3"}>
 						<h2>Events</h2>
-						<Link to={"/event-create-modal-form"} className={"btn-primary"}> <Button> Plan An Event</Button></Link>
+						<Link to={"/event-create-page"} className={"btn-primary"}> <Button> Plan An Event</Button></Link>
 						<Stack gap={3}>
 							<div className="bg-light border"><EventShortListing/></div>
 							<div className="bg-light border">Second event</div>

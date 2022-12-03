@@ -5,6 +5,8 @@ import {httpConfig} from "../utils/http-config.js";
 import {Formik, useField} from "formik";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchAllLibraries} from "../../../store/libraries.js";
+import {FormDebugger} from "./FormDebugger.jsx";
+import {DisplayStatus} from "./display-status/DisplayStatus";
 
 // const EventCheckbox = ({ children, ...props }) => {
 // 	const [field, meta] = useField({ ...props, type: "checkbox" });
@@ -53,7 +55,7 @@ const EventLibrarySelect = ({ label, ...props }) => {
 	);
 };
 
-export const EventCreateModalForm = () => {
+export const EventCreatePage = () => {
 	const createEvent = {
 		eventLibraryId: "",
 		eventDate: "",
@@ -151,11 +153,13 @@ function EventCreateModalFormContent(props) {
 		<>
 			<Form onSubmit={handleSubmit}>
 				<Row>
-					<h3 className={"text-center"}>Plan An Event</h3>
-					<select name={'eventLibraryId'} onChange={handleChange} onBlur={handleBlur} >
-						<option value={''}>Select a library for your event</option>
-						{libraries.map(library => <option value={library.libraryId}>{library.libraryName}</option>)}
-					</select>
+					<div className={"mx-0 text-center "}>
+						<h3 className={"text-center"}>Plan An Event</h3>
+						<select  name={'eventLibraryId'} onChange={handleChange} onBlur={handleBlur} >
+							<option value={''}>Select a library for your event</option>
+							{libraries.map(library => <option value={library.libraryId}>{library.libraryName}:  located at {library.libraryAddress}</option>)}
+						</select>
+					</div>
 					<Col>
 						<Form.Group className={"m-3"} >
 							{/*TODO Do we want a list or open input?*/}
@@ -197,6 +201,8 @@ function EventCreateModalFormContent(props) {
 					</FloatingLabel>
 				</Form.Group>
 			</Form>
+			<DisplayStatus status={status}/>
+			<FormDebugger {...props} />
 		</>
 	)
 }
