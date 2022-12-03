@@ -24,7 +24,7 @@ import {fetchAllLibraries} from "../../../store/libraries.js";
 
 const EventTypeSelect = ({ label, ...props }) => {
 	// useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
-	// which we can spread on <input> and alse replace ErrorMessage entirely.
+	// which we can spread on <input> and else replace ErrorMessage entirely.
 	const [field, meta] = useField(props);
 	return (
 		<>
@@ -39,7 +39,7 @@ const EventTypeSelect = ({ label, ...props }) => {
 
 const EventLibrarySelect = ({ label, ...props }) => {
 	// useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
-	// which we can spread on <input> and alse replace ErrorMessage entirely.
+	// which we can spread on <input> and else replace ErrorMessage entirely.
 
 	const [field, meta] = useField(props);
 	return (
@@ -52,19 +52,10 @@ const EventLibrarySelect = ({ label, ...props }) => {
 		</>
 	);
 };
-// const library = () => {
-// 	const dispatch = useDispatch()
-// 	useSelector(state => state.libraryEventOptIn ? state.libraryEventOptIn=true : null)
-// }
-// console.log(library)
-// function libraryWithEvents(){
-// 	const dispatch = useDispatch()
-// 	const library = useSelector(state => state.libraryEventOptIn ? state.libraryEventOptIn=true : null)
-// 	return console.log(library)
-// }
+
 export const EventCreateModalForm = () => {
 	const createEvent = {
-		libraryName: "",
+		eventLibraryId: "",
 		eventDate: "",
 		eventDescription: "",
 		eventEnd: "",
@@ -77,20 +68,20 @@ export const EventCreateModalForm = () => {
 		dispatch(fetchAllLibraries())
 	}
 	React.useEffect(effects, [dispatch])
-	const libraries = useSelector(state => {
+	const libraryIds = useSelector(state => {
 			let libraryWithEvent = []
-		for(let i=0; i<=state.libraries.length; i++){
-			if(state.libraries[i]?.libraryEventOptIn === true){
-			libraryWithEvent.push(state.libraries[i])
+			for(let i=0; i<=state.libraries.length; i++){
+				if(state.libraries[i]?.libraryEventOptIn === true){
+				libraryWithEvent.push(state.libraries[i].libraryId)
+				}
 			}
-		}
-		return libraryWithEvent
-	}
-)
+			return libraryWithEvent
+	})
+
 	const validator = Yup.object().shape({
-		libraryName: Yup.string()
+		eventLibraryId: Yup.string()
 			.oneOf(
-				[libraries]
+				libraryIds
 			)
 			.required('Choose a library for your event'),
 		eventDate: Yup.date()
@@ -144,15 +135,27 @@ function EventCreateModalFormContent(props) {
 		handleSubmit,
 		handleReset
 	} = props
+		const libraries = useSelector(state => {
+		let libraryWithEvent = []
+		for(let i=0; i<=state.libraries.length; i++){
+			if(state.libraries[i]?.libraryEventOptIn === true){
+				libraryWithEvent.push(state.libraries[i])
+			}
+		}
+		return libraryWithEvent
+	})
+	console.log('I am HERE')
+	console.log(libraries)
+
 	return (
 		<>
 			<Form onSubmit={handleSubmit}>
 				<Row>
 					<h3 className={"text-center"}>Plan An Event</h3>
-					<EventLibrarySelect label={'Library to hold the event'} name={'libraryName'}>
+					<select name={'eventLibraryId'} onChange={handleChange} onBlur={handleBlur} >
 						<option value={''}>Select a library for your event</option>
-						<option value={`${libraries.libraryName}`}
-					</EventLibrarySelect>
+						{libraries.map(library => <option value={library.libraryId}>{library.libraryName}</option>)}
+					</select>
 					<Col>
 						<Form.Group className={"m-3"} >
 							{/*TODO Do we want a list or open input?*/}
