@@ -7,7 +7,6 @@ import { FourOhFour } from './FourOhFour'
 import { NavigationBar } from "./shared/components/nav-foot-bar/NavigationBar.jsx";
 import { Footer } from "./shared/components/nav-foot-bar/Footer.jsx";
 import 'mapbox-gl/dist/mapbox-gl.css'
-// import {EventCreateModal} from "./shared/components/EventCreateModal.jsx";
 import {EventUpdateModal} from "./profile-landing/EventUpdateModal.jsx";
 import {ProfileRegistration} from './shared/components/main-nav/sign-up/ProfileRegistration.jsx';
 import {ProfileLanding} from "./profile-landing/ProfileLanding.jsx";
@@ -18,7 +17,7 @@ import {CheckIn} from "./CheckIn.jsx";
 import {AboutUs} from "./AboutUs.jsx";
 import {LibraryDetails} from "./library-details/LibraryDetails.jsx";
 import {Provider} from "react-redux";
-import {EventCreateModalForm} from "./shared/components/EventCreateModalForm.jsx";
+import {EventCreatePage} from "./shared/components/EventCreatePage.jsx";
 
 
 export function App({store}) {
@@ -30,7 +29,7 @@ export function App({store}) {
 				<Routes>
 					<Route path='/' element={<Home />} />
 					<Route path={"*"} element={<FourOhFour />} />
-					<Route path='/event-create-modal-form'element={<EventCreateModalForm />} />
+					<Route path='/event-create-page'element={<EventCreatePage />} />
 					<Route path='/event-update-modal'element={<EventUpdateModal />} />
 					<Route path='/profile-registration' element={<ProfileRegistration />} />
 					<Route path='/profile-landing' element={<ProfileLanding />} />

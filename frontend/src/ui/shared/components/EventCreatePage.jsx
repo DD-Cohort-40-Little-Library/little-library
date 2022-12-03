@@ -1,25 +1,14 @@
-import {Col, FloatingLabel, Form, FormSelect, Row} from "react-bootstrap"
+import {Button, Col, FloatingLabel, Form, FormControl, FormSelect, InputGroup, Row} from "react-bootstrap"
 import React from "react"
 import * as Yup from 'yup'
 import {httpConfig} from "../utils/http-config.js";
 import {Formik, useField} from "formik";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchAllLibraries} from "../../../store/libraries.js";
+import {FormDebugger} from "./FormDebugger.jsx";
+import {DisplayStatus} from "./display-status/DisplayStatus";
 
-// const EventCheckbox = ({ children, ...props }) => {
-// 	const [field, meta] = useField({ ...props, type: "checkbox" });
-// 	return (
-// 		<>
-// 			<label className="checkbox">
-// 				<input {...field} {...props} type="checkbox" />
-// 				{children}
-// 			</label>
-// 			{meta.touched && meta.error ? (
-// 				<div className="error">{meta.error}</div>
-// 			) : null}
-// 		</>
-// 	);
-// };
+
 
 
 const EventTypeSelect = ({ label, ...props }) => {
@@ -37,23 +26,23 @@ const EventTypeSelect = ({ label, ...props }) => {
 	);
 };
 
-const EventLibrarySelect = ({ label, ...props }) => {
-	// useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
-	// which we can spread on <input> and else replace ErrorMessage entirely.
+// const EventLibrarySelect = ({ label, ...props }) => {
+// 	// useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
+// 	// which we can spread on <input> and else replace ErrorMessage entirely.
+//
+// 	const [field, meta] = useField(props);
+// 	return (
+// 		<>
+// 			<label htmlFor={props.id || props.name}>{label}</label>
+// 			<FormSelect {...field} {...props} />
+// 			{meta.touched && meta.error ? (
+// 				<div className={'error'}>{meta.error}</div>
+// 			) : null}
+// 		</>
+// 	);
+// };
 
-	const [field, meta] = useField(props);
-	return (
-		<>
-			<label htmlFor={props.id || props.name}>{label}</label>
-			<FormSelect {...field} {...props} />
-			{meta.touched && meta.error ? (
-				<div className={'error'}>{meta.error}</div>
-			) : null}
-		</>
-	);
-};
-
-export const EventCreateModalForm = () => {
+export const EventCreatePage = () => {
 	const createEvent = {
 		eventLibraryId: "",
 		eventDate: "",
@@ -151,16 +140,29 @@ function EventCreateModalFormContent(props) {
 		<>
 			<Form onSubmit={handleSubmit}>
 				<Row>
-					<h3 className={"text-center"}>Plan An Event</h3>
-					<select name={'eventLibraryId'} onChange={handleChange} onBlur={handleBlur} >
-						<option value={''}>Select a library for your event</option>
-						{libraries.map(library => <option value={library.libraryId}>{library.libraryName}</option>)}
-					</select>
+					<div className={"mx-0 text-center "}>
+						<h3 className={"text-center"}>Plan An Event</h3>
+						<select  name={'eventLibraryId'} onChange={handleChange} onBlur={handleBlur} >
+							<option value={''}>Select a library for your event</option>
+							{libraries.map(library => <option value={library.libraryId}>{library.libraryName}: located at {library.libraryAddress}</option>)}
+						</select>
+					</div>
 					<Col>
-						<Form.Group className={"m-3"} >
+
+						<Form.Group contorlId={'eventDate'} className={"m-3"} >
 							{/*TODO Do we want a list or open input?*/}
 							<Form.Label>Event Date</Form.Label>
+							<InputGroup>
+								<FormControl
+									name={'eventDate'}
+									type={'date'}
+									value={values.eventDate}
+									onChange={handleChange}
+									onBlur={handleBlur}
+									/>
+							</InputGroup>
 							<Form.Control type={"date"} placeholder={"Date of event"} id={"eventDate"}/>
+
 							<EventTypeSelect label={"Type of Event"} name={'eventType'}>
 								<option value={''}>Select an event type</option>
 								<option value={'story-time-children'}>Story Time - Children</option>
@@ -173,21 +175,28 @@ function EventCreateModalFormContent(props) {
 								<option value={'other'}>Other</option>
 							</EventTypeSelect>
 						</Form.Group>
+
 					</Col>
 					<Col>
 						{/*TODO Is there a date-time picker that we can use?*/}
 						<Form.Group className={"m-3"} >
+
 							<Form.Label>Event Start Time</Form.Label>
 							<Form.Control type={"time"} placeholder={"Event start time"} id={"eventStart"}/>
+
 							<Form.Label className={"mt-2"}>Event End Time</Form.Label>
 							<Form.Control type={"time"} placeholder={"Event end time"} id={"eventEnd"}/>
+
 						</Form.Group>
+
 					</Col>
 				</Row>
+
 				<Form.Group className={"m-3"} id={"eventTitle"}>
 					<Form.Label>Event Title</Form.Label>
 					<Form.Control type={"input"} placeholder={"Title of your event"} />
 				</Form.Group>
+
 				<Form.Group className={"m-3"} id={"eventDescription.ControlTextarea"}>
 					<FloatingLabel id="floatingTextarea" label="Describe your event (256 characters max)">
 						<Form.Control
@@ -196,7 +205,23 @@ function EventCreateModalFormContent(props) {
 						/>
 					</FloatingLabel>
 				</Form.Group>
+
+				<Form.Group className={"mt-3"}>
+					<Button className={"btn btn-primary"} type={"submit"}>Submit</Button>
+					{" "}
+					<Button
+						className={"btn btn-danger"}
+						onClick={handleReset}
+						disabled={!dirty || isSubmitting}
+					>Reset
+					</Button>
+				</Form.Group>
+
 			</Form>
+
+			<DisplayStatus status={status}/>
+			<FormDebugger {...props} />
+
 		</>
 	)
 }
