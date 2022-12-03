@@ -11,7 +11,7 @@ export function Navigation() {
         <Navbar className={styles.navFootBgColor}>
             <Container className={"d-flex justify-content-between"}>
                 <img src={LLLLogo} className={styles.lLLLogoBase} alt={'Little Library Locator Logo'}/>
-                <img src={LLLLabel} className={styles.LLLLabel} />
+                <img src={LLLLabel} className={styles.LLLLabel}/>
                  <Nav>
                     <Container>
                         <SignInSignUpModal id="signInSignUpModal"/>
