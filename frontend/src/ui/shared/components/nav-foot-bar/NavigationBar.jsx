@@ -5,6 +5,7 @@ import styles from "./nav-footer.module.css";
 //PUT IN OUR LLL LOGO ONCE COMPLETE
 import littleLibraryLocatorLogo from "../../../../../images/uiSharedImages/linkedin-icon-classic-footer.webp";
 import {SignInSignUpModal} from "../main-nav/sign-in/SignInSignUpModal.jsx";
+import {SignOutComponent} from "../main-nav/SignOut";
 
 export function NavigationBar() {
     return (
@@ -16,6 +17,7 @@ export function NavigationBar() {
                     <Container>
                         <button type={"submit"}>RENDER MY ACCOUNT</button>
                         <SignInSignUpModal id="signInSignUpModal"/>
+                        <SignOutComponent id="signOut"/>
                     </Container>
                </Nav>
             </Container>
