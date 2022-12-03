@@ -3,7 +3,6 @@ import {Button, Col, Container, Form, Row, Stack} from "react-bootstrap";
 import {LibraryMap} from "./LibraryMap.jsx";
 import {EventShortListing} from "./EventShortListing.jsx";
 import {EventCreateModal} from "../shared/components/EventCreateModal.jsx";
-import {MapLibraryPinModal} from "../shared/components/map-library-pin-modal/MapLibraryPinModal.jsx";
 import {LibraryDetails} from "../library-details/LibraryDetails.jsx";
 import {Link} from "react-router-dom";
 import {CheckInDisplay} from "../shared/components/CheckInDisplay.jsx";
@@ -27,7 +26,7 @@ export function Home() {
 							<div className="bg-light border">Sixth event</div>
 						</Stack>
 					</Col>
-					<Col id={"map"} className={"border border-warning col-md-7"}>
+					<Col id={"map"} className={"mx-0 col-md-7"}>
 						<LibraryMap/>
 					</Col>
 					<Col id={"filters"} className={"col-md-2"}>
