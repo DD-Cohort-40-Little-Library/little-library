@@ -3,7 +3,7 @@ import {Container, Nav, Navbar, NavDropdown, Button} from "react-bootstrap";
 import {Link} from "react-router-dom";
 import styles from "./nav-footer.module.css";
 //PUT IN OUR LLL LOGO ONCE COMPLETE
-import littleLibraryLocatorLogo from "../../../../../images/location-pins/full-scale/little-library-pin.png";
+import littleLibraryLocatorLogo from "../../../../../images/uiSharedImages/linkedin-icon-classic-footer.webp";
 import {SignInSignUpModal} from "../main-nav/sign-in/SignInSignUpModal.jsx";
 
 export function NavigationBar() {
