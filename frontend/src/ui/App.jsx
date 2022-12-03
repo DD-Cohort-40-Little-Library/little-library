@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import './App.css'
 import { Home } from './Home.jsx'
 import { FourOhFour } from './FourOhFour'
-import { Navigation } from "./shared/components/nav-foot-bar/Navigation.jsx";
+import { NavigationBar } from "./shared/components/nav-foot-bar/NavigationBar.jsx";
 import { Footer } from "./shared/components/nav-foot-bar/Footer.jsx";
 import { CheckIn } from "./CheckIn.jsx";
 
@@ -12,7 +12,7 @@ export function App() {
 	return (
 		<>
 			<BrowserRouter>
-				<Navigation/>
+				<NavigationBar/>
 				<Routes>
 					<Route path='/' element={<Home />} />
 					<Route path={"*"} element={<FourOhFour />} />

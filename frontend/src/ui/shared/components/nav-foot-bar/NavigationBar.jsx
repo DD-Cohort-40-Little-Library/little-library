@@ -6,7 +6,7 @@ import LLLLogo from "../../../../../images/logoAssetsSVG/logoBase-xxs.svg";
 import LLLLabel from "../../../../../images/logoAssetsSVG/lLabel-xs.svg"
 import {SignInSignUpModal} from "../log-in-modals/SignInSignUp.jsx";
 
-export function Navigation() {
+export function NavigationBar() {
     return (
         <Navbar className={styles.navFootBgColor}>
             <Container className={"d-flex justify-content-between"}>
