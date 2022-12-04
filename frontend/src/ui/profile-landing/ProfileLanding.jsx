@@ -7,12 +7,12 @@ import {LibraryDetailBlock} from "./LibraryDetailBlock.jsx"
 import {EventCreateModal} from "../shared/components/EventCreateModal.jsx";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchAuth} from "../../store/auth.js";
-import {fetchCurrentUser} from "../../store/currentUser.js";
+import currentUser, {fetchCurrentUser} from "../../store/currentUser.js";
 
 export function ProfileLanding() {
     console.log('is this on')
     const dispatch = useDispatch()
-    const profile = useSelector(state => state.currentUser ? state.currentUser : state.currentUser)
+    const profile = useSelector(state => {return state.currentUser ? state.currentUser : null})
     const auth = useSelector(state => state.auth ? state.auth : state.auth)
     const initialEffects = () => {
         dispatch(fetchAuth())
@@ -27,11 +27,11 @@ export function ProfileLanding() {
 
     // //TODO: REMOVE 'const profile = null' to the end  from line below after pulling currentUser w/ useSelector=profile
     // const profile = null
-    // if (profile === null) {
-    //     return <h1>
-    //         Page is loading.
-    //     </h1>
-    // }
+    if (profile === null) {
+        return <h1>
+            Page is loading.
+        </h1>
+    }
     const {profileFirstName, profileLastName, profileEmail, profileName} = profile
     console.log('is this on 2')
     return (
