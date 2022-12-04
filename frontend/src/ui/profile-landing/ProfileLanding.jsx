@@ -4,7 +4,6 @@ import {EventListing} from "../shared/components/EventListing.jsx";
 import {CheckInDisplay} from "../shared/components/CheckInDisplay.jsx";
 import {Link} from "react-router-dom";
 import {LibraryDetailBlock} from "./LibraryDetailBlock.jsx"
-import {EventCreateModal} from "../shared/components/EventCreateModal.jsx";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchAuth} from "../../store/auth.js";
 import currentUser, {fetchCurrentUser} from "../../store/currentUser.js";
