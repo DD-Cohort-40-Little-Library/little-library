@@ -1,12 +1,13 @@
 import React from "react";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import {Col, Container, InputGroup, Row} from "react-bootstrap";
+import {Col, InputGroup, Row} from "react-bootstrap";
 import {useDispatch} from "react-redux";
 import {boolean, date} from "yup";
 import {httpConfig} from "../utils/http-config.js";
-import {Formik} from "formik";
-import libraries from "../../../store/libraries.js";
+import {Formik, useField} from "formik";
+import {DisplayStatus} from "./display-status/DisplayStatus";
+
 
 export function CheckInForm() {
     const dispatch = useDispatch()
@@ -48,13 +49,23 @@ export function CheckInForm() {
 }
 
 function CheckInFormContent (props) {
-    const library = libraryName
+    // const libraries= {library.libraryId} > {library.libraryName}
+
     const {
+        status,
+        values,
+        errors,
+        touched,
+        dirty,
+        isSubmitting,
+        handleChange,
+        handleBlur,
+        handleSubmit,
+        handleReset,
+    } = props
 
-    }
 
-
-const CheckInCheckbox = ({ children, ...props }) => {
+    const CheckInCheckbox = ({ children, ...props }) => {
         const [field, meta] = useField({ ...props, type: "checkbox" });
         return (
             <>
@@ -70,16 +81,10 @@ const CheckInCheckbox = ({ children, ...props }) => {
 };
 
 
-
-
-
-
-
-
     return (
         <>
-        <Container style={{paddingBlock: '1rem', backgroundColor: 'lightgrey'}}>
-        <Form>
+        <div style={{paddingBlock: '1rem', backgroundColor: 'lightgrey'}}>
+        <Form onSubmit={handleSubmit}>
             <fieldset>
                 <InputGroup>
                     <InputGroup.Text>Enter Comments Here</InputGroup.Text>
@@ -101,7 +106,8 @@ const CheckInCheckbox = ({ children, ...props }) => {
                 </Row>
             </fieldset>
         </Form>
-        </Container>
+        <DisplayStatus status={status}/>
+        </div>
         </>
     );
 }
