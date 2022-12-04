@@ -10,13 +10,13 @@ import 'mapbox-gl/dist/mapbox-gl.css'
 import {EventCreateModal} from "./shared/components/EventCreateModal.jsx";
 import {EventUpdateModal} from "./profile-landing/EventUpdateModal.jsx";
 import {ProfileRegistration} from './shared/components/main-nav/sign-up/ProfileRegistration.jsx';
-import {ProfileLanding} from "./profile-landing/ProfileLanding.jsx";
 import {ProfileUpdate} from "./profile-landing/ProfileUpdate.jsx";
 import {LibraryCreate} from "./LibraryCreate.jsx";
 import {LibraryUpdate} from "./profile-landing/LibraryUpdate.jsx";
 import {AboutUs} from "./AboutUs.jsx";
 import {LibraryDetails} from "./library-details/LibraryDetails.jsx";
 import {Provider} from "react-redux";
+import {ProfileLanding} from "./profile-landing/ProfileLanding.jsx";
 
 
 
