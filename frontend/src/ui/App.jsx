@@ -37,7 +37,7 @@ export function App({store}) {
 					<Route path={'/library-create'} element={<LibraryCreate/>}/>
 					{/*<Route path={'/library-create'} element={<LibraryCreateForm/>}/>*/}
 					<Route path={'/library-update'} element={<LibraryUpdate/>}/>
-					{/*<Route path='/check-in' element={<CheckIn/>} />*/}
+					<Route path='/check-in' element={<CheckIn/>} />
 					<Route path='/about-us' element={<AboutUs/>} />
 					<Route path={'/library-landing'} element={LibraryDetails} />
 				</Routes>

@@ -2,8 +2,80 @@ import React from "react";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import {Col, Container, InputGroup, Row} from "react-bootstrap";
+import {useDispatch} from "react-redux";
+import {boolean, date} from "yup";
+import {httpConfig} from "../utils/http-config.js";
+import {Formik} from "formik";
+import libraries from "../../../store/libraries.js";
 
 export function CheckInForm() {
+    const dispatch = useDispatch()
+
+    const validator = useDispatch().shape({
+        checkInComment: Yup.string()
+            .required('Please enter a comment')
+    })
+
+    const checkIn = {
+        checkInComment: '',
+        checkInPhotoUrl: uploadToCloudinary(),
+        checkInReport: boolean,
+    }
+
+    const submitCheckIn = (values, {resetForm, setStatus}) => {
+        httpConfig.post('/apis/check-in', values)
+            .then(reply => {
+                    let {message, type} = reply
+
+                    if (reply.status === 200) {
+                        resetForm()
+                    }
+                    setStatus({message, type})
+                }
+            )
+    }
+
+    return (
+
+        <Formik
+            initialValues={checkIn}
+            onSubmit={submitCheckIn}
+            validationSchema={validator}
+        >
+            {CheckInFormContent}
+        </Formik>
+    )
+}
+
+function CheckInFormContent (props) {
+    const library = libraryName
+    const {
+
+    }
+
+
+const CheckInCheckbox = ({ children, ...props }) => {
+        const [field, meta] = useField({ ...props, type: "checkbox" });
+        return (
+            <>
+                <label className="checkbox">
+                    <input {...field} {...props} type="checkbox" />
+                    {children}
+                </label>
+                {meta.touched && meta.error ? (
+                    <div className="error">{meta.error}</div>
+                ) : null}
+            </>
+        );
+};
+
+
+
+
+
+
+
+
     return (
         <>
         <Container style={{paddingBlock: '1rem', backgroundColor: 'lightgrey'}}>
@@ -14,11 +86,7 @@ export function CheckInForm() {
                     <Form.Control as="textarea" aria-label="commentText" rows={4}/>
                 </InputGroup>
                 <Form.Group className="mb-3">
-                    <Form.Check
-                        type="checkbox"
-                        id="FieldsetCheck"
-                        label="Report Damage to Library Owner"
-                    />
+                    <CheckInCheckbox/>
                     <Form.Text id="CommentRules" muted>
                         Your comments must be 8-255 characters long. Your comments will be displayed and monitored. Please refrain from using offensive language and hate speech. Thank you.
                     </Form.Text>
