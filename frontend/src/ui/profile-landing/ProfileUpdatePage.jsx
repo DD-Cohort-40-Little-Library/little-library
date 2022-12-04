@@ -2,7 +2,7 @@ import React from "react";
 import {Button, Form, Col, Container, Image, Row} from "react-bootstrap";
 
 
-export const ProfileUpdate = () => {
+export const ProfileUpdatePage = () => {
     return (
         <>
             <h1>Update Profile Page</h1>
@@ -46,9 +46,12 @@ export const ProfileUpdate = () => {
                         </Form>
                     </Col>
                     <Col id={"selected avatar"} md={3} className={"text-center"} >
+                        {/*TURN INTO DROP ZONE*/}
                         <Image src={'http://placekitten.com/400/400'} fluid={true} alt={'selected avatar'} className={"rounded-circle mt-5"} ></Image>
-                        <Button className={"m-4"}>Upload Photo</Button>
-                        <Button className={"m-5"} variant={"warning"}>Close Account</Button>
+                        {/*USING DROP ZONE INSTEAD, NO PHOTO BUTTON NEEDED, JUST SUBMIT*/}
+                        {/*<Button className={"m-4"}>Upload Photo</Button>*/}
+                        {/*REMOVE/CUT 'CLOSE ACCOUNT' DUE TO TIME CONSTRAINTS?*/}
+                        {/*<Button className={"m-5"} variant={"warning"}>Close Account</Button>*/}
                     </Col>
                     <Col id={"user avatars"} md={5} className={"text-center"}>
                         <h3>User Avatars</h3>

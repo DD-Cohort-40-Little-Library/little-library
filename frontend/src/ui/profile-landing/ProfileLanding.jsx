@@ -8,9 +8,9 @@ import {EventCreateModal} from "../shared/components/EventCreateModal.jsx";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchAuth} from "../../store/auth.js";
 import currentUser, {fetchCurrentUser} from "../../store/currentUser.js";
+import {ProfileUpdateModal} from "./ProfileUpdateModal.jsx";
 
 export function ProfileLanding() {
-    console.log('is this on')
     const dispatch = useDispatch()
     const profile = useSelector(state => {return state.currentUser ? state.currentUser : null})
     const auth = useSelector(state => state.auth ? state.auth : state.auth)
@@ -33,7 +33,6 @@ export function ProfileLanding() {
         </h1>
     }
     const {profileFirstName, profileLastName, profileEmail, profileName} = profile
-    console.log('is this on 2')
     return (
         <>
             <h1>User Landing Page</h1>
@@ -63,9 +62,9 @@ export function ProfileLanding() {
                             </div>
                         </div>
 
-                        <Link to={"/profile-update"} className={"btn-primary"}> <Button> Update Profile</Button></Link>
+                        <ProfileUpdateModal id="profileUpdateModal"/>
                         <Link to={"/library-create"} className={"btn-primary"}> <Button> Add a Library</Button></Link>
-                        <EventCreateModal />
+                        {/*<Link to={"/event-create-page"} className={"btn-primary"}> <Button> Add an Event</Button></Link>*/}
 
                     </Col>
                     <Col id={"selected avatar"} md={3} className={"text-center"} >
