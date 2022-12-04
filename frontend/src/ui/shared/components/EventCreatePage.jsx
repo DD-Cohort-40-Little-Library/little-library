@@ -26,29 +26,13 @@ const EventTypeSelect = ({ label, ...props }) => {
 	);
 };
 
-// const EventLibrarySelect = ({ label, ...props }) => {
-// 	// useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
-// 	// which we can spread on <input> and else replace ErrorMessage entirely.
-//
-// 	const [field, meta] = useField(props);
-// 	return (
-// 		<>
-// 			<label htmlFor={props.id || props.name}>{label}</label>
-// 			<FormSelect {...field} {...props} />
-// 			{meta.touched && meta.error ? (
-// 				<div className={'error'}>{meta.error}</div>
-// 			) : null}
-// 		</>
-// 	);
-// };
-
 export const EventCreatePage = () => {
 	const createEvent = {
 		eventLibraryId: "",
 		eventDate: "",
 		eventDescription: "",
-		eventEnd: "",
-		eventStart: "",
+		eventEndTime: "",
+		eventStartTime: "",
 		eventTitle: "",
 		eventType: ""
 	}
@@ -77,9 +61,9 @@ export const EventCreatePage = () => {
 			.required('Please select a date'),
 		eventDescription: Yup.string()
 			.required('Please briefly describe the event'),
-		eventEnd: Yup.mixed()
+		eventEndTime: Yup.mixed()
 			.required('Please select an ending time'),
-		eventStart:Yup.mixed()
+		eventStartTime:Yup.mixed()
 			.required('Please select a starting time'),
 		eventTitle: Yup.string()
 			.required('Please provide a title'),
@@ -91,7 +75,10 @@ export const EventCreatePage = () => {
 
 	})
 	const submitEventCreate = (values, {resetForm, setStatus}) => {
-		httpConfig.post('/apis/events', values)
+		values.eventStart = `${values.eventDate}T${values.eventStartTime}:00Z`
+		values.eventEnd = `${values.eventDate}T${values.eventEndTime}:00Z`
+
+		httpConfig.post('/apis/event/', values)
 			.then(reply => {
 				let {message, type} = reply
 				if(reply.status === 200){
@@ -133,8 +120,6 @@ function EventCreateModalFormContent(props) {
 		}
 		return libraryWithEvent
 	})
-	// console.log('I am HERE')
-	// console.log(libraries)
 
 	return (
 		<>
@@ -144,12 +129,12 @@ function EventCreateModalFormContent(props) {
 						<h3 className={"text-center"}>Plan An Event</h3>
 						<select  name={'eventLibraryId'} onChange={handleChange} onBlur={handleBlur} >
 							<option value={''}>Select a library for your event</option>
-							{libraries.map(library => <option value={library.libraryId}>{library.libraryName}: located at {library.libraryAddress}</option>)}
+							{libraries.map((library,index) => <option key={index} value={library.libraryId}>{library.libraryName}: located at {library.libraryAddress}</option>)}
 						</select>
 					</div>
 					<Col>
 
-						<Form.Group contorlId={'eventDate'} className={"m-3"} >
+						<Form.Group controlId={'eventDate'} className={"m-3"} >
 							{/*TODO Do we want a list or open input?*/}
 							<Form.Label>Event Date</Form.Label>
 							<InputGroup className={"mb-2"}>
@@ -183,17 +168,28 @@ function EventCreateModalFormContent(props) {
 
 							<Form.Label>Event Start Time</Form.Label>
 								<InputGroup>
-									<Field name="eventStart" type={"time"} placeholder={"Event start time"} id={"eventStart"}/>
+									<Form.Control
+										name="eventStartTime"
+										type={"time"}
+										placeholder={"Event start time"}
+										id={"eventStartTime"}
+										value={values.eventStartTime}
+										onChange={handleChange}
+										onBlur={handleBlur}
+									/>
 								</InputGroup>
-							{/*<Field*/}
-							{/*	component={DateTimePicker}*/}
-							{/*	name="dateTime"*/}
-							{/*	label="Date Time"*/}
-							{/*/>*/}
 
 							<Form.Label className={"mt-2"}>Event End Time</Form.Label>
 								<InputGroup>
-									<Field name="eventEnd" type={"time"} placeholder={"Event end time"} id={"eventEnd"}/>
+									<Form.Control
+										name="eventEndTime"
+										type={"time"}
+										placeholder={"Event end time"}
+										id={"eventEndTime"}
+										value={values.eventEndTime}
+										onChange={handleChange}
+										onBlur={handleBlur}
+									/>
 								</InputGroup>
 
 						</Form.Group>

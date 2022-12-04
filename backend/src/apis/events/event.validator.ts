@@ -5,10 +5,6 @@ export const eventValidator: Schema = {
         isUUID: {
             errorMessage: 'Please provide a valid eventLibraryId'}
     },
-    eventProfileId: {
-        isUUID: {
-            errorMessage: 'Please provide a valid eventProfileId.'}
-    },
     eventDate:{
         isISO8601: true,
         errorMessage: 'Event date is malformed.'
