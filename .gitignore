@@ -1,8 +1,7 @@
-<<<<<<< HEAD
 .DS_Store
 /.idea
 node-modules
-=======
+
 */src/dist
 */node_modules
 .idea
@@ -24,10 +23,11 @@ node-modules
 */.env.development.local
 */.env.test.local
 
-
 */npm-debug.log*
 */yarn-debug.log*
 */yarn-error.log*
->>>>>>> express
+
+*/.env
+/.env
 
 /frontend/setupProxy.js

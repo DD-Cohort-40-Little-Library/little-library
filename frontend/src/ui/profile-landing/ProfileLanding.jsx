@@ -1,17 +1,38 @@
 import React from "react";
 import {Col, Container, Row, Form, Image, Button, Tabs, Tab, FormText} from "react-bootstrap";
-import {ProfileUpdate} from "./ProfileUpdate.jsx";
 import {EventListing} from "../shared/components/EventListing.jsx";
 import {CheckInDisplay} from "../shared/components/CheckInDisplay.jsx";
-import {LibraryDetails} from "../library-details/LibraryDetails.jsx";
-import {BioBlock} from "../BioBlock.jsx";
 import {Link} from "react-router-dom";
 import {LibraryDetailBlock} from "./LibraryDetailBlock.jsx"
-import {EventCreateModal} from "../shared/components/EventCreateModal.jsx";
+import {useDispatch, useSelector} from "react-redux";
+import {fetchAuth} from "../../store/auth.js";
+import currentUser, {fetchCurrentUser} from "../../store/currentUser.js";
 
-export function ProfileLanding({profile}) {
-    console.log(profile)
+export function ProfileLanding() {
+    console.log('is this on')
+    const dispatch = useDispatch()
+    const profile = useSelector(state => {return state.currentUser ? state.currentUser : null})
+    const auth = useSelector(state => state.auth ? state.auth : state.auth)
+    const initialEffects = () => {
+        dispatch(fetchAuth())
+    }
+    React.useEffect(initialEffects, [dispatch])
+    const secondaryEffect = () => {
+        if (auth !== null) {
+            dispatch(fetchCurrentUser(auth.profileId))
+        }
+    }
+    React.useEffect(secondaryEffect, [auth, dispatch])
+
+    // //TODO: REMOVE 'const profile = null' to the end  from line below after pulling currentUser w/ useSelector=profile
+    // const profile = null
+    if (profile === null) {
+        return <h1>
+            Page is loading.
+        </h1>
+    }
     const {profileFirstName, profileLastName, profileEmail, profileName} = profile
+    console.log('is this on 2')
     return (
         <>
             <h1>User Landing Page</h1>
@@ -19,7 +40,6 @@ export function ProfileLanding({profile}) {
                 <Row className={"gx-md-3 p-3"}>
                     <Col id={"user registration"} md={4} className={"text-center"} >
                         <h3>User Information</h3>
-                        {/*change from form to div*/}
                         <div className={"border border-dark px-3"}>
                             <div className="mb-3" >
                                 <div>First Name: </div>
