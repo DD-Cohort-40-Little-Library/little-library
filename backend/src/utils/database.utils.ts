@@ -1,4 +1,6 @@
-import postgres from 'postgres'
+const postgres = require ("postgres")
+
+
 
 export const sql = postgres({
     user: process.env.POSTGRES_USER,

@@ -2,6 +2,8 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import React from "react";
 import {Col, Container, Image, Row, Stack, Tab, Tabs} from "react-bootstrap";
+import {EventListing} from "../shared/components/EventListing.jsx";
+import {CheckInDisplay} from "../shared/components/CheckInDisplay.jsx";
 
 
 
@@ -38,7 +40,8 @@ export function LibraryDetails() {
             <Tab eventKey="events" title="Events">
                 <Container>
                     <Row>
-                        <p>TEST 1</p>
+                        <p>TEST 1, DELETE LATER</p>
+                        <EventListing />
                     </Row>
                 </Container>
             </Tab>
@@ -46,6 +49,7 @@ export function LibraryDetails() {
                 <Container>
                     <Row>
                         <p>TEST 2</p>
+                        <CheckInDisplay />
                     </Row>
                 </Container>
             </Tab>

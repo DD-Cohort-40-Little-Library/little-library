@@ -40,7 +40,7 @@ in order to post photos of your Little Library, you must confirm your account
         };
         const successMessage = await insertProfile(profile)
         await mailGunClient.messages.create(process.env.MAILGUN_DOMAIN as string, mailGunMessage)
-        return response.json({status: 200, message: successMessage, data: null})
+        return response.json({status: 200, message: 'Profile successfully created.', data: null})
     } catch (error: any) {
         return (response.json({status: 500, message: error.message, data: null}))
     }
