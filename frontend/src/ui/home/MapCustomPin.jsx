@@ -19,7 +19,7 @@ export function MapCustomPin(props) {
         }, index
     } = props
 
-    const SIZE = 20;
+    const SIZE = 30;
     const [showPopup, setShowPopup] = useState(false)
     console.log(libraryType)
     return (
@@ -33,13 +33,27 @@ export function MapCustomPin(props) {
                                                 viewBox="0 0 24 24"
                                                 style={{
                                                     transform: `translate(${-SIZE / 4}px,${-SIZE}px`
-                                                }} />
-                }
+                                                }} />}
                 {libraryType === 'Public Library' && <Image src={`../images/icons-svg/public-library-pin.svg`}
                                                             height={SIZE}
                                                             viewBox="0 0 24 24"
                                                             style={{transform: `translate(${-SIZE / 4}px,${-SIZE}px`}}/>}
-
+                {librarySpecialization === 'romance' && <Image src={`../images/icons-svg/romance-pin.svg`}
+                                                            height={SIZE}
+                                                            viewBox="0 0 24 24"
+                                                            style={{transform: `translate(${-SIZE / 4}px,${-SIZE}px`}}/>}
+                {librarySpecialization === 'children' && <Image src={`../images/icons-svg/baby-pin.svg`}
+                                                           height={SIZE}
+                                                           viewBox="0 0 24 24"
+                                                           style={{transform: `translate(${-SIZE / 4}px,${-SIZE}px`}}/>}
+                {librarySpecialization === 'home improvement' && <Image src={`../images/icons-svg/tools-pin.svg`}
+                                                                height={SIZE}
+                                                                viewBox="0 0 24 24"
+                                                                style={{transform: `translate(${-SIZE / 4}px,${-SIZE}px`}}/>}
+                {librarySpecialization === 'fiction' && <Image src={`../images/icons-svg/alien-pin.svg`}
+                                                                        height={SIZE}
+                                                                        viewBox="0 0 24 24"
+                                                                        style={{transform: `translate(${-SIZE / 4}px,${-SIZE}px`}}/>}
             </Marker>
 
             {showPopup && (
