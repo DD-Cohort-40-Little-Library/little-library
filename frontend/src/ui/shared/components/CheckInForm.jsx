@@ -2,11 +2,14 @@ import React from "react";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import {Col, Container, InputGroup, Row} from "react-bootstrap";
+import {CheckInDisplay} from "./CheckInDisplay";
+import {DisplayStatus} from "./display-status/DisplayStatus";
+import {FormDebugger} from "./FormDebugger";
 
 export function CheckInForm() {
     return (
         <>
-        <Container style={{paddingBlock: '1rem', backgroundColor: 'lightgrey'}}>
+            <Container style={{paddingBlock: '1rem', backgroundColor: 'lightgrey'}}>
         <Form>
             <fieldset>
                 <InputGroup>
@@ -34,6 +37,8 @@ export function CheckInForm() {
             </fieldset>
         </Form>
         </Container>
+        <DisplayStatus status={status}/>
+        <FormDebugger {...props}/>
         </>
     );
 }

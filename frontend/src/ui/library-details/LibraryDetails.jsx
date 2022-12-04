@@ -4,6 +4,7 @@ import React from "react";
 import {Col, Container, Image, Row, Stack, Tab, Tabs} from "react-bootstrap";
 import {EventListing} from "../shared/components/EventListing.jsx";
 import {CheckInDisplay} from "../shared/components/CheckInDisplay.jsx";
+import {Link} from "react-router-dom";
 
 
 
@@ -22,10 +23,10 @@ export function LibraryDetails() {
                 </Card.Text>
                 <Row>
                 <Col md={7} style={{padding: '1rem'}}>
-                <Button variant="primary">Check In</Button>
+                    <Link to={"/check-in"}><Button variant="primary">Check In</Button></Link>
                 </Col>
                 <Col md={3} style={{padding: '1rem'}}>
-                <Button variant="primary">Sign Guest Book</Button>
+                    <Button variant="primary">Sign Guest Book</Button>
                 </Col>
                 </Row>
             </Card.Body>

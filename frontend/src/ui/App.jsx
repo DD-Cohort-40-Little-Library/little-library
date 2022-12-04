@@ -17,6 +17,7 @@ import {LibraryDetails} from "./library-details/LibraryDetails.jsx";
 import {Provider} from "react-redux";
 import {ProfileLanding} from "./profile-landing/ProfileLanding.jsx";
 import {EventCreatePage} from "./shared/components/EventCreatePage.jsx";
+import {CheckInForm} from "./shared/components/CheckInForm.jsx";
 
 
 export function App({store}) {
@@ -36,9 +37,9 @@ export function App({store}) {
 					<Route path={'/library-create'} element={<LibraryCreate/>}/>
 					{/*<Route path={'/library-create'} element={<LibraryCreateForm/>}/>*/}
 					<Route path={'/library-update'} element={<LibraryUpdate/>}/>
-					{/*<Route path='/check-in' element={<CheckIn/>} />*/}
+					<Route path='/check-in' element={<CheckInForm/>} />
 					<Route path='/about-us' element={<AboutUs/>} />
-					<Route path={'/library-landing'} element={LibraryDetails} />
+					<Route path={'/library-landing'} element={<LibraryDetails/>} />
 				</Routes>
 				<Footer/>
 			</BrowserRouter>
