@@ -1,3 +1,94 @@
-.navFooterBar {
 
+body {
+    background-color: #CDCDC1;
+}
+
+/*NavBar*/
+#navFootBgColor {
+    background-color: #835A4E;
+}
+
+#lLLLogoBase {
+    height: 50px;
+    width: auto;
+}
+
+#LLLLabel {
+    height: 35px;
+    width: auto;
+}
+
+
+
+/*SignIn/SignUp*/
+#signInModalColor{
+    background-color: #CAB898;
+    text-align: center;
+    width: border-box;
+}
+
+#signInSignUpSubmitButtonColor{
+    background-color: #426A73;
+    text-align: center;
+    width: border-box;
+}
+
+#signInSignUpResetButtonColor{
+    background-color: #835A4E;
+    text-align: center;
+    width: border-box;
+}
+
+
+
+/*Home MAP*/
+#mapBox {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+
+
+
+/*Home Event Column*/
+#events-column{
+    background-color: #93A5AB;
+}
+
+
+
+
+/*Create Event Modal*/
+#planEventModal{
+    background-color: #76999D;
+}
+
+#planEventModalFooter{
+    background-color: #93A5AB;
+}
+
+#footer{
+    color: #CDCDC1;
+    padding-top: 1rem;
+    position: -webkit-sticky;
+}
+
+/*User Registration*/
+#sectionHeadlineONE{
+    color: #505737;
+    font-size: 4rem;
+}
+
+#sectionHeadlineTWO{
+    color: #505737;
+    font-size: 3rem;
+}
+
+#userRegistration{
+    background-color: #93A5AB;
+}
+
+#profileRegText{
+    color: #426A73;
 }

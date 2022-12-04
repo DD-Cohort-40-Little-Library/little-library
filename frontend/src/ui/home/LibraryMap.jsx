@@ -7,9 +7,9 @@ import {MapCustomPin} from "./MapCustomPin.jsx";
 
 const styles = {
 	map:{
-		height: "50vh",
-		width: "auto",
-		position: "relative"
+		height: "40rem",
+		width: "flex",
+		position: "flex"
 	},
 }
 
@@ -25,11 +25,11 @@ export function LibraryMap (){
 
 	return (
 		<>
-			<div className={'justify-content-center'} style={styles.mapbox} >
+			<div className={'justify-content-center'} id={'mapbox'} >
 				<Map initialViewState={{
-					latitude: 35.18,
-					longitude: -106.49,
-					zoom: 9
+					latitude: 35.12,
+					longitude: -106.64,
+					zoom: 10.5
 				}}
 				            mapboxAccessToken={import.meta.env.VITE_MAPBOX_ACCESS_TOKEN}
 				            mapStyle='mapbox://styles/mapbox/satellite-streets-v12'

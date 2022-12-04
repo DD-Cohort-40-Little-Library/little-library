@@ -4,7 +4,7 @@ import {Col, Container, Row} from "react-bootstrap";
 export const EventShortListing = () => {
 	return(
 		<>
-			<Container className={"border border-dark rounded"}>
+			<Container>
 				<Row className={"my-3"}>
 					<Col xs={5}>Library Name</Col>
 					<Col xs={7}>Library Address</Col>

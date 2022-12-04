@@ -18,7 +18,7 @@ export function EventCreateModal(){
 			backdrop="static"
 			keyboard={false}
 		>
-			<Form>
+			<Form id={'planEventModal'}>
 				<Row>
 					<h3 className={"text-center"}>Plan An Event</h3>
 					<Col>
@@ -64,7 +64,7 @@ export function EventCreateModal(){
 					</FloatingLabel>
 				</Form.Group>
 			</Form>
-			<Modal.Footer>
+			<Modal.Footer id={'planEventModalFooter'}>
 				<Button variant="light" onClick={handleClose}>
 					Close
 				</Button>
