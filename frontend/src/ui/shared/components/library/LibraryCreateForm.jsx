@@ -1,11 +1,51 @@
 import React from "react";
-import {Formik} from "formik";
+import {Formik, useField} from "formik";
 import * as Yup from "yup";
 import {httpConfig} from "../../utils/http-config.js";
-import {Button, Card, Col, Figure, FloatingLabel, Form, FormControl, InputGroup, Row} from "react-bootstrap";
+import {
+    Button,
+    Card,
+    Col,
+    Figure,
+    Form,
+    FormControl,
+    FormSelect,
+    InputGroup,
+    Row
+} from "react-bootstrap";
 import {DisplayError} from "../display-error/DisplayError.jsx";
 import {DisplayStatus} from "../display-status/DisplayStatus.jsx";
+import {FormDebugger} from "../FormDebugger.jsx";
 
+const LibraryEventCheckbox = ({ children, ...props }) => {
+    const [field, meta] = useField({ ...props, type: "checkbox" });
+    return (
+        <>
+            <label className="checkbox">
+                <input {...field} {...props} type="checkbox" />
+                {children}
+            </label>
+            {meta.touched && meta.error ? (
+                <div className="error">{meta.error}</div>
+            ) : null}
+        </>
+    );
+};
+
+const LibrarySpecializationSelectType = ({ label, ...props }) => {
+    // useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
+    // which we can spread on <input> and else replace ErrorMessage entirely.
+    const [field, meta] = useField(props)
+    return (
+        <>
+            <label htmlFor={props.id || props.name}>{label}</label>
+            <FormSelect {...field} {...props} />
+            {meta.touched && meta.error ? (
+                <div className={'error'}>{meta.error}</div>
+            ) : null}
+        </>
+    )
+}
 
 export const LibraryCreateForm = () => {
     const createLibrary ={
@@ -71,7 +111,7 @@ function LibraryCreateFormContent (props){
             <Form onSubmit={handleSubmit}>
                 <Row>
                     {/*<Col>*/}
-                        <Col md={6} className={"m-2 text-center"}>
+                    <Col md={6} className={"m-2 text-center"}>
                             <Figure fluid="true">
                                 <Figure.Image
                                     alt={"placeholder kitten"}
@@ -100,18 +140,18 @@ function LibraryCreateFormContent (props){
                         </Form.Group>
 
                         <Form.Group controlId={'libraryEventOptIn'}>
-                            <Form.Label>Library Event Opt In</Form.Label>
-                            <InputGroup>
-                                {/*<Form.Check className="mt-1" inline label="Available for events?"type="checkbox"/>*/}
-                                <FormControl
-                                    className="form-control"
-                                    name='toggle'
-                                    type='checkbox'
-                                    value={values.libraryEventOptIn}
-                                    onChange={handleChange}
-                                    onBlur={handleBlur}
-                                />
-                            </InputGroup>
+                            <LibraryEventCheckbox name={'libraryEventOptIn'}>Are events available at your library?</LibraryEventCheckbox>
+                            {/*<InputGroup>*/}
+                            {/*    /!*<Form.Check className="mt-1" inline label="Available for events?"type="checkbox"/>*!/*/}
+                            {/*    <FormControl*/}
+                            {/*        className="form-control"*/}
+                            {/*        name='toggle'*/}
+                            {/*        type='checkbox'*/}
+                            {/*        value={values.libraryEventOptIn}*/}
+                            {/*        onChange={handleChange}*/}
+                            {/*        onBlur={handleBlur}*/}
+                            {/*    />*/}
+                            {/*</InputGroup>*/}
                             <DisplayError errors={errors} touched={touched} field={'libraryEventOptIn'}/>
                         </Form.Group>
 
@@ -131,38 +171,26 @@ function LibraryCreateFormContent (props){
                             <DisplayError errors={errors} touched={touched} field={'libraryName'}/>
                         </Form.Group>
 
-                        <Form.Group controlId={'librarySpecialization'}>
-                            <Form.Label>Library Specialization</Form.Label>
-                            <InputGroup>
-                                <FormControl
-                                    name='librarySpecialization'
-                                    type='select'
-                                    value={values.librarySpecialization}
-                                    placeholder='Library Specialization'
-                                    onChange={handleChange}
-                                    onBlur={handleBlur}/>
-                                    {/*<Form.Select className="mt-1" aria-label="Library specialization selection">*/}
-                                    {/*    <option>(Optional) Choose a specialization</option>*/}
-                                    {/*    <option value="children">Children's</option>*/}
-                                    {/*    <option value="self-improvement">Self Improvement</option>*/}
-                                    {/*    <option value="young-adult">Young Adult</option>*/}
-                                    {/*    <option value="fantasy">Fantasy</option>*/}
-                                    {/*    <option value="home-improvement">Home Improvement</option>*/}
-                                    {/*    <option value="science-fiction">Science Fiction</option>*/}
-                                    {/*    <option value="romance">Romance</option>*/}
-                                    {/*    <option value="textbooks-technical">Textbooks/Technical</option>*/}
-                                    {/*    <option value="religious">Religious</option>*/}
-                                    {/*    <option value="non-fiction">Non-Fiction</option>*/}
-                                    {/*    <option value="history">History</option>*/}
-                                    {/*    <option value="art">Art</option>*/}
-                                    {/*    <option value="cooking">Cooking</option>*/}
-                                    {/*    <option value="satire">Satire</option>*/}
-                                    {/*    <option value="pets-animals">Pets/Animals</option>*/}
-                                    {/*    <option value="automotive">Automotive</option>*/}
-                                    {/*</Form.Select>*/}
-                                    {/*</FormControl>*/}
-                            </InputGroup>
-                            <DisplayError errors={errors} touched={touched} field={'librarySpecialization'}/>
+                        <Form.Group className="mb=3" controlId="Library Specialization">
+                            <LibrarySpecializationSelectType label={'(Optional) Choose a Specialization'} name="librarySpecialization" className={"mt-2"}>
+                                <option value={''}>Select an specialization type</option>
+                                <option value={'children'}>Children's</option>
+                                <option value={'self-improvement'}>Self Improvement</option>
+                                <option value={'young-adult'}>Young Adult</option>
+                                <option value={'fantasy'}>Fantasy</option>
+                                <option value={'home-improvement'}>Home Improvement</option>
+                                <option value={'science-fiction'}>Science Fiction</option>
+                                <option value={'romance'}>Romance</option>
+                                <option value={'textbooks-technical'}>Textbooks/Technical</option>
+                                <option value={'religious'}>Religious</option>
+                                <option value={'non-fiction'}>Non-Fiction</option>
+                                <option value={'history'}>History</option>
+                                <option value={'art'}>Art</option>
+                                <option value={'cooking'}>Cooking</option>
+                                <option value={'satire'}>Satire</option>
+                                <option value={'pets-animals'}>Pets/Animals</option>
+                                <option value={'automotive'}>Automotive</option>
+                            </LibrarySpecializationSelectType>
                         </Form.Group>
                     </Col>
 
@@ -212,6 +240,7 @@ function LibraryCreateFormContent (props){
             </Form>
             </Card>
             <DisplayStatus status={status} />
+            <FormDebugger {...props} />
         </>
     )
 }
