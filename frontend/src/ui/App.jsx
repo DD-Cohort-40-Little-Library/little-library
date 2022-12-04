@@ -29,8 +29,8 @@ export function App({store}) {
 				<Routes>
 					<Route path='/' element={<Home />} />
 					<Route path={"*"} element={<FourOhFour />} />
-					<Route path='/event-create-page'element={<EventCreatePage />} />
-					<Route path='/event-update-modal'element={<EventUpdateModal />} />
+					<Route path='/event-create-page' element={<EventCreatePage />} />
+					<Route path='/event-update-modal' element={<EventUpdateModal />} />
 					<Route path='/profile-registration' element={<ProfileRegistration />} />
 					<Route path='/profile-landing' element={<ProfileLanding />} />
 					<Route path='/profile-update' element={<ProfileUpdate />} />

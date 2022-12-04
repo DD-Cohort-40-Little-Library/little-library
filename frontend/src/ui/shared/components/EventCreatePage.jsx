@@ -2,7 +2,7 @@ import {Button, Col, FloatingLabel, Form, FormControl, FormSelect, InputGroup, R
 import React from "react"
 import * as Yup from 'yup'
 import {httpConfig} from "../utils/http-config.js";
-import {Formik, useField} from "formik";
+import {Field, Formik, useField} from "formik";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchAllLibraries} from "../../../store/libraries.js";
 import {FormDebugger} from "./FormDebugger.jsx";
@@ -77,9 +77,9 @@ export const EventCreatePage = () => {
 			.required('Please select a date'),
 		eventDescription: Yup.string()
 			.required('Please briefly describe the event'),
-		eventEnd: Yup.date()
+		eventEnd: Yup.mixed()
 			.required('Please select an ending time'),
-		eventStart:Yup.date()
+		eventStart:Yup.mixed()
 			.required('Please select a starting time'),
 		eventTitle: Yup.string()
 			.required('Please provide a title'),
@@ -133,8 +133,8 @@ function EventCreateModalFormContent(props) {
 		}
 		return libraryWithEvent
 	})
-	console.log('I am HERE')
-	console.log(libraries)
+	// console.log('I am HERE')
+	// console.log(libraries)
 
 	return (
 		<>
@@ -152,7 +152,7 @@ function EventCreateModalFormContent(props) {
 						<Form.Group contorlId={'eventDate'} className={"m-3"} >
 							{/*TODO Do we want a list or open input?*/}
 							<Form.Label>Event Date</Form.Label>
-							<InputGroup>
+							<InputGroup className={"mb-2"}>
 								<FormControl
 									name={'eventDate'}
 									type={'date'}
@@ -161,9 +161,9 @@ function EventCreateModalFormContent(props) {
 									onBlur={handleBlur}
 									/>
 							</InputGroup>
-							<Form.Control type={"date"} placeholder={"Date of event"} id={"eventDate"}/>
+							{/*<Form.Control type={"date"} placeholder={"Date of event"} id={"eventDate"}/>*/}
 
-							<EventTypeSelect label={"Type of Event"} name={'eventType'}>
+							<EventTypeSelect label={"Type of Event"} name={'eventType'} className={"mt-2"}>
 								<option value={''}>Select an event type</option>
 								<option value={'story-time-children'}>Story Time - Children</option>
 								<option value={'story-telling-adult'}>Story Telling - Adult</option>
@@ -182,10 +182,19 @@ function EventCreateModalFormContent(props) {
 						<Form.Group className={"m-3"} >
 
 							<Form.Label>Event Start Time</Form.Label>
-							<Form.Control type={"time"} placeholder={"Event start time"} id={"eventStart"}/>
+								<InputGroup>
+									<Field name="eventStart" type={"time"} placeholder={"Event start time"} id={"eventStart"}/>
+								</InputGroup>
+							{/*<Field*/}
+							{/*	component={DateTimePicker}*/}
+							{/*	name="dateTime"*/}
+							{/*	label="Date Time"*/}
+							{/*/>*/}
 
 							<Form.Label className={"mt-2"}>Event End Time</Form.Label>
-							<Form.Control type={"time"} placeholder={"Event end time"} id={"eventEnd"}/>
+								<InputGroup>
+									<Field name="eventEnd" type={"time"} placeholder={"Event end time"} id={"eventEnd"}/>
+								</InputGroup>
 
 						</Form.Group>
 
@@ -193,15 +202,26 @@ function EventCreateModalFormContent(props) {
 				</Row>
 
 				<Form.Group className={"m-3"} id={"eventTitle"}>
-					<Form.Label>Event Title</Form.Label>
-					<Form.Control type={"input"} placeholder={"Title of your event"} />
+					<Form.Label>Event Title </Form.Label>
+						<InputGroup>
+							<Field
+								name="eventTitle"
+								type={"input"}
+								placeholder={"Title of your event"}
+								style={{width: '350px'}}
+							/>
+						</InputGroup>
 				</Form.Group>
 
 				<Form.Group className={"m-3"} id={"eventDescription.ControlTextarea"}>
 					<FloatingLabel id="floatingTextarea" label="Describe your event (256 characters max)">
-						<Form.Control
+						<Field
+							name="eventDescription"
 							as="textarea"
-							style={{ height: '100px' }}
+							style={{
+								height: '125px',
+								width: '550px'
+						}}
 						/>
 					</FloatingLabel>
 				</Form.Group>

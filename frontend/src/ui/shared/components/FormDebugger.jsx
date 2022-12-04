@@ -10,8 +10,8 @@ export const FormDebugger = props => (
 				padding: '.5rem',
 			}}
 		>
-      <strong>props</strong> ={' '}
+		  <strong>props</strong> ={' '}
 			{JSON.stringify(props, null, 2)}
-    </pre>
+		</pre>
 	</div>
 );

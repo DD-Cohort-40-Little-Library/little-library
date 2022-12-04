@@ -1,5 +1,6 @@
 import {sql} from '../database.utils'
 import {Library} from "./Library";
+import {TimeLike} from "fs";
 
 export interface Event {
     eventId: string|null,
@@ -34,7 +35,7 @@ export async function selectEventByEventLibraryId (eventLibraryId: string): Prom
 }
 
 export async function selectEventByEventProfileId (eventProfileId:string): Promise<Event[]> {
-    return <Event[]> await sql `SELECT vent_id, event_library_id, event_profile_id, event_date, event_description, event_end, event_start, event_title, event_type FROM event WHERE event_profile_id = ${eventProfileId}`
+    return <Event[]> await sql `SELECT event_id, event_library_id, event_profile_id, event_date, event_description, event_end, event_start, event_title, event_type FROM event WHERE event_profile_id = ${eventProfileId}`
 }
 
 export async function updateEvent (event: Event): Promise<string> {
