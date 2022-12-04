@@ -75,6 +75,7 @@ export const EventCreatePage = () => {
 
 	})
 	const submitEventCreate = (values, {resetForm, setStatus}) => {
+		// Concatenate date and time so event can be submitted; ISO8601 format
 		values.eventStart = `${values.eventDate}T${values.eventStartTime}:00Z`
 		values.eventEnd = `${values.eventDate}T${values.eventEndTime}:00Z`
 
