@@ -15,10 +15,22 @@ import {
 } from "react-bootstrap";
 import {DisplayError} from "../display-error/DisplayError.jsx";
 import {DisplayStatus} from "../display-status/DisplayStatus.jsx";
+import {FormDebugger} from "../FormDebugger.jsx";
 
-
-
-
+const LibraryEventCheckbox = ({ children, ...props }) => {
+    const [field, meta] = useField({ ...props, type: "checkbox" });
+    return (
+        <>
+            <label className="checkbox">
+                <input {...field} {...props} type="checkbox" />
+                {children}
+            </label>
+            {meta.touched && meta.error ? (
+                <div className="error">{meta.error}</div>
+            ) : null}
+        </>
+    );
+};
 
 const LibrarySpecializationSelectType = ({ label, ...props }) => {
     // useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
@@ -34,9 +46,6 @@ const LibrarySpecializationSelectType = ({ label, ...props }) => {
         </>
     )
 }
-
-
-
 
 export const LibraryCreateForm = () => {
     const createLibrary ={
@@ -79,9 +88,6 @@ export const LibraryCreateForm = () => {
         </Formik>
     )
 }
-
-
-
 
 function LibraryCreateFormContent (props){
     const {
@@ -134,18 +140,18 @@ function LibraryCreateFormContent (props){
                         </Form.Group>
 
                         <Form.Group controlId={'libraryEventOptIn'}>
-                            <Form.Label>Library Event Opt In</Form.Label>
-                            <InputGroup>
-                                {/*<Form.Check className="mt-1" inline label="Available for events?"type="checkbox"/>*/}
-                                <FormControl
-                                    className="form-control"
-                                    name='toggle'
-                                    type='checkbox'
-                                    value={values.libraryEventOptIn}
-                                    onChange={handleChange}
-                                    onBlur={handleBlur}
-                                />
-                            </InputGroup>
+                            <LibraryEventCheckbox name={'libraryEventOptIn'}>Are events available at your library?</LibraryEventCheckbox>
+                            {/*<InputGroup>*/}
+                            {/*    /!*<Form.Check className="mt-1" inline label="Available for events?"type="checkbox"/>*!/*/}
+                            {/*    <FormControl*/}
+                            {/*        className="form-control"*/}
+                            {/*        name='toggle'*/}
+                            {/*        type='checkbox'*/}
+                            {/*        value={values.libraryEventOptIn}*/}
+                            {/*        onChange={handleChange}*/}
+                            {/*        onBlur={handleBlur}*/}
+                            {/*    />*/}
+                            {/*</InputGroup>*/}
                             <DisplayError errors={errors} touched={touched} field={'libraryEventOptIn'}/>
                         </Form.Group>
 
@@ -234,6 +240,7 @@ function LibraryCreateFormContent (props){
             </Form>
             </Card>
             <DisplayStatus status={status} />
+            <FormDebugger {...props} />
         </>
     )
 }
