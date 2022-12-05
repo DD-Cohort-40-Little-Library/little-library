@@ -5,7 +5,6 @@ import {Col, Container, Image, Row, Stack, Tab, Tabs} from "react-bootstrap";
 import {EventListing} from "../shared/components/EventListing.jsx";
 import {CheckInDisplay} from "../shared/components/CheckInDisplay.jsx";
 import {useDispatch, useSelector} from "react-redux";
-import {fetchAuth} from "../../store/auth.js";
 import {fetchAllLibraries} from "../../store/libraries.js";
 
 
@@ -19,7 +18,7 @@ export function LibraryDetails() {
     }
     React.useEffect(initialEffects, [dispatch])
 
-    const {libraryAddress, libraryDescription,libraryName, }
+    const {libraryAddress, libraryDescription, libraryName, librarySpecialization } = library
 
     return (
         <>
