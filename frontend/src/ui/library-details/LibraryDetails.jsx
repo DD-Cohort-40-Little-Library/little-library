@@ -40,8 +40,8 @@ console.log(library)
             <Card.Header>{library.libraryAddress}, {library.libraryType} </Card.Header>
             <Card.Body>
                 <Image src={'https://placekitten.com/g/200/200'} roundedCircle={true}/>
-                <Card.Title>{library.libraryName}</Card.Title>
-                <h3>{specialization}</h3>
+                <Card.Title><h3>{library.libraryName}</h3></Card.Title>
+                <h5>{specialization}</h5>
                 <Card.Text>{library.libraryDescription}</Card.Text>
                 <Row>
                 <Col md={7} style={{padding: '1rem'}}>
