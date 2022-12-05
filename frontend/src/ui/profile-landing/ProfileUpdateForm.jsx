@@ -190,7 +190,7 @@ return (
             {formikProps.values.profileAvatarUrl &&
             <>
             <div className={"bg-transparent"}>
-                <Image fluid={true} height={100} thumbnail={true} width={100} alt={"profile avatar"} src={formikProps.values.profileAvatarUrl} />
+                <Image fluid={true} height={200} thumbnail={true} width={200} alt={"profile avatar"} src={formikProps.values.profileAvatarUrl} />
             </div>
             </>
             }
