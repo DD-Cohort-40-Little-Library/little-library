@@ -1,5 +1,5 @@
 export const setupProxy ={
-    target: 'http://147.182.236.37:8080',
+    target: 'http://143.198.59.169:8080',
     changeOrigin: true,
     logLevel: 'debug',
 }

@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> 4c3d9e13a4b07a174af4565447364ff4b57c52d9
 .DS_Store
 /.idea
 node-modules
@@ -38,16 +34,10 @@ node-modules
 */npm-debug.log*
 */yarn-debug.log*
 */yarn-error.log*
-<<<<<<< HEAD
 
 
 */.env
 /.env
 
-=======
-
-*/.env
-/.env
->>>>>>> 4c3d9e13a4b07a174af4565447364ff4b57c52d9
 
 /frontend/setupProxy.js
