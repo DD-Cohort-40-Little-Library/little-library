@@ -25,7 +25,7 @@ export function LibraryDetails() {
 
     // const {libraryAddress, libraryDescription, libraryName, librarySpecialization } = library
 console.log(library)
-    const specialization = () => {
+    let specialization = () => {
         if(library.librarySpecialization === null){
             return ""
         }else{
