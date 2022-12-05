@@ -10,9 +10,9 @@ export function CheckIn() {
         <>
         <Container>
             <Row>
-                <LibraryDetails/>
+                {/*<LibraryDetails/>*/}
                 <CheckInForm/>
-                <CheckInDisplay/>
+                {/*<CheckInDisplay/>*/}
             </Row>
         </Container>
         </>
