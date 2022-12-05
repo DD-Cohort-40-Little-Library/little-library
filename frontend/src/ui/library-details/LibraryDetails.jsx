@@ -4,10 +4,23 @@ import React from "react";
 import {Col, Container, Image, Row, Stack, Tab, Tabs} from "react-bootstrap";
 import {EventListing} from "../shared/components/EventListing.jsx";
 import {CheckInDisplay} from "../shared/components/CheckInDisplay.jsx";
+import {useDispatch, useSelector} from "react-redux";
+import {fetchAuth} from "../../store/auth.js";
+import {fetchAllLibraries} from "../../store/libraries.js";
 
 
 
 export function LibraryDetails() {
+    console.log('is this on')
+    const dispatch = useDispatch()
+    const library = useSelector(state => {return state.currentLibrary ? state.currentLibrary : null})
+    const initialEffects = () => {
+        dispatch(fetchAllLibraries())
+    }
+    React.useEffect(initialEffects, [dispatch])
+
+    const {libraryAddress, libraryDescription,libraryName, }
+
     return (
         <>
         <div style={{paddingBlock: '2rem'}}>
