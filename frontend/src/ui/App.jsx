@@ -17,6 +17,8 @@ import {LibraryDetails} from "./library-details/LibraryDetails.jsx";
 import {Provider} from "react-redux";
 import {ProfileLanding} from "./profile-landing/ProfileLanding.jsx";
 import {EventCreatePage} from "./shared/components/EventCreatePage.jsx";
+import {CheckInForm} from "./shared/components/CheckInForm.jsx";
+import {CheckIn} from "./CheckIn.jsx";
 
 
 export function App({store}) {
@@ -33,10 +35,10 @@ export function App({store}) {
 					<Route path='/profile-registration' element={<ProfileRegistration />} />
 					<Route path='/profile-landing' element={<ProfileLanding />} />
 					<Route path='/profile-update' element={<ProfileUpdate />} />
-					<Route path={'/library-create'} element={<LibraryCreate/>}/>
-					{/*<Route path={'/library-create'} element={<LibraryCreateForm/>}/>*/}
-					<Route path={'/library-update'} element={<LibraryUpdate/>}/>
-					{/*<Route path='/check-in' element={<CheckIn/>} />*/}
+					<Route path={'/library-create'} element={<LibraryCreate/>} />
+					{/*<Route path={'/library-create'} element={<LibraryCreateForm/>} />*/}
+					<Route path={'/library-update'} element={<LibraryUpdate/>} />
+					<Route path='/check-in' element={<CheckIn/>} />
 					<Route path='/about-us' element={<AboutUs/>} />
 					<Route path={'/library-landing'} element={LibraryDetails} />
 				</Routes>
