@@ -28,32 +28,42 @@ export function MapCustomPin(props) {
                 setShowPopup(!showPopup)
                 e.originalEvent.stopPropagation()
             }}>
-                {libraryType === 'Little Library' &&  <Image src={`../images/icons-svg/little-library-pin.svg`}
+                {libraryType === 'Little Library' && <Image src={`../images/icons-svg/little-library-pin.svg`}
                                                 height={SIZE}
                                                 viewBox="0 0 24 24"
                                                 style={{
-                                                    transform: `translate(${-SIZE / 4}px,${-SIZE}px`
-                                                }} />}
+                                                transform: `translate(${-SIZE / 4}px,${-SIZE}px`}} />
+                }
+
                 {libraryType === 'Public Library' && <Image src={`../images/icons-svg/public-library-pin.svg`}
-                                                            height={SIZE}
-                                                            viewBox="0 0 24 24"
-                                                            style={{transform: `translate(${-SIZE / 4}px,${-SIZE}px`}}/>}
-                {librarySpecialization === 'romance' && <Image src={`../images/icons-svg/romance-pin.svg`}
-                                                            height={SIZE}
-                                                            viewBox="0 0 24 24"
-                                                            style={{transform: `translate(${-SIZE / 4}px,${-SIZE}px`}}/>}
-                {librarySpecialization === 'children' && <Image src={`../images/icons-svg/baby-pin.svg`}
-                                                           height={SIZE}
-                                                           viewBox="0 0 24 24"
-                                                           style={{transform: `translate(${-SIZE / 4}px,${-SIZE}px`}}/>}
-                {librarySpecialization === 'home improvement' && <Image src={`../images/icons-svg/tools-pin.svg`}
-                                                                height={SIZE}
-                                                                viewBox="0 0 24 24"
-                                                                style={{transform: `translate(${-SIZE / 4}px,${-SIZE}px`}}/>}
-                {librarySpecialization === 'fiction' && <Image src={`../images/icons-svg/alien-pin.svg`}
-                                                                        height={SIZE}
-                                                                        viewBox="0 0 24 24"
-                                                                        style={{transform: `translate(${-SIZE / 4}px,${-SIZE}px`}}/>}
+                                                height={SIZE}
+                                                viewBox="0 0 24 24"
+                                                style={{transform: `translate(${-SIZE / 4}px,${-SIZE}px`}}/>
+                }
+
+                {/*{librarySpecialization === 'romance' && <Image src={`../images/icons-svg/romance-pin.svg`}*/}
+                {/*                                 height={SIZE}*/}
+                {/*                                 viewBox="0 0 24 24"*/}
+                {/*                                 style={{transform: `translate(${-SIZE / 4}px,${-SIZE}px`}}/>*/}
+                {/*}*/}
+
+                {/*{librarySpecialization === 'children' && <Image src={`../images/icons-svg/baby-pin.svg`}*/}
+                {/*                                 height={SIZE}*/}
+                {/*                                 viewBox="0 0 24 24"*/}
+                {/*                                 style={{transform: `translate(${-SIZE / 4}px,${-SIZE}px`}}/>*/}
+                {/*}*/}
+
+                {/*{librarySpecialization === 'home improvement' && <Image src={`../images/icons-svg/tools-pin.svg`}*/}
+                {/*                                  height={SIZE}*/}
+                {/*                                  viewBox="0 0 24 24"*/}
+                {/*                                  style={{transform: `translate(${-SIZE / 4}px,${-SIZE}px`}}/>*/}
+                {/*}*/}
+
+                {/*{librarySpecialization === 'fiction' && <Image src={`../images/icons-svg/alien-pin.svg`}*/}
+                {/*                                   height={SIZE}*/}
+                {/*                                   viewBox="0 0 24 24"*/}
+                {/*                                   style={{transform: `translate(${-SIZE / 4}px,${-SIZE}px`}}/>*/}
+                {/*}*/}
             </Marker>
 
             {showPopup && (
