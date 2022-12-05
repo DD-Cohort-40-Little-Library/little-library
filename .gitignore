@@ -1,9 +1,6 @@
-#//ROOT//
-
 .DS_Store
 /.idea
 node-modules
-
 
 */src/dist
 */node_modules
@@ -26,14 +23,11 @@ node-modules
 */.env.development.local
 */.env.test.local
 
-
 */npm-debug.log*
 */yarn-debug.log*
 */yarn-error.log*
 
-
 */.env
 /.env
-
 
 /frontend/setupProxy.js
