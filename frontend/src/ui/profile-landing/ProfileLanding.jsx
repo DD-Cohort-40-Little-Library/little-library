@@ -68,11 +68,11 @@ export function ProfileLanding() {
 
                     </Col>
                     <Col id={"selected avatar"} md={3} className={"text-center"} >
-                        <h3>Selected Avatar</h3>
-                        <Image src={profileAvatarUrl} fluid={true} className={"rounded-circle"} alt={'selected avatar'} ></Image>
+                        <h3>User Image</h3>
+                        <Image src={profileAvatarUrl} fluid={true} className={"rounded-circle"} alt={'Please select an avatar or upload a photo using the "Update Profile" button.'} ></Image>
                     </Col>
                     <Col id={"user avatars"} md={5} className={"text-center"}>
-                        <h3>User Avatars</h3>
+                        <h3>Available Avatars</h3>
                         <Image src={"https:placeimg.com/450/450/any"} alt={'avatar selection'}></Image>
                     </Col>
                 </Row>

@@ -3,12 +3,14 @@ import {httpConfig} from "../shared/utils/http-config.js";
 import {Formik} from "formik";
 import {Button, Form, FormControl, Image, InputGroup} from "react-bootstrap";
 import {DisplayError} from "../shared/components/display-error/DisplayError.jsx";
-import React from "react";
+import React, {useState} from "react";
 import {DisplayStatus} from "../shared/components/display-status/DisplayStatus";
 import {useDropzone} from "react-dropzone";
 import envelopeIcon from "../../../images/uiSharedImages/mail-bk-rd.png";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {FormDebugger} from "../shared/components/FormDebugger.jsx";
+import {fetchCurrentUser} from "../../store/currentUser.js";
+import {fetchAuth} from "../../store/auth.js";
 
 
 export const ProfileUpdateForm = (props) => {
@@ -21,6 +23,20 @@ export const ProfileUpdateForm = (props) => {
         profileName: Yup.string(),
         profileAvatarUrl: Yup.mixed()
     })
+    const initialEffects = () => {
+        dispatch(fetchAuth())
+    }
+    const dispatch = useDispatch()
+    const auth = useSelector(state => state.auth ? state.auth : state.auth)
+
+
+    React.useEffect(initialEffects, [dispatch])
+    const secondaryEffect = () => {
+        if (auth !== null) {
+            dispatch(fetchCurrentUser(auth.profileId))
+        }
+    }
+    React.useEffect(secondaryEffect, [auth, dispatch])
 
     function profileEditedSubmit (values, { resetForm, setStatus}) {
         const profileUpdatedSubmit = (updatedProfile) => {
@@ -63,6 +79,9 @@ export const ProfileUpdateForm = (props) => {
 }
 
 function ProfileEditFormContent (props) {
+
+    const [selectedImage, setSelectedImage] = useState(null)
+
     const {
         setFieldValue,
         status,
@@ -157,13 +176,16 @@ function ProfileEditFormContent (props) {
 
                 <ImageDropZone
                     formikProps={{
-                values, handleChange, handleBlur, setFieldValue, fieldValue:'profileAvatarUrl'
+                values, handleChange, handleBlur, setFieldValue, fieldValue:'profileAvatarUrl', setSelectedImage: setSelectedImage
                     }}
                 />
+                <div>
+                    {selectedImage !== null ? <img className={"w-50"} src={selectedImage}/> : ""}
+                </div>
                 <Form.Group>
                     <Button className={"btn btn-primary"} type={"submit"}>Submit</Button>
                     {''}
-                    <Button className={"btn btn-secondary"} onClick={handleReset} disabled={!dirty || isSubmitting}>Cancel</Button>
+                    <Button className={"btn btn-secondary"} onClick={handleReset} disabled={!dirty || isSubmitting}>Reset Form</Button>
                 </Form.Group>
             </Form>
 
@@ -178,6 +200,13 @@ function ImageDropZone ({formikProps}) {
     const onDrop = React.useCallback(acceptedFiles => {
         const formData = new FormData()
         formData.append('image', acceptedFiles[0])
+
+        const fileReader = new FileReader()
+        fileReader.readAsDataURL(acceptedFiles[0])
+        fileReader.addEventListener("load", () => {
+            formikProps.setSelectedImage(fileReader.result)
+        })
+
         formikProps.setFieldValue(formikProps.fieldValue, formData)
 
 }, [formikProps])

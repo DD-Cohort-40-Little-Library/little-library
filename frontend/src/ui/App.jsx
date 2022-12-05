@@ -10,7 +10,6 @@ import 'mapbox-gl/dist/mapbox-gl.css'
 import {EventCreateModal} from "./shared/components/EventCreateModal.jsx";
 import {EventUpdateModal} from "./profile-landing/EventUpdateModal.jsx";
 import {ProfileRegistration} from './shared/components/main-nav/sign-up/ProfileRegistration.jsx';
-import {ProfileUpdatePage} from "./profile-landing/ProfileUpdatePage.jsx";
 import {LibraryCreate} from "./LibraryCreate.jsx";
 import {LibraryUpdate} from "./profile-landing/LibraryUpdate.jsx";
 import {AboutUs} from "./AboutUs.jsx";
@@ -33,7 +32,6 @@ export function App({store}) {
 					<Route path='/event-update-modal'element={<EventUpdateModal />} />
 					<Route path='/profile-registration' element={<ProfileRegistration />} />
 					<Route path='/profile-landing' element={<ProfileLanding />} />
-					<Route path='/profile-update' element={<ProfileUpdatePage />} />
 					<Route path={'/library-create'} element={<LibraryCreate/>}/>
 					{/*<Route path={'/library-create'} element={<LibraryCreateForm/>}/>*/}
 					<Route path={'/library-update'} element={<LibraryUpdate/>}/>
