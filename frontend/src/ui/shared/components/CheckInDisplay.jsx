@@ -9,13 +9,15 @@ export function CheckInDisplay() {
             <Row style={{alignItems: 'center'}}>
                 <Col md={2}>
                     <Image src={'https://placekitten.com/g/150/150'} roundedCircle={true}/>
-                    <text>GooberWithABook</text>
+                    <p>GooberWithABook</p>
                 </Col>
                 <Col md={7}>
                     <p>Tri-tip beef shankle swine, picanha fatback alcatra shoulder ground round jerky short loin. Drumstick bresaola porchetta pastrami buffalo. Meatball capicola ground round brisket. Chicken landjaeger capicola frankfurter sirloin.</p>
                 </Col>
                 <Col md={2}>
-                    <Image src={'https://placekitten.com/g/200/200'} Square={true}/>
+                    <Image src={'https://placekitten.com/g/200/200'}
+                           // square={true}
+                    />
                 </Col>
             </Row>
         </Container>

@@ -32,7 +32,7 @@ export function ProfileLanding() {
             Page is loading.
         </h1>
     }
-    const {profileFirstName, profileLastName, profileEmail, profileName} = profile
+    const {profileFirstName, profileLastName, profileEmail, profileName, profileAvatarUrl} = profile
     return (
         <>
             <h1>User Landing Page</h1>
@@ -69,7 +69,7 @@ export function ProfileLanding() {
                     </Col>
                     <Col id={"selected avatar"} md={3} className={"text-center"} >
                         <h3>Selected Avatar</h3>
-                        <Image src={'http://placekitten.com/400/400'} fluid={true} className={"rounded-circle"} alt={'selected avatar'} ></Image>
+                        <Image src={profileAvatarUrl} fluid={true} className={"rounded-circle"} alt={'selected avatar'} ></Image>
                     </Col>
                     <Col id={"user avatars"} md={5} className={"text-center"}>
                         <h3>User Avatars</h3>

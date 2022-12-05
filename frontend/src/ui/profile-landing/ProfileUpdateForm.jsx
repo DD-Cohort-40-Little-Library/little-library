@@ -1,17 +1,18 @@
 import * as Yup from "yup";
 import {httpConfig} from "../shared/utils/http-config.js";
 import {Formik} from "formik";
-import {Button, Form, FormControl, InputGroup} from "react-bootstrap";
+import {Button, Form, FormControl, Image, InputGroup} from "react-bootstrap";
 import {DisplayError} from "../shared/components/display-error/DisplayError.jsx";
 import React from "react";
 import {DisplayStatus} from "../shared/components/display-status/DisplayStatus";
 import {useDropzone} from "react-dropzone";
 import envelopeIcon from "../../../images/uiSharedImages/mail-bk-rd.png";
+import {useSelector} from "react-redux";
+import {FormDebugger} from "../shared/components/FormDebugger.jsx";
 
 
 export const ProfileUpdateForm = (props) => {
-    const { profile } = props
-
+    const profile = useSelector(state => state.auth ? state.auth : null)
     const validationObject = Yup.object().shape({
         profileEmail: Yup.string()
             .email('Email must be a valid email'),
@@ -77,16 +78,16 @@ function ProfileEditFormContent (props) {
     } = props
     return (
         <>
-            <Form onSubmit={handleSubmit} className={"bg-light border-dark"}>
+            <Form onSubmit={handleSubmit} className={"bg-light border-dark text-center"}>
                 {/*controlId must match what is passed to the initialValues prop*/}
                 <Form.Group controlId={'profileEmail'}>
                     <Form.Label>Email</Form.Label>
                     <InputGroup>
-                        {/*<InputGroup.Text>*/}
-                        {/*    <img src={envelopeIcon} alt={"envelope icon"}/>*/}
-                        {/*</InputGroup.Text>*/}
+                        <InputGroup.Text>
+                            <img src={envelopeIcon} alt={"envelope icon"} />
+                        </InputGroup.Text>
                         <FormControl
-                            // className="form-control"
+                            className="text-center"
                             name="profileEmail"
                             type="text"
                             value={values.profileEmail}
@@ -104,7 +105,7 @@ function ProfileEditFormContent (props) {
                         {/*    UserName*/}
                         {/*</InputGroup.Text>*/}
                         <FormControl
-                            // className="form-control"
+                            className="text-center"
                             name='profileFirstName'
                             type='text'
                             value={values.profileFirstName}
@@ -123,7 +124,7 @@ function ProfileEditFormContent (props) {
                         {/*    UserName*/}
                         {/*</InputGroup.Text>*/}
                         <FormControl
-                            // className="form-control"
+                            className="text-center"
                             name='profileLastName'
                             type='text'
                             value={values.profileLastName}
@@ -142,7 +143,7 @@ function ProfileEditFormContent (props) {
                         {/*    UserName*/}
                         {/*</InputGroup.Text>*/}
                         <FormControl
-                            // className="form-control"
+                            className="text-center"
                             name='profileName'
                             type='text'
                             value={values.profileName}
@@ -156,7 +157,7 @@ function ProfileEditFormContent (props) {
 
                 <ImageDropZone
                     formikProps={{
-                values, handleChange, handleBlur, setFieldValue, fieldValue:'profileAvatarURL'
+                values, handleChange, handleBlur, setFieldValue, fieldValue:'profileAvatarUrl'
                     }}
                 />
                 <Form.Group>
@@ -165,7 +166,10 @@ function ProfileEditFormContent (props) {
                     <Button className={"btn btn-secondary"} onClick={handleReset} disabled={!dirty || isSubmitting}>Cancel</Button>
                 </Form.Group>
             </Form>
+
             <DisplayStatus status={status}/>
+            <FormDebugger {...props} />
+
         </>
     )
 }
@@ -181,8 +185,8 @@ const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
 
 return (
     <Form.Group {...getRootProps()}>
-        <Form.Label>Change</Form.Label>
-        <InputGroup size={"lg"}>
+        <Form.Label>Change Avatar</Form.Label>
+        <InputGroup size={"lg"} className={"border border-dark justify-content-center"}>
             {formikProps.values.profileAvatarUrl &&
             <>
             <div className={"bg-transparent"}>
@@ -209,4 +213,5 @@ return (
     </Form.Group>
     )
 }
+
 
