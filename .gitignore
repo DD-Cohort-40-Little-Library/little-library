@@ -31,3 +31,4 @@ node-modules
 /.env
 
 /frontend/setupProxy.js
+**/setupProxy.js
