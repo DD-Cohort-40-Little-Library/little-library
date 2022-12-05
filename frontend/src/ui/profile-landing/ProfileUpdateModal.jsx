@@ -16,7 +16,7 @@ export function ProfileUpdateModal() {
                 <Container>
                     <Row>
                         <div>
-                            <h4>Update Profile</h4>
+                            <h4 className={"text-center"}>Update Profile</h4>
                         </div>
                         <Modal.Body>
                             <ProfileUpdateForm/>
