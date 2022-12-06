@@ -34,7 +34,7 @@ console.log(events)
 							{/*<div className="bg-light border"><EventShortListing/></div>*/}
 						</Stack>
 					</Col>
-					<Col md={8}>
+					<Col md={9}>
 						<LibraryMap libraries={libraries}/>
 					</Col>
 				</Row>
