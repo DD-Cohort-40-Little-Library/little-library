@@ -1,30 +1,70 @@
 body{
     background-color: #F3EAD2;
+    color: #2D3024;
+}
+#headLineONE {
+    text-align: center;
+    color: #2D3024;
+}
+
+
+
+#events-column {
+
+    padding: 2vh;
+    background-color: #76999D;
+}
+
+#signInUp-column {
+    padding: 2vh;
+    align-content: center;
+
+
 }
 
 #navFootBgColor {
     background-color: #835A4E;
 }
 
+
 #navFoot{
     background-color: #835A4E;
     color: #CDCDC1;
-    text-align: end;
-}
-#llLogoCol{
-    align-content: flex-start;
+    text-align: center;
+    font-size: 1rem;
+
 }
 
 #lLLLogoBase {
+    padding-right: 2vh;
     height: 8vh;
     width: 100%;
+
 }
 
 #LLLLabel {
-    height: 8vh;
+    height: 7vh;
     width: 100%;
 }
-#signInSignUpModal {
+#signUpIn {
+    background-color: #93A5AB;
+    text-align: center;
+    width: border-box;
+}
 
+#eventShortListing {
+    background-color: #CDCDC1;
+    border-radius: 2px;
+    margin: 1vh;
+}
+
+#libraryCardDisplay {
+    background-color: #93A5AB;
+    text-align: center;
+    color: #2D3024;
+}
+
+#librarySectionDisplay {
+    padding: 2rem;
 
 }

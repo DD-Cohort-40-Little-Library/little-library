@@ -9,6 +9,8 @@ import {CheckInForm} from "../shared/components/CheckInForm.jsx";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchAllEvents} from "../../store/events.js";
 import {fetchAllLibraries} from "../../store/libraries.js";
+import {SignOutComponent} from "../shared/components/main-nav/SignOut.jsx";
+import {SignInSignUpModal} from "../shared/components/main-nav/sign-in/SignInSignUpModal.jsx";
 
 export function Home() {
 
@@ -25,19 +27,26 @@ export function Home() {
 console.log(events)
 	return (
 		<>
-			<Container id={"home-display"}>
 				<Row>
-					<Col id={"events-column"} className={"upcomingEvents"} md={3}>
-						<h2>Upcoming Events</h2>
+					<Col id={"events-column"} className={"upcomingEvents"} md={2}>
+						<h2 id={"headLineONE"}>Upcoming Events</h2>
 						<Stack gap={3}>
 							{libraries.length && events.slice(0,5).map(event => <EventShortListing library={libraries.filter(library => library.libraryId === event.eventLibraryId)[0]} event={event} key={event.eventId}/>)}
 							{/*<div className="bg-light border"><EventShortListing/></div>*/}
 						</Stack>
 					</Col>
-					<Col md={9}>
+
+					<Col md={8} className={"mapDisplayHome"}>
 						<LibraryMap libraries={libraries}/>
 					</Col>
+
+					<Col id={"signInUp-column"} className={"signInUp"} md={1}>
+						<Stack gap={3}>
+							<SignInSignUpModal id={"signInSignUpModal"}/>
+							<SignOutComponent/>
+						</Stack>
+					</Col>
+
 				</Row>
-			</Container>
 		</>
 	)}

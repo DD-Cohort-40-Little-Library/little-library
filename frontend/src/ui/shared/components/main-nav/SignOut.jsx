@@ -2,6 +2,7 @@ import React from "react";
 import {useDispatch} from "react-redux";
 import {httpConfig} from "../../utils/http-config.js";
 import {getAuth} from "../../../../store/auth.js";
+import {Button} from "react-bootstrap";
 
 export const SignOutComponent = () => {
     const dispatch = useDispatch()
@@ -18,9 +19,9 @@ export const SignOutComponent = () => {
     return(
         <>
             <div className="dropdown-item sign-out-dropdown">
-                <button className="btn btn-outline-dark" onClick={signOut}>
+                <Button className={""}  variant="secondary" onClick={signOut}>
                     Sign Out
-                </button>
+                </Button>
             </div>
         </>
     )

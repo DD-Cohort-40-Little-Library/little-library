@@ -5,15 +5,11 @@ import LLLLabel from "../../../../../images/logoAssetsSVG/lLabel-white.svg"
 
 export function NavigationBar() {
     return (
-        <Navbar id={"navFootBgColor"}>
-            <Container>
-                <Col sm={1} id={"llLogoCol"}>
+        <Navbar id={"navFootBgColor"} className={"nav"}>
+                <Col sm={1} id={"llLogoCol"} className={"logoCol"}>
                 <img src={LLLLogo} id={"lLLLogoBase"} alt={'Little Library Locator Logo'}/>
                 </Col>
-                <Col md={8} id={"llLogoLabelCol"}>
-                <img src={LLLLabel} id={"LLLLabel"}/>
-                </Col>
-            </Container>
+                <img src={LLLLabel} id={"LLLLabel"} className={"llLogo"}/>
         </Navbar>
     );
 }
