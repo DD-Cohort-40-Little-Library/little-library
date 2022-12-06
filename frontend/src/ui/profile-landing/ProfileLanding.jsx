@@ -64,7 +64,6 @@ export function ProfileLanding() {
 
                         <Link to={"/profile-update"} className={"btn-primary"}> <Button> Update Profile</Button></Link>
                         <Link to={"/library-create"} className={"btn-primary"}> <Button> Add a Library</Button></Link>
-                        <EventCreateModal />
 
                     </Col>
                     <Col id={"selected avatar"} md={3} className={"text-center"} >
