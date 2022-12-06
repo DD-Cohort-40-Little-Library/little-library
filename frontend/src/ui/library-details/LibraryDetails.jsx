@@ -8,6 +8,8 @@ import {CheckInDisplay} from "../shared/components/CheckInDisplay.jsx";
 
 
 export function LibraryDetails() {
+
+
     return (
         <>
         <div style={{paddingBlock: '2rem'}}>
