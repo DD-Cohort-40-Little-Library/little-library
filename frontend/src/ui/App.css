@@ -1,3 +1,30 @@
-.navFooterBar {
+body{
+    background-color: #F3EAD2;
+}
+
+#navFootBgColor {
+    background-color: #835A4E;
+}
+
+#navFoot{
+    background-color: #835A4E;
+    color: #CDCDC1;
+    text-align: end;
+}
+#llLogoCol{
+    align-content: flex-start;
+}
+
+#lLLLogoBase {
+    height: 8vh;
+    width: 100%;
+}
+
+#LLLLabel {
+    height: 8vh;
+    width: 100%;
+}
+#signInSignUpModal {
+
 
 }

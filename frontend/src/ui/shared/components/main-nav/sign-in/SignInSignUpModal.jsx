@@ -14,14 +14,14 @@ export function SignInSignUpModal() {
 
         return (
             <>
-                <Button variant="primary" onClick={handleShow}>Sign In/Sign Up</Button>
+                <Button variant="primary" onClick={handleShow}>Sign In/Up</Button>
 
                 <Modal className={""} show={show} onHide={handleClose} >
                     <Container className={styles.signInModalColor}>
                         <Row className={styles.signInModalText}>
                             <Col >
                                 <div>
-                                    <h4 className={"pt-3 "}>Sign In/Sign Up</h4>
+                                    <h4 className={"pt-3 "}>Sign In/Up</h4>
                                 </div>
                                 <Modal.Body>
                                     <SignInForm />
