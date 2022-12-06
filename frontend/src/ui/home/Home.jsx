@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useEffect} from "react"
 import {Button, Col, Container, Form, Row, Stack} from "react-bootstrap";
 import {LibraryMap} from "./LibraryMap.jsx";
 import {EventShortListing} from "./EventShortListing.jsx";
@@ -6,47 +6,38 @@ import {LibraryDetails} from "../library-details/LibraryDetails.jsx";
 import {Link} from "react-router-dom";
 import {CheckInDisplay} from "../shared/components/CheckInDisplay.jsx";
 import {CheckInForm} from "../shared/components/CheckInForm.jsx";
+import {useDispatch, useSelector} from "react-redux";
+import {fetchAllEvents} from "../../store/events.js";
+import {fetchAllLibraries} from "../../store/libraries.js";
 
 export function Home() {
+
+	const events = useSelector(state => state.events ? state.events : [])
+
+	const libraries = useSelector(state => state.libraries ?? [])
+	const dispatch = useDispatch()
+	const effects = () => {
+		dispatch(fetchAllEvents())
+		dispatch(fetchAllLibraries())
+
+	}
+	useEffect(effects, [dispatch])
+console.log(events)
 	return (
 		<>
-			<Container className={"m-2"}>
+			<Container id={"home-display"}>
 				<Row>
-					<Col id={"events-column"} className={"border border-dark col-md-3"}>
-						<h2>Events</h2>
-						<Link to={"/event-create-page"} className={"btn-primary"}> <Button> Plan An Event</Button></Link>
+					<Col id={"events-column"} className={"upcomingEvents"} md={3}>
+						<h2>Upcoming Events</h2>
 						<Stack gap={3}>
-							<div className="bg-light border"><EventShortListing/></div>
-							<div className="bg-light border">Second event</div>
-							<div className="bg-light border">Third event</div>
-							<div className="bg-light border">Fourth event</div>
-							<div className="bg-light border">Fifth event</div>
-							<div className="bg-light border">Sixth event</div>
+							{libraries.length && events.slice(0,5).map(event => <EventShortListing library={libraries.filter(library => library.libraryId === event.eventLibraryId)[0]} event={event} key={event.eventId}/>)}
+							{/*<div className="bg-light border"><EventShortListing/></div>*/}
 						</Stack>
 					</Col>
-					<Col id={"map"} className={"mx-0 col-md-7"}>
-						<LibraryMap/>
-					</Col>
-					<Col id={"filters"} className={"col-md-2"}>
-						<h2>Filters</h2>
-						<Form>
-							<Form.Group className="mb-3" controlId="formBasicCheckbox">
-								<Form.Check type="radio" label="Lil Library" />
-							</Form.Group>
-							<Form.Group className="mb-3" controlId="formBasicCheckbox">
-								<Form.Check type="radio" label="Public Library" />
-							</Form.Group>
-							<Form.Group className="mb-3" controlId="formBasicCheckbox">
-								<Form.Check type="radio" label="Library Event" />
-							</Form.Group>
-							<Form.Group className="mb-3" controlId="formBasicCheckbox">
-								<Form.Check type="radio" label="Lil Library Specialization" />
-							</Form.Group>
-						</Form>
-						<Link to={"/library-create"} className={"btn-primary"}> <Button> Add Library</Button></Link>
+					<Col md={9}>
+						<LibraryMap libraries={libraries}/>
 					</Col>
 				</Row>
 			</Container>
 		</>
-	)
-}
+	)}

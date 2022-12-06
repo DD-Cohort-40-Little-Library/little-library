@@ -7,39 +7,34 @@ import {MapCustomPin} from "./MapCustomPin.jsx";
 
 const styles = {
 	map:{
-		height: "50vh",
-		width: "auto",
-		position: "relative"
+		height: "80vh",
+		width: "100%",
 	},
+	mapBox:{
+		height: "80vh",
+		width: "100%",
+	}
 }
 
-export function LibraryMap (){
-
-
-	const libraries = useSelector(state => state.libraries ?? [])
-	const dispatch = useDispatch()
-	const initialEffects = () => {
-		dispatch(fetchAllLibraries())
-	}
-	React.useEffect(initialEffects, [dispatch])
+export function LibraryMap ({libraries}){
 
 	return (
 		<>
-			<div className={'justify-content-center'} style={styles.mapbox} >
+			<div className={'mapDisplay'} style={styles.mapbox} >
+
 				<Map initialViewState={{
 					latitude: 35.18,
 					longitude: -106.49,
-					zoom: 9
+					zoom: 10
 				}}
-				            mapboxAccessToken={import.meta.env.VITE_MAPBOX_ACCESS_TOKEN}
-				            mapStyle='mapbox://styles/mapbox/satellite-streets-v12'
-					 		style={styles.map}
+					 mapboxAccessToken={import.meta.env.VITE_MAPBOX_ACCESS_TOKEN}
+					 mapStyle='mapbox://styles/mapbox/satellite-streets-v12'
+					 style={styles.map}
 				>
 					{libraries.map((libraries, index)=>
-							<MapCustomPin libraries={libraries} index={index} key={index} />
+						<MapCustomPin libraries={libraries} index={index} key={index} />
 					)}
 				</Map>
 			</div>
 		</>
-	)
-}
+	)}
