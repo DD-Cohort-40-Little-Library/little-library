@@ -34,6 +34,5 @@ eventRoute.route('/')
 
 eventRoute.route('/eventDate/:eventDate')
     .get(getEventByEventDateController)
-    .post(isLoggedInController, asyncValidatorController(checkSchema(eventValidator)), postEventController)
 
 eventRoute.route('/eventId/:eventId')

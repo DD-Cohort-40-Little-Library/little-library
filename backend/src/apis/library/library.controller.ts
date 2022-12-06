@@ -9,12 +9,8 @@ import {
     selectLibrariesByLibraryProfileId,
     updateLibrary, selectLibraryByLibraryIdAndLibraryProfileId, deleteLibrary, selectAllLibrariesOptIn
 } from '../../utils/models/Library';
-import {CONNREFUSED} from "dns";
-
 
 const Geocodio = require('geocodio-library-node');
-
-
 
 export async function getAllLibrariesController (request: Request, response: Response): Promise<Response<Status>> {
     try {
@@ -31,8 +27,6 @@ export async function getAllLibrariesController (request: Request, response: Res
     }
 }
 
-
-
 export async function getAllLibrariesOptInController (request: Request, response: Response): Promise<Response<Status>> {
     try {
         const data = await selectAllLibrariesOptIn()
@@ -47,11 +41,6 @@ export async function getAllLibrariesOptInController (request: Request, response
         })
     }
 }
-
-
-
-
-
 
 export async function getLibraryByLibraryProfileIdController (request: Request, response: Response, nextFunction: NextFunction): Promise<Response<Status>> {
     try {
@@ -87,13 +76,14 @@ export async function postLibrary (request: Request, response: Response): Promis
         const { libraryAddress, libraryDescription, libraryEventOptIn, libraryName, librarySpecialization, libraryType } = request.body
 
         const result = await geocoder.geocode(libraryAddress)
+
         const libraryLat = result.results[0].location['lat']
         const libraryLng = result.results[0].location['lng']
         const profile: Profile = request.session.profile as Profile
         const libraryProfileId: string = profile.profileId as string
 
         const library: Library = { libraryId: null, libraryProfileId, libraryAddress, libraryDescription, libraryEventOptIn, libraryLat, libraryLng, libraryName, librarySpecialization, libraryType }
-        console.log(`libraryAddress: ${libraryAddress}`)
+
 
         const message: string = await insertLibrary(library)
 
@@ -126,7 +116,6 @@ export async function getLibraryByLibraryIdAndLibraryProfileIdController (reques
     }
 }
 
-// @ts-ignore
 export async function putLibraryController (request: Request, response: Response): Promise<Response> {
     try {
         const { libraryId } = request.params
@@ -147,8 +136,7 @@ export async function putLibraryController (request: Request, response: Response
 
         const newLibrary = { ...previousLibrary, ...updatedValues}
         const message = await updateLibrary(newLibrary)
-        // console.log(message)
-        // console.log(newLibrary)
+
         return response.json({ status: 200, data: null, message })
         } catch (error: any) {
         return response.json({ status: 500, data: null, message: 'Internal server error' })

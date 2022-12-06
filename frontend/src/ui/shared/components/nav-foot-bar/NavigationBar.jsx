@@ -4,6 +4,7 @@ import {SignInSignUpModal} from "../main-nav/sign-in/SignInSignUpModal.jsx";
 import styles from "./nav-footer.module.css";
 import LLLLogo from "../../../../../images/logoAssetsSVG/logoBase-xxs.svg";
 import LLLLabel from "../../../../../images/logoAssetsSVG/lLabel-xs.svg"
+import {SignOutComponent} from "../main-nav/SignOut.jsx";
 
 export function NavigationBar() {
     return (
@@ -14,6 +15,7 @@ export function NavigationBar() {
                  <Nav>
                     <Container>
                         <SignInSignUpModal id="signInSignUpModal"/>
+                        <SignOutComponent/>
                     </Container>
                  </Nav>
             </Container>

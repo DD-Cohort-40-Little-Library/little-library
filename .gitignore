@@ -23,12 +23,12 @@ node-modules
 */.env.development.local
 */.env.test.local
 
-
 */npm-debug.log*
 */yarn-debug.log*
 */yarn-error.log*
 
 */.env
-/.env
+/frontend/.env
 
 /frontend/setupProxy.js
+**/setupProxy.js
