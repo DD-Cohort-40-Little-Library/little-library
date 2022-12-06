@@ -3,17 +3,18 @@ import {Marker, Popup} from "react-map-gl";
 import {Image} from "react-bootstrap";
 import {library} from "@fortawesome/fontawesome-svg-core";
 import ReactDOM from "react-dom/client";
+import {Link} from "react-router-dom";
 
 
 export function MapCustomPin(props) {
 
     const {
         libraries: {
+            libraryId,
             libraryLat: lat,
             libraryLng: lng,
             libraryName,
             libraryAddress,
-            libraryDescription,
             librarySpecialization,
             libraryType
         }, index
@@ -70,9 +71,8 @@ export function MapCustomPin(props) {
                 <Popup longitude={lng} latitude={lat} key={index} onClose={() => setShowPopup(false)} offset={30}
                        className={'libraryPopup'}>
                     <div>
-                        <h2>{libraryName}</h2>
+                        <Link to={`/library-landing/${libraryId}`} ><h2>{libraryName}</h2></Link>
                         <p>{libraryAddress}</p>
-                        <p>{libraryDescription}</p>
                         <p>{librarySpecialization}</p>
                         <p>{libraryType}</p>
                     </div>
