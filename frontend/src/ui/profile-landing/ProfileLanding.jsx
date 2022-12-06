@@ -21,7 +21,7 @@ export function ProfileLanding() {
     // const profile = null
     if (auth === null) {
         return <h1>
-            Page is loading.
+            Please sign-in
         </h1>
     }
     const {profileFirstName, profileLastName, profileEmail, profileName, profileAvatarUrl} = auth
