@@ -1,25 +1,36 @@
 import React from 'react'
-import {Col, Container, Row} from "react-bootstrap";
+import {Col, Container, Row, Stack} from "react-bootstrap";
+import {useDispatch, useSelector} from "react-redux";
+import {fetchAuth} from "../../store/auth.js";
+import {fetchCurrentUser} from "../../store/currentUser.js";
+import {fetchAllLibraries} from "../../store/libraries.js";
 
 export const EventShortListing = () => {
+	const dispatch = useDispatch()
+	const initialEffects = () => {
+		dispatch(fetchAllEvents)
+	}
+	React.useEffect(initialEffects, [dispatch])
+
+}
+
+if (event === null) {
+	return <h1>
+		Page is loading.
+	</h1>
+}
+const {eventTitle, libraryName, libraryAddress, eventDate, eventStart} = event
+
 	return(
 		<>
-			<Container className={"border border-dark rounded"}>
-				<Row className={"my-3"}>
-					<Col xs={5}>Library Name</Col>
-					<Col xs={7}>Library Address</Col>
-				</Row>
-				<Row className={"my-3"}>
-					<Col xs={3}>Event Date</Col>
-					<Col xs={2}>Event Start</Col>
-					<Col xs={2}>Event End</Col>
-					<Col xs={5}>Event Type</Col>
-				</Row>
-				<Row className={"my-3"}>
-					<Col>
-						Event Title
-					</Col>
-				</Row>
+			<Container id="eventDisplayStack" className={"border rounded"}>
+				<Stack gap={2} className={"my-3"}>
+					<div>{eventTitle}</div>
+					<div>{libraryName}</div>
+					<div>{libraryAddress}</div>
+					<div>{eventDate}</div>
+					<div>{eventStart}</div>
+				</Stack>
 			</Container>
 		</>
 	)
