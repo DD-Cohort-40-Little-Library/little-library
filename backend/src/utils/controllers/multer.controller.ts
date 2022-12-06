@@ -16,5 +16,3 @@ const fileFilter = (request: Request, file: Express.Multer.File, callback: FileF
 
 export const imageUploader = multer({storage, limits, fileFilter}).single('image')
 
-// export const imageUploader = multer({storage, limits, fileFilter(req: e.Request, file: Express.Multer.File, callback: multer.FileFilterCallback) {
-//     }}).single('image')

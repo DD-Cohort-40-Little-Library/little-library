@@ -10,7 +10,7 @@ import envelopeIcon from "../../../images/uiSharedImages/mail-bk-rd.png";
 import {useDispatch, useSelector} from "react-redux";
 import {FormDebugger} from "../shared/components/FormDebugger.jsx";
 import {fetchCurrentUser} from "../../store/currentUser.js";
-import {fetchAuth} from "../../store/auth.js";
+import {fetchAuth, getAuth} from "../../store/auth.js";
 
 
 export const ProfileUpdateForm = (props) => {
@@ -57,6 +57,7 @@ export const ProfileUpdateForm = (props) => {
                     let {message, type} = reply
                     if (reply.status === 200) {
                         profileUpdatedSubmit({...values, profileAvatarUrl: message})
+                        dispatch(getAuth({...values, profileAvatarUrl: message}))
                     } else {
                         setStatus({message, type})
                     }
@@ -64,6 +65,7 @@ export const ProfileUpdateForm = (props) => {
             )
         }   else {
             profileUpdatedSubmit(values)
+            dispatch(getAuth(values))
         }
     }
     return(

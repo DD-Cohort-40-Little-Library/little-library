@@ -12,32 +12,25 @@ import {ProfileUpdateModal} from "./ProfileUpdateModal.jsx";
 
 export function ProfileLanding() {
     const dispatch = useDispatch()
-    const profile = useSelector(state => {return state.currentUser ? state.currentUser : null})
     const auth = useSelector(state => state.auth ? state.auth : state.auth)
     const initialEffects = () => {
         dispatch(fetchAuth())
     }
     React.useEffect(initialEffects, [dispatch])
-    const secondaryEffect = () => {
-        if (auth !== null) {
-            dispatch(fetchCurrentUser(auth.profileId))
-        }
-    }
-    React.useEffect(secondaryEffect, [auth, dispatch])
 
     // //TODO: REMOVE 'const profile = null' to the end  from line below after pulling currentUser w/ useSelector=profile
     // const profile = null
-    if (profile === null) {
+    if (auth === null) {
         return <h1>
             Page is loading.
         </h1>
     }
-    const {profileFirstName, profileLastName, profileEmail, profileName, profileAvatarUrl} = profile
+    const {profileFirstName, profileLastName, profileEmail, profileName, profileAvatarUrl} = auth
     return (
         <>
             <h1>User Landing Page</h1>
             <Container>
-                <Row className={"gx-md-3 p-3"}>
+                <Row className={"gx-md-3 p-3 justify-content-around"}>
                     <Col id={"user registration"} md={4} className={"text-center"} >
                         <h3>User Information</h3>
                         <div className={"border border-dark px-3"}>
@@ -64,16 +57,11 @@ export function ProfileLanding() {
 
                         <ProfileUpdateModal id="profileUpdateModal"/>
                         <Link to={"/library-create"} className={"btn-primary"}> <Button> Add a Library</Button></Link>
-                        {/*<Link to={"/event-create-page"} className={"btn-primary"}> <Button> Add an Event</Button></Link>*/}
 
                     </Col>
                     <Col id={"selected avatar"} md={3} className={"text-center"} >
                         <h3>User Image</h3>
                         <Image src={profileAvatarUrl} fluid={true} className={"rounded-circle"} alt={'Please select an avatar or upload a photo using the "Update Profile" button.'} ></Image>
-                    </Col>
-                    <Col id={"user avatars"} md={5} className={"text-center"}>
-                        <h3>Available Avatars</h3>
-                        <Image src={"https:placeimg.com/450/450/any"} alt={'avatar selection'}></Image>
                     </Col>
                 </Row>
             </Container>
