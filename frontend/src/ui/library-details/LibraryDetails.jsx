@@ -4,24 +4,49 @@ import React from "react";
 import {Col, Container, Image, Row, Stack, Tab, Tabs} from "react-bootstrap";
 import {EventListing} from "../shared/components/EventListing.jsx";
 import {CheckInDisplay} from "../shared/components/CheckInDisplay.jsx";
+import {useDispatch, useSelector} from "react-redux";
+import {fetchAllLibraries} from "../../store/libraries.js";
+import {useParams} from "react-router-dom";
 
 
 
 export function LibraryDetails() {
 
 
+
+    let {libraryId} = useParams()
+    console.log(libraryId)
+    console.log('is this on')
+    // const dispatch = useDispatch()
+    const library = useSelector(state => {return state.libraries ? state.libraries
+        .filter(library => library.libraryId === libraryId)[0]
+        : null})
+    // const initialEffects = () => {
+    //     dispatch(fetchAllLibraries())
+    // }
+    // React.useEffect(initialEffects, [dispatch])
+
+    // const {libraryAddress, libraryDescription, libraryName, librarySpecialization } = library
+console.log(library)
+    let specialization = () => {
+        if(library.librarySpecialization === null){
+            return ""
+        }else{
+            return library.librarySpecialization
+        }
+    }
+
+
     return (
         <>
         <div style={{paddingBlock: '2rem'}}>
         <Card className="text-center">
-            <Card.Header>Library Location Details and Type</Card.Header>
+            <Card.Header>{library.libraryAddress}, {library.libraryType} </Card.Header>
             <Card.Body>
                 <Image src={'https://placekitten.com/g/200/200'} roundedCircle={true}/>
-                <Card.Title>Special Library Text</Card.Title>
-                <Card.Text>
-                    <p>Spicy jalapeno bacon ipsum dolor amet brisket venison swine drumstick kevin leberkas porchetta doner. Andouille burgdoggen porchetta buffalo. Turducken beef porchetta, kevin tri-tip bacon pig t-bone strip steak turkey meatball venison corned beef bresaola pork loin. Ball tip corned beef doner t-bone beef, pork belly frankfurter boudin short loin turducken spare ribs fatback rump buffalo.</p>
-                    <p>Tri-tip beef shankle swine, picanha fatback alcatra shoulder ground round jerky short loin. Drumstick bresaola porchetta pastrami buffalo. Meatball capicola ground round brisket. Chicken landjaeger capicola frankfurter sirloin.</p>
-                </Card.Text>
+                <Card.Title><h3>{library.libraryName}</h3></Card.Title>
+                <h5>{specialization}</h5>
+                <Card.Text>{library.libraryDescription}</Card.Text>
                 <Row>
                 <Col md={7} style={{padding: '1rem'}}>
                 <Button variant="primary">Check In</Button>

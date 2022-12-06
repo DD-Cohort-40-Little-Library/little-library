@@ -7,37 +7,29 @@ import {LibraryDetailBlock} from "./LibraryDetailBlock.jsx"
 import {useDispatch, useSelector} from "react-redux";
 import {fetchAuth} from "../../store/auth.js";
 import currentUser, {fetchCurrentUser} from "../../store/currentUser.js";
+import {ProfileUpdateModal} from "./ProfileUpdateModal.jsx";
 
 export function ProfileLanding() {
-    console.log('is this on')
     const dispatch = useDispatch()
-    const profile = useSelector(state => {return state.currentUser ? state.currentUser : null})
     const auth = useSelector(state => state.auth ? state.auth : state.auth)
     const initialEffects = () => {
         dispatch(fetchAuth())
     }
     React.useEffect(initialEffects, [dispatch])
-    const secondaryEffect = () => {
-        if (auth !== null) {
-            dispatch(fetchCurrentUser(auth.profileId))
-        }
-    }
-    React.useEffect(secondaryEffect, [auth, dispatch])
 
     // //TODO: REMOVE 'const profile = null' to the end  from line below after pulling currentUser w/ useSelector=profile
     // const profile = null
-    if (profile === null) {
+    if (auth === null) {
         return <h1>
             Page is loading.
         </h1>
     }
-    const {profileFirstName, profileLastName, profileEmail, profileName} = profile
-    console.log('is this on 2')
+    const {profileFirstName, profileLastName, profileEmail, profileName, profileAvatarUrl} = auth
     return (
         <>
             <h1>User Landing Page</h1>
             <Container>
-                <Row className={"gx-md-3 p-3"}>
+                <Row className={"gx-md-3 p-3 justify-content-around"}>
                     <Col id={"user registration"} md={4} className={"text-center"} >
                         <h3>User Information</h3>
                         <div className={"border border-dark px-3"}>
@@ -62,18 +54,13 @@ export function ProfileLanding() {
                             </div>
                         </div>
 
-                        <Link to={"/profile-update"} className={"btn-primary"}> <Button> Update Profile</Button></Link>
+                        <ProfileUpdateModal id="profileUpdateModal"/>
                         <Link to={"/library-create"} className={"btn-primary"}> <Button> Add a Library</Button></Link>
-                        <EventCreateModal />
 
                     </Col>
                     <Col id={"selected avatar"} md={3} className={"text-center"} >
-                        <h3>Selected Avatar</h3>
-                        <Image src={'http://placekitten.com/400/400'} fluid={true} className={"rounded-circle"} alt={'selected avatar'} ></Image>
-                    </Col>
-                    <Col id={"user avatars"} md={5} className={"text-center"}>
-                        <h3>User Avatars</h3>
-                        <Image src={"https:placeimg.com/450/450/any"} alt={'avatar selection'}></Image>
+                        <h3>User Image</h3>
+                        <Image src={profileAvatarUrl} fluid={true} className={"rounded-circle"} alt={'Please select an avatar or upload a photo using the "Update Profile" button.'} ></Image>
                     </Col>
                 </Row>
             </Container>

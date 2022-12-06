@@ -26,7 +26,6 @@ dist-ssr
 *.sw?
 *.env
 
+/frontend/setupProxy.js
 */.env
 /.env
-
-/frontend/setupProxy.js
