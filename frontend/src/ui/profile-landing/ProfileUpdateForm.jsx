@@ -192,7 +192,6 @@ function ProfileEditFormContent (props) {
             </Form>
 
             <DisplayStatus status={status}/>
-            <FormDebugger {...props} />
 
         </>
     )

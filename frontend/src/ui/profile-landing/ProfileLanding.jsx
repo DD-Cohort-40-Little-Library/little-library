@@ -47,7 +47,7 @@ export function ProfileLanding() {
 
     return (
         <>
-            <h1>User Landing Page</h1>
+
             <Container>
                 <Row className={"gx-md-3 p-3 justify-content-around"}>
                     <Col id={"user registration"} md={4} className={"text-center"} >

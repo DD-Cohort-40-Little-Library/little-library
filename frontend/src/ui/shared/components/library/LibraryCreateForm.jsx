@@ -112,15 +112,6 @@ function LibraryCreateFormContent (props){
                 <Row>
                     {/*<Col>*/}
                     <Col md={6} className={"m-2 text-center"}>
-                            <Figure fluid="true">
-                                <Figure.Image
-                                    alt={"placeholder kitten"}
-                                    src={"http://placekitten.com/210/210"}
-                                    roundedCircle={true}
-                                />
-                                <Figure.Caption className={"text-center"}>userName</Figure.Caption>
-                            </Figure>
-
                             <Form.Group controlId={'libraryAddress'}>
                             <Form.Label>Library Address</Form.Label>
                             <InputGroup>
@@ -141,17 +132,6 @@ function LibraryCreateFormContent (props){
 
                         <Form.Group controlId={'libraryEventOptIn'}>
                             <LibraryEventCheckbox name={'libraryEventOptIn'}>Are events available at your library?</LibraryEventCheckbox>
-                            {/*<InputGroup>*/}
-                            {/*    /!*<Form.Check className="mt-1" inline label="Available for events?"type="checkbox"/>*!/*/}
-                            {/*    <FormControl*/}
-                            {/*        className="form-control"*/}
-                            {/*        name='toggle'*/}
-                            {/*        type='checkbox'*/}
-                            {/*        value={values.libraryEventOptIn}*/}
-                            {/*        onChange={handleChange}*/}
-                            {/*        onBlur={handleBlur}*/}
-                            {/*    />*/}
-                            {/*</InputGroup>*/}
                             <DisplayError errors={errors} touched={touched} field={'libraryEventOptIn'}/>
                         </Form.Group>
 
@@ -195,30 +175,16 @@ function LibraryCreateFormContent (props){
                     </Col>
 
                     <Col md={5} className={"m-2 text-center"}>
-                        <Figure fluid="true">
-                            <Figure.Image
-                                alt={"placeholder kitten"}
-                                src={"http://placekitten.com/300/300"}
-                            />
-                            <Figure.Caption className={"text-center"}><Button size="sm" variant={"outline-secondary"} >Upload</Button></Figure.Caption>
-                        </Figure>
-                        {/*<Card>*/}
-                        {/*    <FloatingLabel controlId="library-description" label="Description of your library (256 characters max)">*/}
-                        {/*        <Form.Control*/}
-                        {/*            as="textarea"*/}
-                        {/*            placeholder="Description of your library (256 characters max)"*/}
-                        {/*            style={{ height: '135px' }}*/}
-                        {/*        />*/}
-                        {/*    </FloatingLabel>*/}
-                        {/*</Card>*/}
                         <Form.Group controlId={'libraryDescription'}>
                             <Form.Label>Library Description</Form.Label>
                             <InputGroup>
                                 <FormControl
+                                    as="textarea"
+                                    style={{ height: '200px' }}
                                     name='libraryDescription'
-                                    type='text'
+                                    type='text-area'
                                     value={values.libraryDescription}
-                                    placeholder='Please described your library'
+                                    placeholder='Please describe your library'
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                 />
