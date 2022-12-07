@@ -1,5 +1,5 @@
 import React from "react";
-import {Col, Container, Row, Form, Image, Button, Tabs, Tab, FormText} from "react-bootstrap";
+import {Col, Container, Row, Form, Image, Button, Tabs, Tab, FormText, Stack} from "react-bootstrap";
 import {EventListing} from "../shared/components/EventListing.jsx";
 import {CheckInDisplay} from "../shared/components/CheckInDisplay.jsx";
 import {Link} from "react-router-dom";
@@ -8,12 +8,17 @@ import {useDispatch, useSelector} from "react-redux";
 import {fetchAuth} from "../../store/auth.js";
 import currentUser, {fetchCurrentUser} from "../../store/currentUser.js";
 import {ProfileUpdateModal} from "./ProfileUpdateModal.jsx";
+import {fetchAllLibraries, fetchLibrariesByProfileId} from "../../store/libraries.js";
+import {EventShortListing} from "../home/EventShortListing.jsx";
 
 export function ProfileLanding() {
+
+    const libraries = useSelector(state => state.libraries ? state.libraries : [])
     const dispatch = useDispatch()
     const auth = useSelector(state => state.auth ? state.auth : state.auth)
     const initialEffects = () => {
         dispatch(fetchAuth())
+        dispatch(fetchLibrariesByProfileId())
     }
     React.useEffect(initialEffects, [dispatch])
 
@@ -24,7 +29,12 @@ export function ProfileLanding() {
             Page is loading.
         </h1>
     }
-    const {profileFirstName, profileLastName, profileEmail, profileName, profileAvatarUrl} = auth
+    const {profileFirstName, profileLastName, profileEmail, profileName, profileAvatarUrl, profileId} = auth
+
+    const libraryProfileId = auth.profileId
+
+    const {libraryName,libraryAddress, libraryDescription, librarySpecialization, libraryEventOptIn, libraryType} = libraries
+
     return (
         <>
             <h1>User Landing Page</h1>
@@ -90,7 +100,15 @@ export function ProfileLanding() {
                         <Container>
                             <Row>
                                 <p>TEST 3</p>
-                                <LibraryDetailBlock />
+                                <Stack>
+                                    {libraries.map (library => <LibraryDetailBlock library={library}/>)}
+
+                                {/*    if (library === null) {*/}
+                                {/*    return <h1>*/}
+                                {/*    Why not help by building a Little Library in your community?*/}
+                                {/*    </h1>*/}
+                                {/*}*/}
+                                </Stack>
                             </Row>
                         </Container>
                     </Tab>

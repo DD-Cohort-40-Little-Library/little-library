@@ -1,21 +1,21 @@
-import {Col, Image, Row} from "react-bootstrap";
+import {Col, Container, Image, Row} from "react-bootstrap";
 import React from "react";
 import {LibraryDetails} from "../library-details/LibraryDetails.jsx";
 
+export const LibraryDetailBlock = (props) => {
 
-export function LibraryDetailBlock() {
-    return (
+    const {library} = props
+
+    return(
         <>
-            <Row>
-                <Col>
-                    <Image src={'https://placekitten.com/g/200/200'} roundedCircle='true' alt={'Library Picture'}/>
-                </Col>
-                <Col sm={9}>
-                    <h3>PULL NAME FROM DATA</h3>
-                    <p>PULL DETAILS FROM DATA</p>
-
-                </Col>
-            </Row>
+            <Container className={"border border-dark rounded"}>
+                    <Row xs={5}>{library.library}</Row>
+                    <Row xs={5}>{library.libraryName}</Row>
+                    <Row xs={7}>{library.libraryAddress}</Row>
+                    <Row xs={5}>{library.librarySpecialization}</Row>
+                    <Row xs={5}>{library.libraryDescription}</Row>
+                    <Row xs={5}>{library.libraryType}</Row>
+            </Container>
         </>
     )
 }
