@@ -17,8 +17,6 @@ export function ProfileLanding() {
     }
     React.useEffect(initialEffects, [dispatch])
 
-    // //TODO: REMOVE 'const profile = null' to the end  from line below after pulling currentUser w/ useSelector=profile
-    // const profile = null
     if (auth === null) {
         return <h1>
             Please sign-in

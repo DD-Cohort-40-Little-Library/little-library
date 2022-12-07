@@ -1,6 +1,5 @@
 import {Col, Container, Image, Row, Stack} from "react-bootstrap";
 import React from "react";
-import {BioBlock} from "./BioBlock";
 
 export function AboutUs() {
     return (

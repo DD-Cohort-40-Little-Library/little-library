@@ -2,17 +2,7 @@ import React from "react";
 import {Formik, useField} from "formik";
 import * as Yup from "yup";
 import {httpConfig} from "../../utils/http-config.js";
-import {
-    Button,
-    Card,
-    Col,
-    Figure,
-    Form,
-    FormControl,
-    FormSelect,
-    InputGroup,
-    Row
-} from "react-bootstrap";
+import {Button, Card, Col, Figure, Form, FormControl, FormSelect, InputGroup, Row} from "react-bootstrap";
 import {DisplayError} from "../display-error/DisplayError.jsx";
 import {DisplayStatus} from "../display-status/DisplayStatus.jsx";
 import {FormDebugger} from "../FormDebugger.jsx";
@@ -33,8 +23,6 @@ const LibraryEventCheckbox = ({ children, ...props }) => {
 };
 
 const LibrarySpecializationSelectType = ({ label, ...props }) => {
-    // useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
-    // which we can spread on <input> and else replace ErrorMessage entirely.
     const [field, meta] = useField(props)
     return (
         <>
@@ -110,7 +98,6 @@ function LibraryCreateFormContent (props){
             <Card>
             <Form onSubmit={handleSubmit}>
                 <Row>
-                    {/*<Col>*/}
                     <Col md={6} className={"m-2 text-center"}>
                             <Figure fluid="true">
                                 <Figure.Image
@@ -141,17 +128,6 @@ function LibraryCreateFormContent (props){
 
                         <Form.Group controlId={'libraryEventOptIn'}>
                             <LibraryEventCheckbox name={'libraryEventOptIn'}>Are events available at your library?</LibraryEventCheckbox>
-                            {/*<InputGroup>*/}
-                            {/*    /!*<Form.Check className="mt-1" inline label="Available for events?"type="checkbox"/>*!/*/}
-                            {/*    <FormControl*/}
-                            {/*        className="form-control"*/}
-                            {/*        name='toggle'*/}
-                            {/*        type='checkbox'*/}
-                            {/*        value={values.libraryEventOptIn}*/}
-                            {/*        onChange={handleChange}*/}
-                            {/*        onBlur={handleBlur}*/}
-                            {/*    />*/}
-                            {/*</InputGroup>*/}
                             <DisplayError errors={errors} touched={touched} field={'libraryEventOptIn'}/>
                         </Form.Group>
 
@@ -159,7 +135,6 @@ function LibraryCreateFormContent (props){
                             <Form.Label>Library Name</Form.Label>
                             <InputGroup>
                                 <FormControl
-                                    // className="form-control"
                                     name='libraryName'
                                     type='text'
                                     value={values.libraryName}
@@ -202,15 +177,6 @@ function LibraryCreateFormContent (props){
                             />
                             <Figure.Caption className={"text-center"}><Button size="sm" variant={"outline-secondary"} >Upload</Button></Figure.Caption>
                         </Figure>
-                        {/*<Card>*/}
-                        {/*    <FloatingLabel controlId="library-description" label="Description of your library (256 characters max)">*/}
-                        {/*        <Form.Control*/}
-                        {/*            as="textarea"*/}
-                        {/*            placeholder="Description of your library (256 characters max)"*/}
-                        {/*            style={{ height: '135px' }}*/}
-                        {/*        />*/}
-                        {/*    </FloatingLabel>*/}
-                        {/*</Card>*/}
                         <Form.Group controlId={'libraryDescription'}>
                             <Form.Label>Library Description</Form.Label>
                             <InputGroup>
@@ -240,7 +206,7 @@ function LibraryCreateFormContent (props){
             </Form>
             </Card>
             <DisplayStatus status={status} />
-            <FormDebugger {...props} />
+            {/*<FormDebugger {...props} />*/}
         </>
     )
 }
