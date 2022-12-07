@@ -157,13 +157,7 @@ function LibraryCreateFormContent (props){
                     </Col>
 
                     <Col md={5} className={"m-2 text-center"}>
-                        <Figure fluid="true">
-                            <Figure.Image
-                                alt={"placeholder kitten"}
-                                src={"http://placekitten.com/300/300"}
-                            />
-                            <Figure.Caption className={"text-center"}><Button size="sm" variant={"outline-secondary"} >Upload</Button></Figure.Caption>
-                        </Figure>
+
                         <Form.Group controlId={'libraryDescription'}>
                             <Form.Label>Library Description</Form.Label>
                             <InputGroup>
