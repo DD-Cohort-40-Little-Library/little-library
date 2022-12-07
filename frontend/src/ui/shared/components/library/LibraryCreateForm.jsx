@@ -54,7 +54,7 @@ export const LibraryCreateForm = () => {
         libraryEventOptIn: false,
         libraryName: "",
         librarySpecialization: "",
-        libraryType: "LL"
+        libraryType: "Little Library"
 }
     const validator = Yup.object().shape({
         libraryAddress: Yup.string()

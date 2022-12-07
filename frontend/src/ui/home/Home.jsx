@@ -22,7 +22,7 @@ export function Home() {
 
 	}
 	useEffect(effects, [dispatch])
-console.log(events)
+
 	return (
 		<>
 			<Container id={"home-display"}>

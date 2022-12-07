@@ -1,6 +1,5 @@
-import {Col, Container, Image, Row} from "react-bootstrap";
+import {Container, Row} from "react-bootstrap";
 import React from "react";
-import {LibraryDetails} from "../library-details/LibraryDetails.jsx";
 
 export const LibraryDetailBlock = (props) => {
 
@@ -9,12 +8,11 @@ export const LibraryDetailBlock = (props) => {
     return(
         <>
             <Container className={"border border-dark rounded"}>
-                    <Row xs={5}>{library.library}</Row>
-                    <Row xs={5}>{library.libraryName}</Row>
-                    <Row xs={7}>{library.libraryAddress}</Row>
-                    <Row xs={5}>{library.librarySpecialization}</Row>
-                    <Row xs={5}>{library.libraryDescription}</Row>
-                    <Row xs={5}>{library.libraryType}</Row>
+                    <Row xs={5}>Name: {library.libraryName}</Row>
+                    <Row xs={7}>Address: {library.libraryAddress}</Row>
+                    <Row xs={5}> Specialization: {library.librarySpecialization}</Row>
+                    <Row xs={5}>Description: {library.libraryDescription}</Row>
+                    <Row xs={5}>Type of Library: {library.libraryType}</Row>
             </Container>
         </>
     )
