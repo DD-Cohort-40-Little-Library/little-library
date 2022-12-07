@@ -16,7 +16,7 @@ export function CheckInModal(){
 
     return(
         <>
-            <Button variant={'light'} onClick={handleShow} className={"border border-dark"}>
+            <Button onClick={handleShow} className={"btn-primary"}>
                 Check In
             </Button>
             <Modal

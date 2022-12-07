@@ -5,7 +5,7 @@ import {Col, Container, Image, Row} from "react-bootstrap";
 export function CheckInDisplay() {
     return(
         <>
-        <Container style={{marginBlock: '1rem', paddingBlock: '1rem', backgroundColor: 'lightgrey'}}>
+        <Container id={"checkInDisplay"}>
             <Row style={{alignItems: 'center'}}>
                 <Col md={2}>
                     <Image src={'https://placekitten.com/g/150/150'} roundedCircle={true}/>
@@ -15,9 +15,7 @@ export function CheckInDisplay() {
                     <p>Tri-tip beef shankle swine, picanha fatback alcatra shoulder ground round jerky short loin. Drumstick bresaola porchetta pastrami buffalo. Meatball capicola ground round brisket. Chicken landjaeger capicola frankfurter sirloin.</p>
                 </Col>
                 <Col md={2}>
-                    <Image src={'https://placekitten.com/g/200/200'}
-                           // square={true}
-                    />
+                    <Image src={'https://placekitten.com/g/200/200'}/>
                 </Col>
             </Row>
         </Container>

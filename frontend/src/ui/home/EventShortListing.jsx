@@ -1,6 +1,5 @@
 import React from 'react'
-import {Col, Container, Row} from "react-bootstrap";
-import {useSelector} from "react-redux";
+import {Container, Row} from "react-bootstrap";
 
 export const EventShortListing = ({event, library}) => {
 
@@ -15,8 +14,6 @@ export const EventShortListing = ({event, library}) => {
 	}
 	const amPm = startTime.getHours() > 12 ? 'AM' : 'PM'
 	const finalTime = (hour + ":" + minutes + amPm)
-
-	// hour = (hour % 12) || 12;
 
 	return(
 		<>

@@ -95,3 +95,40 @@ body{
     padding: 2rem;
 
 }
+
+#checkInDisplay {
+    background-color: #CDCDC1;
+    color: #2D3024;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 10px;
+}
+
+#eventListingDisplay {
+    background-color: #CAB898;
+    color: #2D3024;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 10px;
+}
+
+#userRegistration {
+    background-color: #93A5AB;
+    color: #2D3024;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 10px;
+}
+
+#libraryDisplayBlock {
+    background-color: #76999D;
+    color: #2D3024;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 10px;
+}
+
+/*#libraryCreateFormGlobal {*/
+/*    background-color: #F3EAD2;*/
+/*    color: #2D3024;*/
+/*}*/

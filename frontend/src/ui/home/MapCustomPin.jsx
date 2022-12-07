@@ -1,8 +1,6 @@
 import React, {useState} from "react";
 import {Marker, Popup} from "react-map-gl";
 import {Image} from "react-bootstrap";
-import {library} from "@fortawesome/fontawesome-svg-core";
-import ReactDOM from "react-dom/client";
 import {Link} from "react-router-dom";
 
 

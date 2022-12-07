@@ -8,7 +8,6 @@ import {DisplayStatus} from "../shared/components/display-status/DisplayStatus";
 import {useDropzone} from "react-dropzone";
 import envelopeIcon from "../../../images/uiSharedImages/mail-bk-rd.png";
 import {useDispatch, useSelector} from "react-redux";
-import {FormDebugger} from "../shared/components/FormDebugger.jsx";
 import {fetchCurrentUser, getCurrentUserByProfileId} from "../../store/currentUser.js";
 import {fetchAuth, getAuth} from "../../store/auth.js";
 
@@ -195,10 +194,6 @@ export const ProfileUpdateForm = (props) => {
     )
 }
 
-function ProfileEditFormContent (props) {
-
-
-}
 
 function ImageDropZone ({formikProps}) {
     const onDrop = React.useCallback(acceptedFiles => {

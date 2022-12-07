@@ -24,7 +24,6 @@ export function ProfileLanding() {
     const dispatch = useDispatch()
     const auth = useSelector(state => state.auth ? state.auth : state.auth)
     const user = useSelector(state => state.currentUser)
-    console.log(user)
     const initialEffects = () => {
         dispatch(fetchAuth())
         dispatch(fetchLibrariesByProfileId())
@@ -33,8 +32,8 @@ export function ProfileLanding() {
         dispatch(fetchCurrentUser())
     }
     React.useEffect(initialEffects, [dispatch])
+
     // //TODO: REMOVE 'const profile = null' to the end  from line below after pulling currentUser w/ useSelector=profile
-    // const profile = null
     if (user === null) {
         return <h1>
                     Page is loading or you have not signed in yet.
@@ -51,11 +50,12 @@ console.log(profileFirstName)
     return (
         <>
 
+            <h1 id={"headLineONE"}>User Landing Page</h1>
             <Container>
                 <Row className={"gx-md-3 p-3 justify-content-around"}>
-                    <Col id={"user registration"} md={4} className={"text-center"} >
-                        <h3>User Information</h3>
-                        <div className={"border border-dark px-3"}>
+                    <Col  md={4} className={"text-center"} >
+                        <h3 id={"headLineONE"}>User Information</h3>
+                        <div id={"userRegistration"} className={""}>
                             <div className="mb-3" >
                                 <div>First Name: </div>
                                 <div> {profileFirstName}</div>
@@ -81,8 +81,8 @@ console.log(profileFirstName)
                         <Link to={"/library-create"} className={"btn-primary"}> <Button> Add a Library</Button></Link>
 
                     </Col>
-                    <Col id={"selected avatar"} md={3} className={"text-center"} >
-                        <h3>User Image</h3>
+                    <Col md={3} className={"text-center"} >
+                        <h3 id={"headLineONE"}>User Image</h3>
                         <Image src={profileAvatarUrl} fluid={true} className={"rounded-circle"} alt={'Please select an avatar or upload a photo using the "Update Profile" button.'} ></Image>
                     </Col>
                 </Row>
@@ -96,7 +96,6 @@ console.log(profileFirstName)
                     <Tab eventKey="event" title="Events">
                         <Container>
                             <Row>
-                                {/*<p>TEST 1 </p>*/}
                                 <Stack>
                                      {events.map(event => <EventDetailBlock event={event}/>)}
                                 </Stack>
@@ -106,7 +105,6 @@ console.log(profileFirstName)
                     <Tab eventKey="check-ins" title="Check-Ins">
                         <Container>
                             <Row>
-                                {/*<p>TEST 2</p>*/}
                                 {checkins.map (checkin => <CheckInDetailBlock checkin={checkin}/>)}                            </Row>
                         </Container>
                     </Tab>

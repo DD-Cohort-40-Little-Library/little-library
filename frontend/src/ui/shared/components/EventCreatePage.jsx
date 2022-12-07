@@ -8,9 +8,6 @@ import {fetchAllLibraries} from "../../../store/libraries.js";
 import {FormDebugger} from "./FormDebugger.jsx";
 import {DisplayStatus} from "./display-status/DisplayStatus";
 
-
-
-
 const EventTypeSelect = ({ label, ...props }) => {
 	// useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
 	// which we can spread on <input> and else replace ErrorMessage entirely.
@@ -134,9 +131,7 @@ function EventCreateModalFormContent(props) {
 						</select>
 					</div>
 					<Col>
-
 						<Form.Group controlId={'eventDate'} className={"m-3"} >
-							{/*TODO Do we want a list or open input?*/}
 							<Form.Label>Event Date</Form.Label>
 							<InputGroup className={"mb-2"}>
 								<FormControl
@@ -145,9 +140,8 @@ function EventCreateModalFormContent(props) {
 									value={values.eventDate}
 									onChange={handleChange}
 									onBlur={handleBlur}
-									/>
+								/>
 							</InputGroup>
-							{/*<Form.Control type={"date"} placeholder={"Date of event"} id={"eventDate"}/>*/}
 
 							<EventTypeSelect label={"Type of Event"} name={'eventType'} className={"mt-2"}>
 								<option value={''}>Select an event type</option>
@@ -161,12 +155,9 @@ function EventCreateModalFormContent(props) {
 								<option value={'other'}>Other</option>
 							</EventTypeSelect>
 						</Form.Group>
-
 					</Col>
 					<Col>
-						{/*TODO Is there a date-time picker that we can use?*/}
 						<Form.Group className={"m-3"} >
-
 							<Form.Label>Event Start Time</Form.Label>
 								<InputGroup>
 									<Form.Control
@@ -194,10 +185,8 @@ function EventCreateModalFormContent(props) {
 								</InputGroup>
 
 						</Form.Group>
-
 					</Col>
 				</Row>
-
 				<Form.Group className={"m-3"} id={"eventTitle"}>
 					<Form.Label>Event Title </Form.Label>
 						<InputGroup>
@@ -211,14 +200,15 @@ function EventCreateModalFormContent(props) {
 				</Form.Group>
 
 				<Form.Group className={"m-3"} id={"eventDescription.ControlTextarea"}>
-					<FloatingLabel id="floatingTextarea" label="Describe your event (256 characters max)">
+					<FloatingLabel id="floatingTextarea" >
 						<Field
+							placeholder="Describe your event (256 characters max)"
 							name="eventDescription"
 							as="textarea"
 							style={{
 								height: '125px',
 								width: '550px'
-						}}
+							}}
 						/>
 					</FloatingLabel>
 				</Form.Group>
@@ -226,19 +216,10 @@ function EventCreateModalFormContent(props) {
 				<Form.Group className={"mt-3"}>
 					<Button className={"btn btn-primary"} type={"submit"}>Submit</Button>
 					{" "}
-					<Button
-						className={"btn btn-danger"}
-						onClick={handleReset}
-						disabled={!dirty || isSubmitting}
-					>Reset
-					</Button>
+					<Button className={"btn btn-danger"} onClick={handleReset} disabled={!dirty || isSubmitting}>Reset</Button>
 				</Form.Group>
-
 			</Form>
-
 			<DisplayStatus status={status}/>
-			<FormDebugger {...props} />
-
 		</>
 	)
 }

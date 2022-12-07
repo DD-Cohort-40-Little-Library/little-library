@@ -1,9 +1,7 @@
-import React, {useState} from "react";
+import React from "react";
 import {Button, Form, Col, Container, Image, Row} from "react-bootstrap";
 
-
 export const ProfileRegistration = () => {
-
 
     return (
         <>
@@ -59,9 +57,7 @@ export const ProfileRegistration = () => {
             </Container>
             <Container>
                 <Col id={"generalColBehavior"} md={{ span: "auto", offset: 11 }}>
-                    <Button className={"m-4"} type={"submit"}>
-                        Submit
-                    </Button>
+                    <Button className={"m-4"} type={"submit"}>Submit</Button>
                 </Col>
             </Container>
         </>

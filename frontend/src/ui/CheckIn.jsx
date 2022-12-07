@@ -1,8 +1,6 @@
 import React from "react";
 import {Container, Row} from "react-bootstrap";
-import {LibraryDetails} from "./library-details/LibraryDetails.jsx";
 import {CheckInForm} from "./library-details/CheckInForm.jsx";
-import {CheckInDisplay} from "./shared/components/CheckInDisplay.jsx";
 
 
 export function CheckIn() {
@@ -10,9 +8,7 @@ export function CheckIn() {
         <>
         <Container>
             <Row>
-                {/*<LibraryDetails/>*/}
                 <CheckInForm/>
-                {/*<CheckInDisplay/>*/}
             </Row>
         </Container>
         </>
