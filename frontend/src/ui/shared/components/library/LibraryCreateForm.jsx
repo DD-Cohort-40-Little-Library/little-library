@@ -115,9 +115,6 @@ function LibraryCreateFormContent (props){
                             <Form.Group controlId={'libraryAddress'}>
                             <Form.Label>Library Address</Form.Label>
                             <InputGroup>
-                                <InputGroup.Text>
-                                    Library Address
-                                </InputGroup.Text>
                                 <FormControl
                                     name="libraryAddress"
                                     type="text"
