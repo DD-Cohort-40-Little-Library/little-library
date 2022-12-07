@@ -6,7 +6,7 @@ import LLLLogo from "../../images/logoAssetsSVG/logoBase-xxs.svg";
 export function AboutUs() {
     return (
         <>
-        <Container fluid='auto' style={{padding: '2rem'}}>
+        <Container fluid='auto' style={{padding: '2rem', marginBottom: '30px'}}>
             <Col>
             <Row style={{padding: '2rem', alignContent: 'center'}}>
                 <Image fluid='auto' src={'../../images/llLogoTag.svg'} style={{height: "30rem", marginBottom: "20px"}}/>
@@ -21,8 +21,8 @@ export function AboutUs() {
             </Row>
         </Container>
 
-        <Container>
-            <Stack gap={5} >
+        <Container id={"personalStack"}>
+            <Stack gap={5}>
                 <Row style={{alignItems: "center"}}>
                 <Col>
                     <Image src={"../../images/kelly-bowman.jpg"} roundedCircle='true' style={{height: "12rem"}}/>
@@ -64,12 +64,12 @@ export function AboutUs() {
 
                      <p>Bryce is an experienced business professional with over 25 years of management and operations experience seeking to leverage my knowledge of data analytics, standardized procedures and business software as a junior web developer.  I recently graduated from Deep Dive Full Stack Web Development where I gained knowledge and skills on creating fully functional websites.  With my past experience I am regarded as a collaborative team leader maintaining a high level of personal and team performance.</p>
                 </Col>
-            </Row>
+            </Row >
             <Row style={{alignItems: "center"}}>
                 <Col>
                     <Image src={"../../images/matt-spriggs.jpg"} roundedCircle='true' style={{height: "12rem"}}/>
                 </Col>
-                <Col sm={9}>
+                <Col sm={9} >
                     <h3>Matt Spriggs</h3>
 
                     <a target="_blank" href={"https://github.com/mattspriggs"}><Image src={"../../images/git-bk-rd-1.svg"} style={{height: "2rem", paddingRight: "10px"}}/></a>

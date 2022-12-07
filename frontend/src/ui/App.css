@@ -77,7 +77,7 @@ body{
 
 #eventShortListing {
     background-color: #CDCDC1;
-    border-radius: 2px;
+    border-radius: 10px;
     margin: 1vh;
 }
 #eventUpdateModal {
@@ -146,4 +146,14 @@ body{
     background-color: #93A5AB;
     text-align: center;
     width: border-box;
+}
+
+#libraryRegisterCard {
+    background-color: #93A5AB;
+    text-align: center;
+    width: border-box;
+}
+
+#personalStack {
+    padding-bottom: 30px;
 }

@@ -92,9 +92,9 @@ function LibraryCreateFormContent (props){
     return (
         <>
             <div className={"text-center"} id={"libraryCreateFormGlobal"}>
-                <h1>Register Your Library</h1>
+                <h1 id={"headLineONE"}>Register Your Library</h1>
             </div>
-            <Card>
+            <Card id={"libraryRegisterCard"}>
             <Form onSubmit={handleSubmit}>
                 <Row>
                     <Col md={6} className={"m-2 text-center"}>
@@ -175,11 +175,11 @@ function LibraryCreateFormContent (props){
                             <DisplayError errors={errors} touched={touched} field={'libraryDescription'}/>
                         </Form.Group>
                     </Col>
-                <Form.Group className={"mt-3"}>
-                    <Button className={"btn btn-primary"} type={"submit"}>Submit</Button>
+                <Form.Group className={"m-4"}>
+                    <Button className={"btn btn-primary m-4"} type={"submit"}>Submit</Button>
                     {" "}
                     <Button
-                        className={"btn btn-danger"}
+                        className={"btn btn-danger m-4"}
                         onClick={handleReset}
                         disabled={!dirty || isSubmitting}
                     >Reset
