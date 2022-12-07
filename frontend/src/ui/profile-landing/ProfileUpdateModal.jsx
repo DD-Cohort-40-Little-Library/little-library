@@ -12,7 +12,7 @@ export function ProfileUpdateModal() {
             <Button variant="primary" onClick={handleShow}>Update Profile</Button>
 
             <Modal className={""} show={show} onHide={handleClose} >
-                <Container>
+                <Container id={"profileUpdateForm"}>
                     <Row>
                         <div>
                             <h4 className={"text-center"}>Update Profile</h4>

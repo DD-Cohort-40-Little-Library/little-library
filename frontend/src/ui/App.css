@@ -128,7 +128,22 @@ body{
     border-radius: 10px;
 }
 
-/*#libraryCreateFormGlobal {*/
-/*    background-color: #F3EAD2;*/
-/*    color: #2D3024;*/
-/*}*/
+#libraryCreateFormGlobal {
+    background-color: #F3EAD2;
+    color: #2D3024;
+}
+
+#checkInDetailBlock {
+    background-color: #CAB898;
+    color: #2D3024;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 10px;
+
+}
+
+#profileUpdateForm {
+    background-color: #93A5AB;
+    text-align: center;
+    width: border-box;
+}

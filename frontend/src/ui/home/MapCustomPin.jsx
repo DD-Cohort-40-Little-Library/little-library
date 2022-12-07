@@ -46,7 +46,7 @@ export function MapCustomPin(props) {
                                                  style={{transform: `translate(${-SIZE / 4}px,${-SIZE}px`}}/>
                 }
 
-                {librarySpecialization === 'Children' && <Image src={`../images/icons-svg/baby-pin.svg`}
+                {librarySpecialization === 'Children' && <Image src={`../images/icons-svg/teddy-bear-pin.svg`}
                                                  height={SIZE}
                                                  viewBox="0 0 24 24"
                                                  style={{transform: `translate(${-SIZE / 4}px,${-SIZE}px`}}/>

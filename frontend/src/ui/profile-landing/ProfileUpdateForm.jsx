@@ -97,7 +97,7 @@ function ProfileEditFormContent (props) {
     } = props
     return (
         <>
-            <Form onSubmit={handleSubmit} className={"bg-light border-dark text-center"}>
+            <Form onSubmit={handleSubmit} className={""} id={"profileUpdateForm"}>
                 {/*controlId must match what is passed to the initialValues prop*/}
                 <Form.Group controlId={'profileEmail'}>
                     <Form.Label>Email</Form.Label>
@@ -174,7 +174,7 @@ function ProfileEditFormContent (props) {
                     {selectedImage !== null ? <img className={"w-50"} src={selectedImage}/> : ""}
                 </div>
                 <Form.Group>
-                    <Button className={"btn btn-primary"} type={"submit"}>Submit</Button>
+                    <Button className={"btn btn-primary m-3"} type={"submit"}>Submit</Button>
                     {''}
                     <Button className={"btn btn-secondary"} onClick={handleReset} disabled={!dirty || isSubmitting}>Reset Form</Button>
                 </Form.Group>
