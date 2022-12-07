@@ -12,11 +12,14 @@ import {fetchAllLibraries, fetchLibrariesByProfileId} from "../../store/librarie
 import {EventShortListing} from "../home/EventShortListing.jsx";
 import {EventDetailBlock} from "./EventDetailBlock";
 import {fetchEventsByProfileId} from "../../store/events.js";
+import {fetchCheckInsByProfileId} from "../../store/checkIn.js";
+import {CheckInDetailBlock} from "./CheckInDetailBlock";
 
 export function ProfileLanding() {
 
     const libraries = useSelector(state => state.libraries ? state.libraries : [])
     const events = useSelector(state => state.events ? state.events : [])
+    const checkins = useSelector(state => state.checkIns ? state.checkIns : [])
 
     const dispatch = useDispatch()
     const auth = useSelector(state => state.auth ? state.auth : state.auth)
@@ -24,6 +27,7 @@ export function ProfileLanding() {
         dispatch(fetchAuth())
         dispatch(fetchLibrariesByProfileId())
         dispatch(fetchEventsByProfileId())
+        dispatch(fetchCheckInsByProfileId())
     }
     React.useEffect(initialEffects, [dispatch])
     // //TODO: REMOVE 'const profile = null' to the end  from line below after pulling currentUser w/ useSelector=profile
@@ -39,6 +43,7 @@ export function ProfileLanding() {
 
     const {libraryName,libraryAddress, libraryDescription, librarySpecialization, libraryEventOptIn, libraryType} = libraries
     const {eventDate, eventDescription, eventName} = events
+    const {checkInComment, checkInPhotoUrl} = checkins
 
     return (
         <>
@@ -76,12 +81,6 @@ export function ProfileLanding() {
                     <Col id={"selected avatar"} md={3} className={"text-center"} >
                         <h3>User Image</h3>
                         <Image src={profileAvatarUrl} fluid={true} className={"rounded-circle"} alt={'Please select an avatar or upload a photo using the "Update Profile" button.'} ></Image>
-                        <h3 id={"headLineONE"}>Selected Avatar</h3>
-                        <Image src={'http://placekitten.com/400/400'} fluid={true} className={"rounded-circle"} alt={'selected avatar'} ></Image>
-                    </Col>
-                    <Col id={"user avatars"} md={5} className={"text-center"}>
-                        <h3>User Avatars</h3>
-                        <Image src={"https:placeimg.com/450/450/any"} alt={'avatar selection'}></Image>
                     </Col>
                 </Row>
             </Container>
@@ -105,8 +104,7 @@ export function ProfileLanding() {
                         <Container>
                             <Row>
                                 <p>TEST 2</p>
-                                <CheckInDisplay />
-                            </Row>
+                                {checkins.map (checkin => <CheckInDetailBlock checkin={checkin}/>)}                            </Row>
                         </Container>
                     </Tab>
                     <Tab eventKey="libraries" title="Libraries">
