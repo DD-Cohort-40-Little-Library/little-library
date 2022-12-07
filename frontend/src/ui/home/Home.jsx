@@ -24,10 +24,10 @@ export function Home() {
 
 	}
 	useEffect(effects, [dispatch])
-console.log(events)
+
 	return (
 		<>
-				<Row>
+				<Row className={"mx-0"}>
 					<Col id={"events-column"} className={"flex order-last order-md-first"} md={2}>
 						<h2 id={"headLineONE"}>Upcoming Events</h2>
 						<Stack gap={3}>

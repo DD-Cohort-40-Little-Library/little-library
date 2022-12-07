@@ -22,5 +22,9 @@ export const fetchAllLibraries = () => {
     }
 }
 
-
+export const fetchLibrariesByProfileId = () => async (dispatch, getState) => {
+    const auth = getState().auth
+    const {data} = await httpConfig(`/apis/library/libraryProfileId/${auth.profileId}`);
+    dispatch(setAllLibraries(data));
+}
 

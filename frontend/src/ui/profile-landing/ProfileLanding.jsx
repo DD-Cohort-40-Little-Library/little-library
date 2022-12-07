@@ -1,5 +1,5 @@
 import React from "react";
-import {Col, Container, Row, Form, Image, Button, Tabs, Tab, FormText} from "react-bootstrap";
+import {Col, Container, Row, Form, Image, Button, Tabs, Tab, FormText, Stack} from "react-bootstrap";
 import {EventListing} from "../shared/components/EventListing.jsx";
 import {CheckInDisplay} from "../shared/components/CheckInDisplay.jsx";
 import {Link} from "react-router-dom";
@@ -8,25 +8,46 @@ import {useDispatch, useSelector} from "react-redux";
 import {fetchAuth} from "../../store/auth.js";
 import currentUser, {fetchCurrentUser} from "../../store/currentUser.js";
 import {ProfileUpdateModal} from "./ProfileUpdateModal.jsx";
+import {fetchAllLibraries, fetchLibrariesByProfileId} from "../../store/libraries.js";
+import {EventShortListing} from "../home/EventShortListing.jsx";
+import {EventDetailBlock} from "./EventDetailBlock";
+import {fetchEventsByProfileId} from "../../store/events.js";
+import {fetchCheckInsByProfileId} from "../../store/checkIn.js";
+import {CheckInDetailBlock} from "./CheckInDetailBlock";
 
 export function ProfileLanding() {
+
+    const libraries = useSelector(state => state.libraries ? state.libraries : [])
+    const events = useSelector(state => state.events ? state.events : [])
+    const checkins = useSelector(state => state.checkIns ? state.checkIns : [])
+
     const dispatch = useDispatch()
     const auth = useSelector(state => state.auth ? state.auth : state.auth)
     const initialEffects = () => {
         dispatch(fetchAuth())
+        dispatch(fetchLibrariesByProfileId())
+        dispatch(fetchEventsByProfileId())
+        dispatch(fetchCheckInsByProfileId())
     }
     React.useEffect(initialEffects, [dispatch])
-
     // //TODO: REMOVE 'const profile = null' to the end  from line below after pulling currentUser w/ useSelector=profile
     // const profile = null
     if (auth === null) {
         return <h1>
-            Please sign-in
-        </h1>
+                    Page is loading or you have not signed in yet.
+               </h1>
     }
-    const {profileFirstName, profileLastName, profileEmail, profileName, profileAvatarUrl} = auth
+    const {profileFirstName, profileLastName, profileEmail, profileName, profileAvatarUrl, profileId} = auth
+
+    const libraryProfileId = auth.profileId
+
+    const {libraryName,libraryAddress, libraryDescription, librarySpecialization, libraryEventOptIn, libraryType} = libraries
+    const {eventDate, eventDescription, eventName} = events
+    const {checkInComment, checkInPhotoUrl} = checkins
+
     return (
         <>
+
             <h1 id={"headLineONE"}>User Landing Page</h1>
             <Container>
                 <Row className={"gx-md-3 p-3 justify-content-around"}>
@@ -61,12 +82,6 @@ export function ProfileLanding() {
                     <Col md={3} className={"text-center"} >
                         <h3 id={"headLineONE"}>User Image</h3>
                         <Image src={profileAvatarUrl} fluid={true} className={"rounded-circle"} alt={'Please select an avatar or upload a photo using the "Update Profile" button.'} ></Image>
-                        <h3 id={"headLineONE"}>Selected Avatar</h3>
-                        <Image src={'http://placekitten.com/400/400'} fluid={true} className={"rounded-circle"} alt={'selected avatar'} ></Image>
-                    </Col>
-                    <Col id={"headLineONE"} md={5} className={""}>
-                        <h3>User Avatars</h3>
-                        <Image src={"https:placeimg.com/450/450/any"} alt={'avatar selection'}></Image>
                     </Col>
                 </Row>
             </Container>
@@ -76,27 +91,27 @@ export function ProfileLanding() {
                     id="library-details-tabs"
                     className="mb-3"
                 >
-                    <Tab eventKey="events" title="Events">
+                    <Tab eventKey="event" title="Events">
                         <Container>
                             <Row>
-                                <p>TEST 1</p>
-                                <EventListing />
+                                <Stack>
+                                     {events.map(event => <EventDetailBlock event={event}/>)}
+                                </Stack>
                             </Row>
                         </Container>
                     </Tab>
                     <Tab eventKey="check-ins" title="Check-Ins">
                         <Container>
                             <Row>
-                                <p>TEST 2</p>
-                                <CheckInDisplay />
-                            </Row>
+                                {checkins.map (checkin => <CheckInDetailBlock checkin={checkin}/>)}                            </Row>
                         </Container>
                     </Tab>
                     <Tab eventKey="libraries" title="Libraries">
                         <Container>
                             <Row>
-                                <p>TEST 3</p>
-                                <LibraryDetailBlock />
+                                <Stack>
+                                    {libraries.map (library => <LibraryDetailBlock library={library}/>)}
+                                </Stack>
                             </Row>
                         </Container>
                     </Tab>
