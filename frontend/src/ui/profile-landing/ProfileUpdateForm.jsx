@@ -103,7 +103,7 @@ function ProfileEditFormContent (props) {
                     <Form.Label>Email</Form.Label>
                     <InputGroup>
                         <InputGroup.Text>
-                            <img src={envelopeIcon} alt={"envelope icon"} />
+                            <img  height={"40px"} src={envelopeIcon} alt={"envelope icon"} />
                         </InputGroup.Text>
                         <FormControl
                             className="text-center"
