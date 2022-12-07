@@ -1,11 +1,7 @@
 import React, {useEffect} from "react"
-import {Button, Col, Container, Form, Row, Stack} from "react-bootstrap";
+import {Col, Row, Stack} from "react-bootstrap";
 import {LibraryMap} from "./LibraryMap.jsx";
 import {EventShortListing} from "./EventShortListing.jsx";
-import {LibraryDetails} from "../library-details/LibraryDetails.jsx";
-import {Link} from "react-router-dom";
-import {CheckInDisplay} from "../shared/components/CheckInDisplay.jsx";
-import {CheckInForm} from "../library-details/CheckInForm.jsx";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchAllEvents} from "../../store/events.js";
 import {fetchAllLibraries} from "../../store/libraries.js";
@@ -45,7 +41,6 @@ export function Home() {
 							<SignOutComponent/>
 						</Stack>
 					</Col>
-
 				</Row>
 		</>
 	)}

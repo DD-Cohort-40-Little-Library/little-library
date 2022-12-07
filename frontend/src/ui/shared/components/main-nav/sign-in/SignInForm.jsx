@@ -1,9 +1,7 @@
 import React from "react";
 import {Button, Form, FormControl, InputGroup, Row} from "react-bootstrap";
-import {configureStore} from "@reduxjs/toolkit";
 import {httpConfig} from "../../../utils/http-config.js";
 import {Formik} from "formik";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {DisplayError} from "../../display-error/DisplayError";
 import {DisplayStatus} from "../../display-status/DisplayStatus";
 import jwtDecode from "jwt-decode";
@@ -57,7 +55,6 @@ export const SignInForm = () => {
             </Formik>
         </>
     )
-
 };
 
 function SignInFormContent(props) {
@@ -75,7 +72,6 @@ function SignInFormContent(props) {
     } = props;
     return (
         <>
-
             <Form onSubmit={handleSubmit}>
                 <Form.Group className={"mb-1"} controlId={"profileEmail"}>
                     <Form.Label>Email</Form.Label>
@@ -91,18 +87,15 @@ function SignInFormContent(props) {
                                 placeholder={"your@email.you"}
                                 onChange={handleChange}
                                 onBlur={handleBlur}
-
                             />
                         </InputGroup>
                     <DisplayError errors={errors} touched={touched} field={"profileEmail"}/>
                 </Form.Group>
 
-                {/*<FontAwesomeIcon icon={"key"}/>*/}
                 <Form.Group className={"mb-1"} controlId={"profileName"}>
                     <Form.Label>Password</Form.Label>
                         <InputGroup>
                             <InputGroup.Text>
-                                {/*<FontAwesomeIcon icon={"key"}/>*/}
                             </InputGroup.Text>
                             <FormControl
                                 className={"form-control"}
@@ -131,6 +124,6 @@ function SignInFormContent(props) {
             <div className={"pt-3"}>
                 <DisplayStatus status={status}/>
             </div>
-                </>
+        </>
     )
 }

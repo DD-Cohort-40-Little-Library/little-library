@@ -8,7 +8,6 @@ import {DisplayStatus} from "../shared/components/display-status/DisplayStatus";
 import {useDropzone} from "react-dropzone";
 import envelopeIcon from "../../../images/uiSharedImages/mail-bk-rd.png";
 import {useDispatch, useSelector} from "react-redux";
-import {FormDebugger} from "../shared/components/FormDebugger.jsx";
 import {fetchCurrentUser} from "../../store/currentUser.js";
 import {fetchAuth, getAuth} from "../../store/auth.js";
 
@@ -77,7 +76,6 @@ export const ProfileUpdateForm = (props) => {
             {ProfileEditFormContent}
         </Formik>
     )
-
 }
 
 function ProfileEditFormContent (props) {
@@ -122,9 +120,6 @@ function ProfileEditFormContent (props) {
                 <Form.Group controlId={'profileFirstName'}>
                     <Form.Label>Please submit your new first name</Form.Label>
                     <InputGroup>
-                        {/*<InputGroup.Text>*/}
-                        {/*    UserName*/}
-                        {/*</InputGroup.Text>*/}
                         <FormControl
                             className="text-center"
                             name='profileFirstName'
@@ -141,9 +136,6 @@ function ProfileEditFormContent (props) {
                 <Form.Group controlId={'profileLastName'}>
                     <Form.Label>Please submit your new last name</Form.Label>
                     <InputGroup>
-                        {/*<InputGroup.Text>*/}
-                        {/*    UserName*/}
-                        {/*</InputGroup.Text>*/}
                         <FormControl
                             className="text-center"
                             name='profileLastName'
@@ -160,9 +152,6 @@ function ProfileEditFormContent (props) {
                 <Form.Group controlId={'profileName'}>
                     <Form.Label>Please submit your new username</Form.Label>
                     <InputGroup>
-                        {/*<InputGroup.Text>*/}
-                        {/*    UserName*/}
-                        {/*</InputGroup.Text>*/}
                         <FormControl
                             className="text-center"
                             name='profileName'

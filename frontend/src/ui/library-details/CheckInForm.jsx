@@ -4,13 +4,14 @@ import Form from 'react-bootstrap/Form';
 import {Col, Container, InputGroup, Row} from "react-bootstrap";
 import * as Yup from 'yup'
 import {DisplayStatus} from "../shared/components/display-status/DisplayStatus.jsx";
-import {FormDebugger} from "../shared/components/FormDebugger.jsx";
 import {useDispatch, useSelector} from "react-redux";
 import {httpConfig} from "../shared/utils/http-config.js";
 import {Formik} from "formik";
 import {DisplayError} from "../shared/components/display-error/DisplayError.jsx";
 import {useParams} from "react-router-dom";
 import {fetchAuth} from "../../store/auth.js";
+import {FormDebugger} from "../shared/components/FormDebugger.jsx";
+
 
 export function CheckInForm() {
 
@@ -32,8 +33,6 @@ export function CheckInForm() {
     }
     React.useEffect(initialEffects, [dispatch])
 
-    // //TODO: REMOVE 'const profile = null' to the end  from line below after pulling currentUser w/ useSelector=profile
-    // const profile = null
     if (auth === null) {
         return <h1>Please sign in</h1>
     }
@@ -52,7 +51,6 @@ export function CheckInForm() {
         // checkInPhotoUrl: "",
         checkInReport: false
     }
-// console.log({checkInLibraryId})
 
     const submitCheckIn = (values, {resetForm, setStatus}) => {
         console.log("made it here")
@@ -99,22 +97,6 @@ function CheckInFormContent(props) {
         <>
             <Container style={{paddingBlock: '1rem', backgroundColor: 'lightgrey'}}>
                 <Form onSubmit={handleSubmit}>
-                    {/*<Form.Group controlId="checkInLibraryId">*/}
-                        {/*<InputGroup>*/}
-                        {/*    <Form.Control*/}
-                        {/*        className="form-control"*/}
-                        {/*        as="textarea"*/}
-                        {/*        aria-label="commentText"*/}
-                        {/*        // rows={4}*/}
-                        {/*        type="text"*/}
-                        {/*        value={values.checkInLibraryId}*/}
-                        {/*        name="checkInLibraryId"*/}
-                        {/*        onChange={handleChange}*/}
-                        {/*        onBlur={handleBlur}*/}
-                        {/*        // placeholder="Your comments must be 8-255 characters long. Your comments will be displayed and monitored. Please refrain from using offensive language and hate speech. Thank you."*/}
-                        {/*    />*/}
-                        {/*</InputGroup>*/}
-
                         <Form.Group controlId="checkInComment">
                             <InputGroup>
                                 <Form.Control

@@ -6,7 +6,6 @@ import {DisplayStatus} from "../../display-status/DisplayStatus";
 import {Button, Form, FormControl, InputGroup} from "react-bootstrap";
 import {DisplayError} from "../../display-error/DisplayError";
 
-
 export const SignUpForm = () => {
     const signUp = {
 		profileEmail: "",
@@ -73,33 +72,26 @@ function SignUpFormContent(props){
     return (
         <>
             <Form onSubmit={handleSubmit}>
-                  <Form.Group controlId={'profileEmail'}>
-                      <Form.Label>Email</Form.Label>
-                      <InputGroup>
-                        <InputGroup.Text>
-                            Your Email
-                        </InputGroup.Text>
-                          <FormControl
-                              // className="form-control"
-                              name="profileEmail"
-                              type="text"
-                              value={values.profileEmail}
-                              placeholder="your@email.com"
-                              onChange={handleChange}
-                              onBlur={handleBlur}
-                          />
-                      </InputGroup>
-                      <DisplayError errors={errors} touched={touched} field={'profileEmail'}/>
-                  </Form.Group>
+                <Form.Group controlId={'profileEmail'}>
+                    <Form.Label>Email</Form.Label>
+                    <InputGroup>
+                        <InputGroup.Text>Your Email</InputGroup.Text>
+                        <FormControl
+                            name="profileEmail"
+                            type="text"
+                            value={values.profileEmail}
+                            placeholder="your@email.com"
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                        />
+                    </InputGroup>
+                    <DisplayError errors={errors} touched={touched} field={'profileEmail'}/>
+                </Form.Group>
 
                 <Form.Group controlId={'profileFirstName'}>
                     <Form.Label>First Name</Form.Label>
                     <InputGroup>
-                        {/*<InputGroup.Text>*/}
-                        {/*    UserName*/}
-                        {/*</InputGroup.Text>*/}
                         <FormControl
-                            // className="form-control"
                             name='profileFirstName'
                             type='text'
                             value={values.profileFirstName}
@@ -114,11 +106,7 @@ function SignUpFormContent(props){
                 <Form.Group controlId={'profileLastName'}>
                     <Form.Label>Last Name</Form.Label>
                     <InputGroup>
-                        {/*<InputGroup.Text>*/}
-                        {/*    UserName*/}
-                        {/*</InputGroup.Text>*/}
                         <FormControl
-                            // className="form-control"
                             name='profileLastName'
                             type='text'
                             value={values.profileLastName}
@@ -133,11 +121,7 @@ function SignUpFormContent(props){
                 <Form.Group controlId={'profileName'}>
                     <Form.Label>UserName</Form.Label>
                     <InputGroup>
-                        {/*<InputGroup.Text>*/}
-                        {/*    UserName*/}
-                        {/*</InputGroup.Text>*/}
                         <FormControl
-                            // className="form-control"
                             name='profileName'
                             type='text'
                             value={values.profileName}
@@ -152,11 +136,8 @@ function SignUpFormContent(props){
                 <Form.Group controlId={'profilePassword'}>
                     <Form.Label>Password</Form.Label>
                     <InputGroup>
-                        <InputGroup.Text>
-                            Please insert password
-                        </InputGroup.Text>
+                        <InputGroup.Text>Please insert password</InputGroup.Text>
                         <FormControl
-                            // className="form-control"
                             name='profilePassword'
                             type='password'
                             value={values.profilePassword}
@@ -171,11 +152,8 @@ function SignUpFormContent(props){
                 <Form.Group controlId={'profilePasswordConfirm'}>
                     <Form.Label>Password Confirm</Form.Label>
                     <InputGroup>
-                        <InputGroup.Text>
-                            Please confirm password
-                        </InputGroup.Text>
+                        <InputGroup.Text>Please confirm password</InputGroup.Text>
                         <FormControl
-                            // className="form-control"
                             name='profilePasswordConfirm'
                             type='password'
                             value={values.profilePasswordConfirm}
@@ -190,14 +168,8 @@ function SignUpFormContent(props){
                 <Form.Group className={"mt-3"}>
                     <Button className={"btn btn-primary"} type={"submit"}>Submit</Button>
                     {" "}
-                    <Button
-                        className={"btn btn-danger"}
-                        onClick={handleReset}
-                        disabled={!dirty || isSubmitting}
-                    >Reset
-                    </Button>
+                    <Button className={"btn btn-danger"} onClick={handleReset} disabled={!dirty || isSubmitting}>Reset</Button>
                 </Form.Group>
-
             </Form>
             <DisplayStatus status={status} />
         </>
