@@ -1,4 +1,4 @@
-import {Schema} from "express-validator";
+import {Schema} from "express-validator"
 
 export const signInValidator: Schema = {
     profilePassword: {
@@ -13,7 +13,7 @@ export const signInValidator: Schema = {
         isEmail: {
             errorMessage: 'Please provide a valid email'
         },
-        // Uncomment the next line to sanitized email, but it removes +1 from testing email addresses.
+        // Uncomment the next line to sanitize email, but it removes +1 from testing email addresses.
         //normalizeEmail:true,
         trim: true
     }

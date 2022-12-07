@@ -1,7 +1,8 @@
 import {Router} from "express";
 import {
     deleteEventController,
-    getAllEventsOrderByEventDateController, getEventByEventDateController,
+    getAllEventsOrderByEventDateController,
+    getEventByEventDateController,
     getEventByEventIdController,
     getEventByEventLibraryIdController,
     getAllEventsByEventProfileIdController,
@@ -14,11 +15,11 @@ import {isLoggedInController} from '../../utils/controllers/isLoggedIn.controlle
 import {eventValidator} from './event.validator';
 
 export const eventRoute = Router()
+
 eventRoute.route('/:eventId')
     .get(asyncValidatorController([check('eventId', 'Please provide a valid eventId.').isUUID()]), getEventByEventIdController)
     .delete(isLoggedInController, deleteEventController)
     .put(isLoggedInController, asyncValidatorController(checkSchema(eventValidator)),putEventController)
-
 
 eventRoute.route('/eventLibraryId/:eventLibraryId')
     .get(asyncValidatorController
@@ -30,7 +31,6 @@ eventRoute.route('/eventProfileId/:eventProfileId')
 eventRoute.route('/')
     .get(getAllEventsOrderByEventDateController)
     .post(isLoggedInController, asyncValidatorController(checkSchema((eventValidator))), postEventController)
-
 
 eventRoute.route('/eventDate/:eventDate')
     .get(getEventByEventDateController)

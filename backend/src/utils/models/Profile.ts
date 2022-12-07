@@ -1,6 +1,4 @@
-import {sql} from "../database.utils";
-
-
+import {sql} from "../database.utils"
 
 export interface PartialProfile {
     profileId: string | null,

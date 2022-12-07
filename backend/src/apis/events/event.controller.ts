@@ -1,4 +1,4 @@
-import {Request, Response, NextFunction} from 'express';
+import {Request, Response} from 'express';
 import {
     deleteEvent,
     insertEvent,
@@ -6,13 +6,12 @@ import {
     selectEventByEventLibraryId,
     updateEvent,
     selectEventByEventId,
-    selectEventByEventProfileId,
     selectEventByEventDate,
-    Event, selectAllEventsByEventProfileId
+    Event,
+    selectAllEventsByEventProfileId
 } from '../../utils/models/Events';
 import {Status} from "../../utils/interfaces/Status";
 import {Profile} from "../../utils/models/Profile";
-
 
 export async function postEventController (request:Request, response: Response): Promise<Response<Status>> {
     try {
@@ -59,8 +58,6 @@ export async function getEventByEventIdController (request:Request, response:Res
     }
 }
 
-
-
 export async function getAllEventsByEventProfileIdController (request:Request, response:Response): Promise<Response> {
     try {
         const {eventProfileId}=request.params
@@ -75,7 +72,6 @@ export async function getAllEventsByEventProfileIdController (request:Request, r
     }
 }
 
-
 export async function getEventByEventLibraryIdController (request: Request, response: Response):Promise<Response<Status>> {
     try {
         const {eventLibraryId} = request.params
@@ -88,8 +84,6 @@ export async function getEventByEventLibraryIdController (request: Request, resp
 
 export async function getAllEventsOrderByEventDateController (request : Request, response: Response):Promise<Response<Status>> {
     try {
-        // const {eventDate} = request.params
-        // const date = new Date (eventDate)
         const data = await selectAllEventsOrderByEventDate()
         return response.json ({status:200, message:null, data})
     } catch (error) {

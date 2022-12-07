@@ -1,15 +1,16 @@
-import { Request, Response, NextFunction} from "express";
-import {Status} from '../../utils/interfaces/Status';
-import {Profile} from "../../utils/models/Profile";
+import { Request, Response, NextFunction} from "express"
+import {Status} from '../../utils/interfaces/Status'
+import {Profile} from "../../utils/models/Profile"
 import {
-    CheckIn, deleteCheckIn,
-    insertCheckIn, selectAllCheckInByCheckInProfileId,
-    selectCheckInByCheckInId, selectCheckInByCheckInLibraryId,
-    selectCheckInByCheckInProfileId, updateCheckIn
-} from "../../utils/models/CheckIn";
-import {selectAllLibrariesOptIn, selectLibrariesByLibraryProfileId} from "../../utils/models/Library";
-
-
+    CheckIn,
+    deleteCheckIn,
+    insertCheckIn,
+    selectAllCheckInByCheckInProfileId,
+    selectCheckInByCheckInId,
+    selectCheckInByCheckInLibraryId,
+    selectCheckInByCheckInProfileId,
+    updateCheckIn
+} from "../../utils/models/CheckIn"
 
 export async function getAllCheckInByCheckInProfileIdController (request: Request, response: Response): Promise<Response<Status>> {
     try {
@@ -17,7 +18,6 @@ export async function getAllCheckInByCheckInProfileIdController (request: Reques
         const checkInProfileId = profile.profileId
         // @ts-ignore
         const data = await selectAllCheckInByCheckInProfileId(checkInProfileId)
-        // return the response
         const status: Status = { status: 200, message: null, data }
         return response.json(status)
     } catch (error) {
@@ -46,7 +46,6 @@ export async function getCheckInByCheckInProfileIdController (request: Request, 
     }
 }
 
-
 export async function deleteCheckInController (request: Request, response: Response): Promise<Response<Status>> {
     try {
         const { checkInId } = request.params
@@ -68,7 +67,6 @@ export async function deleteCheckInController (request: Request, response: Respo
     }
 }
 
-
 export async function getCheckInByCheckInIdController (request: Request, response: Response, nextFunction: NextFunction):
 Promise<Response<Status>> {
     try{
@@ -84,7 +82,6 @@ Promise<Response<Status>> {
     }
 }
 
-
 export async function getCheckInByCheckInLibraryIdController (request: Request, response: Response, nextFunction: NextFunction):
     Promise<Response<Status>> {
     try{
@@ -99,11 +96,6 @@ export async function getCheckInByCheckInLibraryIdController (request: Request, 
         })
     }
 }
-
-
-
-
-
 
 export async function postCheckInController (request: Request, response: Response): Promise<Response<Status>> {
     try {
@@ -122,7 +114,6 @@ export async function postCheckInController (request: Request, response: Respons
         return response.json ({status: 500, data: null, message: 'Error creating CheckIn. Try again later.'})
     }
 }
-
 
 export async function putCheckInController (request: Request, response: Response): Promise<Response> {
     try {

@@ -1,4 +1,4 @@
-import {Schema} from "express-validator";
+import {Schema} from "express-validator"
 
 export const signUpValidator: Schema = {
     profileName: {
@@ -48,24 +48,9 @@ export const signUpValidator: Schema = {
                 if (value !== req.body.profilePassword) {
                     throw new Error('Password confirmation does not match password')
                 }
-
                 // Indicates the success of this synchronous custom validator
                 return true
             }
         }
     },
-    // profileAvatarUrl: {
-    //     isURL: true,
-    //     optional: {
-    //         options: {
-    //             nullable: true
-    //         }
-    //     },
-    //     isLength: {
-    //         errorMessage: 'Avatar name must be between 0 and 128 characters.',
-    //         options: {min: 1, max: 128}
-    //     },
-    // },
 }
-
-//***************how/where does the 'unique' requirement get applied? Example capstone profileAtHandle is unique but not notated. For us, profileId is unique but not noted

@@ -14,10 +14,7 @@ import {libraryRoute} from "./apis/library/library.route";
 import {checkInRoute} from "./apis/check-in/check-in.route";
 import {ImageUploadRouter} from "./apis/image-upload/image-upload.route";
 
-
-
 import {eventRoute} from "./apis/events/event.route";
-
 
 const redisClient = createClient({ legacyMode: true, socket: { host: process.env.REDIS_HOST } })
 redisClient.connect().catch(console.error)

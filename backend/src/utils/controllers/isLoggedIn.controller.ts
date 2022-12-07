@@ -1,12 +1,11 @@
-import {NextFunction, Request, Response} from "express";
-import {verify, VerifyErrors} from "jsonwebtoken";
-import {Profile} from "../models/Profile";
-import {IncomingHttpHeaders} from "http";
-import {Status} from "../interfaces/Status";
+import {NextFunction, Request, Response} from "express"
+import {verify, VerifyErrors} from "jsonwebtoken"
+import {Profile} from "../models/Profile"
+import {IncomingHttpHeaders} from "http"
+import {Status} from "../interfaces/Status"
 
 export function isLoggedInController (request: Request, response: Response, next: NextFunction): any {
     const status: Status = { status:400, message: 'Please login', data:null }
-
 
     const sessionProfile = (request: Request): Profile |
         undefined => request.session?.profile ?? undefined
@@ -22,16 +21,6 @@ export function isLoggedInController (request: Request, response: Response, next
 
 
     const unverifiedJwtToken: string | undefined = getJwtTokenFromHeader(request.headers)
-
-    //const isJwtValid: boolean|void = unverifiedJwtToken
-// ? verify (
-// unverifiedJwtToken,
-// signature(request),
-//{maxAge: "3hr"}
-//
-//  )
-// : false;
-
 
 const isJwtValid = (unverifiedJwtToken: string | undefined):
 boolean => {

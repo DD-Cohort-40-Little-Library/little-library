@@ -1,8 +1,8 @@
-import {Request, Response} from "express";
-import Mailgun from "mailgun.js";
-import formData from 'form-data';
-import {setActivationToken, setHash} from "../../utils/auth.utils";
-import {insertProfile, Profile} from "../../utils/models/Profile";
+import {Request, Response} from "express"
+import Mailgun from "mailgun.js"
+import formData from 'form-data'
+import {setActivationToken, setHash} from "../../utils/auth.utils"
+import {insertProfile, Profile} from "../../utils/models/Profile"
 
 export async function signUpController(request: Request, response: Response) {
     try {
@@ -45,5 +45,3 @@ in order to post photos of your Little Library, you must confirm your account
         return (response.json({status: 500, message: error.message, data: null}))
     }
 }
-
-//************profileId and profileAvatarUrl???????not found????????? How/when does activation token create?
