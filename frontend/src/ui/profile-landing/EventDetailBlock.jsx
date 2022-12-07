@@ -23,8 +23,6 @@ export const EventDetailBlock = (props) => {
                 <Row xs={5}>Date: {(D.getMonth() + 1) + '/' + ((D.getDate() + 1) + '/' + (D.getFullYear()))}</Row>
                 <Row xs={5}>Start time: {finalTime}</Row>
                 <Row xs={7}>Description: {event.eventDescription}</Row>
-                {/*<Row xs={5}>{library.libraryName}</Row>*/}
-                {/*<Row xs={5}>{library.libraryAddress}</Row>*/}
             </Container>
         </>
     )
