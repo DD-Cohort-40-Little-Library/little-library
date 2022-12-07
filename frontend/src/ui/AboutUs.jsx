@@ -9,7 +9,7 @@ export function AboutUs() {
         <Container fluid='auto' style={{padding: '2rem'}}>
             <Col>
             <Row style={{padding: '2rem', alignContent: 'center'}}>
-                <Image fluid='auto' src={'../../images/llLogoTag.svg'} style={{height: "35rem"}}/>
+                <Image fluid='auto' src={'../../images/llLogoTag.svg'} style={{height: "30rem", marginBottom: "20px"}}/>
             </Row>
             </Col>
             <Row>
