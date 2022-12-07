@@ -1,11 +1,18 @@
 import React, {useState} from 'react'
 import {Button, Col, FloatingLabel, Form, InputGroup, Modal, Row} from "react-bootstrap";
+import {CheckInForm} from "../shared/components/CheckInForm";
+import {useParams} from "react-router-dom";
+import {useDispatch} from "react-redux";
+
 
 
 export function CheckInModal(){
     const [show, setShow] = useState(false)
     const handleClose = () => setShow(false)
     const handleShow = () => setShow(true)
+
+    let libraryId = useParams()
+    const dispatch = useDispatch()
 
     return(
         <>
@@ -24,22 +31,14 @@ export function CheckInModal(){
                         <Form>
                             <fieldset>
                                 <InputGroup>
-                                    <InputGroup.Text>Enter Comments Here</InputGroup.Text>
-                                    <Form.Control as="textarea" aria-label="commentText" rows={4}/>
+                                    <CheckInForm libraryId />
                                 </InputGroup>
-
-                                <Row>
-                                    <Col>
-                                    </Col>
-                                </Row>
                             </fieldset>
                         </Form>
                     </Row>
                 </Form>
                 <Modal.Footer>
-                    <Button type={"button"}>Upload Photo</Button>
                     <Button variant="light" onClick={handleClose}>Close</Button>
-                    <Button type={'submit'} variant="secondary">Submit</Button>
                 </Modal.Footer>
             </Modal>
         </>
