@@ -214,9 +214,9 @@ function EventCreateModalFormContent(props) {
 				</Form.Group>
 
 				<Form.Group className={"mt-3"}>
-					<Button className={"btn btn-primary"} type={"submit"}>Submit</Button>
+					<Button className={"btn btn-primary m-3"} type={"submit"}>Submit</Button>
 					{" "}
-					<Button className={"btn btn-danger"} onClick={handleReset} disabled={!dirty || isSubmitting}>Reset</Button>
+					<Button className={"btn btn-danger m-3"} onClick={handleReset} disabled={!dirty || isSubmitting}>Reset</Button>
 				</Form.Group>
 			</Form>
 			<DisplayStatus status={status}/>

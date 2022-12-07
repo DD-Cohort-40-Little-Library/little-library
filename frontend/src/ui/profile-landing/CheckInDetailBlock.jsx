@@ -7,7 +7,7 @@ export const CheckInDetailBlock = (props) => {
 
     return(
         <>
-            <Container className={"border border-dark rounded"}>
+            <Container id={"checkInDetailBlock"} className={"border border-dark rounded"}>
                 {/*<Row xs={5}>Library: {library.libraryName}</Row>*/}
                 {/*<Row xs={7}>Library Address: {library.libraryAddress}</Row>*/}
                 <Row xs={5}>Comment: {checkin.checkInComment}</Row>

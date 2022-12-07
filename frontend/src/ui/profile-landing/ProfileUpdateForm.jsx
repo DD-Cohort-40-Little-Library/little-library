@@ -116,9 +116,6 @@ export const ProfileUpdateForm = (props) => {
                             <Form.Group controlId={'profileFirstName'}>
                                 <Form.Label>Please submit your new first name</Form.Label>
                                 <InputGroup>
-                                    {/*<InputGroup.Text>*/}
-                                    {/*    UserName*/}
-                                    {/*</InputGroup.Text>*/}
                                     <FormControl
                                         className="text-center"
                                         name='profileFirstName'
@@ -135,9 +132,6 @@ export const ProfileUpdateForm = (props) => {
                             <Form.Group controlId={'profileLastName'}>
                                 <Form.Label>Please submit your new last name</Form.Label>
                                 <InputGroup>
-                                    {/*<InputGroup.Text>*/}
-                                    {/*    UserName*/}
-                                    {/*</InputGroup.Text>*/}
                                     <FormControl
                                         className="text-center"
                                         name='profileLastName'
@@ -154,9 +148,6 @@ export const ProfileUpdateForm = (props) => {
                             <Form.Group controlId={'profileName'}>
                                 <Form.Label>Please submit your new username</Form.Label>
                                 <InputGroup>
-                                    {/*<InputGroup.Text>*/}
-                                    {/*    UserName*/}
-                                    {/*</InputGroup.Text>*/}
                                     <FormControl
                                         className="text-center"
                                         name='profileName'

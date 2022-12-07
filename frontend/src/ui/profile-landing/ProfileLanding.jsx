@@ -50,7 +50,7 @@ console.log(profileFirstName)
     return (
         <>
 
-            <h1 id={"headLineONE"}>User Landing Page</h1>
+            <h1 id={"headLineONE"}>User Profile Information</h1>
             <Container>
                 <Row className={"gx-md-3 p-3 justify-content-around"}>
                     <Col  md={4} className={"text-center"} >
@@ -77,8 +77,8 @@ console.log(profileFirstName)
                             </div>
                         </div>
 
-                        <ProfileUpdateModal id="profileUpdateModal"/>
-                        <Link to={"/library-create"} className={"btn-primary"}> <Button> Add a Library</Button></Link>
+                        <ProfileUpdateModal className={""}/>
+                        <Link to={"/library-create"} className={"btn-primary"}> <Button className={"m-2"}> Add a Library</Button></Link>
 
                     </Col>
                     <Col md={3} className={"text-center"} >
