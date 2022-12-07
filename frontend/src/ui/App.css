@@ -2,24 +2,43 @@ body{
     background-color: #F3EAD2;
     color: #2D3024;
 }
+
+#generalPhotoBehavior {
+    width: 100%;
+
+}
+#generalColBehavior {
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+}
 #headLineONE {
+    text-align: center;
+    color: #2D3024;
+    padding: 5px;
+}
+
+#signInUp-column {
+    padding: 2vh;
+    align-content: center;
+}
+
+#profileRegProfile {
     text-align: center;
     color: #2D3024;
 }
 
-
+#profileRegForm {
+    background-color: #76999D;
+    border: light;
+    padding: 15px;
+}
 
 #events-column {
     padding: 2vh;
     background-color: #76999D;
 }
 
-#signInUp-column {
-    padding: 2vh;
-    align-content: center;
-
-
-}
 
 #navFootBgColor {
     background-color: #835A4E;
@@ -41,6 +60,11 @@ body{
 
 }
 
+#generalPhotoBehavior {
+    width: 100%;
+
+}
+
 #LLLLabel {
     height: 7vh;
     width: 100%;
@@ -56,6 +80,10 @@ body{
     border-radius: 2px;
     margin: 1vh;
 }
+#eventUpdateModal {
+    background-color: #CDCDC1;
+}
+
 
 #libraryCardDisplay {
     background-color: #93A5AB;

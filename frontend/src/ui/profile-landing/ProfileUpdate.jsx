@@ -51,7 +51,7 @@ export const ProfileUpdate = () => {
                         <Button className={"m-5"} variant={"warning"}>Close Account</Button>
                     </Col>
                     <Col id={"user avatars"} md={5} className={"text-center"}>
-                        <h3>User Avatars</h3>
+                        <h3 id={"headLineONE"}>User Avatars</h3>
                         <Image src={"https:placeimg.com/450/450/any"} alt={'avatar selection'}></Image>
                     </Col>
                 </Row>

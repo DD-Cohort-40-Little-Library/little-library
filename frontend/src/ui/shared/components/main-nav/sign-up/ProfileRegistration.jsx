@@ -7,12 +7,12 @@ export const ProfileRegistration = () => {
 
     return (
         <>
-            <h1>Profile Registration</h1>
+            <h1 id={"profileRegProfile"}>Profile Registration</h1>
             <Container>
                 <Row className={"gx-md-3 p-3"}>
-                    <Col id={"user registration"} md={4} className={"text-center"} >
-                        <h3>User Registration</h3>
-                        <Form className={"border border-dark px-3"}>
+                    <Col id={"headLineONE"}  md={4} className={""} >
+                        <h3 >User Registration</h3>
+                        <Form id={"profileRegForm"} className={""}>
                             <Form.Group className="mb-3" controlId="formFirstName">
                                 <Form.Label>First Name</Form.Label>
                                 <Form.Control type="text" placeholder="Enter First Name" />
@@ -47,19 +47,19 @@ export const ProfileRegistration = () => {
                             </Form.Group>
                         </Form>
                     </Col>
-                    <Col id={"selected avatar"} md={3} className={"text-center"} >
-                        <h3>Selected Avatar</h3>
+                    <Col id={"generalColBehavior"} md={3}>
+                        <h3 id={"headLineONE"}>Selected Avatar</h3>
                         <Image src={'http://placekitten.com/400/400'} fluid={true} className={"rounded-circle"} alt={'selected avatar'} ></Image>
                     </Col>
-                    <Col id={"user avatars"} md={5} className={"text-center"}>
-                        <h3>User Avatars</h3>
-                        <Image src={"https:placeimg.com/450/450/any"} alt={'avatar selection'}></Image>
+                    <Col id={"generalColBehavior"} md={5}>
+                        <h3 id={"headLineONE"}>User Avatars</h3>
+                        <Image id={"generalPhotoBehavior"} src={"https:placeimg.com/450/450/any"} alt={'avatar selection'}></Image>
                     </Col>
                 </Row>
             </Container>
             <Container>
-                <Col md={{ span: "auto", offset: 11 }}>
-                    <Button type={"submit"}>
+                <Col id={"generalColBehavior"} md={{ span: "auto", offset: 11 }}>
+                    <Button className={"m-4"} type={"submit"}>
                         Submit
                     </Button>
                 </Col>

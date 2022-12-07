@@ -68,7 +68,7 @@ export function ProfileLanding() {
 
                     </Col>
                     <Col id={"selected avatar"} md={3} className={"text-center"} >
-                        <h3>Selected Avatar</h3>
+                        <h3 id={"headLineONE"}>Selected Avatar</h3>
                         <Image src={'http://placekitten.com/400/400'} fluid={true} className={"rounded-circle"} alt={'selected avatar'} ></Image>
                     </Col>
                     <Col id={"user avatars"} md={5} className={"text-center"}>
