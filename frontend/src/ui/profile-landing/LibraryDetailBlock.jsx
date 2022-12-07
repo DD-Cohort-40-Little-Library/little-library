@@ -6,7 +6,7 @@ import {LibraryDetails} from "../library-details/LibraryDetails.jsx";
 export function LibraryDetailBlock() {
     return (
         <>
-            <Row>
+            <Row id={"libraryDisplayBlock"}>
                 <Col>
                     <Image src={'https://placekitten.com/g/200/200'} roundedCircle='true' alt={'Library Picture'}/>
                 </Col>

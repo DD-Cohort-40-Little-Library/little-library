@@ -27,12 +27,12 @@ export function ProfileLanding() {
     const {profileFirstName, profileLastName, profileEmail, profileName, profileAvatarUrl} = auth
     return (
         <>
-            <h1>User Landing Page</h1>
+            <h1 id={"headLineONE"}>User Landing Page</h1>
             <Container>
                 <Row className={"gx-md-3 p-3 justify-content-around"}>
-                    <Col id={"user registration"} md={4} className={"text-center"} >
-                        <h3>User Information</h3>
-                        <div className={"border border-dark px-3"}>
+                    <Col  md={4} className={"text-center"} >
+                        <h3 id={"headLineONE"}>User Information</h3>
+                        <div id={"userRegistration"} className={""}>
                             <div className="mb-3" >
                                 <div>First Name: </div>
                                 <div> {profileFirstName}</div>
@@ -58,13 +58,13 @@ export function ProfileLanding() {
                         <Link to={"/library-create"} className={"btn-primary"}> <Button> Add a Library</Button></Link>
 
                     </Col>
-                    <Col id={"selected avatar"} md={3} className={"text-center"} >
-                        <h3>User Image</h3>
+                    <Col md={3} className={"text-center"} >
+                        <h3 id={"headLineONE"}>User Image</h3>
                         <Image src={profileAvatarUrl} fluid={true} className={"rounded-circle"} alt={'Please select an avatar or upload a photo using the "Update Profile" button.'} ></Image>
                         <h3 id={"headLineONE"}>Selected Avatar</h3>
                         <Image src={'http://placekitten.com/400/400'} fluid={true} className={"rounded-circle"} alt={'selected avatar'} ></Image>
                     </Col>
-                    <Col id={"user avatars"} md={5} className={"text-center"}>
+                    <Col id={"headLineONE"} md={5} className={""}>
                         <h3>User Avatars</h3>
                         <Image src={"https:placeimg.com/450/450/any"} alt={'avatar selection'}></Image>
                     </Col>

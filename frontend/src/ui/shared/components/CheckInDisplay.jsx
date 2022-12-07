@@ -5,7 +5,7 @@ import {Col, Container, Image, Row} from "react-bootstrap";
 export function CheckInDisplay() {
     return(
         <>
-        <Container style={{marginBlock: '1rem', paddingBlock: '1rem', backgroundColor: 'lightgrey'}}>
+        <Container id={"checkInDisplay"}>
             <Row style={{alignItems: 'center'}}>
                 <Col md={2}>
                     <Image src={'https://placekitten.com/g/150/150'} roundedCircle={true}/>

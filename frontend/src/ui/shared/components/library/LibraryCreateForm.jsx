@@ -104,7 +104,7 @@ function LibraryCreateFormContent (props){
     } = props
     return (
         <>
-            <div className={"text-center"}>
+            <div className={"text-center"} id={"libraryCreateFormGlobal"}>
                 <h1>Register Your Library</h1>
             </div>
             <Card>
