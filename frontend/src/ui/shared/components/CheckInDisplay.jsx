@@ -15,9 +15,7 @@ export function CheckInDisplay() {
                     <p>Tri-tip beef shankle swine, picanha fatback alcatra shoulder ground round jerky short loin. Drumstick bresaola porchetta pastrami buffalo. Meatball capicola ground round brisket. Chicken landjaeger capicola frankfurter sirloin.</p>
                 </Col>
                 <Col md={2}>
-                    <Image src={'https://placekitten.com/g/200/200'}
-                           // square={true}
-                    />
+                    <Image src={'https://placekitten.com/g/200/200'}/>
                 </Col>
             </Row>
         </Container>

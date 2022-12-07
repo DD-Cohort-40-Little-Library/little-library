@@ -4,7 +4,6 @@ import {ProfileUpdateForm} from "./ProfileUpdateForm.jsx";
 
 export function ProfileUpdateModal() {
     const [show, setShow] = useState(false);
-
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 

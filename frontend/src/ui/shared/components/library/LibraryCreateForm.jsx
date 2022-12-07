@@ -2,20 +2,9 @@ import React from "react";
 import {Formik, useField} from "formik";
 import * as Yup from "yup";
 import {httpConfig} from "../../utils/http-config.js";
-import {
-    Button,
-    Card,
-    Col,
-    Figure,
-    Form,
-    FormControl,
-    FormSelect,
-    InputGroup,
-    Row
-} from "react-bootstrap";
+import {Button, Card, Col, Figure, Form, FormControl, FormSelect, InputGroup, Row} from "react-bootstrap";
 import {DisplayError} from "../display-error/DisplayError.jsx";
 import {DisplayStatus} from "../display-status/DisplayStatus.jsx";
-import {FormDebugger} from "../FormDebugger.jsx";
 
 const LibraryEventCheckbox = ({ children, ...props }) => {
     const [field, meta] = useField({ ...props, type: "checkbox" });
@@ -33,8 +22,6 @@ const LibraryEventCheckbox = ({ children, ...props }) => {
 };
 
 const LibrarySpecializationSelectType = ({ label, ...props }) => {
-    // useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
-    // which we can spread on <input> and else replace ErrorMessage entirely.
     const [field, meta] = useField(props)
     return (
         <>
@@ -110,7 +97,6 @@ function LibraryCreateFormContent (props){
             <Card>
             <Form onSubmit={handleSubmit}>
                 <Row>
-                    {/*<Col>*/}
                     <Col md={6} className={"m-2 text-center"}>
                             <Form.Group controlId={'libraryAddress'}>
                             <Form.Label>Library Address</Form.Label>
@@ -136,7 +122,6 @@ function LibraryCreateFormContent (props){
                             <Form.Label>Library Name</Form.Label>
                             <InputGroup>
                                 <FormControl
-                                    // className="form-control"
                                     name='libraryName'
                                     type='text'
                                     value={values.libraryName}
@@ -172,6 +157,13 @@ function LibraryCreateFormContent (props){
                     </Col>
 
                     <Col md={5} className={"m-2 text-center"}>
+                        <Figure fluid="true">
+                            <Figure.Image
+                                alt={"placeholder kitten"}
+                                src={"http://placekitten.com/300/300"}
+                            />
+                            <Figure.Caption className={"text-center"}><Button size="sm" variant={"outline-secondary"} >Upload</Button></Figure.Caption>
+                        </Figure>
                         <Form.Group controlId={'libraryDescription'}>
                             <Form.Label>Library Description</Form.Label>
                             <InputGroup>

@@ -16,9 +16,7 @@ export const EventListing = () => {
 					<Col xs={5}>Event Type</Col>
 				</Row>
 				<Row className={"my-3"}>
-					<Col>
-						Event Title
-					</Col>
+					<Col>Event Title</Col>
 				</Row>
 				<Row className={"my-3"}>
 					<Col>Event Description</Col>

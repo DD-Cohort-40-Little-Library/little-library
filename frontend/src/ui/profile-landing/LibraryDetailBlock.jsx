@@ -5,7 +5,6 @@ export const LibraryDetailBlock = (props) => {
 
     const {library} = props
 
-
     return(
         <>
             <Container className={"border border-dark rounded"}>

@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 import {Button, Col, FloatingLabel, Form, Modal, Row} from "react-bootstrap";
 
-
 export function EventUpdateModal(){
 	const [show, setShow] = useState(false)
 	const handleClose = () => setShow(false)
@@ -24,7 +23,6 @@ export function EventUpdateModal(){
 						<Col>
 							<Form.Group className={"m-3"} >
 
-								{/*TODO Do we want a list or open input?*/}
 								<Form.Label>Event Date</Form.Label>
 								<Form.Control type={"date"} placeholder={"Date of event"} id={"eventDate"}/>
 								<Form.Label className={"mt-2"}>Type of Event</Form.Label>
@@ -42,7 +40,6 @@ export function EventUpdateModal(){
 							</Form.Group>
 						</Col>
 						<Col>
-							{/*TODO Is there a date-time picker that we can use?*/}
 							<Form.Group className={"m-3"} >
 								<Form.Label>Event Start Time</Form.Label>
 								<Form.Control type={"time"} placeholder={"Event start time"} id={"eventStart"}/>
@@ -57,17 +54,12 @@ export function EventUpdateModal(){
 					</Form.Group>
 					<Form.Group className={"m-3"} id={"eventDescription.ControlTextarea"}>
 						<FloatingLabel id="floatingTextarea" label="Describe your event (256 characters max)">
-							<Form.Control
-								as="textarea"
-								style={{ height: '100px' }}
-							/>
+							<Form.Control as="textarea" style={{ height: '100px' }}/>
 						</FloatingLabel>
 					</Form.Group>
 				</Form>
 				<Modal.Footer>
-					<Button variant="light" onClick={handleClose}>
-						Close
-					</Button>
+					<Button variant="light" onClick={handleClose}>Close</Button>
 					<Button type={'submit'} variant="secondary">Update</Button>
 				</Modal.Footer>
 			</Modal>

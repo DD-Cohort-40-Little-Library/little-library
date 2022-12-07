@@ -1,7 +1,6 @@
 import React from "react";
 import {Button, Form, Col, Container, Image, Row} from "react-bootstrap";
 
-
 export const ProfileUpdate = () => {
     return (
         <>
