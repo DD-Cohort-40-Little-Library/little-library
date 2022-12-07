@@ -51,8 +51,8 @@ export function LibraryDetails() {
 
     return (
         <>
-        <div style={{paddingBlock: '2rem'}}>
-        <Card className="text-center">
+        <div id={"librarySectionDisplay"}>
+        <Card className={""} id={"libraryCardDisplay"}>
             <Card.Header>{library.libraryAddress}, {library.libraryType} </Card.Header>
             <Card.Body>
                 <Image src={'https://placekitten.com/g/200/200'} roundedCircle={true}/>
@@ -68,7 +68,6 @@ export function LibraryDetails() {
                 </Col>
                 </Row>
             </Card.Body>
-            <Card.Footer className="text-muted">Next Event in 3 Days</Card.Footer>
         </Card>
 
         <Tabs
@@ -79,7 +78,6 @@ export function LibraryDetails() {
             <Tab eventKey="events" title="Events">
                 <Container>
                     <Row>
-                        <p>TEST 1, DELETE LATER</p>
                         <EventListing />
                     </Row>
                 </Container>
@@ -87,7 +85,6 @@ export function LibraryDetails() {
             <Tab eventKey="check-ins" title="Check-Ins">
                 <Container>
                     <Row>
-                        <p>TEST 2</p>
                         <CheckInDisplay />
                     </Row>
                 </Container>
