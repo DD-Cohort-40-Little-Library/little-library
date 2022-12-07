@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import {Button, Col, FloatingLabel, Form, InputGroup, Modal, Row} from "react-bootstrap";
-import {CheckInForm} from "../shared/components/CheckInForm";
+import {CheckInForm} from "./CheckInForm.jsx";
 import {useParams} from "react-router-dom";
 import {useDispatch} from "react-redux";
 

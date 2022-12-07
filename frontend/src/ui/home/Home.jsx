@@ -5,7 +5,7 @@ import {EventShortListing} from "./EventShortListing.jsx";
 import {LibraryDetails} from "../library-details/LibraryDetails.jsx";
 import {Link} from "react-router-dom";
 import {CheckInDisplay} from "../shared/components/CheckInDisplay.jsx";
-import {CheckInForm} from "../shared/components/CheckInForm.jsx";
+import {CheckInForm} from "../library-details/CheckInForm.jsx";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchAllEvents} from "../../store/events.js";
 import {fetchAllLibraries} from "../../store/libraries.js";

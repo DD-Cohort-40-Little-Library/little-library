@@ -16,7 +16,7 @@ import {LibraryDetails} from "./library-details/LibraryDetails.jsx";
 import {Provider} from "react-redux";
 import {ProfileLanding} from "./profile-landing/ProfileLanding.jsx";
 import {EventCreatePage} from "./shared/components/EventCreatePage.jsx";
-import {CheckInForm} from "./shared/components/CheckInForm.jsx";
+import {CheckInForm} from "./library-details/CheckInForm.jsx";
 import {CheckIn} from "./CheckIn.jsx";
 import {ProfileUpdateModal} from "./profile-landing/ProfileUpdateModal.jsx";
 import {CheckInModal} from "./library-details/CheckInModal.jsx";

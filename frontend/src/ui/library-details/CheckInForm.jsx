@@ -3,14 +3,14 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import {Col, Container, InputGroup, Row} from "react-bootstrap";
 import * as Yup from 'yup'
-import {DisplayStatus} from "./display-status/DisplayStatus";
-import {FormDebugger} from "./FormDebugger";
+import {DisplayStatus} from "../shared/components/display-status/DisplayStatus.jsx";
+import {FormDebugger} from "../shared/components/FormDebugger.jsx";
 import {useDispatch, useSelector} from "react-redux";
-import {httpConfig} from "../utils/http-config.js";
+import {httpConfig} from "../shared/utils/http-config.js";
 import {Formik} from "formik";
-import {DisplayError} from "./display-error/DisplayError.jsx";
+import {DisplayError} from "../shared/components/display-error/DisplayError.jsx";
 import {useParams} from "react-router-dom";
-import {fetchAuth} from "../../../store/auth.js";
+import {fetchAuth} from "../../store/auth.js";
 
 export function CheckInForm() {
 
