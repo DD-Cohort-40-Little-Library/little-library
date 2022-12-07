@@ -206,7 +206,6 @@ function LibraryCreateFormContent (props){
             </Form>
             </Card>
             <DisplayStatus status={status} />
-            <FormDebugger {...props} />
         </>
     )
 }
