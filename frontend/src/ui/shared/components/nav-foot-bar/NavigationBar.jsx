@@ -7,9 +7,9 @@ export function NavigationBar() {
     return (
         <Navbar id={"navFootBgColor"} className={"nav"}>
                 <Col sm={1} id={"llLogoCol"} className={"logoCol"}>
-                <img src={LLLLogo} id={"lLLLogoBase"} alt={'Little Library Locator Logo'}/>
+                    <a href={"/"}><img src={LLLLogo} id={"lLLLogoBase"} alt={'Little Library Locator Logo'}/></a>
                 </Col>
-                <img src={LLLLabel} id={"LLLLabel"} className={"llLogo"}/>
+            <img src={LLLLabel} id={"LLLLabel"} className={"llLogo"}/>
         </Navbar>
     );
 }
