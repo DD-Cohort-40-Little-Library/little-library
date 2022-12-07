@@ -1,7 +1,5 @@
 const postgres = require ("postgres")
 
-
-
 export const sql = postgres({
     user: process.env.POSTGRES_USER,
     host: process.env.POSTGRES_HOST,

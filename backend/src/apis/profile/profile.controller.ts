@@ -7,10 +7,7 @@ import {
     selectWholeProfileByProfileId,
     updateProfile
 } from "../../utils/models/Profile"
-import { Status } from "../../utils/interfaces/Status";
-import {deleteLibrary, Library, selectLibraryByLibraryId} from "../../utils/models/Library";
-import {deleteLibraryController, getLibraryByLibraryProfileIdController} from "../library/library.controller";
-
+import { Status } from "../../utils/interfaces/Status"
 
 export async function putProfileController (request: Request, response: Response): Promise<Response> {
     try {
@@ -40,7 +37,6 @@ export async function putProfileController (request: Request, response: Response
     }
 }
 
-
 export async function getProfileByProfileIdController (request: Request, response: Response): Promise<Response> {
     try {
         const { profileId } = request.params
@@ -56,8 +52,6 @@ export async function getProfileByProfileIdController (request: Request, respons
 export async function deleteProfileController (request: Request, response: Response): Promise<Response<Status>> {
     try {
         const { profileId } = request.params
-        // const profile = request.session.profile as Profile
-        // const profileId = profile.profileId as string
         const previousProfile: Profile|null = await selectWholeProfileByProfileId(profileId)
 
         if (previousProfile === null) {

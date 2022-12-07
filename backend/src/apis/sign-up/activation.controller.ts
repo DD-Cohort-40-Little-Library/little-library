@@ -1,6 +1,6 @@
-import {NextFunction, Request, Response} from "express";
-import {Status} from "../../utils/interfaces/Status";
-import {Profile, selectProfileByProfileActivationToken, updateProfile} from "../../utils/models/Profile";
+import {NextFunction, Request, Response} from "express"
+import {Status} from "../../utils/interfaces/Status"
+import {Profile, selectProfileByProfileActivationToken, updateProfile} from "../../utils/models/Profile"
 
 export async function activationController (request: Request, response: Response, nextFunction: NextFunction): Promise<Response<Status>> {
     try {
@@ -24,4 +24,3 @@ export async function activationController (request: Request, response: Response
         return response.json({status: 500, data: null, message: error.message})
     }
 }
-

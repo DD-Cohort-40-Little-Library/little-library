@@ -1,7 +1,4 @@
-import {sql} from "../database.utils";
-import {Status} from "../interfaces/Status";
-import {Profile} from "./Profile";
-import {Event} from "./Events";
+import {sql} from "../database.utils"
 
 export interface CheckIn {
     checkInId: string | null
@@ -31,8 +28,6 @@ export async function updateCheckIn (checkIn: CheckIn): Promise<string>{
     return 'CheckIn successfully update!'
 }
 
-
-
 export async function selectCheckInByCheckInId (checkInId: string): Promise<CheckIn|null> {
     const result = <CheckIn[]>await sql `SELECT check_in_id, check_in_library_id, check_in_profile_id, check_in_comment, check_in_date, check_in_follow_library, check_in_photo_name, check_in_photo_url, check_in_report FROM check_in WHERE check_in_id = ${checkInId}`
 
@@ -45,20 +40,15 @@ export async function selectCheckInByCheckInProfileId (checkInProfileId: string)
     return result?.length === 1 ? result[0] : null
 }
 
-
 export async function selectAllCheckInByCheckInProfileId (checkInProfileId:string): Promise<CheckIn[]> {
    return <CheckIn[]> await sql `SELECT check_in_id, check_in_library_id, check_in_profile_id, check_in_comment, check_in_date, check_in_follow_library, check_in_photo_name, check_in_photo_url, check_in_report FROM check_in WHERE check_in_profile_id = ${checkInProfileId}`
 }
-
-
-
 
 export async function selectCheckInByCheckInLibraryId (checkInLibraryId: string): Promise<CheckIn[]> {
     const result = <CheckIn[]>await sql `SELECT check_in_id, check_in_library_id, check_in_profile_id, check_in_comment, check_in_date, check_in_follow_library, check_in_photo_name, check_in_photo_url, check_in_report FROM check_in WHERE check_in_library_id = ${checkInLibraryId}`
 
     return result
 }
-
 
 export async function deleteCheckIn (checkIn: CheckIn): Promise<string>{
     const result = await sql `DELETE FROM check_in WHERE check_in_id = ${checkIn.checkInId}`

@@ -1,21 +1,23 @@
-import { Request, Response, NextFunction } from 'express';
-import {Status} from '../../utils/interfaces/Status';
-import {Profile} from '../../utils/models/Profile';
+import { Request, Response, NextFunction } from 'express'
+import {Status} from '../../utils/interfaces/Status'
+import {Profile} from '../../utils/models/Profile'
 import {
     Library,
     insertLibrary,
     selectAllLibraries,
     selectLibraryByLibraryId,
     selectLibrariesByLibraryProfileId,
-    updateLibrary, selectLibraryByLibraryIdAndLibraryProfileId, deleteLibrary, selectAllLibrariesOptIn
-} from '../../utils/models/Library';
+    updateLibrary,
+    selectLibraryByLibraryIdAndLibraryProfileId,
+    deleteLibrary,
+    selectAllLibrariesOptIn
+} from '../../utils/models/Library'
 
-const Geocodio = require('geocodio-library-node');
+const Geocodio = require('geocodio-library-node')
 
 export async function getAllLibrariesController (request: Request, response: Response): Promise<Response<Status>> {
     try {
         const data = await selectAllLibraries()
-        // return the response
         const status: Status = { status: 200, message: null, data }
         return response.json(status)
     } catch (error) {
@@ -30,7 +32,6 @@ export async function getAllLibrariesController (request: Request, response: Res
 export async function getAllLibrariesOptInController (request: Request, response: Response): Promise<Response<Status>> {
     try {
         const data = await selectAllLibrariesOptIn()
-        // return the response
         const status: Status = { status: 200, message: null, data }
         return response.json(status)
     } catch (error) {
@@ -141,7 +142,6 @@ export async function putLibraryController (request: Request, response: Response
         } catch (error: any) {
         return response.json({ status: 500, data: null, message: 'Internal server error' })
     }
-
 }
 
 export async function deleteLibraryController (request: Request, response: Response): Promise<Response<Status>> {

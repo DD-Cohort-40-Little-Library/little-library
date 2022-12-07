@@ -1,17 +1,6 @@
-import {Schema} from 'express-validator';
-
+import {Schema} from 'express-validator'
 
 export const libraryValidator: Schema = {
-    // libraryId: {
-    //     isUUID: {
-    //         errorMessage: 'Please provide a valid libraryId.'
-    //     }
-    // },
-    // libraryProfileId: {
-    //     isUUID: {
-    //         errorMessage: 'Please provide a valid libraryProfileId.'
-    //     }
-    // },
     libraryAddress: {
         isLength: {
             errorMessage: 'A libraryAddress must be between 1 and 258 characters.',
@@ -50,26 +39,3 @@ export const libraryValidator: Schema = {
         escape: true
     },
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

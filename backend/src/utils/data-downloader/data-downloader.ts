@@ -1,11 +1,7 @@
-import axios from 'axios';
-import { v1 as uuid } from 'uuid';
 import {Library, insertLibrary} from '../models/Library';
 import {setHash} from '../auth.utils';
 import {Profile, insertProfile, } from '../models/Profile';
 import {finished} from 'stream';
-import {getLibraryByLibraryProfileIdController} from "../../apis/library/library.controller";
-import {UUIDVersion} from "express-validator/src/options";
 const fs = require('fs')
 const csv = require('csv-parser')
 
@@ -13,19 +9,16 @@ function LLibraryDataDownloader() : Promise<any> {
     async function main() {
         try{
             await downloadLibraries()
-
         } catch (error) {
             console.error(error)
         }
-
     }
 
     return main()
 
     async function downloadLibraries() {
         try {
-            const results : any = [];
-
+            const results : any = []
             fs.createReadStream('./library-abq-all.csv')
                 .pipe(csv())
                 .on('data', (data: any) => results.push(data))
@@ -58,7 +51,6 @@ function LLibraryDataDownloader() : Promise<any> {
                         const profileId2 = await insertProfile(profile2)
 
                         for (let result of results) {
-
                                 if (result.libraryType === 'Little Library') {
                                     const littleLibrary: Library = {
                                         libraryId: null,
@@ -93,8 +85,7 @@ function LLibraryDataDownloader() : Promise<any> {
                     } catch (error) {
                         throw error
                     }
-                });
-
+                })
         } catch (error) {
             throw error
         }

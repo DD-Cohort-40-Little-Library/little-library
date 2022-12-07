@@ -18,12 +18,10 @@ export const eventValidator: Schema = {
     eventEnd: {
         isISO8601: true,
         errorMessage: 'Event end time is malformed.'
-
     },
     eventStart: {
         isISO8601: true,
         errorMessage: 'Event start time is malformed.'
-
     },
     eventTitle: {
         isLength: {
@@ -35,6 +33,6 @@ export const eventValidator: Schema = {
         isLength: {
             errorMessage: 'An eventType must be less than 128 characters.',
             options: { max: 128}
-            }
-        },
+        }
+    },
 }

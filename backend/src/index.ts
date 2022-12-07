@@ -10,7 +10,6 @@ declare module 'express-session' {
 }
 
 // instantiate new app and pass it a port as an argument to start with (4200)
-// CHECK WITH GEORGE/MARTY ON THIS
 async function main () {
     try {
         const app = new App(4200)

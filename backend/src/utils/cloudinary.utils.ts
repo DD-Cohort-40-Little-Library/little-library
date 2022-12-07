@@ -1,7 +1,6 @@
-import {Express} from "express";
-import {Readable} from "stream";
-import {v2 as cloudinaryUtils, UploadStream, UploadApiOptions} from 'cloudinary';
-import exp from "constants";
+import {Express} from "express"
+import {Readable} from "stream"
+import {v2 as cloudinaryUtils, UploadStream, UploadApiOptions} from 'cloudinary'
 
 /** helper function that handles uploading images to cloudinary
  * @param {Express.Multer.File} file express request object that contains a file with a buffer
