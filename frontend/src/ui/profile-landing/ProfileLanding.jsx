@@ -23,22 +23,25 @@ export function ProfileLanding() {
 
     const dispatch = useDispatch()
     const auth = useSelector(state => state.auth ? state.auth : state.auth)
+    const user = useSelector(state => state.currentUser)
+    console.log(user)
     const initialEffects = () => {
         dispatch(fetchAuth())
         dispatch(fetchLibrariesByProfileId())
         dispatch(fetchEventsByProfileId())
         dispatch(fetchCheckInsByProfileId())
+        dispatch(fetchCurrentUser())
     }
     React.useEffect(initialEffects, [dispatch])
     // //TODO: REMOVE 'const profile = null' to the end  from line below after pulling currentUser w/ useSelector=profile
     // const profile = null
-    if (auth === null) {
+    if (user === null) {
         return <h1>
                     Page is loading or you have not signed in yet.
                </h1>
     }
-    const {profileFirstName, profileLastName, profileEmail, profileName, profileAvatarUrl, profileId} = auth
-
+    const {profileFirstName, profileLastName, profileEmail, profileName, profileAvatarUrl, profileId} = user
+console.log(profileFirstName)
     const libraryProfileId = auth.profileId
 
     const {libraryName,libraryAddress, libraryDescription, librarySpecialization, libraryEventOptIn, libraryType} = libraries
@@ -93,7 +96,7 @@ export function ProfileLanding() {
                     <Tab eventKey="event" title="Events">
                         <Container>
                             <Row>
-                                <p>TEST 1 </p>
+                                {/*<p>TEST 1 </p>*/}
                                 <Stack>
                                      {events.map(event => <EventDetailBlock event={event}/>)}
                                 </Stack>
@@ -103,7 +106,7 @@ export function ProfileLanding() {
                     <Tab eventKey="check-ins" title="Check-Ins">
                         <Container>
                             <Row>
-                                <p>TEST 2</p>
+                                {/*<p>TEST 2</p>*/}
                                 {checkins.map (checkin => <CheckInDetailBlock checkin={checkin}/>)}                            </Row>
                         </Container>
                     </Tab>
@@ -112,7 +115,7 @@ export function ProfileLanding() {
                             <Row>
                                 <Stack>
                                     {libraries.map (library => <LibraryDetailBlock library={library}/>)}
-                                </Stack>
+                                </Stack>a
                             </Row>
                         </Container>
                     </Tab>
