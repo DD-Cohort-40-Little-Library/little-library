@@ -200,8 +200,9 @@ function EventCreateModalFormContent(props) {
 				</Form.Group>
 
 				<Form.Group className={"m-3"} id={"eventDescription.ControlTextarea"}>
-					<FloatingLabel id="floatingTextarea" label="Describe your event (256 characters max)">
+					<FloatingLabel id="floatingTextarea" >
 						<Field
+							placeholder="Describe your event (256 characters max)"
 							name="eventDescription"
 							as="textarea"
 							style={{
@@ -219,7 +220,6 @@ function EventCreateModalFormContent(props) {
 				</Form.Group>
 			</Form>
 			<DisplayStatus status={status}/>
-			{/*<FormDebugger {...props} />*/}
 		</>
 	)
 }
