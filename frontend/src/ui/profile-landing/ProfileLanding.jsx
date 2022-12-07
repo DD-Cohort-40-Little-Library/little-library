@@ -30,8 +30,8 @@ export function ProfileLanding() {
     // const profile = null
     if (auth === null) {
         return <h1>
-            Page is loading or you have not signed in yet.
-        </h1>
+                    Page is loading or you have not signed in yet.
+               </h1>
     }
     const {profileFirstName, profileLastName, profileEmail, profileName, profileAvatarUrl, profileId} = auth
 
@@ -76,6 +76,12 @@ export function ProfileLanding() {
                     <Col id={"selected avatar"} md={3} className={"text-center"} >
                         <h3>User Image</h3>
                         <Image src={profileAvatarUrl} fluid={true} className={"rounded-circle"} alt={'Please select an avatar or upload a photo using the "Update Profile" button.'} ></Image>
+                        <h3 id={"headLineONE"}>Selected Avatar</h3>
+                        <Image src={'http://placekitten.com/400/400'} fluid={true} className={"rounded-circle"} alt={'selected avatar'} ></Image>
+                    </Col>
+                    <Col id={"user avatars"} md={5} className={"text-center"}>
+                        <h3>User Avatars</h3>
+                        <Image src={"https:placeimg.com/450/450/any"} alt={'avatar selection'}></Image>
                     </Col>
                 </Row>
             </Container>

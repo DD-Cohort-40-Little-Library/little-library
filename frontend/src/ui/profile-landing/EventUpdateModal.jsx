@@ -19,7 +19,7 @@ export function EventUpdateModal(){
 				keyboard={false}
 			>
 				<Form>
-					<Row>
+					<Row id={"eventUpdateModal"}>
 						<h3 className={"text-center"}>Update Your Event</h3>
 						<Col>
 							<Form.Group className={"m-3"} >
