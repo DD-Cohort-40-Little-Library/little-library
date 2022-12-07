@@ -20,8 +20,8 @@ export const EventShortListing = ({event, library}) => {
 
 	return(
 		<>
-			<Container className={"border border-dark rounded"}>
-				<Row className={"my-3"}>
+			<Container id={"eventShortListing"}>
+				<Row className={"shortListingEvent"}>
 					<a xs={5}>{library.libraryName}</a>
 					<a xs={7}>{library.libraryAddress}</a>
 					{/*<a xs={5}>Type of event: {event.eventType}</a>*/}

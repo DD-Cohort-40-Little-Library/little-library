@@ -1,17 +1,15 @@
 import React from 'react'
 import Map from "react-map-gl";
-import {useDispatch, useSelector} from "react-redux";
-import {fetchAllLibraries} from "../../store/libraries.js";
 import {MapCustomPin} from "./MapCustomPin.jsx";
 
 
 const styles = {
 	map:{
-		height: "80vh",
+		height: "85vh",
 		width: "100%",
 	},
 	mapBox:{
-		height: "80vh",
+		height: "85vh",
 		width: "100%",
 	}
 }
@@ -23,8 +21,8 @@ export function LibraryMap ({libraries}){
 			<div className={'mapDisplay'} style={styles.mapbox} >
 
 				<Map initialViewState={{
-					latitude: 35.18,
-					longitude: -106.49,
+					latitude: 35.13,
+					longitude: -106.65,
 					zoom: 10
 				}}
 					 mapboxAccessToken={import.meta.env.VITE_MAPBOX_ACCESS_TOKEN}
