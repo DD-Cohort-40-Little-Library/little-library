@@ -36,11 +36,8 @@ function signInSuccessful (request: Request, response: Response, profile: Profil
         profileName
     }, signature)
 
-    // @ts-ignore
     request.session.profile = profile
-    // @ts-ignore
     request.session.jwt = authorization
-    // @ts-ignore
     request.session.signature = signature
 
 

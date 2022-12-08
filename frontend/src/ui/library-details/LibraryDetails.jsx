@@ -28,15 +28,14 @@ export function LibraryDetails() {
         <Card className={""} id={"libraryCardDisplay"}>
             <Card.Header>{library.libraryAddress}, {library.libraryType} </Card.Header>
             <Card.Body>
-                <Image src={'https://placekitten.com/g/200/200'} roundedCircle={true}/>
+                {/*Make backend image connection, code freeze*/}
+                {/*<Image src={'https://placekitten.com/g/200/200'} roundedCircle={true}/>*/}
                 <Card.Title><h3>{library.libraryName}</h3></Card.Title>
                     <h5>{specialization}</h5>
                 <Card.Text>{library.libraryDescription}</Card.Text>
                 <Row>
-                <Col md={7} style={{padding: '1rem'}}>
+                <Col style={{padding: '1rem'}}>
                     <CheckInModal libraryId />
-                </Col>
-                <Col md={3} style={{padding: '1rem'}}>
                 </Col>
                 </Row>
             </Card.Body>
@@ -47,17 +46,18 @@ export function LibraryDetails() {
             id="library-details-tabs"
             className="mb-3"
         >
+            {/* complete tabs, halted due to freeze */}
             <Tab eventKey="events" title="Events">
                 <Container>
                     <Row>
-                        <EventListing />
+                        {/*<EventListing />*/}
                     </Row>
                 </Container>
             </Tab>
             <Tab eventKey="check-ins" title="Check-Ins">
                 <Container>
                     <Row>
-                        <CheckInDisplay />
+                        {/*<CheckInDisplay />*/}
                     </Row>
                 </Container>
             </Tab>

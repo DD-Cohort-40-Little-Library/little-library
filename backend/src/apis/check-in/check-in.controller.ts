@@ -128,7 +128,6 @@ export async function putCheckInController (request: Request, response: Response
             checkInPhotoUrl,
             checkInReport
         } = request.body
-        // @ts-ignore
         const previousCheckIn: CheckIn | null = await selectCheckInByCheckInId(checkInId)
 
         if (previousCheckIn === null) {

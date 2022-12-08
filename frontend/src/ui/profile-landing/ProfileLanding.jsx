@@ -112,7 +112,7 @@ export function ProfileLanding() {
                             <Row>
                                 <Stack>
                                     {libraries.map (library => <LibraryDetailBlock library={library}/>)}
-                                </Stack>a
+                                </Stack>
                             </Row>
                         </Container>
                     </Tab>

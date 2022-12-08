@@ -13,7 +13,6 @@ export interface CheckIn {
 }
 
 export async function insertCheckIn (checkIn: CheckIn): Promise<string>{
-    console.log(checkIn)
     const {checkInLibraryId, checkInProfileId, checkInComment, checkInDate, checkInFollowLibrary, checkInPhotoName,checkInPhotoUrl, checkInReport} = checkIn
     // @ts-ignore
     await sql `INSERT INTO check_in (check_in_id, check_in_library_id, check_in_profile_id, check_in_comment, check_in_date, check_in_follow_library, check_in_photo_name, check_in_photo_url, check_in_report)
