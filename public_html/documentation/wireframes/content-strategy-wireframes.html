@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Little Library Content Strategy & Wireframes</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!--Content Strategy Header-->
+<div class="content">
+	<h1>Content Strategy</h1>
+	<p>This website will provide the local Albuquerque community with a tool to better connect neighborhoods to the Little Libraries and those who use them and maintain them.  Additionally, this application will encourage literacy and literary event planning, promotion and attendance. In addition, this site will:</p>
+	<ul>
+		<li>Let users know, once they are logged in, what Little Libraries and public libraries are within walking distance</li>
+		<li>The Who, What, When and Where of literacy and literary events</li>
+		<li>The ability to search for specific types of Little Libraries</li>
+		<li>The ability, as a Steward of a Little Library, to manage their Little Library</li>
+	</ul>
+	<p>The map is critical to the project and will be the central feature of the site.</p>
+</div>
+<!--Welcome area-->
+<div class="welcome">
+	<h2>Landing Page</h2>
+	<h3>Map, event sidebar, nav sidebar and map filters</h3>
+	<ul>
+		<li>Desktop view
+			<ul>
+				<li>The map is centered on the page and illustrates Little Libraries by map pins
+					<ul>
+						<li>By clicking on a map pin the user will be presented with a card for the Little Library location, providing:
+							<ul>
+								<li>Photo of the Little Library (if available)</li>
+								<li>Name</li>
+								<li>Address</li>
+								<li>Specialization (if any)</li>
+								<li>buttons for:
+									<ul>
+										<li>View Details</li>
+										<li>Follow</li>
+										<li>Quick check-in</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li>The left sidebar contains a chronological listing of events, presenting the events first by date and then by distance from the user.
+					<ul>
+						<li>The events are clickable and when clicked will expand to provide the full information of the event and enlarges a map pin for the location of the event</li>
+						<li>At the top of the list of events is a button to "Plan An Event" that is dynamically rendered when a user is logged into the site
+							<ul>
+								<li>Clicking this will open a modal with a form for listing an event</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li>The right sidebar contains the radial buttons for selecting what is rendered on the map (any of these can freely selected and deselected):
+					<ul>
+						<li>Lil Library will load pre-selected and will render the little library sites</li>
+						<li>Public Library will render the public libraries</li>
+						<li>Event will render the current events for the libraries</li>
+						<li>Lil Library specialization will place pins that correspond to the specialization of the libraries</li>
+						<li>The ADD LIBRARY button will render dynamically for users who are logged in and will allow stewards (new and current) to add a new library location</li>
+					</ul>
+				</li>
+				<li>The header contains the logo to the top left, the name of the site centered over the map and a login drop down menu on the far right</li>
+				<li>The footer will contain credits for the project and links to any additional information relevant to site and the team.</li>
+			</ul>
+		</li>
+		<li>Mobile view
+			<ul>
+				<li>The map is centered at the top of page and illustrates Little Libraries by map pins
+					<ul>
+						<li>By clicking on a map pin the user will be presented with a card for the Little Library location, providing:
+							<ul>
+								<li>Photo of the Little Library (if available)</li>
+								<li>Name</li>
+								<li>Address</li>
+								<li>Specialization (if any)</li>
+								<li>buttons for:
+									<ul>
+										<li>View Details</li>
+										<li>Follow</li>
+										<li>Quick check-in</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li>Below the map are the radial buttons for selecting what is rendered on the map (any of these can be freely selected and deselected):
+					<ul>
+						<li>Lil Library will load pre-selected and will render the little library sites</li>
+						<li>Public Library will render the public libraries</li>
+						<li>Event will render the current events for the libraries</li>
+						<li>Lil Library specialization will place pins that correspond to the specialization of the libraries</li>
+						<li>The ADD LIBRARY button will render dynamically for users who are logged in and will allow stewards (new and current) to add a new library location</li>
+					</ul>
+				</li>
+				<li>Next is a chronological listing of events, presenting the events first by date and then by distance from the user.
+					<ul>
+						<li>The events are clickable and when clicked will expand to provide the full information of the event and enlarges a map pin for the location of the event on the map</li>
+						<li>At the top of the list of events is a button to "Plan An Event" which will dynamically render when the user is logged in.
+							<ul>
+								<li>Clicking this will open a modal with a form for listing an event</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li>The header contains the logo to the top left, the name of the site centered over the map and the navigation button in collapsed form containing the login drop down menu on the far right.</li>
+				<li>The footer will contain credits for the project and links to any additional information relevant to site and the team.</li>
+			</ul>
+		</li>
+	</ul>
+	<h2>Wireframes</h2>
+	<h3>Desktop Wireframe</h3>
+	<img src="./ll-wire-web-index.png" alt="desktop wireframe of the landing page">
+	<h3>Mobile Wireframe</h3>
+	<img src="./ll-wire-mobile-index.png" alt="mobile wireframe of the landing page">
+</div>
+	<!--User section-->
+<div class="user">
+	<h2>User Registration Page</h2>
+	<ul>
+		<li>User Registration is a form that will open as a modal, allowing users to register with the site</li>
+		<li> Desktop view
+			<ul>
+				<li>A new user will be presented with a form that will provide input fields for the following fields:
+				<ul>
+					<li>First Name</li>
+					<li>Last Name</li>
+					<li>Phone (optional)</li>
+					<li>Email</li>
+					<li>User Name</li>
+					<li>Password</li>
+					<li>Password confirmation</li>
+				</ul>
+				<ul>
+					<li>To the right of the form is the avatar view space and to the right of it is a gallery of available avatars that can be selected by the user</li>
+					<li>And finally the submit button is in the lower right hand corner</li>
+				</ul>
+				</li>
+			</ul>
+		</li>
+		<li>Mobile view
+			<ul>
+				<li>The mobile view will break and be presented in a vertical format</li>
+			</ul>
+		</li>
+	</ul>
+	<h2>Wireframes</h2>
+	<h3>Desktop Wireframe</h3>
+	<img src="./ll-wire-web-user-reg.png" alt="desktop wireframe of user registration page">
+	<h3>Mobile Wireframe</h3>
+	<img src="./ll-wire-mobile-user-reg.png" alt="mobile wireframe of user registration page">
+
+	<!--User Update-->
+	<h2>User Update</h2>
+	<p>The user update page is very similar to the user registration page except that:</p>
+	<ul>
+		<li> Desktop view
+			<ul>
+				<li>The user can change all of their relevant information or choose to close the account from this page.</li>
+				<li>If the user also is a Steward, the little libraries that they are responsible for will dynamically render below the update page and allow them to edit their listing of libraries</li>
+			</ul>
+		</li>
+		<li>Mobile view
+			<ul>
+				<li>Similar to the user registration page the update page will change to a vertical view instead of a horizontal view.</li>
+			</ul>
+		</li>
+	</ul>
+	<h2>Wireframes</h2>
+	<h3>Desktop Wireframe</h3>
+	<img src="./ll-wire-web-user-landing.png" alt="desktop wireframe user update page">
+	<h3>Mobile Wireframe</h3>
+	<img src="./ll-wire-mobile-user-landing.png" alt="mobile wireframe">
+</div>
+
+<!--Library section-->
+<div class="library">
+<!--	Library Information Page-->
+	<h2>Library Information Pages</h2>
+	<h3>Library map popup page</h3>
+	<p>When a user selects a library map pin from the map it will present the user with a card that contains information about that library including:</p>
+	<ul>
+		<li>Desktop and Mobile views will be a card overlay on the map with
+			<ul>
+				<li>A picture of the library</li>
+				<li>A "View Details" button that when clicked will open a detailed view of the library</li>
+				<li>The name and short description of the library followed by the next event (if any) at the library in a box</li>
+				<li>Below the description and event box is a "Follow" button that will allow a user to follow a library and a quick-checkin button that will log just their time and date of their visit to the library.</li>
+				<li>This modal can be closed and the user will remain on the main page.</li>
+			</ul>
+		</li>
+	</ul>
+	<h2>Wireframes</h2>
+	<h3>Desktop Wireframe</h3>
+	<img src="./ll-wire-web-search-popup.png" alt="desktop wireframe of library card over map pin">
+	<h3>Mobile Wireframe</h3>
+	<img src="./ll-wire-mobile-search-popup.png" alt="mobile wireframe of library card over map pin">
+
+<!--	Library Details Page-->
+	<h3>Library Details Page</h3>
+	<p>The library detail page will provide a user with everything they need for the information about the library and the ability to interact with the library</p>
+	<ul>
+		<li>Desktop view
+			<ul>
+				<li>On the left of the top most section is a vertical, chronological listing of events at the library (if any).</li>
+				<li>To the right of the event listing is a column that starts with a photo of the library, a "Follow" button just below it; the name and description of the library, and lastly a drag and drop location for uploading a photo of the library.</li>
+				<li>The far right column shows a static image of the library on the map followed by a free text area for adding comments or checking in.</li>
+				<li>Below the comment is a radial button to flag the comment/checkin as a damage report with the sumbit button just to it's right.</li>
+				<li>The final section is a listing of the pictures of and comments received for the library; this will load the three most recent comments and more comments can be loaded from the "LOAD MORE" button below the third comment.</li>
+			</ul>
+		</li>
+		<li>Mobile view
+			<ul>
+				<li>The view will shift to a vertical alignment with the static map image, followed by
+					<ul>
+						<li>Events</li>
+						<li>Photo, description and follow button</li>
+						<li>Drag and drop photo upload</li>
+						<li>Comments/Checkin with the damage flag and submit button</li>
+						<li>Photo and comments in recent order but vertically aligned</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+	</ul>
+	<h2>Wireframes</h2>
+	<h3>Desktop Wireframe</h3>
+	<img src="./ll-wire-web-search-detail.png" alt="desktop wireframe of library details page">
+	<h3>Mobile Wireframe</h3>
+	<img src="./ll-wire-mobile-search-detail.png" alt="mobile wireframe of library details page">
+
+<!--	Register Library Page-->
+	<h3>Register Library</h3>
+	<p>The library registration page can be accessed from the main landing page or the user update page if the user already has at least one library registered with the site.</p>
+	<ul>
+		<li>Desktop view
+			<ul>
+				<li>At the top of the form on the left will be the user's avatar to provide feedback to the user that this is their account; opposite, on the right, is a drag and drop for adding a photo of the library. </li>
+				<li>The form below is presented in three columns:
+				<ul>
+					<li>The right column provides input fields for the name, address, and a togle switch to opt in to having events at their location.</li>
+					<li>The center column allows the user to select a specialization for their library from a broad group of standard categories</li>
+					<li>The left column provides the user the ability to add a description for their library.</li>
+					<li>The "Submit" button is just below the description box.</li>
+				</ul>
+				</li>
+
+			</ul>
+		</li>
+		<li>Mobile view
+			<ul>
+				<li>The view will shift to a vertical alignment headed by the user avatar, followed by
+					<ul>
+						<li>The name, address, and opt in toggle for events</li>
+						<li>Specialization list</li>
+						<li>Drag and drop photo upload</li>
+						<li>Description</li>
+						<li>"Submit" button</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+	</ul>
+	<h2>Wireframes</h2>
+	<h3>Desktop Wireframe</h3>
+	<img src="./ll-wire-web-library-reg.png" alt="desktop wireframe of register library page">
+	<h3>Mobile Wireframe</h3>
+	<img src="./ll-wire-mobile-library-reg.png" alt="mobile wireframe of register library page">
+</div>
+
+<!--Events Section-->
+<div class="events">
+	<!--Events section-->
+	<h2>Events</h2>
+	<p>Users will be encouraged to plan and attend literacy and literary events at the library locations.  The hope is to make connections between books, the people who enjoy and/or need them, and the neighborhoods that the libraries are within.</p>
+	<h3>Plan An Event Page</h3>
+	<ul>
+		<li>Desktop and Mobile views
+			<ul>
+				<li>When a user clicks on the "PLAN EVENT" button, available on the main landing page and on the individual library details page, they will be presented a page that they will complete to create an event by doing the following:
+					<ul>
+						<li>Select the library that the event will be held at</li>
+						<li>Select the event type from a dropdown menu of topics with the option to select "other" and provide a brief category for it</li>
+						<li>Enter an event title</li>
+						<li>Enter the date, start and end time</li>
+						<li>Just below the description field on the right is the "Submit" button for the user to create the event once they have completed the fields.</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+	</ul>
+	<h2>Wireframes</h2>
+	<h3>Desktop Wireframe</h3>
+	<img src="./ll-wire-web-event.png" alt="desktop wireframe">
+	<h3>Mobile Wireframe</h3>
+	<img src="./ll-wire-mobile-event.png" alt="mobile wireframe">
+
+	<!--Edit event-->
+	<h3>Edit events</h3>
+	<p>The form to edit the event will be very similar to event creation page but when selected will be pre-populated with the event owner information and in addition to the "Update" button in place of "Submit" will be a "Delete" button in if the organizer needs to cancel the event.</p>
+</div>
+</body>
+</html>

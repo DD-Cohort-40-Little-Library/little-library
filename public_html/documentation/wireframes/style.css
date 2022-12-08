@@ -1,0 +1,15 @@
+body{
+    font-family: "Century Gothic", sans-serif;
+    margin: 2em;
+    font-size: larger;
+}
+.welcome, .user, .library, .events {
+    border: darkblue solid thick;
+    padding-left: 1em;
+    padding-right: 1em;
+    margin: 2em;
+    border-radius: 25px;
+}
+img{
+    max-width: 100%;
+}

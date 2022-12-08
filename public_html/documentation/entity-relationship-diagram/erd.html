@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Data Conceptual Model and ERD</title>
+	<link rel="stylesheet" href="./style.css"/>
+</head>
+<body>
+<h1>Data Conceptual Model and ERD</h1>
+<h2> Data Conceptual Model</h2>
+<p>This is the data conceptual model for the Little Library web application that will provide information and access to Little Free Libraries and tie them together with public libraries in the central Albuquerque area.</p>
+<h3>Entities and Attributes</h3>
+<h4>user</h4>
+<ul>
+	<li>userId (PK)</li>
+	<li>userActivationToken</li>
+	<li>userAvatarUrl</li>
+	<li>userEmail *</li>
+	<li>userFirstName *</li>
+	<li>userHash *</li>
+	<li>userLastName *</li>
+	<li>userPhone</li>
+	<li>userName</li>
+</ul>
+<h4>library</h4>
+<ul>
+	<li>libraryId (PK)</li>
+	<li>libraryUserId (FK)</li>
+	<li>libraryAddress *</li>
+	<li>libraryCharter *</li>
+	<li>libraryDescription</li>
+	<li>libraryEventOptIn</li>
+	<li>libraryLat</li>
+	<li>libraryLng</li>
+	<li>librarySpecialization</li>
+	<li>libraryType</li>
+</ul>
+<h4>events</h4>
+<ul>
+	<li>eventId (PK)</li>
+	<li>eventLibraryId (FK) *</li>
+	<li>eventUserId (FK)*</li>
+	<li>eventDate *</li>
+	<li>eventDescription</li>
+	<li>eventEnd</li>
+	<li>eventStart</li>
+	<li>eventTitle *</li>
+	<li>eventType *</li>
+</ul>
+<h4>checkIn</h4>
+<ul>
+	<li>checkInId (PK) *</li>
+	<li>checkInLibraryId (FK)</li>
+	<li>checkInUserId (FK) *</li>
+	<li>checkInComment</li>
+	<li>checkInFollowLibrary</li>
+	<li>checkInPhotoName</li>
+	<li>checkInPhotoUrl</li>
+	<li>checkInDate *</li>
+	<li>checkInReport</li>
+</ul>
+<h3>Relationships</h3>
+<h4>user</h4>
+<ul>
+	<li>The user entity has the following relationships to the other entities and is the strongest entity and is constructed first in the database:
+		<ul>
+			<li>user has a one-to-many relationship with the library entity</li>
+			<li>user has a one-to-many relationship with the events entity</li>
+			<li>user has a one-to-many relationship with the checkIn entity</li>
+		</ul>
+	</li>
+</ul>
+<h4>library</h4>
+<ul>
+	<li>The library entity has the following relationships to the other entities and is the second strongest entity and is constructed second in the database:
+		<ul>
+			<li>library has a many-to-one relationship to the user entity</li>
+			<li>library has a one-to-many relationship to the photos events entity</li>
+			<li>library has a one-to-many relationship to the events entity</li>
+		</ul>
+	</li>
+</ul>
+<h4>events</h4>
+<ul>
+	<li>The events entity has the following relationships to the other entities and is the third strongest entity and constructed third in the database:
+		<ul>
+			<li>events has a many-to-one relationship with user</li>
+			<li>events has a many-to-one relationship with library</li>
+		</ul>
+	</li>
+</ul>
+<h4>checkIn</h4>
+<ul>
+	<li>The checkIn entity has the following relationships to the other entities and is the weakest entity and is the fourth and final entity to be constructed in the database:
+		<ul>
+			<li>checkIn has a many-to-one relationship with user</li>
+			<li>checkIn has a many-to-one relationship with library</li>
+		</ul>
+	</li>
+</ul>
+
+<h2>Entity Relationship Diagram</h2>
+<img src="./erd/little-library-erd.jpg" alt="Entity relationship diagram for Little Library">
+</body>
+</html>

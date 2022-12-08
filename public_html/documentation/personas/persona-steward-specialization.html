@@ -53,7 +53,32 @@
   <li>Interested in community interactions</li>
   <li>Suggested use by children’s teacher</li>
 </ul>
-
-
+<h2>User Story</h2>
+<h3>Adding specializations for an existing Little Library</h3>
+<div>As a Little Library Steward, I want to add a specializations to my Little Library including technical books for my interests and children's books for my children.
+  <h2>User Interaction Flow</h2>
+  <h3>Pre-Condition:</h3>
+  <p>Stanley is registered as a Steward, has logged into the site and is on the landing page.</p>
+  <h3>Post-Condition</h3>
+  <p>Stanley has added two specializations to his Little Library and those specializations appear on the map and can be searched for by other users.</p>
+  <h3>User Interaction Flow</h3>
+  <ul>
+    <li>Stanley scans the landing page and locates the sidebar nav button on the right side of the main element (map) for the "Steward" section and clicks it.</li>
+    <li>Little Library redirects Loco to the "Stewards" page.</li>
+    <li>Stanley scans the "Steward" page and finds the Little Library Maintenance menu and selects the "Add specialization to a Little Library" button and clicks it.</li>
+    <li>Little Library queries the database and returns a modal listing Stanley's Little Libraries with the location of each Little Library associated with Stanley.</li>
+    <li>Stanley clicks the link for the Little Library he wants to add the specialization to.</li>
+    <li>Little Library presents the Little Library maintenance modal to Stanley where he is able to edit his Little Library listing, including specializations.</li>
+    <li>Stanley scans the modal and locates the section where he can add up to three specializations to his Little Library from drop down menus.
+      <ul>
+        <li>Stanley chooses "Text Books & Technical Books" from the first menu.</li>
+        <li>Stanley chooses "Children's Books (Ages 1- 10)" from the second menu.</li>
+        <li>Stanley clicks "Submit" to complete the edit to this listing.</li>
+      </ul>
+    </li>
+    <li>Little Library reads the input from the modal when "Submit" is clicked and updates the database.</li>
+    <li>Little Library presents Stanley with an informational modal stating "Edits to Little Library complete.</li>
+  </ul>
+</div>
 </body>
 </html>

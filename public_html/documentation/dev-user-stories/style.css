@@ -1,0 +1,26 @@
+body{
+    font-family: "Century Gothic", sans-serif;
+    margin: 2em;
+    font-size: x-large;
+}
+h1, h2{
+    text-align: center;
+}
+.events, .libraries, .check-in, .user-accounts{
+    border: darkblue solid thick;
+    padding-left: 1em;
+    padding-right: 1em;
+    margin: 2em;
+    border-radius: 25px;
+}
+li{
+    margin-top: 1em;
+    margin-bottom: 1em;
+    list-style: none;
+}
+p{
+    font-weight: bold;
+}
+span{
+    font-weight: bold;
+}

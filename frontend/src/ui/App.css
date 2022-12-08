@@ -1,0 +1,159 @@
+body{
+    background-color: #F3EAD2;
+    color: #2D3024;
+}
+
+#generalPhotoBehavior {
+    width: 100%;
+
+}
+#generalColBehavior {
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+}
+#headLineONE {
+    text-align: center;
+    color: #2D3024;
+    padding: 5px;
+}
+
+#signInUp-column {
+    padding: 2vh;
+    align-content: center;
+}
+
+#profileRegProfile {
+    text-align: center;
+    color: #2D3024;
+}
+
+#profileRegForm {
+    background-color: #76999D;
+    border: light;
+    padding: 15px;
+}
+
+#events-column {
+    padding: 2vh;
+    background-color: #76999D;
+}
+
+
+#navFootBgColor {
+    background-color: #835A4E;
+}
+
+
+#navFoot{
+    background-color: #835A4E;
+    color: #CDCDC1;
+    text-align: center;
+    font-size: 1rem;
+
+}
+
+#lLLLogoBase {
+    padding-right: 2vh;
+    height: 8vh;
+    width: 100%;
+
+}
+
+#generalPhotoBehavior {
+    width: 100%;
+
+}
+
+#LLLLabel {
+    height: 7vh;
+    width: 100%;
+}
+#signUpIn {
+    background-color: #93A5AB;
+    text-align: center;
+    width: border-box;
+}
+
+#eventShortListing {
+    background-color: #CDCDC1;
+    border-radius: 10px;
+    margin: 1vh;
+}
+#eventUpdateModal {
+    background-color: #CDCDC1;
+}
+
+
+#libraryCardDisplay {
+    background-color: #93A5AB;
+    text-align: center;
+    color: #2D3024;
+}
+
+#librarySectionDisplay {
+    padding: 2rem;
+
+}
+
+#checkInDisplay {
+    background-color: #CDCDC1;
+    color: #2D3024;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 10px;
+}
+
+#eventListingDisplay {
+    background-color: #CAB898;
+    color: #2D3024;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 10px;
+}
+
+#userRegistration {
+    background-color: #93A5AB;
+    color: #2D3024;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 10px;
+}
+
+#libraryDisplayBlock {
+    background-color: #76999D;
+    color: #2D3024;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 10px;
+}
+
+#libraryCreateFormGlobal {
+    background-color: #F3EAD2;
+    color: #2D3024;
+}
+
+#checkInDetailBlock {
+    background-color: #CAB898;
+    color: #2D3024;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 10px;
+
+}
+
+#profileUpdateForm {
+    background-color: #93A5AB;
+    text-align: center;
+    width: border-box;
+}
+
+#libraryRegisterCard {
+    background-color: #93A5AB;
+    text-align: center;
+    width: border-box;
+}
+
+#personalStack {
+    padding-bottom: 30px;
+}
