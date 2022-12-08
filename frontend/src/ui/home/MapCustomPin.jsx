@@ -20,7 +20,6 @@ export function MapCustomPin(props) {
 
     const SIZE = 30;
     const [showPopup, setShowPopup] = useState(false)
-    console.log(libraryType)
     return (
         <>
             <Marker key={`marker-${index}`} longitude={lng} latitude={lat} onClick={(e) => {

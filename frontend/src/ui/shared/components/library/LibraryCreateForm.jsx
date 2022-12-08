@@ -54,7 +54,6 @@ export const LibraryCreateForm = () => {
         libraryType: Yup.string()
     })
     const submitLibraryCreate = (values, {resetForm, setStatus}) => {
-        console.log(values)
         httpConfig.post('/apis/library/', values)
             .then(reply => {
                     let {message, type}=reply

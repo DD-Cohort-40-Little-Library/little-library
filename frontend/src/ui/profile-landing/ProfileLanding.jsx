@@ -40,7 +40,6 @@ export function ProfileLanding() {
                </h1>
     }
     const {profileFirstName, profileLastName, profileEmail, profileName, profileAvatarUrl, profileId} = user
-console.log(profileFirstName)
     const libraryProfileId = auth.profileId
 
     const {libraryName,libraryAddress, libraryDescription, librarySpecialization, libraryEventOptIn, libraryType} = libraries

@@ -24,11 +24,3 @@ export const fetchCheckInsByProfileId = () => async (dispatch, getState) => {
 }
 
 
-// export const fetchAllCheckIns = () =>{
-// 	return async function (dispatch) {
-// 		const {data} = await httpConfig.get('/apis/checkin/')
-// 		dispatch(setAllCheckIns(data))
-// 	}
-// }
-//
-

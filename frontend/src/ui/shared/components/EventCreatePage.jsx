@@ -5,7 +5,6 @@ import {httpConfig} from "../utils/http-config.js";
 import {Field, Formik, useField} from "formik";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchAllLibraries} from "../../../store/libraries.js";
-import {FormDebugger} from "./FormDebugger.jsx";
 import {DisplayStatus} from "./display-status/DisplayStatus";
 
 const EventTypeSelect = ({ label, ...props }) => {
