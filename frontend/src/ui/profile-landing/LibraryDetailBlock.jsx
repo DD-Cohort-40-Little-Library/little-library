@@ -1,5 +1,6 @@
 import {Container, Row} from "react-bootstrap";
 import React from "react";
+import styles from "../App.css"
 
 export const LibraryDetailBlock = (props) => {
 

@@ -1,7 +1,5 @@
 import React from "react";
 import {Col, Container, Row, Form, Image, Button, Tabs, Tab, FormText, Stack} from "react-bootstrap";
-import {EventListing} from "../shared/components/EventListing.jsx";
-import {CheckInDisplay} from "../shared/components/CheckInDisplay.jsx";
 import {Link} from "react-router-dom";
 import {LibraryDetailBlock} from "./LibraryDetailBlock.jsx"
 import {useDispatch, useSelector} from "react-redux";
@@ -9,11 +7,11 @@ import {fetchAuth} from "../../store/auth.js";
 import currentUser, {fetchCurrentUser} from "../../store/currentUser.js";
 import {ProfileUpdateModal} from "./ProfileUpdateModal.jsx";
 import {fetchAllLibraries, fetchLibrariesByProfileId} from "../../store/libraries.js";
-import {EventShortListing} from "../home/EventShortListing.jsx";
 import {EventDetailBlock} from "./EventDetailBlock";
 import {fetchEventsByProfileId} from "../../store/events.js";
 import {fetchCheckInsByProfileId} from "../../store/checkIn.js";
 import {CheckInDetailBlock} from "./CheckInDetailBlock";
+import style from "../App.css"
 
 export function ProfileLanding() {
 

@@ -1,10 +1,10 @@
 import React from 'react'
 import {Col, Container, Row} from "react-bootstrap";
 
-export const EventListing = () => {
+export const EventListingBlock = () => {
 	return(
 		<>
-			<Container className={""} id={"eventListingDisplay"}>
+			<Container className={""} id={"eventListingDisplayBlock"}>
 				<Row className={"my-3"}>
 					<Col xs={5}>Library Name</Col>
 					<Col xs={7}>Library Address</Col>

@@ -1,7 +1,7 @@
 import React from "react";
 import Card from 'react-bootstrap/Card';
 import {Col, Container, Image, Row, Stack, Tab, Tabs} from "react-bootstrap";
-import {EventListing} from "../shared/components/EventListing.jsx";
+import {EventListingBlock} from "../shared/components/EventListing.jsx";
 import {CheckInDisplay} from "../shared/components/CheckInDisplay.jsx";
 import {useDispatch, useSelector} from "react-redux";
 import {useParams} from "react-router-dom";
@@ -50,7 +50,7 @@ export function LibraryDetails() {
             <Tab eventKey="events" title="Events">
                 <Container>
                     <Row>
-                        <EventListing />
+                        <EventListingBlock />
                     </Row>
                 </Container>
             </Tab>
