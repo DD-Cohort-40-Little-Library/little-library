@@ -10,11 +10,8 @@ import {Formik} from "formik";
 import {DisplayError} from "../shared/components/display-error/DisplayError.jsx";
 import {useParams} from "react-router-dom";
 import {fetchAuth} from "../../store/auth.js";
-<<<<<<< HEAD
 import {FormDebugger} from "../shared/components/FormDebugger.jsx";
 import {useDropzone} from "react-dropzone";
-=======
->>>>>>> develop
 
 
 export function CheckInForm() {
@@ -25,11 +22,8 @@ export function CheckInForm() {
         checkInComment: Yup.string(),
         checkInDate: Yup.string(),
         checkInFollowLibrary: Yup.boolean(),
-<<<<<<< HEAD
         // checkInPhotoName: Yup.string(),
         checkInPhotoUrl: Yup.mixed(),
-=======
->>>>>>> develop
         checkInReport: Yup.boolean()
     })
 
@@ -54,11 +48,8 @@ export function CheckInForm() {
         checkInComment: "",
         checkInDate: new Date(),
         checkInFollowLibrary: false,
-<<<<<<< HEAD
         // checkInPhotoName: "",
         checkInPhotoUrl: "",
-=======
->>>>>>> develop
         checkInReport: false
     }
 
