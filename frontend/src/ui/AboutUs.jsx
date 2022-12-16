@@ -1,7 +1,5 @@
 import {Col, Container, Image, Row, Stack} from "react-bootstrap";
 import React from "react";
-import {BioBlock} from "./BioBlock";
-import LLLLogo from "../../images/logoAssetsSVG/logoBase-xxs.svg";
 
 export function AboutUs() {
     return (
@@ -62,7 +60,7 @@ export function AboutUs() {
                     <a target="_blank" href={"https://www.linkedin.com/in/bryce-roth-6a172620"}><Image src={"../../images/link-bk-rd-1.svg"} style={{height: "2rem", paddingRight: "10px"}}/></a>
                     <a target="_blank" href={"mailto:roth1116@gmail.com?subject=I'd like to connect!&body=Hello Bryce. I'd like to connect!"}><Image src={"../../images/mail-bk-rd-1.svg"} style={{height: "2rem", paddingRight: "10px"}}/></a>
 
-                     <p>Bryce is an experienced business professional with over 25 years of management and operations experience seeking to leverage my knowledge of data analytics, standardized procedures and business software as a junior web developer.  I recently graduated from Deep Dive Full Stack Web Development where I gained knowledge and skills on creating fully functional websites.  With my past experience I am regarded as a collaborative team leader maintaining a high level of personal and team performance.</p>
+                     <p>I am an experienced business professional with over 25 years of management and operations experience seeking to leverage my knowledge of data analytics, standardized procedures and business software as a junior web developer.  I recently graduated from Deep Dive Full Stack Web Development where I gained knowledge and skills on creating fully functional websites.  With my past experience I am regarded as a collaborative team leader maintaining a high level of personal and team performance.</p>
                 </Col>
             </Row >
             <Row style={{alignItems: "center"}}>

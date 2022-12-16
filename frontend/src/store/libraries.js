@@ -17,7 +17,6 @@ export default librariesSlice.reducer
 export const fetchAllLibraries = () => {
     return async function (dispatch) {
     const {data} = await httpConfig.get("/apis/library/");
-    console.log('data', data)
     dispatch(setAllLibraries(data));
     }
 }

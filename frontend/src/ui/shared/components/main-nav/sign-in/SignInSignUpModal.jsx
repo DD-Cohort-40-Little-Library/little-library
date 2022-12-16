@@ -24,24 +24,6 @@ export function SignInSignUpModal() {
                                 <SignInForm />
                                 <SignUpForm />
                             </Modal.Body>
-                            <Col>
-                                <div className={"w-45"}>
-                                    <input type={"checkbox"} /> <span className={"ps-1"}>Remember Me</span>
-                                </div>
-                                <div className={"w-45"}>
-                                    <a className={"text-decoration-none"} href={'/'}>Forgot Password</a>
-                                </div>
-                            </Col>
-                            <Row>
-                                <Col>
-                                    <p className={"mt-3"}>&mdash; Sign In With &mdash;</p>
-                                    <a href={"#"} className={"rounded-2"}><img src={googleLogo} className={"img-fluid"} alt={"Google Logo"}></img></a>
-                                </Col>
-                                <Col>
-                                    <p className={"mt-3"}>&mdash; If Are You New &mdash;</p>
-                                    <Link to={"/profile-registration"} className={"btn-primary"}> <Button> Create Account</Button></Link>
-                                </Col>
-                            </Row>
                         </Col>
                     </Row>
                 </Container>

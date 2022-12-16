@@ -9,7 +9,6 @@ export function isLoggedInController (request: Request, response: Response, next
 
     const sessionProfile = (request: Request): Profile |
         undefined => request.session?.profile ?? undefined
-    console.log(request.sessionID)
 
     const signature = (request: Request): string => request.session?.signature ?? 'no signature'
 

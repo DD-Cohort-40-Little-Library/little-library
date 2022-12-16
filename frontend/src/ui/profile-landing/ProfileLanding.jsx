@@ -40,7 +40,6 @@ export function ProfileLanding() {
                </h1>
     }
     const {profileFirstName, profileLastName, profileEmail, profileName, profileAvatarUrl, profileId} = user
-console.log(profileFirstName)
     const libraryProfileId = auth.profileId
 
     const {libraryName,libraryAddress, libraryDescription, librarySpecialization, libraryEventOptIn, libraryType} = libraries
@@ -113,7 +112,7 @@ console.log(profileFirstName)
                             <Row>
                                 <Stack>
                                     {libraries.map (library => <LibraryDetailBlock library={library}/>)}
-                                </Stack>a
+                                </Stack>
                             </Row>
                         </Container>
                     </Tab>

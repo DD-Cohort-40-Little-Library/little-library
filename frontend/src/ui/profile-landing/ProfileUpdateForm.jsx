@@ -14,7 +14,6 @@ import {fetchAuth, getAuth} from "../../store/auth.js";
 
 export const ProfileUpdateForm = (props) => {
     const profile = useSelector(state => state.currentUser ? state.currentUser : null)
-    console.log(profile)
     const validationObject = Yup.object().shape({
         profileEmail: Yup.string()
             .email('Email must be a valid email'),
@@ -197,7 +196,6 @@ function ImageDropZone ({formikProps}) {
             formikProps.setSelectedImage(fileReader.result)
         })
 
-        console.log(formikProps.values.profileAvatarUrl)
         formikProps.setFieldValue(formikProps.fieldValue, formData)
 
     }, [formikProps])

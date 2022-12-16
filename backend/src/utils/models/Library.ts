@@ -14,7 +14,6 @@ export interface Library {
 }
 
 export async function insertLibrary (library: Library): Promise<string> {
-    console.log(library)
     const { libraryProfileId, libraryAddress, libraryDescription, libraryEventOptIn, libraryLat, libraryLng, libraryName, librarySpecialization, libraryType } = library
     await sql `INSERT INTO library(library_id, library_profile_id, library_address, library_description, library_event_opt_in, library_lat, library_lng, library_name, library_specialization, library_type) VALUES(gen_random_uuid(), ${libraryProfileId}, ${libraryAddress}, ${libraryDescription}, ${libraryEventOptIn}, ${libraryLat}, ${libraryLng}, ${libraryName}, ${librarySpecialization}, ${libraryType})`
     return 'Library created successfully!'
