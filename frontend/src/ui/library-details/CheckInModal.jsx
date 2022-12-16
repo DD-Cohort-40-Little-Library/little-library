@@ -22,7 +22,7 @@ export function CheckInModal(){
             <Modal
                 show={show}
                 onHide={handleClose}
-                backdrop="static"
+                // backdrop="static"
                 keyboard={false}
             >
                 <Form>
