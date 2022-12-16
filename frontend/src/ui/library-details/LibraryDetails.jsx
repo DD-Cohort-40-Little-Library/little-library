@@ -28,7 +28,7 @@ export function LibraryDetails() {
         <Card className={""} id={"libraryCardDisplay"}>
             <Card.Header>{library.libraryAddress}, {library.libraryType} </Card.Header>
             <Card.Body>
-                {/*Make backend image connection, code freeze*/}
+                {/*Make backend library image connection, code freeze*/}
                 {/*<Image src={'https://placekitten.com/g/200/200'} roundedCircle={true}/>*/}
                 <Card.Title><h3>{library.libraryName}</h3></Card.Title>
                     <h5>{specialization}</h5>
@@ -50,6 +50,7 @@ export function LibraryDetails() {
             <Tab eventKey="events" title="Events">
                 <Container>
                     <Row>
+                        <h1>TEST - EVENT LISTING - 1</h1>
                         {/*<EventListing />*/}
                     </Row>
                 </Container>
@@ -57,6 +58,7 @@ export function LibraryDetails() {
             <Tab eventKey="check-ins" title="Check-Ins">
                 <Container>
                     <Row>
+                        <h1>TEST - CHECKIN DISPLAY - 1</h1>
                         {/*<CheckInDisplay />*/}
                     </Row>
                 </Container>

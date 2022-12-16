@@ -1,7 +1,7 @@
-import {Container, Row} from "react-bootstrap";
+import {Container, Image, Row} from "react-bootstrap";
 import React from "react";
 
-export const CheckInDetailBlock = (props) => {
+export const CheckInDetailBlockProfile = (props) => {
 
     const {checkin, library} = props
 
@@ -12,6 +12,7 @@ export const CheckInDetailBlock = (props) => {
                 {/*<Row xs={7}>Library Address: {library.libraryAddress}</Row>*/}
                 <Row xs={5}>Comment: {checkin.checkInComment}</Row>
                 <Row xs={5}>Photo: {checkin.checkInPhotoUrl}</Row>
+                {/*<Image src={profileAvatarUrl} fluid={true} className={"rounded-circle"} alt={'Please select an avatar or upload a photo using the "Update Profile" button.'} ></Image>*/}
             </Container>
         </>
     )

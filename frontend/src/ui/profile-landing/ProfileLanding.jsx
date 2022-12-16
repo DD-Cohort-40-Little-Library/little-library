@@ -13,7 +13,7 @@ import {EventShortListing} from "../home/EventShortListing.jsx";
 import {EventDetailBlock} from "./EventDetailBlock";
 import {fetchEventsByProfileId} from "../../store/events.js";
 import {fetchCheckInsByProfileId} from "../../store/checkIn.js";
-import {CheckInDetailBlock} from "./CheckInDetailBlock";
+import {CheckInDetailBlockProfile} from "./CheckInDetailBlockProfile.jsx";
 
 export function ProfileLanding() {
 
@@ -104,7 +104,7 @@ export function ProfileLanding() {
                     <Tab eventKey="check-ins" title="Check-Ins">
                         <Container>
                             <Row>
-                                {checkins.map (checkin => <CheckInDetailBlock checkin={checkin}/>)}                            </Row>
+                                {checkins.map (checkin => <CheckInDetailBlockProfile checkin={checkin}/>)}                            </Row>
                         </Container>
                     </Tab>
                     <Tab eventKey="libraries" title="Libraries">
