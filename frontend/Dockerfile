@@ -1,7 +1,7 @@
 # Stage 0, "build-stage", based on Node.js, to build and compile the frontend
 FROM node:16 as build-stage
 COPY ./ ./
-RUN npm install --omit=optional && npm cache clean --force
+RUN npm install && npm cache clean --force
 RUN npm run build
 
 
