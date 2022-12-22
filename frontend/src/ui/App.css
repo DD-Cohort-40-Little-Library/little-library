@@ -30,7 +30,7 @@ body{
 
 #profileRegForm {
     background-color: #76999D;
-    border: light;
+    /*border: light;*/
     padding: 15px;
 }
 
@@ -42,6 +42,11 @@ body{
 
 #navFootBgColor {
     background-color: #835A4E;
+}
+
+#navText{
+    color: #CDCDC1;
+    font-size: 1.75rem;
 }
 
 
@@ -66,9 +71,15 @@ body{
 }
 
 #LLLLabel {
-    height: 7vh;
+    height: 4rem;
     width: 100%;
 }
+
+#LLLLabelBrown {
+    height: 4rem;
+    width: 100%;
+}
+
 #signUpIn {
     background-color: #93A5AB;
     text-align: center;

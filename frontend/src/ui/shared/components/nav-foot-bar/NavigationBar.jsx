@@ -15,6 +15,7 @@ import {Link} from "react-router-dom";
 
 
 
+
 // export function NavigationBar() {
 //     return (
 //         <Navbar id={"navFootBgColor"} className={"nav"}>
@@ -29,10 +30,12 @@ import {Link} from "react-router-dom";
 
 
 export function NavigationBar() {
+
+
     return (
         <>
             {[false].map((expand) => (
-                <Navbar key={expand} id={"navFootBgColor"} expand={expand} className="mb-3">
+                <Navbar key={expand} id={"navFootBgColor"} expand={expand} className="mb-4">
                     <Container fluid>
                         <Navbar.Brand a href="/"><img src={LLLLogo} id={"lLLLogoBase"} alt={'Little Library Locator Logo'}/></Navbar.Brand>
                         <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
@@ -47,10 +50,12 @@ export function NavigationBar() {
                                 </Offcanvas.Title>
                             </Offcanvas.Header>
                             <Offcanvas.Body id={"navFootBgColor"}>
-                                <Nav className="justify-content-end flex-grow-1 pe-3">
+                                <Nav id={"navText"} className="justify-content-end flex-grow-1 pe-3">
                                     <Nav.Link href="/">Home</Nav.Link>
+                                    <Nav.Link href="/profile-landing">Profile</Nav.Link>
+                                    <Nav.Link href="/event-create-page">Plan an Event</Nav.Link>
+                                    <Nav.Link href="/library-create">Add a Library</Nav.Link>
                                     <Nav.Link href="/about-us">About Us</Nav.Link>
-                                    <Nav.Link to='/about-us'><Button>About Us</Button></Nav.Link>
                                 </Nav>
                             </Offcanvas.Body>
                         </Navbar.Offcanvas>
