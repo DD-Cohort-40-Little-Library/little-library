@@ -25,7 +25,7 @@ export function Home() {
 
 	return (
 		<>
-				<Row>
+				<Row className={"mx-0"}>
 					<img src={LLLLabelBrown} alt={"logoBrow"} id={"LLLLabelBrown"} className={"llLogoBrown"}/>
 				</Row>
 
