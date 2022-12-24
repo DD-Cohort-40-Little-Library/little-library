@@ -134,8 +134,8 @@ function LibraryCreateFormContent (props){
 
                         <Form.Group className="mb=3" controlId="Library Specialization">
                             <LibrarySpecializationSelectType label={'(Optional) Choose a Specialization'} name="librarySpecialization" className={"mt-2"}>
-                                <option value={''}>Select an specialization type</option>
-                                <option value={'Animals/Pets'}>Animals/Pets</option>
+                                {/*<option value={'Little Library'}>Little Library</option>*/}
+                                <option value={'Animals or Pets'}>Animals/Pets</option>
                                 <option value={'Art'}>Art</option>
                                 <option value={'Automotive'}>Automotive</option>
                                 <option value={'Baby'}>Baby</option>
@@ -155,7 +155,7 @@ function LibraryCreateFormContent (props){
                                 <option value={'Self Improvement'}>Self Improvement</option>
                                 <option value={'Space'}>Space</option>
                                 <option value={'Sports'}>Sports</option>
-                                <option value={'Technical/Textbooks'}>Textbooks/Technical</option>
+                                <option value={'Technical or Textbooks'}>Textbooks/Technical</option>
                                 <option value={'Young Adult'}>Young Adult</option>
                             </LibrarySpecializationSelectType>
                         </Form.Group>

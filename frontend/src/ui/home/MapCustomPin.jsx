@@ -53,8 +53,7 @@ export function MapCustomPin(props) {
                 {librarySpecialization === 'Little Library' && <Image src={little}
                                                 height={SIZE}
                                                 viewBox="0 0 24 24"
-                                                 style={{
-                                                transform: `translate(${-SIZE / 4}px,${-SIZE}px`}} />
+                                                 style={{transform: `translate(${-SIZE / 4}px,${-SIZE}px`}}/>
                 }
 
                 {librarySpecialization === 'Public Library' && <Image src={publicLibrary}
@@ -102,7 +101,7 @@ export function MapCustomPin(props) {
                                                    viewBox="0 0 24 24"
                                                    style={{transform: `translate(${-SIZE / 4}px,${-SIZE}px`}}/>
                 }
-                {librarySpecialization === 'Technical/Textbooks' && <Image src={textTechnical}
+                {librarySpecialization === 'Technical or Textbooks' && <Image src={textTechnical}
                                                    height={SIZE}
                                                    viewBox="0 0 24 24"
                                                    style={{transform: `translate(${-SIZE / 4}px,${-SIZE}px`}}/>
@@ -132,7 +131,7 @@ export function MapCustomPin(props) {
                                                    viewBox="0 0 24 24"
                                                    style={{transform: `translate(${-SIZE / 4}px,${-SIZE}px`}}/>
                 }
-                {librarySpecialization === 'Animals/Pets' && <Image src={pets}
+                {librarySpecialization === 'Animals or Pets' && <Image src={pets}
                                                    height={SIZE}
                                                    viewBox="0 0 24 24"
                                                    style={{transform: `translate(${-SIZE / 4}px,${-SIZE}px`}}/>
