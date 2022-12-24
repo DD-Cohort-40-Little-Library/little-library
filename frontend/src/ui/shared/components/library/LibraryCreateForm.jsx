@@ -155,7 +155,7 @@ function LibraryCreateFormContent (props){
                                 <option value={'Self Improvement'}>Self Improvement</option>
                                 <option value={'Space'}>Space</option>
                                 <option value={'Sports'}>Sports</option>
-                                <option value={'Textbooks/Technical'}>Textbooks/Technical</option>
+                                <option value={'Technical/Textbooks'}>Textbooks/Technical</option>
                                 <option value={'Young Adult'}>Young Adult</option>
                             </LibrarySpecializationSelectType>
                         </Form.Group>

@@ -102,7 +102,7 @@ export function MapCustomPin(props) {
                                                    viewBox="0 0 24 24"
                                                    style={{transform: `translate(${-SIZE / 4}px,${-SIZE}px`}}/>
                 }
-                {librarySpecialization === 'Textbooks/Technical' && <Image src={textTechnical}
+                {librarySpecialization === 'Technical/Textbooks' && <Image src={textTechnical}
                                                    height={SIZE}
                                                    viewBox="0 0 24 24"
                                                    style={{transform: `translate(${-SIZE / 4}px,${-SIZE}px`}}/>
