@@ -144,13 +144,19 @@ function LibraryCreateFormContent (props){
                                 <option value={'romance'}>Romance</option>
                                 <option value={'textbooks-technical'}>Textbooks/Technical</option>
                                 <option value={'religious'}>Religious</option>
-                                <option value={'non-fiction'}>Non-Fiction</option>
                                 <option value={'history'}>History</option>
                                 <option value={'art'}>Art</option>
                                 <option value={'cooking'}>Cooking</option>
                                 <option value={'satire'}>Satire</option>
                                 <option value={'pets-animals'}>Pets/Animals</option>
                                 <option value={'automotive'}>Automotive</option>
+                                <option value={'horror'}>Horror</option>
+                                <option value={'nature'}>Nature</option>
+                                <option value={'fitness'}>Fitness</option>
+                                <option value={'baby'}>Baby</option>
+                                <option value={'sports'}>Sports</option>
+                                <option value={'finance'}>Finance</option>
+                                <option value={'space'}>Space</option>
                             </LibrarySpecializationSelectType>
                         </Form.Group>
                     </Col>

@@ -12,13 +12,19 @@ import youngAdult from "../../assets/icons-svg/vampire-pin.svg"
 import fantasy from "../../assets/icons-svg/unicorn-pin.svg"
 import textTechnical from "../../assets/icons-svg/tech-pin.svg"
 import religious from "../../assets/icons-svg/bible-pin.svg"
-import nonFiction from "../../assets/icons-svg/castle-pin.svg"
 import history from "../../assets/icons-svg/knight-pin.svg"
 import art from "../../assets/icons-svg/art-pin.svg"
 import cooking from "../../assets/icons-svg/pie-pin.svg"
 import satire from "../../assets/icons-svg/drama-pin.svg"
 import pets from "../../assets/icons-svg/animal-pin.svg"
 import auto from "../../assets/icons-svg/jeep-pin.svg"
+import horror from "../../assets/icons-svg/ghost-face-pin.svg"
+import nature from "../../assets/icons-svg/leaf-pin.svg"
+import fitness from "../../assets/icons-svg/fitness-pin.svg"
+import baby from "../../assets/icons-svg/baby-pin.svg"
+import finance from "../../assets/icons-svg/money-pin.svg"
+import sports from "../../assets/icons-svg/baseball-pin.svg"
+import space from "../../assets/icons-svg/rocket-pin.svg"
 import {Link} from "react-router-dom";
 
 
@@ -44,103 +50,134 @@ export function MapCustomPin(props) {
                 setShowPopup(!showPopup)
                 e.originalEvent.stopPropagation()
             }}>
-                {librarySpecialization === 'null' && <Image src={little}
+                {librarySpecialization === 'general' && <Image src={little}
                                                 height={SIZE}
                                                 viewBox="0 0 24 24"
                                                 style={{
                                                 transform: `translate(${-SIZE / 4}px,${-SIZE}px`}} />
                 }
 
-                {librarySpecialization === 'Public' && <Image src={publicLibrary}
+                {librarySpecialization === 'public' && <Image src={publicLibrary}
                                                 height={SIZE}
                                                 viewBox="0 0 24 24"
                                                 style={{transform: `translate(${-SIZE / 4}px,${-SIZE}px`}}/>
                 }
 
-                {librarySpecialization === 'Romance' && <Image src={romance}
+                {librarySpecialization === 'romance' && <Image src={romance}
                                                  height={SIZE}
                                                  viewBox="0 0 24 24"
                                                  style={{transform: `translate(${-SIZE / 4}px,${-SIZE}px`}}/>
                 }
 
-                {librarySpecialization === 'Children' && <Image src={children}
+                {librarySpecialization === 'children' && <Image src={children}
                                                  height={SIZE}
                                                  viewBox="0 0 24 24"
                                                  style={{transform: `translate(${-SIZE / 4}px,${-SIZE}px`}}/>
                 }
 
-                {librarySpecialization === 'Home Improvement' && <Image src={homeImprovement}
+                {librarySpecialization === 'home-improvement' && <Image src={homeImprovement}
                                                   height={SIZE}
                                                   viewBox="0 0 24 24"
                                                   style={{transform: `translate(${-SIZE / 4}px,${-SIZE}px`}}/>
                 }
 
-                {librarySpecialization === 'Fiction' && <Image src={fiction}
+                {librarySpecialization === 'fiction' && <Image src={fiction}
                                                    height={SIZE}
                                                    viewBox="0 0 24 24"
                                                    style={{transform: `translate(${-SIZE / 4}px,${-SIZE}px`}}/>
                 }
 
-                {librarySpecialization === 'Self Improvement' && <Image src={selfImprovement}
-                                                               height={SIZE}
-                                                               viewBox="0 0 24 24"
-                                                               style={{transform: `translate(${-SIZE / 4}px,${-SIZE}px`}}/>
+                {librarySpecialization === 'self-improvement' && <Image src={selfImprovement}
+                                                   height={SIZE}
+                                                   viewBox="0 0 24 24"
+                                                   style={{transform: `translate(${-SIZE / 4}px,${-SIZE}px`}}/>
                 }
-                {librarySpecialization === 'Young Adult' && <Image src={youngAdult}
-                                                                        height={SIZE}
-                                                                        viewBox="0 0 24 24"
-                                                                        style={{transform: `translate(${-SIZE / 4}px,${-SIZE}px`}}/>
+                {librarySpecialization === 'young-adult' && <Image src={youngAdult}
+                                                   height={SIZE}
+                                                   viewBox="0 0 24 24"
+                                                   style={{transform: `translate(${-SIZE / 4}px,${-SIZE}px`}}/>
                 }
-                {librarySpecialization === 'Fantasy' && <Image src={fantasy}
-                                                                   height={SIZE}
-                                                                   viewBox="0 0 24 24"
-                                                                   style={{transform: `translate(${-SIZE / 4}px,${-SIZE}px`}}/>
+                {librarySpecialization === 'fantasy' && <Image src={fantasy}
+                                                   height={SIZE}
+                                                   viewBox="0 0 24 24"
+                                                   style={{transform: `translate(${-SIZE / 4}px,${-SIZE}px`}}/>
                 }
-                {librarySpecialization === 'Textbooks/Technical' && <Image src={textTechnical}
-                                                                   height={SIZE}
-                                                                   viewBox="0 0 24 24"
-                                                                   style={{transform: `translate(${-SIZE / 4}px,${-SIZE}px`}}/>
+                {librarySpecialization === 'textbooks-technical' && <Image src={textTechnical}
+                                                   height={SIZE}
+                                                   viewBox="0 0 24 24"
+                                                   style={{transform: `translate(${-SIZE / 4}px,${-SIZE}px`}}/>
                 }
-                {librarySpecialization === 'Religious' && <Image src={religious}
-                                                                           height={SIZE}
-                                                                           viewBox="0 0 24 24"
-                                                                           style={{transform: `translate(${-SIZE / 4}px,${-SIZE}px`}}/>
+                {librarySpecialization === 'religious' && <Image src={religious}
+                                                   height={SIZE}
+                                                   viewBox="0 0 24 24"
+                                                   style={{transform: `translate(${-SIZE / 4}px,${-SIZE}px`}}/>
                 }
-                {librarySpecialization === 'Non-Fiction' && <Image src={nonFiction}
-                                                                           height={SIZE}
-                                                                           viewBox="0 0 24 24"
-                                                                           style={{transform: `translate(${-SIZE / 4}px,${-SIZE}px`}}/>
+                {librarySpecialization === 'history' && <Image src={history}
+                                                   height={SIZE}
+                                                   viewBox="0 0 24 24"
+                                                   style={{transform: `translate(${-SIZE / 4}px,${-SIZE}px`}}/>
                 }
-                {librarySpecialization === 'History' && <Image src={history}
-                                                                           height={SIZE}
-                                                                           viewBox="0 0 24 24"
-                                                                           style={{transform: `translate(${-SIZE / 4}px,${-SIZE}px`}}/>
+                {librarySpecialization === 'art' && <Image src={art}
+                                                   height={SIZE}
+                                                   viewBox="0 0 24 24"
+                                                   style={{transform: `translate(${-SIZE / 4}px,${-SIZE}px`}}/>
                 }
-                {librarySpecialization === 'Art' && <Image src={art}
-                                                                           height={SIZE}
-                                                                           viewBox="0 0 24 24"
-                                                                           style={{transform: `translate(${-SIZE / 4}px,${-SIZE}px`}}/>
+                {librarySpecialization === 'cooking' && <Image src={cooking}
+                                                   height={SIZE}
+                                                   viewBox="0 0 24 24"
+                                                   style={{transform: `translate(${-SIZE / 4}px,${-SIZE}px`}}/>
                 }
-                {librarySpecialization === 'Cooking' && <Image src={cooking}
-                                                                           height={SIZE}
-                                                                           viewBox="0 0 24 24"
-                                                                           style={{transform: `translate(${-SIZE / 4}px,${-SIZE}px`}}/>
+                {librarySpecialization === 'satire' && <Image src={satire}
+                                                   height={SIZE}
+                                                   viewBox="0 0 24 24"
+                                                   style={{transform: `translate(${-SIZE / 4}px,${-SIZE}px`}}/>
                 }
-                {librarySpecialization === 'Satire' && <Image src={satire}
-                                                                           height={SIZE}
-                                                                           viewBox="0 0 24 24"
-                                                                           style={{transform: `translate(${-SIZE / 4}px,${-SIZE}px`}}/>
+                {librarySpecialization === 'pets-animals' && <Image src={pets}
+                                                   height={SIZE}
+                                                   viewBox="0 0 24 24"
+                                                   style={{transform: `translate(${-SIZE / 4}px,${-SIZE}px`}}/>
                 }
-                {librarySpecialization === 'Pets/Animal' && <Image src={pets}
-                                                                           height={SIZE}
-                                                                           viewBox="0 0 24 24"
-                                                                           style={{transform: `translate(${-SIZE / 4}px,${-SIZE}px`}}/>
+                {librarySpecialization === 'automotive' && <Image src={auto}
+                                                   height={SIZE}
+                                                   viewBox="0 0 24 24"
+                                                   style={{transform: `translate(${-SIZE / 4}px,${-SIZE}px`}}/>
                 }
-                {librarySpecialization === 'Automotive' && <Image src={auto}
-                                                                           height={SIZE}
-                                                                           viewBox="0 0 24 24"
-                                                                           style={{transform: `translate(${-SIZE / 4}px,${-SIZE}px`}}/>
+                {librarySpecialization === 'horror' && <Image src={horror}
+                                                  height={SIZE}
+                                                  viewBox="0 0 24 24"
+                                                  style={{transform: `translate(${-SIZE / 4}px,${-SIZE}px`}}/>
                 }
+                {librarySpecialization === 'nature' && <Image src={nature}
+                                                  height={SIZE}
+                                                  viewBox="0 0 24 24"
+                                                  style={{transform: `translate(${-SIZE / 4}px,${-SIZE}px`}}/>
+                }
+                {librarySpecialization === 'fitness' && <Image src={fitness}
+                                                  height={SIZE}
+                                                  viewBox="0 0 24 24"
+                                                  style={{transform: `translate(${-SIZE / 4}px,${-SIZE}px`}}/>
+                }
+                {librarySpecialization === 'baby' && <Image src={baby}
+                                                   height={SIZE}
+                                                   viewBox="0 0 24 24"
+                                                   style={{transform: `translate(${-SIZE / 4}px,${-SIZE}px`}}/>
+                }
+                {librarySpecialization === 'sports' && <Image src={sports}
+                                                   height={SIZE}
+                                                   viewBox="0 0 24 24"
+                                                   style={{transform: `translate(${-SIZE / 4}px,${-SIZE}px`}}/>
+                }
+                {librarySpecialization === 'finance' && <Image src={finance}
+                                                   height={SIZE}
+                                                   viewBox="0 0 24 24"
+                                                   style={{transform: `translate(${-SIZE / 4}px,${-SIZE}px`}}/>
+                }
+                {librarySpecialization === 'space' && <Image src={space}
+                                                   height={SIZE}
+                                                   viewBox="0 0 24 24"
+                                                   style={{transform: `translate(${-SIZE / 4}px,${-SIZE}px`}}/>
+                }
+
             </Marker>
 
             {showPopup && (
