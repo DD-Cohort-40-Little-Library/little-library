@@ -137,9 +137,9 @@ export function MapCustomPin(props) {
                                                                            style={{transform: `translate(${-SIZE / 4}px,${-SIZE}px`}}/>
                 }
                 {librarySpecialization === 'Automotive' && <Image src={auto}
-                                                                           height={SIZE}
-                                                                           viewBox="0 0 24 24"
-                                                                           style={{transform: `translate(${-SIZE / 4}px,${-SIZE}px`}}/>
+                                                           height={SIZE}
+                                                           viewBox="0 0 24 24"
+                                                           style={{transform: `translate(${-SIZE / 4}px,${-SIZE}px`}}/>
                 }
             </Marker>
 
