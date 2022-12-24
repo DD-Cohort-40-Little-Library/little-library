@@ -135,28 +135,28 @@ function LibraryCreateFormContent (props){
                         <Form.Group className="mb=3" controlId="Library Specialization">
                             <LibrarySpecializationSelectType label={'(Optional) Choose a Specialization'} name="librarySpecialization" className={"mt-2"}>
                                 <option value={''}>Select an specialization type</option>
-                                <option value={'children'}>Children's</option>
-                                <option value={'self-improvement'}>Self Improvement</option>
-                                <option value={'young-adult'}>Young Adult</option>
-                                <option value={'fantasy'}>Fantasy</option>
-                                <option value={'home-improvement'}>Home Improvement</option>
-                                <option value={'science-fiction'}>Science Fiction</option>
-                                <option value={'romance'}>Romance</option>
-                                <option value={'textbooks-technical'}>Textbooks/Technical</option>
-                                <option value={'religious'}>Religious</option>
-                                <option value={'history'}>History</option>
-                                <option value={'art'}>Art</option>
-                                <option value={'cooking'}>Cooking</option>
-                                <option value={'satire'}>Satire</option>
-                                <option value={'pets-animals'}>Pets/Animals</option>
-                                <option value={'automotive'}>Automotive</option>
-                                <option value={'horror'}>Horror</option>
-                                <option value={'nature'}>Nature</option>
-                                <option value={'fitness'}>Fitness</option>
-                                <option value={'baby'}>Baby</option>
-                                <option value={'sports'}>Sports</option>
-                                <option value={'finance'}>Finance</option>
-                                <option value={'space'}>Space</option>
+                                <option value={'Animals/Pets'}>Animals/Pets</option>
+                                <option value={'Art'}>Art</option>
+                                <option value={'Automotive'}>Automotive</option>
+                                <option value={'Baby'}>Baby</option>
+                                <option value={'Children'}>Children's</option>
+                                <option value={'Cooking'}>Cooking</option>
+                                <option value={'Fantasy'}>Fantasy</option>
+                                <option value={'Finance'}>Finance</option>
+                                <option value={'Fitness'}>Fitness</option>
+                                <option value={'History'}>History</option>
+                                <option value={'Home Improvement'}>Home Improvement</option>
+                                <option value={'Horror'}>Horror</option>
+                                <option value={'Nature'}>Nature</option>
+                                <option value={'Religious'}>Religious</option>
+                                <option value={'Romance'}>Romance</option>
+                                <option value={'Satire'}>Satire</option>
+                                <option value={'Science Fiction'}>Science Fiction</option>
+                                <option value={'Self Improvement'}>Self Improvement</option>
+                                <option value={'Space'}>Space</option>
+                                <option value={'Sports'}>Sports</option>
+                                <option value={'Textbooks/Technical'}>Textbooks/Technical</option>
+                                <option value={'Young Adult'}>Young Adult</option>
                             </LibrarySpecializationSelectType>
                         </Form.Group>
                     </Col>
