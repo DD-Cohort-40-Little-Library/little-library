@@ -134,12 +134,12 @@ function LibraryCreateFormContent (props){
 
                         <Form.Group className="mb=3" controlId="Library Specialization">
                             <LibrarySpecializationSelectType label={'(Optional) Choose a Specialization'} name="librarySpecialization" className={"mt-2"}>
-                                <option value={''}>Select an specialization type</option>
+                                <option value={'Little Library'}>General</option>
                                 <option value={'children'}>Children's</option>
                                 <option value={'self-improvement'}>Self Improvement</option>
                                 <option value={'young-adult'}>Young Adult</option>
                                 <option value={'fantasy'}>Fantasy</option>
-                                <option value={'home-improvement'}>Home Improvement</option>
+                                <option value={'Home Improvement'}>Home Improvement</option>
                                 <option value={'science-fiction'}>Science Fiction</option>
                                 <option value={'romance'}>Romance</option>
                                 <option value={'textbooks-technical'}>Textbooks/Technical</option>

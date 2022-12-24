@@ -44,14 +44,14 @@ export function MapCustomPin(props) {
                 setShowPopup(!showPopup)
                 e.originalEvent.stopPropagation()
             }}>
-                {librarySpecialization === 'null' && <Image src={little}
+                {librarySpecialization === 'Little Library' && <Image src={little}
                                                 height={SIZE}
                                                 viewBox="0 0 24 24"
                                                 style={{
                                                 transform: `translate(${-SIZE / 4}px,${-SIZE}px`}} />
                 }
 
-                {librarySpecialization === 'Public' && <Image src={publicLibrary}
+                {librarySpecialization === 'Public Library' && <Image src={publicLibrary}
                                                 height={SIZE}
                                                 viewBox="0 0 24 24"
                                                 style={{transform: `translate(${-SIZE / 4}px,${-SIZE}px`}}/>
@@ -150,7 +150,7 @@ export function MapCustomPin(props) {
                         <Link to={`/library-landing/${libraryId}`}><h2>{libraryName}</h2></Link>
                         <p>{libraryAddress}</p>
                         <p>{librarySpecialization}</p>
-                        <p>{libraryType}</p>
+                        {/*<p>{libraryType}</p>*/}
                     </div>
                 </Popup>
             )}
