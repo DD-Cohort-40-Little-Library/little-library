@@ -16,6 +16,7 @@ import {Provider} from "react-redux";
 import {ProfileLanding} from "./profile-landing/ProfileLanding.jsx";
 import {EventCreatePage} from "./shared/components/EventCreatePage.jsx";
 import {ProfileUpdateModal} from "./profile-landing/ProfileUpdateModal.jsx";
+import {SignInSignUpModal} from "./shared/components/main-nav/sign-in/SignInSignUpModal";
 
 export function App({store}) {
 	return (
@@ -34,6 +35,7 @@ export function App({store}) {
 					<Route path={'/library-update'} element={<LibraryUpdate/>} />
 					<Route path={'/profile-landing'} element={<ProfileLanding/>} />
 					<Route path={'/profile-update'} element={<ProfileUpdateModal/>} />
+					<Route path={'/signInSignUp-modal'} element={<SignInSignUpModal/>} />
 				</Routes>
 				<Footer/>
 			</BrowserRouter>
