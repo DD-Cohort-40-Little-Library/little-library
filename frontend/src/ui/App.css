@@ -70,6 +70,12 @@ body{
 
 }
 
+#pleaseSignIn {
+    /*height: 50vh;*/
+    width: 100%;
+
+}
+
 #LLLLabel {
     height: 4rem;
     width: 100%;
