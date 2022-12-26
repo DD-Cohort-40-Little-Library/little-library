@@ -14,6 +14,7 @@ import {EventDetailBlock} from "./EventDetailBlock";
 import {fetchEventsByProfileId} from "../../store/events.js";
 import {fetchCheckInsByProfileId} from "../../store/checkIn.js";
 import {CheckInDetailBlockProfile} from "./CheckInDetailBlockProfile.jsx";
+import plsSignIn from "../../../images/plsSignIn.svg";
 
 export function ProfileLanding() {
 
@@ -35,9 +36,9 @@ export function ProfileLanding() {
 
     // //TODO: REMOVE 'const profile = null' to the end  from line below after pulling currentUser w/ useSelector=profile
     if (user === null) {
-        return <h1>
-                    Page is loading or you have not signed in yet.
-               </h1>
+        return <div>
+                    <Image src={plsSignIn} alt={"pleaseSignIn"} id={"pleaseSignIn"}/>
+               </div>
     }
     const {profileFirstName, profileLastName, profileEmail, profileName, profileAvatarUrl, profileId} = user
     const libraryProfileId = auth.profileId
