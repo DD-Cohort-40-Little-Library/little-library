@@ -9,6 +9,7 @@ export const libraryValidator: Schema = {
         trim: true,
         escape: true
     },
+
     libraryDescription: {
         isLength: {
             errorMessage: 'A libraryDescription must be less than 256.',
@@ -17,11 +18,25 @@ export const libraryValidator: Schema = {
         trim: true,
         escape: true
     },
+
     libraryEventOptIn: {
         isBoolean: {
             errorMessage: 'Please submit either true or false.',
         },
     },
+
+    LibraryImageUrl: {
+        optional: {
+            options: {
+                nullable: true
+            }
+        },
+        isURL: {
+            errorMessage: 'Library image is malformed please upload a new image'
+        }
+    },
+
+
     libraryName: {
         isLength: {
             errorMessage: 'A libraryName must be between 1 and 128 characters.',
@@ -30,6 +45,7 @@ export const libraryValidator: Schema = {
         trim: true,
         escape: true
     },
+
     librarySpecialization: {
         isLength: {
             errorMessage: 'A librarySpecialization must be less than 64 characters.',

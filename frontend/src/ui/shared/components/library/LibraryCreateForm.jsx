@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {Formik, useField} from "formik";
 import * as Yup from "yup";
 import {httpConfig} from "../../utils/http-config.js";
@@ -39,15 +39,19 @@ export const LibraryCreateForm = () => {
         libraryAddress: "",
         libraryDescription: "",
         libraryEventOptIn: false,
+        libraryImageURL: "",
         libraryName: "",
         librarySpecialization: "",
         libraryType: "Little Library"
 }
+
+
     const validator = Yup.object().shape({
         libraryAddress: Yup.string()
             .required('Address is required'),
         libraryDescription: Yup.string(),
         libraryEventOptIn: Yup.boolean(),
+        libraryImageURL: Yup.mixed(),
         libraryName: Yup.string()
             .required('Name is required'),
         librarySpecialization: Yup.string(),
@@ -76,7 +80,9 @@ export const LibraryCreateForm = () => {
 }
 
 function LibraryCreateFormContent (props){
+    const [selectedImage, setSelectedImage] = useState(null)
     const {
+        setFieldValue,
         status,
         values,
         errors,
@@ -95,7 +101,9 @@ function LibraryCreateFormContent (props){
             </div>
             <Card id={"libraryRegisterCard"}>
             <Form onSubmit={handleSubmit}>
+
                 <Row>
+
                     <Col md={6} className={"m-2 text-center"}>
                             <Form.Group controlId={'libraryAddress'}>
                             <Form.Label>Library Address</Form.Label>
@@ -162,7 +170,14 @@ function LibraryCreateFormContent (props){
                     </Col>
 
                     <Col md={5} className={"m-2 text-center"}>
-
+                        <ImageDropZone
+                            formikProps={{
+                                values, handleChange, handleBlur, setFieldValue, fieldValue:'libraryImageUrl', setSelectedImage: setSelectedImage
+                            }}
+                        />
+                        <div>
+                            {selectedImage !== null ? <img className={"w-50"} src={selectedImage}/> : ""}
+                        </div>
                         <Form.Group controlId={'libraryDescription'}>
                             <Form.Label>Library Description</Form.Label>
                             <InputGroup>
@@ -195,5 +210,52 @@ function LibraryCreateFormContent (props){
             </Card>
             <DisplayStatus status={status} />
         </>
+    )
+}
+
+function ImageDropZone ({formikProps}) {
+    const onDrop = React.useCallback(acceptedFiles => {
+        const formData = new FormData()
+        formData.append('image', acceptedFiles[0])
+
+        const fileReader = new FileReader()
+        fileReader.readAsDataURL(acceptedFiles[0])
+        fileReader.addEventListener("load", () => {
+            formikProps.setSelectedImage(fileReader.result)
+        })
+
+        formikProps.setFieldValue(formikProps.fieldValue, formData)
+
+    }, [formikProps])
+    const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
+
+    return (
+        <Form.Group {...getRootProps()}>
+            <Form.Label>Change Avatar</Form.Label>
+            <InputGroup size={"lg"} className={"border border-dark justify-content-center"}>
+                {formikProps.values.libraryImageURL &&
+                    <>
+                        <div className={"bg-transparent"}>
+                            {/*<Image fluid={true} height={200} thumbnail={true} width={200} alt={"profile avatar"} src={formikProps.values.profileAvatarUrl} />*/}
+                        </div>
+                    </>
+                }
+                <div className={"d-flex flex-fill bg-light justify-content-center align-content-center border-dark border"}>
+                    <FormControl
+                        aria-label={"Library Image file drag and drop zone"}
+                        aria-describedby={"image drag and drop area"}
+                        className={"form-control-file"}
+                        accept={"image/*"}
+                        onChange={formikProps.handleChange}
+                        onBlur={formikProps.handleBlur}
+                        {...getInputProps()}
+                    />
+                    {
+                        isDragActive ?
+                            <span className={"align-content-center"}>Drop image here</span> :
+                            <span className={"align-content-center"}>Drag and drop image here, or click here to select an image</span> }
+                </div>
+            </InputGroup>
+        </Form.Group>
     )
 }
