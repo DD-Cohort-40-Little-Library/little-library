@@ -1,13 +1,26 @@
-// ***DO NOT USE. FOR INFORMATIONAL GUIDE ONLY***
+// ***DO NOT USE. FOR INFORMATIONAL GUIDE ONLY TO BE USED WITH FORMIK***
 
 
 import {Form, FormControl, Image, InputGroup} from "react-bootstrap";
 import React, {useState} from "react";
 import {useDropzone} from "react-dropzone";
-
+import {Formik} from "formik";
 
 export const LibraryImageComponent = (props) => {
     const [selectedImage, setSelectedImage] = useState(null)
+    const {
+        setFieldValue,
+            status,
+            values,
+            errors,
+            touched,
+            dirty,
+            isSubmitting,
+            handleChange,
+            handleBlur,
+            handleSubmit,
+            handleReset
+    } = props
 
     return(
                     <>
@@ -70,4 +83,5 @@ function ImageDropZone ({formikProps}) {
             </InputGroup>
         </Form.Group>
     )
+}
 }
