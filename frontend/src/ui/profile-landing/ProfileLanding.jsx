@@ -15,6 +15,7 @@ import {fetchEventsByProfileId} from "../../store/events.js";
 import {fetchCheckInsByProfileId} from "../../store/checkIn.js";
 import {CheckInDetailBlockProfile} from "./CheckInDetailBlockProfile.jsx";
 import plsSignIn from "../../../images/plsSignIn.svg";
+import {library} from "@fortawesome/fontawesome-svg-core";
 
 export function ProfileLanding() {
 
@@ -45,7 +46,7 @@ export function ProfileLanding() {
 
     const {libraryName,libraryAddress, libraryDescription, librarySpecialization, libraryEventOptIn, libraryType} = libraries
     const {eventDate, eventDescription, eventName} = events
-    const {checkInComment, checkInPhotoUrl} = checkins
+    const {checkInComment,checkInDate, checkInPhotoUrl} = checkins
 
     return (
         <>
@@ -87,7 +88,7 @@ export function ProfileLanding() {
                     </Col>
                 </Row>
             </Container>
-            <div>
+            <div className={"p-5"}>
                 <Tabs
                     defaultActiveKey="profile"
                     id="library-details-tabs"
@@ -105,7 +106,7 @@ export function ProfileLanding() {
                     <Tab eventKey="check-ins" title="Check-Ins">
                         <Container>
                             <Row>
-                                {checkins.map (checkin => <CheckInDetailBlockProfile checkin={checkin}/>)}
+                                {checkins.map (checkin => <CheckInDetailBlockProfile checkin={checkin} library={library} user={user} />)}
                             </Row>
                         </Container>
                     </Tab>

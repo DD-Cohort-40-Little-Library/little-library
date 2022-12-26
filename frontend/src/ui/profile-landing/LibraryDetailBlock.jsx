@@ -1,4 +1,4 @@
-import {Container, Row} from "react-bootstrap";
+import {Col, Container, Row} from "react-bootstrap";
 import React from "react";
 
 export const LibraryDetailBlock = (props) => {
@@ -8,11 +8,17 @@ export const LibraryDetailBlock = (props) => {
     return(
         <>
             <Container className={"border border-dark rounded"}>
-                    <Row xs={5}>Name: {library.libraryName}</Row>
-                    <Row xs={7}>Address: {library.libraryAddress}</Row>
-                    <Row xs={5}> Specialization: {library.librarySpecialization}</Row>
-                    <Row xs={5}>Description: {library.libraryDescription}</Row>
-                    <Row xs={5}>Type of Library: {library.libraryType}</Row>
+                <Col>
+                </Col>
+                <Col>
+                    <Row xs={8}>Name: {library.libraryName}</Row>
+                    <Row xs={8}>Address: {library.libraryAddress}</Row>
+                    <Row xs={8}> Specialization: {library.librarySpecialization}</Row>
+                    <Row xs={8}>Description: {library.libraryDescription}</Row>
+                    <Row xs={8}>Type of Library: {library.libraryType}</Row>
+                </Col>
+                <Col>
+                </Col>
             </Container>
         </>
     )
