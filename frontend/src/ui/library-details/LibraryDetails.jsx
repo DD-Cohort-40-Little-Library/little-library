@@ -29,7 +29,7 @@ export function LibraryDetails() {
             <Card.Header>{library.libraryAddress}, {library.libraryType} </Card.Header>
             <Card.Body>
                 {/*Make backend library image connection, code freeze*/}
-                {/*<Image src={'https://placekitten.com/g/200/200'} roundedCircle={true}/>*/}
+                <Image src={'https://placekitten.com/g/200/200'} roundedCircle={true}/>
                 <Card.Title><h3>{library.libraryName}</h3></Card.Title>
                     <h5>{specialization}</h5>
                 <Card.Text>{library.libraryDescription}</Card.Text>

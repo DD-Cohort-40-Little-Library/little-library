@@ -3,7 +3,7 @@ import React from "react";
 
 export const CheckInDetailBlockLibrary = (props) => {
 
-    const {checkin, library} = props
+    const {checkin, profile, library} = props
 
     return(
         <>

@@ -105,7 +105,8 @@ export function ProfileLanding() {
                     <Tab eventKey="check-ins" title="Check-Ins">
                         <Container>
                             <Row>
-                                {checkins.map (checkin => <CheckInDetailBlockProfile checkin={checkin}/>)}                            </Row>
+                                {checkins.map (checkin => <CheckInDetailBlockProfile checkin={checkin}/>)}
+                            </Row>
                         </Container>
                     </Tab>
                     <Tab eventKey="libraries" title="Libraries">
