@@ -1,7 +1,7 @@
-import React from "react";
+import React, {useState} from "react";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import {Col, Container, InputGroup, Row} from "react-bootstrap";
+import {Col, Container, FormControl, InputGroup, Row} from "react-bootstrap";
 import * as Yup from 'yup'
 import {DisplayStatus} from "../shared/components/display-status/DisplayStatus.jsx";
 import {useDispatch, useSelector} from "react-redux";
@@ -10,6 +10,8 @@ import {Formik} from "formik";
 import {DisplayError} from "../shared/components/display-error/DisplayError.jsx";
 import {useParams} from "react-router-dom";
 import {fetchAuth} from "../../store/auth.js";
+import {FormDebugger} from "../shared/components/FormDebugger.jsx";
+import {useDropzone} from "react-dropzone";
 
 
 export function CheckInForm() {
@@ -20,6 +22,8 @@ export function CheckInForm() {
         checkInComment: Yup.string(),
         checkInDate: Yup.string(),
         checkInFollowLibrary: Yup.boolean(),
+        // checkInPhotoName: Yup.string(),
+        checkInPhotoUrl: Yup.mixed(),
         checkInReport: Yup.boolean()
     })
 
@@ -28,6 +32,7 @@ export function CheckInForm() {
     const initialEffects = () => {
         dispatch(fetchAuth())
     }
+
     React.useEffect(initialEffects, [dispatch])
 
     if (auth === null) {
@@ -43,6 +48,8 @@ export function CheckInForm() {
         checkInComment: "",
         checkInDate: new Date(),
         checkInFollowLibrary: false,
+        // checkInPhotoName: "",
+        checkInPhotoUrl: "",
         checkInReport: false
     }
 
@@ -71,6 +78,7 @@ export function CheckInForm() {
 
 function CheckInFormContent(props) {
     const {
+        setFieldValue,
         status,
         values,
         errors,
@@ -83,12 +91,13 @@ function CheckInFormContent(props) {
         handleReset
     } = props
 
+    const [selectedImage, setSelectedImage] = useState(null)
 
     return (
 
         <>
             <Container style={{paddingBlock: '1rem', backgroundColor: 'lightgrey'}}>
-                <Form onSubmit={handleSubmit}>
+                <Form onSubmit={handleSubmit} className={"text-center"}>
                         <Form.Group controlId="checkInComment">
                             <InputGroup>
                                 <Form.Control
@@ -106,6 +115,16 @@ function CheckInFormContent(props) {
                             </InputGroup>
                             <DisplayError errors={errors} touched={touched} field={"checkinComment"} />
                         </Form.Group>
+
+                    <ImageDropZone
+                        formikProps={{
+                            values, handleChange, handleBlur, setFieldValue, fieldValue:'checkInPhotoUrl', setSelectedImage: setSelectedImage
+                        }}
+                    />
+                    <div>
+                        {selectedImage !== null ? <img className={"w-50"} src={selectedImage}/> : ""}
+                    </div>
+
                     <Form.Group className={"mt-3"}>
                         <Button className={"btn btn-primary"} onClick={handleSubmit}>Submit</Button>
                         {" "}
@@ -120,5 +139,54 @@ function CheckInFormContent(props) {
             </Container>
             <DisplayStatus status={status}/>
         </>
+    )
+}
+
+
+function ImageDropZone ({formikProps}) {
+    const onDrop = React.useCallback(acceptedFiles => {
+        const formData = new FormData()
+        formData.append('image', acceptedFiles[0])
+
+        const fileReader = new FileReader()
+        fileReader.readAsDataURL(acceptedFiles[0])
+        fileReader.addEventListener("load", () => {
+            formikProps.setSelectedImage(fileReader.result)
+        })
+
+        console.log(formikProps.values.checkInPhotoUrl)
+        formikProps.setFieldValue(formikProps.fieldValue, formData)
+
+    }, [formikProps])
+    const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
+
+    return (
+        <Form.Group {...getRootProps()} className={"text-center fs-5"}>
+            <Form.Label>Why not add a photo of your latest trip?</Form.Label>
+            <InputGroup size={"lg"} className={"border border-dark justify-content-center"}>
+                {formikProps.values.checkInPhotoUrl &&
+                    <>
+                        <div className={"bg-transparent"}>
+                            {/*<Image fluid={true} height={200} thumbnail={true} width={200} alt={"checkin photo"} src={formikProps.values.checkInPhotoUrl} />*/}
+                        </div>
+                    </>
+                }
+                <div className={"d-flex flex-fill justify-content-center align-content-center bg-light border-dark border"}>
+                    <FormControl
+                        aria-label={"Profile avatar file drag and drop zone"}
+                        aria-describedby={"image drag and drop area"}
+                        className={"form-control-file"}
+                        accept={"image/*"}
+                        onChange={formikProps.handleChange}
+                        onBlur={formikProps.handleBlur}
+                        {...getInputProps()}
+                    />
+                    {
+                        isDragActive ?
+                            <span className={"align-content-center"}>Drop image here</span> :
+                            <span className={"align-content-center"}>Drag and drop image here, or click here to select an image</span> }
+                </div>
+            </InputGroup>
+        </Form.Group>
     )
 }
