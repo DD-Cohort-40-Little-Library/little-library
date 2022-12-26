@@ -5,6 +5,7 @@ import {httpConfig} from "../../utils/http-config.js";
 import {Button, Card, Col, Figure, Form, FormControl, FormSelect, InputGroup, Row} from "react-bootstrap";
 import {DisplayError} from "../display-error/DisplayError.jsx";
 import {DisplayStatus} from "../display-status/DisplayStatus.jsx";
+import {useDropzone} from "react-dropzone";
 
 const LibraryEventCheckbox = ({ children, ...props }) => {
     const [field, meta] = useField({ ...props, type: "checkbox" });
@@ -94,6 +95,7 @@ function LibraryCreateFormContent (props){
         handleSubmit,
         handleReset
     } = props
+
     return (
         <>
             <div className={"text-center"} id={"libraryCreateFormGlobal"}>
@@ -170,6 +172,7 @@ function LibraryCreateFormContent (props){
                     </Col>
 
                     <Col md={5} className={"m-2 text-center"}>
+
                         <ImageDropZone
                             formikProps={{
                                 values, handleChange, handleBlur, setFieldValue, fieldValue:'libraryImageUrl', setSelectedImage: setSelectedImage
@@ -178,6 +181,7 @@ function LibraryCreateFormContent (props){
                         <div>
                             {selectedImage !== null ? <img className={"w-50"} src={selectedImage}/> : ""}
                         </div>
+
                         <Form.Group controlId={'libraryDescription'}>
                             <Form.Label>Library Description</Form.Label>
                             <InputGroup>
@@ -224,6 +228,7 @@ function ImageDropZone ({formikProps}) {
             formikProps.setSelectedImage(fileReader.result)
         })
 
+        console.log(formikProps.values.libraryImageURL)
         formikProps.setFieldValue(formikProps.fieldValue, formData)
 
     }, [formikProps])
