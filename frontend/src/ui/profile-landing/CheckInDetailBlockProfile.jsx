@@ -22,14 +22,9 @@ export const CheckInDetailBlockProfile = (props) => {
                 <Row className={"text-center"}>
                     <Col xs={3} ><Image src={user.profileAvatarUrl} fluid={true} className={"rounded-circle"} alt={'Please select an avatar or upload a photo using the "Update Profile" button.'} ></Image></Col>
                     <Col>
-                        <p xs={6}>Check-In Date:</p>
-                        <p xs={6}>{(D.getMonth() + 1) + '/' + ((D.getDate() + 1) + '/' + (D.getFullYear()) )}</p>
-                        <p xs={6}>Check-In Time:</p>
-                        <p xs={6}>{finalTime}</p>
-                        <p xs={6}>Library Name:</p>
-                        <p xs={6}>{checkin.checkInLibraryId}</p>
-                        <p xs={6}>Library Address:</p>
-                        <p xs={6}>{checkin.checkInLibraryId}</p>
+                        <p xs={6}>Check-In Date/Time: {(D.getMonth() + 1) + '/' + ((D.getDate() + 1) + '/' + (D.getFullYear()) )} / {finalTime}</p>
+                        <p xs={6}>Library Name: {checkin.checkInLibraryId} ***********NEED TO CHANGE THIS TO IT'S LIBRARY NAME**********</p>
+                        <p xs={6}>Library Address: {checkin.checkInLibraryId} ***********NEED TO CHANGE THIS TO IT'S LIBRARY ADDRESS**********</p>
                         <p xs={6}>Comment:</p>
                         <p xs={6}>{checkin.checkInComment}</p>
                     </Col>

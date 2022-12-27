@@ -53,7 +53,7 @@ export function ProfileLanding() {
 
             <h1 id={"headLineONE"}>User Profile Information</h1>
             <Container>
-                <Row className={"gx-md-3 p-3 justify-content-around"}>
+                <Row className={"gx-md-3 px-3 justify-content-around"}>
                     <Col  md={4} className={"text-center"} >
                         <h3 id={"headLineONE"}>User Information</h3>
                         <div id={"userRegistration"} className={""}>
