@@ -1,5 +1,6 @@
 import React from 'react'
-import {Container, Row} from "react-bootstrap";
+import {Button, Container, Row} from "react-bootstrap";
+import {Link} from "react-router-dom";
 
 export const EventShortListing = ({event, library}) => {
 
@@ -25,6 +26,7 @@ export const EventShortListing = ({event, library}) => {
 					<a xs={5}>Event Title: {event.eventTitle}</a>
 					<a xs={3}>Date: {(D.getMonth() + 1) + '/' + ((D.getDate() + 1) + '/' + (D.getFullYear()))}</a>
 					<a xs={2}>Start time: {finalTime}</a>
+					<Link to={`/library-landing/${library.libraryId}`}><Button>Details</Button></Link>
 					{/*<a xs={2}>End time: {event.eventEnd}</a>*/}
 				</Row>
 			</Container>
