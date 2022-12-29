@@ -42,7 +42,7 @@ export function ProfileLanding() {
                </div>
     }
     const {profileFirstName, profileLastName, profileEmail, profileName, profileAvatarUrl, profileId} = user
-    const libraryProfileId = auth.profileId
+    const currentProfileId = auth.profileId
 
     const {libraryName,libraryAddress, libraryDescription, librarySpecialization, libraryEventOptIn, libraryType} = libraries
     const {eventDate, eventDescription, eventName} = events

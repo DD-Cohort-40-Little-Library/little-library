@@ -56,3 +56,4 @@ export async function deleteCheckIn (checkIn: CheckIn): Promise<string>{
     }
     return 'CheckIn was deleted'
 }
+
