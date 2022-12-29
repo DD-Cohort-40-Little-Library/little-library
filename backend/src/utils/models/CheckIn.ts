@@ -57,3 +57,14 @@ export async function deleteCheckIn (checkIn: CheckIn): Promise<string>{
     return 'CheckIn was deleted'
 }
 
+export async function selectAllCheckInByLibraryIdForProfileTab (profileId: string): Promise<CheckIn[]> {
+    console.log(profileId)
+    const data: CheckIn[] = await sql <CheckIn[]>`
+SELECT "*" 
+FROM check_in
+INNER JOIN library
+ON library.libraryId = check_in.check_in_library_id 
+INNER JOIN profile
+ON profile.profile_Id = check_in.check_in_profile_id`
+    return data
+}

@@ -9,7 +9,8 @@ import {
     selectCheckInByCheckInId,
     selectCheckInByCheckInLibraryId,
     selectCheckInByCheckInProfileId,
-    updateCheckIn
+    updateCheckIn,
+    selectAllCheckInByLibraryIdForProfileTab
 } from "../../utils/models/CheckIn"
 
 export async function getAllCheckInByCheckInProfileIdController (request: Request, response: Response): Promise<Response<Status>> {
@@ -154,5 +155,17 @@ export async function putCheckInController (request: Request, response: Response
     } catch (error: any) {
         console.error(error)
         return response.json({status: 500, data: null, message: 'Internal server error'})
+    }
+}
+
+export async function getAllCheckInsForProfileTab (request: Request, response: Response): Promise<Response<Status>> {
+    try{
+        const { profileId } = request.params
+        const mySqlResult = await selectAllCheckInByLibraryIdForProfileTab(profileId)
+        const data = mySqlResult ?? null
+        const status: Status = { status: 200, data, message: null }
+        return response.json(status)
+    } catch (error: any) {
+        return (response.json({ status: 400, data: null, message: error.message }))
     }
 }
