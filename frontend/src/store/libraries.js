@@ -6,11 +6,12 @@ const librariesSlice = createSlice({
     name: "libraries",
     initialState: [],
     reducers: {
-        setAllLibraries: (libraries, action) => action.payload
+        setAllLibraries: (libraries, action) => action.payload ,
+        setSingleLibrary: (libraries, action) => {return action.payload}
     }
 })
 
-export const {setAllLibraries} = librariesSlice.actions
+export const {setAllLibraries, setSingleLibrary} = librariesSlice.actions
 
 export default librariesSlice.reducer
 
@@ -27,3 +28,9 @@ export const fetchLibrariesByProfileId = () => async (dispatch, getState) => {
     dispatch(setAllLibraries(data));
 }
 
+export const fetchLibraryByLibraryId = (libraryId) => async (dispatch) => {
+    // return async function (dispatch) {
+        const {data} = await httpConfig.get(`/apis/library/${libraryId}`);
+        dispatch(setSingleLibrary(data));
+    // }
+}

@@ -23,7 +23,7 @@ export const EventShortListing = ({event, library}) => {
 					<a xs={7}>{library.libraryAddress}</a>
 					{/*<a xs={5}>Type of event: {event.eventType}</a>*/}
 					<a xs={5}>Event Title: {event.eventTitle}</a>
-					<a xs={3}>Date: {(D.getMonth() + 1) + '/' + ((D.getDate() + 1) + '/' + (D.getFullYear()))}</a>
+					<a xs={3}>Date: {(D.getMonth() + 1) + '-' + ((D.getDate() + 1) + '-' + (D.getFullYear()))}</a>
 					<a xs={2}>Start time: {finalTime}</a>
 					{/*<a xs={2}>End time: {event.eventEnd}</a>*/}
 				</Row>
