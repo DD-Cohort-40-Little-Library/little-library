@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS library (
                                 library_lat DECIMAL(7,5) NOT NULL ,
                                 library_lng DECIMAL(8,5) NOT NULL ,
                                 library_name VARCHAR(128) NOT NULL,
-                                library_specialization VARCHAR(32),
+                                library_specialization VARCHAR(32) NOT NULL,
                                 library_type VARCHAR(32) NOT NULL,
                                 FOREIGN KEY (library_profile_id) REFERENCES profile(profile_id) ON DELETE CASCADE,
                                 PRIMARY KEY (library_id)
