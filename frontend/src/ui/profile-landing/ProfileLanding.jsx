@@ -2,7 +2,7 @@ import React from "react";
 import {Col, Container, Row, Form, Image, Button, Tabs, Tab, FormText, Stack} from "react-bootstrap";
 import {EventListing} from "../shared/components/EventListing.jsx";
 import {CheckInDisplay} from "../shared/components/CheckInDisplay.jsx";
-import {Link} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import {LibraryDetailBlock} from "./LibraryDetailBlock.jsx"
 import {useDispatch, useSelector} from "react-redux";
 import {fetchAuth} from "../../store/auth.js";
@@ -18,14 +18,13 @@ import plsSignIn from "../../../images/plsSignIn.svg";
 
 
 export function ProfileLanding() {
-
     const libraries = useSelector(state => state.libraries ? state.libraries : [])
     const events = useSelector(state => state.events ? state.events : [])
     const checkins = useSelector(state => state.checkIns ? state.checkIns : [])
-
-    const dispatch = useDispatch()
     const auth = useSelector(state => state.auth ? state.auth : state.auth)
     const user = useSelector(state => state.currentUser)
+
+    const dispatch = useDispatch()
     const initialEffects = () => {
         dispatch(fetchAuth())
         dispatch(fetchLibrariesByProfileId())
@@ -35,20 +34,20 @@ export function ProfileLanding() {
         dispatch(fetchAllCheckInsForProfileTab())
     }
     React.useEffect(initialEffects, [dispatch])
-
     // //TODO: REMOVE 'const profile = null' to the end  from line below after pulling currentUser w/ useSelector=profile
     if (user === null) {
         return <div>
                     <Image src={plsSignIn} alt={"pleaseSignIn"} id={"pleaseSignIn"}/>
                </div>
     }
-    const {profileFirstName, profileLastName, profileEmail, profileName, profileAvatarUrl, profileId} = user
+    // const {profileFirstName, profileLastName, profileEmail, profileName, profileAvatarUrl} = user
     const currentProfileId = auth.profileId
 
-    const {libraryName,libraryAddress, libraryDescription, librarySpecialization, libraryEventOptIn, libraryType} = libraries
-    const {eventDate, eventDescription, eventName} = events
+    // const {libraryName,libraryAddress, libraryDescription, librarySpecialization, libraryEventOptIn, libraryType} = libraries
+    // const {eventDate, eventDescription, eventName} = events
     // const {checkInComment,checkInDate, checkInPhotoUrl} = checkins
-    const {check_in_id, check_in_library_id, check_in_profile_id, check_in_comment, check_in_date, check_in_photo_url, check_in_report, library_id, library_profile_id, library_address, library_description, library_event_opt_in, library_name, library_specialization, profile_id, profile_avatar_url, profile_name} = checkins
+    const {checkInId, checkInLibraryId, checkInProfileId, checkInComment, checkInDate, checkInPhotoUrl, checkInReport, libraryId, libraryProfileId, libraryAddress, libraryDescription, libraryEventOptIn, libraryName, librarySpecialization, profileId, profileFirstName, profileLastName, profileEmail, profileAvatarUrl, profileName} = checkins
+
     return (
         <>
 
@@ -60,7 +59,7 @@ export function ProfileLanding() {
                         <div id={"userRegistration"} className={""}>
                             <div className="mb-3" >
                                 <div>First Name: </div>
-                                <div> {profileFirstName}</div>
+                                <div> {checkins.profileFirstName}</div>
                             </div>
 
                             <div className="mb-3" >
@@ -80,7 +79,7 @@ export function ProfileLanding() {
                         </div>
 
                         <ProfileUpdateModal className={""}/>
-                        <Link to={"/library-create"} className={"btn-primary"}> <Button className={"m-2"}> Add a Library</Button></Link>
+                        <Link to={"/library-create"} className={"btn-primary"}> <Button className={"m-2"}>Add a Library</Button></Link>
 
                     </Col>
                     <Col md={3} className={"text-center"} >

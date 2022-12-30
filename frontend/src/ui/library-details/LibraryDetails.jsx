@@ -40,7 +40,7 @@ export function LibraryDetails() {
         dispatch(fetchLibraryByLibraryId(libraryId))
         // dispatch(fetchEventsByLibraryId())
         dispatch(fetchCheckInsByLibraryId(libraryId))
-        dispatch(fetchAllCheckInsForProfileTab(profileId))
+        // dispatch(fetchAllCheckInsForProfileTab(profileId))
     }
     React.useEffect(initialEffects, [libraryId, dispatch])
 
