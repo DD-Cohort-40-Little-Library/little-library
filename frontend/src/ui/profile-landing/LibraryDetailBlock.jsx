@@ -16,6 +16,9 @@ export const LibraryDetailBlock = (props) => {
                     <Row xs={8}> Specialization: {library.librarySpecialization}</Row>
                     <Row xs={8}>Description: {library.libraryDescription}</Row>
                     <Row xs={8}>Type of Library: {library.libraryType}</Row>
+
+                    <Row xs={8}>Type of Library: {library.libraryName}</Row>
+
                 </Col>
                 <Col>
                 </Col>

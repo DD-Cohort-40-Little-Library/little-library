@@ -12,10 +12,10 @@ import {fetchAllLibraries, fetchLibrariesByProfileId} from "../../store/librarie
 import {EventShortListing} from "../home/EventShortListing.jsx";
 import {EventDetailBlock} from "./EventDetailBlock";
 import {fetchEventsByProfileId} from "../../store/events.js";
-import {fetchCheckInsByProfileId} from "../../store/checkIn.js";
+import {fetchAllCheckInsForProfileTab, fetchCheckInsByProfileId} from "../../store/checkIn.js";
 import {CheckInDetailBlockProfile} from "./CheckInDetailBlockProfile.jsx";
 import plsSignIn from "../../../images/plsSignIn.svg";
-import {library} from "@fortawesome/fontawesome-svg-core";
+
 
 export function ProfileLanding() {
 
@@ -32,6 +32,7 @@ export function ProfileLanding() {
         dispatch(fetchEventsByProfileId())
         dispatch(fetchCheckInsByProfileId())
         dispatch(fetchCurrentUser())
+        dispatch(fetchAllCheckInsForProfileTab())
     }
     React.useEffect(initialEffects, [dispatch])
 
@@ -46,8 +47,8 @@ export function ProfileLanding() {
 
     const {libraryName,libraryAddress, libraryDescription, librarySpecialization, libraryEventOptIn, libraryType} = libraries
     const {eventDate, eventDescription, eventName} = events
-    const {checkInComment,checkInDate, checkInPhotoUrl} = checkins
-
+    // const {checkInComment,checkInDate, checkInPhotoUrl} = checkins
+    const {check_in_id, check_in_library_id, check_in_profile_id, check_in_comment, check_in_date, check_in_photo_url, check_in_report, library_id, library_profile_id, library_address, library_description, library_event_opt_in, library_name, library_specialization, profile_id, profile_avatar_url, profile_name} = checkins
     return (
         <>
 
@@ -106,7 +107,7 @@ export function ProfileLanding() {
                     <Tab eventKey="check-ins" title="Check-Ins">
                         <Container>
                             <Row>
-                                {checkins.map (checkin => <CheckInDetailBlockProfile checkin={checkin} library={library} user={user} />)}
+                                {checkins.map (checkin => <CheckInDetailBlockProfile checkin={checkin} user={user}/>)}
                             </Row>
                         </Container>
                     </Tab>

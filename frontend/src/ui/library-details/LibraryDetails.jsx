@@ -12,7 +12,7 @@ import {library} from "@fortawesome/fontawesome-svg-core";
 import {fetchAuth} from "../../store/auth.js";
 import {fetchLibrariesByProfileId, fetchLibraryByLibraryId} from "../../store/libraries.js";
 import {fetchEventsByLibraryId, fetchEventsByProfileId} from "../../store/events.js";
-import {fetchCheckInsByProfileId} from "../../store/checkIn.js";
+import {fetchAllCheckInsForProfileTab, fetchCheckInsByProfileId} from "../../store/checkIn.js";
 import {fetchCurrentUser} from "../../store/currentUser.js";
 import {fetchCheckInsByLibraryId} from "../../store/checkIn.js"
 
@@ -40,6 +40,7 @@ export function LibraryDetails() {
         dispatch(fetchLibraryByLibraryId(libraryId))
         // dispatch(fetchEventsByLibraryId())
         dispatch(fetchCheckInsByLibraryId(libraryId))
+        dispatch(fetchAllCheckInsForProfileTab(profileId))
     }
     React.useEffect(initialEffects, [libraryId, dispatch])
 

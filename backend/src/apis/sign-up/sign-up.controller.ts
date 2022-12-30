@@ -22,6 +22,9 @@ export async function signUpController(request: Request, response: Response) {
         const message = `<h2>Welcome to the Little Library Locator!</h2>
         In order to fully interact with the Little Library Locator, you must confirm your account first by 
         <a href="${basePath}">following this link.</a>
+        
+        If you feel that you received this email in error please notifiy Info@LittleLibraryLocator.com.
+        
         Thank you for doing your part in expanding literacy in your community from the crew at the Little Library Locator!`
         const mailGunMessage = {
             from: `Little Library Locator <postmaster@${process.env.MAILGUN_DOMAIN as string}>`,

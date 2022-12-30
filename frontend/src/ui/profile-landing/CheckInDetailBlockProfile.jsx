@@ -4,7 +4,7 @@ import checkIn from "../../store/checkIn.js";
 
 export const CheckInDetailBlockProfile = (props) => {
 
-    const {checkin, library, user} = props
+    const {checkin, user} = props
 
     const date = checkin.checkInDate
     const D = new Date(date)
@@ -18,11 +18,12 @@ export const CheckInDetailBlockProfile = (props) => {
     const amPm = startTime.getHours() > 12 ? 'AM' : 'PM'
     const finalTime = (hour + ":" + minutes + amPm)
 
+    console.log(checkin)
+
     return(
         <>
             <Container id={"checkInDetailBlock"} className={"border border-dark rounded text-center"}>
                 <Row className={"text-center"}>
-                    {/*I think this should actually be another join of the profileAvatarUrl via the checkInProfileId????*/}
                     <Col xs={3} ><Image src={user.profileAvatarUrl} fluid={true} className={"rounded-circle"} alt={'Please select an avatar or upload a photo using the "Update Profile" button.'} ></Image></Col>
                     <Col>
                         <Row xs={6}>Check-In Date/Time: {(D.getMonth() + 1) + '-' + ((D.getDate() + 1) + '-' + (D.getFullYear()) )} / {finalTime}</Row>
