@@ -65,4 +65,27 @@ CREATE TABLE IF NOT EXISTS check_in (
 CREATE INDEX ON check_in(check_in_library_id);
 CREATE INDEX ON check_in(check_in_profile_id);
 
-SELECT * FROM check_in JOIN library ON check_in.check_in_library_id = library.library_id;
+-- SELECT * FROM check_in JOIN library ON check_in.check_in_library_id = library.library_id;
+
+-- SELECT  check_in_id,
+--         check_in_library_id,
+--         check_in_profile_id,
+--         check_in_comment,
+--         check_in_date,
+--         check_in_photo_url,
+--         check_in_report,
+--         library_id,
+--         library_profile_id,
+--         library_address,
+--         library_description,
+--         library_event_opt_in,
+--         library_name,
+--         library_specialization,
+--         profile_id,
+--         profile_avatar_url,
+--         profile_name
+-- FROM check_in
+--          INNER JOIN library
+--                     ON library.library_id = check_in.check_in_library_id
+--          INNER JOIN profile
+--                     ON profile.profile_id = check_in.check_in_profile_id
