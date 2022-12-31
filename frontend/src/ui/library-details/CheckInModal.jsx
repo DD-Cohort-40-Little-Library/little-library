@@ -25,18 +25,18 @@ export function CheckInModal(){
                 // backdrop="static"
                 keyboard={false}
             >
-                <Form>
+                <div>
                     <Row>
                         <h3 className={"text-center"}>Check In</h3>
-                        <Form>
+                        <div>
                             <fieldset>
                                 <InputGroup>
                                     <CheckInForm libraryId />
                                 </InputGroup>
                             </fieldset>
-                        </Form>
+                        </div>
                     </Row>
-                </Form>
+                </div>
                 <Modal.Footer>
                     <Button variant="light" onClick={handleClose}>Close</Button>
                 </Modal.Footer>
