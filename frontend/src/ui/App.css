@@ -18,6 +18,16 @@ body{
     padding: 5px;
 }
 
+#mapPopUp {
+    background-color: #F3EAD2;
+    text-align: center;
+    color: #2D3024;
+    margin: 0rem;
+    padding: 1rem;
+    font-size: large;
+
+}
+
 #signInUp-column {
     padding: 2vh;
     align-content: center;
