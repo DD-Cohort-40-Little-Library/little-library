@@ -20,6 +20,7 @@ export function CheckInModal(){
                 Check In
             </Button>
             <Modal
+                className={"text-center"}
                 show={show}
                 onHide={handleClose}
                 backdrop="static"
@@ -27,7 +28,7 @@ export function CheckInModal(){
             >
                 <Form>
                     <Row>
-                        <h3 className={"text-center"}>Check In</h3>
+                        <h3>Check In</h3>
                         <Form>
                             <fieldset>
                                 <InputGroup>

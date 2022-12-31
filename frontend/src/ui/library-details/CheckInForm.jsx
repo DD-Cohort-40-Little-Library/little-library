@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import {Col, Container, FormControl, InputGroup, Row} from "react-bootstrap";
+import {Col, Container, FormControl, Image, InputGroup, Row} from "react-bootstrap";
 import * as Yup from 'yup'
 import {DisplayStatus} from "../shared/components/display-status/DisplayStatus.jsx";
 import {useDispatch, useSelector} from "react-redux";
@@ -12,6 +12,8 @@ import {useParams} from "react-router-dom";
 import {fetchAuth} from "../../store/auth.js";
 import {FormDebugger} from "../shared/components/FormDebugger.jsx";
 import {useDropzone} from "react-dropzone";
+import plsSignIn from "../../../images/plsSignIn.svg";
+import {fetchCurrentUser} from "../../store/currentUser.js";
 
 
 export function CheckInForm() {
@@ -36,7 +38,7 @@ export function CheckInForm() {
     React.useEffect(initialEffects, [dispatch])
 
     if (auth === null) {
-        return <h1>Please sign in</h1>
+        return <h1>Please Sign In</h1>
     }
 
     let profileId = auth.profileId
@@ -67,6 +69,7 @@ export function CheckInForm() {
     }
     return (
         <Formik
+            id={"checkInModalError"}
             initialValues={checkIn}
             onSubmit={submitCheckIn}
             validationSchema={validator}
