@@ -1,7 +1,30 @@
 body{
     background-color: #F3EAD2;
     color: #2D3024;
+
 }
+
+#navFootBgColor {
+    background-color: #835A4E;
+}
+
+#navText{
+    color: #CDCDC1;
+    font-size: 1.75rem;
+}
+
+
+#navFoot{
+    background-color: #835A4E;
+    color: #CDCDC1;
+    text-align: center;
+    font-size: 1rem;
+    position: sticky;
+    bottom: 0;
+    left: 0;
+
+}
+
 
 #generalPhotoBehavior {
     width: 100%;
@@ -50,23 +73,6 @@ body{
 }
 
 
-#navFootBgColor {
-    background-color: #835A4E;
-}
-
-#navText{
-    color: #CDCDC1;
-    font-size: 1.75rem;
-}
-
-
-#navFoot{
-    background-color: #835A4E;
-    color: #CDCDC1;
-    text-align: center;
-    font-size: 1rem;
-
-}
 
 #lLLLogoBase {
     padding-right: 2vh;
@@ -94,6 +100,7 @@ body{
 #LLLLabelBrown {
     height: 4rem;
     width: 100%;
+
 }
 
 #signUpIn {

@@ -25,7 +25,7 @@ export function Home() {
 
 	return (
 		<>
-				<Row className={"mx-0"}>
+				<Row className={"p-2"}>
 					<img src={LLLLabelBrown} alt={"logoBrow"} id={"LLLLabelBrown"} className={"llLogoBrown"}/>
 				</Row>
 
@@ -44,11 +44,8 @@ export function Home() {
 					<Col id={"signInUp-column"} className={"flex order-first order-md-last"} md={1}>
 						<Stack gap={3}>
 							<SignInSignUpModal id={"signInSignUpModal"}/>
-							{/*<Link to='/profile-landing'><Button>Your Profile</Button></Link>*/}
 							<SignOutComponent/>
-							{/*<Link to='/event-create-page'><Button>Plan An Event</Button></Link>*/}
-							{/*<Link to='/library-create'><Button>Add A Library</Button></Link>*/}
-							{/*<Link to='/about-us'><Button>About Us</Button></Link>*/}
+
 						</Stack>
 					</Col>
 				</Row>
