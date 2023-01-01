@@ -22,7 +22,7 @@ body{
     background-color: #F3EAD2;
     text-align: center;
     color: #2D3024;
-    margin: 0rem;
+    margin: 0;
     padding: 1rem;
     font-size: large;
 
@@ -270,4 +270,9 @@ body{
     font-size: large;
     align-items: center;
 
+}
+#profileSectionBlk5 {
+    background-color: #A9986E;
+    padding: 2rem;
+    margin-bottom: 30px;
 }

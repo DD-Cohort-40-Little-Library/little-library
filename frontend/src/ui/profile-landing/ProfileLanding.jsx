@@ -19,6 +19,7 @@ import profileImageBlk1 from "../../../images/uiSharedImages/profileImgBlk1.jpg"
 import profileImageBlk2 from "../../../images/uiSharedImages/profileImgBlk2.jpg";
 import reader from "../../../images/uiSharedImages/profileImgBlk3.jpg";
 import headshot from "../../../images/uiSharedImages/profileImgBlk4.jpg";
+import profileImageBlk3 from "../../../images/uiSharedImages/profileImgBlk5.jpg";
 
 
 export function ProfileLanding() {
@@ -147,12 +148,18 @@ export function ProfileLanding() {
                 </Row>
             </Container>
 
+            <Container className={"m-0"} fluid="auto" id={"profileSectionBlk5"}>
+                <Row className={"m-0"}>
+                    <img src={profileImageBlk3} alt={"profileImage5"} id={"sectionImageBlk"} className={"img-fluid"}/>
+                </Row>
+            </Container>
+
 
             <Container className={""} fluid="auto">
                 <Row className={"m-0 "} id={"profileSectionBlk3"}>
                     <Col>
                         <h1 className={""}>Learn to Speed Read</h1>
-                        <p>Speed reading a great way to train your brain to absorb information fast. The base concept entails learning to scan the page and omitting small words, allowing the brain to autofill the information automatically. Many successful individuals credit speed reading as a tool to become stronger readers and better time management. </p>
+                        <p>Speed reading a great way to train your brain to absorb information fast. The base concept entails learning to scan the page and omitting small words, allowing the brain to fill in the information automatically. Many successful individuals credit speed reading as a tool to become stronger readers and better time management. </p>
                         <p>Check out these sites for tips on speed reading to learn more.</p>
                         <Stack gap={2}>
                             <a target="_blank" href={"https://www.lifehack.org/articles/productivity/10-ways-increase-your-reading-speed.html"}>LifeHack.org: How to Read Faster: 11 Ways to Increase Your Reading Speed</a>
