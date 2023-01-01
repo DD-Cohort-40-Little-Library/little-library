@@ -1,5 +1,5 @@
 import React, {useEffect} from "react"
-import {Button, Col, Row, Stack} from "react-bootstrap";
+import {Button, Col, Container, Row, Stack} from "react-bootstrap";
 import {LibraryMap} from "./LibraryMap.jsx";
 import {EventShortListing} from "./EventShortListing.jsx";
 import {Link} from "react-router-dom";
@@ -9,6 +9,11 @@ import {fetchAllLibraries} from "../../store/libraries.js";
 import {SignOutComponent} from "../shared/components/main-nav/SignOut.jsx";
 import {SignInSignUpModal} from "../shared/components/main-nav/sign-in/SignInSignUpModal.jsx";
 import LLLLabelBrown from "../../../images/logoAssetsSVG/lLabel-brown.svg";
+import homeImageBlk1 from "../../../images/uiSharedImages/homeImgBlk1.jpg";
+import homeImageBlk2 from "../../../images/uiSharedImages/homeImgBlk2.jpg";
+import llStock1 from "../../../images/uiSharedImages/homeLLStock1.jpg";
+
+
 
 export function Home() {
 
@@ -25,6 +30,7 @@ export function Home() {
 
 	return (
 		<>
+
 				<Row className={"mx-0"}>
 					<img src={LLLLabelBrown} alt={"logoBrow"} id={"LLLLabelBrown"} className={"llLogoBrown"}/>
 				</Row>
@@ -52,5 +58,27 @@ export function Home() {
 						</Stack>
 					</Col>
 				</Row>
+			<Container className={"m-0"} fluid="auto" id={"homeSectionBlk1"}>
+				<Row className={"m-0"}>
+					<img src={homeImageBlk1} alt={"homeImage1"} id={"homeSectionBlkImg"} className={"img-fluid"}/>
+				</Row>
+			</Container>
+			<Container className={""} fluid="auto">
+				<Row className={"m-0 "} id={"homeSectionBlk2"}>
+					<Col>
+						<img src={llStock1} alt={"llStock1"} id={"homeSectionBlkImg"} className={""} style={{width: '20rem'}}/>
+					</Col>
+					<Col>
+						<h1 className={""}>Our Mission</h1>
+						<p>“Our Mission is to foster a social environment around literacy. Through the Little Library Locator, we aim to promote different interests around reading and highlight the unique personalities of the creators of Little Libraries around the world.” </p>
+					</Col>
+				</Row>
+			</Container>
+			<Container className={"m-0"} fluid="auto" id={"homeSectionBlk3"}>
+				<Row className={"m-0"}>
+					<img src={homeImageBlk2} alt={"homeImage2"} id={"homeSectionBlkImg"} className={"img-fluid"}/>
+				</Row>
+			</Container>
 		</>
+
 	)}

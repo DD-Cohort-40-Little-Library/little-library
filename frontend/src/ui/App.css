@@ -184,3 +184,31 @@ body{
 #personalStack {
     padding-bottom: 30px;
 }
+
+#homeSectionBlk1 {
+    background-color: #93A5AB;
+    padding: 2rem;
+    marginBottom: 30px;
+}
+
+#homeSectionBlkImg {
+    width: 100%;
+    border-radius: 40px;
+}
+
+#homeSectionBlk2 {
+    background-color: #CDCDC1;
+    padding: 2rem;
+    marginBottom: 30px;
+    text-align: center;
+    color: #2D3024;
+    font-size: xx-large;
+    align-items: center;
+}
+#homeSectionBlk3 {
+    background-color: #F3EAD2;
+    padding: 2rem;
+    marginBottom: 30px;
+    text-align: center;
+    color: #2D3024;
+}
