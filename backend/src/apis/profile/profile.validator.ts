@@ -3,7 +3,7 @@ import {Schema} from "express-validator"
 export const profileValidator: Schema = {
     profileId: {
     isUUID: {
-        errorMessage: 'please provide a valid ProfileId'
+        errorMessage: 'please provide a valid ProfileId (1)'
     }
   },
 

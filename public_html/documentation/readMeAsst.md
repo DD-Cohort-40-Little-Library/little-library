@@ -1,5 +1,5 @@
 # Data Downloader
-    - Get with George on this
+    - See DDownloader in Backend
 
 
 ####
@@ -32,7 +32,7 @@ POST: http://143.198.***.**:****/apis/sign-in
 "profilePassword" : "*****"}
 ### SELECT Profile By Profile Id
 GET: http://147.182.***.**:****/apis/profile/(**Profile ID**)
-### UPDATE Attri Data Profile by Profile Id
+### UPDATE Attribute Data Profile by Profile Id
 PUT: http://147.182.***.**:****/apis/profile/profileId/(**Profile ID**)
 {"profileId":"fdbffde5-96f2-4912-80b3-10488f052e7b",
 "profileAvatarUrl":"http://something.com/whatever.jpg",

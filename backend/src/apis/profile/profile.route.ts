@@ -12,7 +12,7 @@ ProfileRoute.route('/')
 ProfileRoute.route('/:profileId')
     .get(
         asyncValidatorController([
-            check('profileId', 'please provide a valid profileId')
+            check('profileId', 'please provide a valid profileId (3)')
                 .isUUID()
         ])
         , getProfileByProfileIdController

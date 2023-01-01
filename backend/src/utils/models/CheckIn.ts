@@ -56,3 +56,31 @@ export async function deleteCheckIn (checkIn: CheckIn): Promise<string>{
     }
     return 'CheckIn was deleted'
 }
+
+export async function selectAllCheckInByLibraryIdForProfileTab (profileId: string): Promise<CheckIn[]> {
+    console.log(profileId)
+    const data: CheckIn[] = await sql <CheckIn[]>`
+        SELECT  check_in_id,
+                check_in_library_id,
+                check_in_profile_id,
+                check_in_comment,
+                check_in_date,
+                check_in_photo_url,
+                check_in_report,
+                library_id,
+                library_profile_id,
+                library_address,
+                library_description,
+                library_event_opt_in,
+                library_name,
+                library_specialization,
+                profile_id,
+                profile_avatar_url,
+                profile_name
+        FROM check_in
+                 INNER JOIN library
+                            ON library.library_id = check_in.check_in_library_id
+                 INNER JOIN profile
+                            ON profile.profile_id = check_in.check_in_profile_id`
+    return data
+}
