@@ -18,7 +18,7 @@ import plsSignIn from "../../../images/uiSharedImages/plsSignIn.svg";
 import profileImageBlk1 from "../../../images/uiSharedImages/profileImgBlk1.jpg";
 import profileImageBlk2 from "../../../images/uiSharedImages/profileImgBlk2.jpg";
 import reader from "../../../images/uiSharedImages/profileImgBlk3.jpg";
-import git from "../../../images/uiSharedImages/git-bk-rd-1.svg";
+import headshot from "../../../images/uiSharedImages/profileImgBlk4.jpg";
 
 
 export function ProfileLanding() {
@@ -58,6 +58,7 @@ export function ProfileLanding() {
                 <Row className={"m-0"}>
                     <img src={profileImageBlk1} alt={"profileImage1"} id={"sectionImageBlk"} className={"img-fluid"}/>
                 </Row>
+
             </Container>
 
 
@@ -133,15 +134,24 @@ export function ProfileLanding() {
                 </Tabs>
             </div>
 
-            <Container className={"m-0"} fluid="auto" id={"profileSectionBlk2"}>
-                <Row className={"m-0"}>
-                    <img src={profileImageBlk2} alt={"profileImage2"} id={"sectionImageBlk"} className={"img-fluid"}/>
+            <Container className={""} fluid="auto">
+                <Row className={"m-0 "} id={"profileSectionBlk4"}>
+                    <Col>
+                        <img src={headshot} alt={"llStock1"} id={"sectionImageBlk"} className={""} style={{width: '30rem'}}/>
+                    </Col>
+                    <Col className={"pt-3"}>
+                        <h1>Want to take a Better Headshot from Home?</h1>
+                        <h3 className={"mb-31"}>Read more at Wired.com</h3>
+                        <a target="_blank" href={"https://www.wired.com/story/how-to-professional-headshot-smartphone-camera/"}><Button className={"mb-3"}>Go to Article</Button></a>
+                    </Col>
                 </Row>
             </Container>
+
+
             <Container className={""} fluid="auto">
                 <Row className={"m-0 "} id={"profileSectionBlk3"}>
                     <Col>
-                        <h1 className={""}>Want to Learn to Speed Read?</h1>
+                        <h1 className={""}>Learn to Speed Read</h1>
                         <p>Speed reading a great way to train your brain to absorb information fast. The base concept entails learning to scan the page and omitting small words, allowing the brain to autofill the information automatically. Many successful individuals credit speed reading as a tool to become stronger readers and better time management. </p>
                         <p>Check out these sites for tips on speed reading to learn more.</p>
                         <Stack gap={2}>
@@ -149,13 +159,21 @@ export function ProfileLanding() {
                             <a target="_blank" href={"https://www.courselounge.com/speed-reading-techniques/"}>CourseLounge.com: 8 Speed Reading Techniques To Read Faster</a>
                             <a target="_blank" href={"https://ideas.ted.com/a-speed-reader-shares-3-tricks-to-help-anyone-read-faster/"}>Ideas.Ted.com: A Speed Reader Shares 3 Tricks to Help Anyone Read Faster</a>
                             <a target="_blank" href={"https://www.speedreadinglounge.com/how-to-speed-read"}>SpeedReadingLounge.com: How To Speed Read – 6 Easy Techniques</a>
-                    </Stack>
+                        </Stack>
                     </Col>
                     <Col>
-                        <img src={reader} alt={"llStock1"} id={"sectionImageBlk"} className={""} style={{width: '30rem'}}/>
+                        <img src={reader} alt={"reader"} id={"sectionImageBlk"} className={""} style={{width: '30rem'}}/>
                     </Col>
                 </Row>
             </Container>
+
+
+            <Container className={"m-0"} fluid="auto" id={"profileSectionBlk2"}>
+                <Row className={"m-0"}>
+                    <img src={profileImageBlk2} alt={"profileImage2"} id={"sectionImageBlk"} className={"img-fluid"}/>
+                </Row>
+            </Container>
+
         </>
     )
 }
