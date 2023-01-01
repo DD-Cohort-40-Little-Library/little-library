@@ -1,6 +1,5 @@
 import {Col, Container, Image, Row} from "react-bootstrap";
 import React from "react";
-import checkIn from "../../store/checkIn.js";
 
 export const CheckInDetailBlockProfile = (props) => {
 

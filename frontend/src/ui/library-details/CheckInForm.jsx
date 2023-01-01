@@ -129,7 +129,6 @@ function CheckInFormContent(props) {
                     <div>
                         {selectedImage !== null ? <img className={"w-50"} src={selectedImage}/> : ""}
                     </div>
-
                     <Form.Group className={"mt-3"}>
                         <Button className={"btn btn-primary"} onClick={handleSubmit}>Submit</Button>
                         {" "}
@@ -159,7 +158,7 @@ function ImageDropZone ({formikProps}) {
             formikProps.setSelectedImage(fileReader.result)
         })
 
-        console.log(formikProps.values.checkInPhotoUrl)
+        // console.log(formikProps.values.checkInPhotoUrl)
         formikProps.setFieldValue(formikProps.fieldValue, formData)
 
     }, [formikProps])
