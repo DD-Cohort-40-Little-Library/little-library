@@ -35,7 +35,7 @@ export function NavigationBar() {
     return (
         <>
             {[false].map((expand) => (
-                <Navbar key={expand} id={"navFootBgColor"} expand={expand} className="mb-4">
+                <Navbar key={expand} id={"navFootBgColor"} expand={expand} className="mb-0">
                     <Container fluid>
                         <Navbar.Brand href="/"><img src={LLLLogo} id={"lLLLogoBase"} alt={'Little Library Locator Logo'}/></Navbar.Brand>
                         <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />

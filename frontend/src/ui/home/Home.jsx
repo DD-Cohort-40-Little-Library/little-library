@@ -115,6 +115,9 @@ export function Home() {
 			</Container>
 			<Container className={"m-0"} fluid="auto" id={"homeSectionBlk3"}>
 				<Row className={"m-0"}>
+					<h1>When is Your Next Event?</h1>
+					<h3 className={"mb-3"}>LogIn or Signup and Get Started!</h3>
+					<Link to='/event-create-page'><Button className={"mb-3"}>Plan An Event</Button></Link>
 					<img src={homeImageBlk2} alt={"homeImage2"} id={"homeSectionBlkImg"} className={"img-fluid"}/>
 				</Row>
 			</Container>

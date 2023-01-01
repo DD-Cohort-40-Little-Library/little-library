@@ -188,7 +188,7 @@ body{
 #homeSectionBlk1 {
     background-color: #93A5AB;
     padding: 2rem;
-    marginBottom: 30px;
+    margin-bottom: 30px;
 }
 
 #homeSectionBlkImg {
@@ -199,7 +199,7 @@ body{
 #homeSectionBlk2 {
     background-color: #CDCDC1;
     padding: 2rem;
-    marginBottom: 30px;
+    margin-bottom: 30px;
     text-align: center;
     color: #2D3024;
     font-size: xx-large;
@@ -208,7 +208,7 @@ body{
 #homeSectionBlk3 {
     background-color: #F3EAD2;
     padding: 2rem;
-    marginBottom: 30px;
+    margin-bottom: 30px;
     text-align: center;
     color: #2D3024;
 }
@@ -216,7 +216,26 @@ body{
 #homeSectionBlk4 {
     background-color: #CAB898;
     padding: 2rem;
-    marginBottom: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #2D3024;
+    font-size: large;
+    align-items: center;
+}
+#eventSectionBlkImg {
+    width: 100%;
+    border-radius: 40px;
+}
+
+#eventSectionBlkImg2 {
+    width: 100%;
+    border-radius: 40px;
+}
+
+#eventSectionBlk2 {
+    background-color: #CAB898;
+    padding: 2rem;
+    margin-bottom: 30px;
     text-align: center;
     color: #2D3024;
     font-size: large;

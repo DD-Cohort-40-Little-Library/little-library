@@ -1,4 +1,4 @@
-import {Button, Col, FloatingLabel, Form, FormControl, FormSelect, InputGroup, Row} from "react-bootstrap"
+import {Button, Col, Container, FloatingLabel, Form, FormControl, FormSelect, InputGroup, Row} from "react-bootstrap"
 import React from "react"
 import * as Yup from 'yup'
 import {httpConfig} from "../utils/http-config.js";
@@ -6,6 +6,9 @@ import {Field, Formik, useField} from "formik";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchAllLibraries} from "../../../store/libraries.js";
 import {DisplayStatus} from "./display-status/DisplayStatus";
+import eventImageBlk1 from "../../../../images/uiSharedImages/eventImgBlk1.jpg";
+import {Link} from "react-router-dom";
+import eventImageBlk2 from "../../../../images/uiSharedImages/eventImgBlk2.jpg";
 
 const EventTypeSelect = ({ label, ...props }) => {
 	// useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
@@ -44,6 +47,7 @@ export const EventCreatePage = () => {
 				libraryWithEvent.push(state.libraries[i].libraryId)
 				}
 			}
+
 			return libraryWithEvent
 	})
 
@@ -120,10 +124,16 @@ function EventCreateModalFormContent(props) {
 
 	return (
 		<>
+			<Container className={"m-0"} fluid="auto" id={"homeSectionBlk1"}>
+				<Row className={"m-0"}>
+					<img src={eventImageBlk1} alt={"eventImage1"} id={"eventSectionBlkImg"} className={"img-fluid"}/>
+				</Row>
+			</Container>
+			<Container className="mt-3">
 			<Form onSubmit={handleSubmit}>
 				<Row>
 					<div className={"mx-0 text-center "}>
-						<h3 className={"text-center"}>Plan An Event</h3>
+						<h1 className={"text-center"}>Plan An Event</h1>
 						<select  name={'eventLibraryId'} onChange={handleChange} onBlur={handleBlur} >
 							<option value={''}>Select a library for your event</option>
 							{libraries.map((library,index) => <option key={index} value={library.libraryId}>{library.libraryName}: located at {library.libraryAddress}</option>)}
@@ -219,6 +229,33 @@ function EventCreateModalFormContent(props) {
 				</Form.Group>
 			</Form>
 			<DisplayStatus status={status}/>
+			</Container>
+			<Container className={"m-0"} fluid="auto" id={"eventSectionBlk2"}>
+				<Row className={"m-0"}>
+					<h1>Tips for Attending an Event Safe and Successfully</h1>
+				</Row>
+				<Row className={"align-items-center"}>
+						<Col>
+						<h3 className={"mb-3"}>Gathering with others can be a great tool for increasing literacy. It can also be a fantastic step to enrich young lives with an enjoyable social experience. Any additional time you make to promote literacy will be an adventure; however, be sure to do it safely.</h3>
+						</Col>
+						<Col>
+							<p>When considering planning an event with the Little Library Locator please take the following steps to protect yourselves, friends, and family: </p>
+							<ul className={"text-start"}>
+								<li>Don’t let minors attend alone</li>
+								<li>Know the location and area where the event is held</li>
+								<li>Take caution for any event that is asking for a fee to attend</li>
+								<li>Consider attending yourself to increase supervision</li>
+								<li>Make sure you have a communication strategy in place and check in throughout the day</li>
+								<li>Know the start and end times of the event</li>
+								<li>Make sure you know who the event holder is or research the event beforehand</li>
+
+							</ul>
+						</Col>
+					</Row>
+				<Row>
+					<img src={eventImageBlk2} alt={"eventImage2"} id={"eventSectionBlkImg2"} className={"img-fluid"}/>
+				</Row>
+			</Container>
 		</>
 	)
 }
