@@ -50,9 +50,7 @@ export function CheckInForm() {
         checkInFollowLibrary: false,
         // checkInPhotoName: "",
         checkInPhotoUrl: "",
-        checkInReport: false,
-        libraryName: "",
-        libraryAddress: ""
+        checkInReport: false
     }
 
     const submitCheckIn = (values, {resetForm, setStatus}) => {
@@ -103,7 +101,6 @@ function CheckInFormContent(props) {
                     <label>Please Select Library</label>
 
                         <Form.Group controlId="checkInComment">
-                            {libraryName}
                             <InputGroup>
                                 <Form.Control
                                     className={"form-control"}
