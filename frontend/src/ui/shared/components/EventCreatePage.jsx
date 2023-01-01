@@ -209,7 +209,7 @@ function EventCreateModalFormContent(props) {
 				</Form.Group>
 
 				<Form.Group className={"m-3"} id={"eventDescription.ControlTextarea"}>
-					<FloatingLabel id="floatingTextarea" >
+					<FloatingLabel id="floatingTextarea">
 						<Field
 							placeholder="Describe your event (256 characters max)"
 							name="eventDescription"
@@ -239,7 +239,7 @@ function EventCreateModalFormContent(props) {
 						<h3 className={"mb-3"}>Gathering with others can be a great tool for increasing literacy. It can also be a fantastic step to enrich young lives with an enjoyable social experience. Any additional time you make to promote literacy will be an adventure; however, be sure to do it safely.</h3>
 						</Col>
 						<Col>
-							<p>When considering planning an event with the Little Library Locator please take the following steps to protect yourselves, friends, and family: </p>
+							<p>When considering planning or attending an event with the Little Library Locator please take the following steps to protect yourselves, friends, and family: </p>
 							<ul className={"text-start"}>
 								<li>Don’t let minors attend alone</li>
 								<li>Know the location and area where the event is held</li>
