@@ -212,3 +212,13 @@ body{
     text-align: center;
     color: #2D3024;
 }
+
+#homeSectionBlk4 {
+    background-color: #CAB898;
+    padding: 2rem;
+    marginBottom: 30px;
+    text-align: center;
+    color: #2D3024;
+    font-size: large;
+    align-items: center;
+}
