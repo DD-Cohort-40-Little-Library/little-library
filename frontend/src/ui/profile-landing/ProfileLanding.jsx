@@ -40,13 +40,13 @@ export function ProfileLanding() {
                     <Image src={plsSignIn} alt={"pleaseSignIn"} id={"pleaseSignIn"}/>
                </div>
     }
-    // const {profileFirstName, profileLastName, profileEmail, profileName, profileAvatarUrl} = user
+    const {profileFirstName, profileLastName, profileEmail, profileName, profileAvatarUrl} = user
     const currentProfileId = auth.profileId
 
-    // const {libraryName,libraryAddress, libraryDescription, librarySpecialization, libraryEventOptIn, libraryType} = libraries
-    // const {eventDate, eventDescription, eventName} = events
-    // const {checkInComment,checkInDate, checkInPhotoUrl} = checkins
-    const {checkInId, checkInLibraryId, checkInProfileId, checkInComment, checkInDate, checkInPhotoUrl, checkInReport, libraryId, libraryProfileId, libraryAddress, libraryDescription, libraryEventOptIn, libraryName, librarySpecialization, profileId, profileFirstName, profileLastName, profileEmail, profileAvatarUrl, profileName} = checkins
+    const {libraryName,libraryAddress, libraryDescription, librarySpecialization, libraryEventOptIn, libraryType} = libraries
+    const {eventDate, eventDescription, eventName} = events
+    const {checkInComment,checkInDate, checkInPhotoUrl} = checkins
+    // const {checkInId, checkInLibraryId, checkInProfileId, checkInComment, checkInDate, checkInPhotoUrl, checkInReport, libraryId, libraryProfileId, libraryAddress, libraryDescription, libraryEventOptIn, libraryName, librarySpecialization, profileId, profileFirstName, profileLastName, profileEmail, profileAvatarUrl, profileName} = checkins
 
     return (
         <>
@@ -59,7 +59,7 @@ export function ProfileLanding() {
                         <div id={"userRegistration"} className={""}>
                             <div className="mb-3" >
                                 <div>First Name: </div>
-                                <div> {checkins.profileFirstName}</div>
+                                <div> {profileFirstName}</div>
                             </div>
 
                             <div className="mb-3" >
