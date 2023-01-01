@@ -31,10 +31,10 @@ export function ProfileLanding() {
         dispatch(fetchEventsByProfileId())
         dispatch(fetchCheckInsByProfileId())
         dispatch(fetchCurrentUser())
-        dispatch(fetchAllCheckInsForProfileTab())
+        // dispatch(fetchAllCheckInsForProfileTab())
     }
     React.useEffect(initialEffects, [dispatch])
-    // //TODO: REMOVE 'const profile = null' to the end  from line below after pulling currentUser w/ useSelector=profile
+    // TODO: REMOVE 'const profile = null' to the end  from line below after pulling currentUser w/ useSelector=profile
     if (user === null) {
         return <div>
                     <Image src={plsSignIn} alt={"pleaseSignIn"} id={"pleaseSignIn"}/>
