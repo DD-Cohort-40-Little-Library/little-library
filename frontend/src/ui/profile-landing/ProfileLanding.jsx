@@ -14,8 +14,8 @@ import {EventDetailBlock} from "./EventDetailBlock";
 import {fetchEventsByProfileId} from "../../store/events.js";
 import {fetchCheckInsByProfileId} from "../../store/checkIn.js";
 import {CheckInDetailBlockProfile} from "./CheckInDetailBlockProfile.jsx";
-import plsSignIn from "../../../images/plsSignIn.svg";
 import {library} from "@fortawesome/fontawesome-svg-core";
+import plsSignIn from "../../../images/uiSharedImages/plsSignIn.svg";
 
 export function ProfileLanding() {
 
