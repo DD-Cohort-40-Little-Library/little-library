@@ -273,17 +273,22 @@ function EventCreateModalFormContent(props) {
 						<img src={eventReadingGroup2} alt={"eventReadingGroup2"} id={"sectionImageBlk"} className={""} style={{width: '30rem'}}/>
 					</Col>
 					<Col>
-						<h1 className={""}>Learn to Speed Read</h1>
-						<p>Speed reading a great way to train your brain to absorb information fast. The base concept entails learning to scan the page and omitting small words, allowing the brain to fill in the information automatically. Many successful individuals credit speed reading as a tool to become stronger readers and better time management.</p>
-						<p>Check out these sites for tips on speed reading to learn more.</p>
-						<Stack gap={2}>
-							<a target="_blank" href={"https://www.lifehack.org/articles/productivity/10-ways-increase-your-reading-speed.html"}>LifeHack.org: How to Read Faster: 11 Ways to Increase Your Reading Speed</a>
-							<a target="_blank" href={"https://www.courselounge.com/speed-reading-techniques/"}>CourseLounge.com: 8 Speed Reading Techniques To Read Faster</a>
-							<a target="_blank" href={"https://ideas.ted.com/a-speed-reader-shares-3-tricks-to-help-anyone-read-faster/"}>Ideas.Ted.com: A Speed Reader Shares 3 Tricks to Help Anyone Read Faster</a>
-							<a target="_blank" href={"https://www.speedreadinglounge.com/how-to-speed-read"}>SpeedReadingLounge.com: How To Speed Read – 6 Easy Techniques</a>
-						</Stack>
-					</Col>
+						<h1 className={""}>Why Plan an Event?</h1>
+						<h3>Literacy Events Come in All Shapes and Sizes.</h3>
+						<ul className={"text-start"}>
+							<li>Is the bibliophile in your life having a birthday?</li>
+							<li>Thinking of starting a book club?</li>
+							<li>Hosting a book fair?</li>
+						</ul>
 
+						<p>Planned an event and looking for ways to increase participation? There is great information around the subject. </p>
+						<p>Check out these sites to learn more.</p>
+					<Stack gap={2}>
+							<a target="_blank" href={"https://clifonline.org/resources/literacy-activities/"}>ClifOnline.org: Literacy Activities</a>
+							<a target="_blank" href={"https://www.readingrockets.org/article/all-kinds-readers-guide-creating-inclusive-literacy-celebrations-kids-learning-and-attention"}>ReadingRockets.org: All Kinds of Readers: A Guide to Creating Inclusive Literacy Celebrations for Kids with Learning and Attention Issues</a>
+							<a target="_blank" href={"https://choiceliteracy.com/article/creative-literacy-events-for-families/"}>ChoiceLiteracy.com: Creative Literacy Events for Families</a>
+					</Stack>
+					</Col>
 				</Row>
 			</Container>
 
