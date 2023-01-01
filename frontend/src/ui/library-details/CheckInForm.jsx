@@ -186,7 +186,7 @@ function ImageDropZone ({formikProps}) {
                     {
                         isDragActive ?
                             <span className={"align-content-center"}>Drop image here</span> :
-                            <span className={"align-content-center"}>Drag and drop image here, or click here to select an image</span> }
+                            <span className={"align-content-center"}>Drag and drop image here, or click here to select an image. File size limit is 10MB.</span> }
                 </div>
             </InputGroup>
         </Form.Group>
