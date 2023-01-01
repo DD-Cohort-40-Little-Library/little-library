@@ -21,6 +21,7 @@ CREATE TABLE IF NOT EXISTS library (
                                 library_address VARCHAR(258) NOT NULL,
                                 library_description VARCHAR(512),
                                 library_event_opt_in BOOLEAN NOT NULL DEFAULT false,
+                                library_image_url VARCHAR(128),
                                 library_lat DECIMAL(7,5) NOT NULL ,
                                 library_lng DECIMAL(8,5) NOT NULL ,
                                 library_name VARCHAR(128) NOT NULL,
@@ -64,5 +65,3 @@ CREATE TABLE IF NOT EXISTS check_in (
 );
 CREATE INDEX ON check_in(check_in_library_id);
 CREATE INDEX ON check_in(check_in_profile_id);
-
-SELECT * FROM check_in JOIN library ON check_in.check_in_library_id = library.library_id;
