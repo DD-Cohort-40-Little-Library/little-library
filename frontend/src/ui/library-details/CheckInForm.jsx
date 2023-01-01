@@ -51,8 +51,8 @@ export function CheckInForm() {
         // checkInPhotoName: "",
         checkInPhotoUrl: "",
         checkInReport: false,
-        libraryName: "",
-        libraryAddress: ""
+        // libraryName: "",
+        // libraryAddress: ""
     }
 
     const submitCheckIn = (values, {resetForm, setStatus}) => {
@@ -100,10 +100,10 @@ function CheckInFormContent(props) {
         <>
             <Container style={{paddingBlock: '1rem', backgroundColor: 'lightgrey'}}>
                 <Form onSubmit={handleSubmit} className={"text-center"}>
-                    <label>Please Select Library</label>
+                    <label>Please let us know how your visit was.</label>
 
                         <Form.Group controlId="checkInComment">
-                            {libraryName}
+                            {/*{libraryName}*/}
                             <InputGroup>
                                 <Form.Control
                                     className={"form-control"}
