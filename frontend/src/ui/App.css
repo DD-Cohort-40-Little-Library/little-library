@@ -261,6 +261,7 @@ body{
     align-items: center;
 
 }
+
 #profileSectionBlk4 {
     background-color: #CAB898;
     padding: 2rem;
@@ -275,4 +276,32 @@ body{
     background-color: #A9986E;
     padding: 2rem;
     margin-bottom: 30px;
+}
+
+#eventSectionBlk3 {
+    background-color: #CDCDC1;
+    padding: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #2D3024;
+    font-size: large;
+    align-items: center;
+
+}
+
+#eventSectionBlk1 {
+    background-color: #76999D;
+    padding: 2rem;
+    margin-bottom: 30px;
+}
+
+#eventSectionBlk4 {
+    background-color: #93A5AB;
+    padding: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #2D3024;
+    font-size: large;
+    align-items: center;
+
 }

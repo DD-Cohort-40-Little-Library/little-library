@@ -1,4 +1,15 @@
-import {Button, Col, Container, FloatingLabel, Form, FormControl, FormSelect, InputGroup, Row} from "react-bootstrap"
+import {
+	Button,
+	Col,
+	Container,
+	FloatingLabel,
+	Form,
+	FormControl,
+	FormSelect,
+	InputGroup,
+	Row,
+	Stack
+} from "react-bootstrap"
 import React from "react"
 import * as Yup from 'yup'
 import {httpConfig} from "../utils/http-config.js";
@@ -9,6 +20,8 @@ import {DisplayStatus} from "./display-status/DisplayStatus";
 import eventImageBlk1 from "../../../../images/uiSharedImages/eventImgBlk1.jpg";
 import {Link} from "react-router-dom";
 import eventImageBlk2 from "../../../../images/uiSharedImages/eventImgBlk2.jpg";
+import eventReadingGroup from "../../../../images/uiSharedImages/eventReadingGrp.jpg";
+import eventReadingGroup2 from "../../../../images/uiSharedImages/eventReadingGrp2.jpg";
 
 const EventTypeSelect = ({ label, ...props }) => {
 	// useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
@@ -124,7 +137,7 @@ function EventCreateModalFormContent(props) {
 
 	return (
 		<>
-			<Container className={"m-0"} fluid="auto" id={"homeSectionBlk1"}>
+			<Container className={"m-0"} fluid="auto" id={"eventSectionBlk1"}>
 				<Row className={"m-0"}>
 					<img src={eventImageBlk1} alt={"eventImage1"} id={"sectionImageBlk"} className={"img-fluid"}/>
 				</Row>
@@ -230,13 +243,58 @@ function EventCreateModalFormContent(props) {
 			</Form>
 			<DisplayStatus status={status}/>
 			</Container>
+
+			<Container className={""} fluid="auto">
+				<Row className={"m-0 "} id={"eventSectionBlk3"}>
+					<Col>
+						<h1 className={""}>Tips for Hosting a Great Event</h1>
+						<p style={{fontSize: "x-large"}}>Be a responsible host. A little pre-planning can go a long way to making sure your event is rememberable and safe.</p>
+						<p>Follow these tips for setting up and hosting a literacy event:</p>
+						<ul className={"text-start"}>
+							<li>Research the event location</li>
+							<li>Give attendees plenty of notification time</li>
+							<li>If snacks or food is provided, be mindful a allergy restrictions</li>
+							<li>Encourage parents of minors to attend</li>
+							<li>Choose a public setting is possible</li>
+							<li>Provide age appropriate reading material</li>
+							<li>Plan activities aimed for attendee participation</li>
+						</ul>
+					</Col>
+					<Col>
+						<img src={eventReadingGroup} alt={"eventReaderGp"} id={"sectionImageBlk"} className={""} style={{width: '30rem'}}/>
+					</Col>
+				</Row>
+			</Container>
+
+
+			<Container className={""} fluid="auto">
+				<Row className={"m-0"} id={"eventSectionBlk4"}>
+					<Col>
+						<img src={eventReadingGroup2} alt={"eventReadingGroup2"} id={"sectionImageBlk"} className={""} style={{width: '30rem'}}/>
+					</Col>
+					<Col>
+						<h1 className={""}>Learn to Speed Read</h1>
+						<p>Speed reading a great way to train your brain to absorb information fast. The base concept entails learning to scan the page and omitting small words, allowing the brain to fill in the information automatically. Many successful individuals credit speed reading as a tool to become stronger readers and better time management.</p>
+						<p>Check out these sites for tips on speed reading to learn more.</p>
+						<Stack gap={2}>
+							<a target="_blank" href={"https://www.lifehack.org/articles/productivity/10-ways-increase-your-reading-speed.html"}>LifeHack.org: How to Read Faster: 11 Ways to Increase Your Reading Speed</a>
+							<a target="_blank" href={"https://www.courselounge.com/speed-reading-techniques/"}>CourseLounge.com: 8 Speed Reading Techniques To Read Faster</a>
+							<a target="_blank" href={"https://ideas.ted.com/a-speed-reader-shares-3-tricks-to-help-anyone-read-faster/"}>Ideas.Ted.com: A Speed Reader Shares 3 Tricks to Help Anyone Read Faster</a>
+							<a target="_blank" href={"https://www.speedreadinglounge.com/how-to-speed-read"}>SpeedReadingLounge.com: How To Speed Read – 6 Easy Techniques</a>
+						</Stack>
+					</Col>
+
+				</Row>
+			</Container>
+
+
 			<Container className={"m-0"} fluid="auto" id={"eventSectionBlk2"}>
 				<Row className={"m-0"}>
-					<h1>Tips for Attending an Event Safe and Successfully</h1>
+					<h1>Be Sure to Attend an Event Safe and Successfully</h1>
 				</Row>
 				<Row className={"align-items-center"}>
 						<Col>
-						<h3 className={"mb-3"}>Gathering with others can be a great tool for increasing literacy. It can also be a fantastic step to enrich young lives with an enjoyable social experience. Any additional time you make to promote literacy will be an adventure; however, be sure to do it safely.</h3>
+						<p style={{fontSize: "x-large"}} className={"mb-3"}>Gathering with others can be a great tool for increasing literacy. It can also be a fantastic step to enrich young lives with an enjoyable social experience. Any additional time you make to promote literacy will be an adventure; however, be sure to do it safely.</p>
 						</Col>
 						<Col>
 							<p>When considering planning or attending an event with the Little Library Locator please take the following steps to protect yourselves, friends, and family: </p>
@@ -248,6 +306,7 @@ function EventCreateModalFormContent(props) {
 								<li>Make sure you have a communication strategy in place and check in throughout the day</li>
 								<li>Know the start and end times of the event</li>
 								<li>Make sure you know who the event holder is or research the event beforehand</li>
+								<li>Report suspicious activity to authorities immediately</li>
 
 							</ul>
 						</Col>

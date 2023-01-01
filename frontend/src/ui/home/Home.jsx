@@ -31,9 +31,9 @@ export function Home() {
 	return (
 		<>
 
-				<Row className={"mx-0"}>
-					<img src={LLLLabelBrown} alt={"logoBrow"} id={"LLLLabelBrown"} className={"llLogoBrown"}/>
-				</Row>
+			<Row className={"mx-0"}>
+				<img src={LLLLabelBrown} alt={"logoBrow"} id={"LLLLabelBrown"} className={"llLogoBrown"}/>
+			</Row>
 
 				<Row className={"mx-0"}>
 					<Col id={"events-column"} className={"flex order-last order-md-first"} md={2}>
@@ -61,8 +61,8 @@ export function Home() {
 				</Col>
 				<Col>
 					<h1 className={""}>What are Specializations?</h1>
-					<p>Got a lot of children’s books at your Little Library? How about a great collect of romance novels you want to share? The Little Library Locator Map is enabled to highlight the book genre abundance that may be at a location at any time.</p>
-					<p>The following genres are selectable when creating or updating a library:</p>
+						<p>Got a lot of children’s books at your Little Library? How about a great collect of romance novels you want to share? The Little Library Locator Map is enabled to highlight the book genre abundance that may be at a location at any time.</p>
+						<p>The following genres are selectable when creating or updating a library:</p>
 					<Row>
 						<Col>
 							<ul className={"text-start"}>
@@ -107,6 +107,11 @@ export function Home() {
 					<Col>
 						<h1 className={""}>Our Mission</h1>
 						<p>“Our Mission is to foster a social environment around literacy. Through the Little Library Locator, we aim to promote different interests around reading and highlight the unique personalities of the creators of Little Libraries around the world.” </p>
+
+						<h2>Join the project.</h2>
+						<p style={{fontSize: "large"}}>Sign Up and Register Your Little Library</p>
+						<Link to='/library-create'><Button>Add A Library</Button></Link>
+
 					</Col>
 					<Col>
 						<img src={llStock1} alt={"llStock1"} id={"sectionImageBlk"} className={""} style={{width: '30rem'}}/>
@@ -116,7 +121,7 @@ export function Home() {
 			<Container className={"m-0"} fluid="auto" id={"homeSectionBlk3"}>
 				<Row className={"m-0"}>
 					<h1>When is Your Next Event?</h1>
-					<h3 className={"mb-3"}>LogIn or Signup and Get Started!</h3>
+					<p style={{fontSize: "large"}} className={"mb-3"}>LogIn and Get Started!</p>
 					<Link to='/event-create-page'><Button className={"mb-3"}>Plan An Event</Button></Link>
 					<img src={homeImageBlk2} alt={"homeImage2"} id={"sectionImageBlk"} className={"img-fluid"}/>
 				</Row>

@@ -59,9 +59,7 @@ export function ProfileLanding() {
                 <Row className={"m-0"}>
                     <img src={profileImageBlk1} alt={"profileImage1"} id={"sectionImageBlk"} className={"img-fluid"}/>
                 </Row>
-
             </Container>
-
 
 
             <h1 id={"headLineONE"}>User Profile Information</h1>
@@ -119,7 +117,8 @@ export function ProfileLanding() {
                     <Tab eventKey="check-ins" title="Check-Ins">
                         <Container>
                             <Row>
-                                {checkins.map (checkin => <CheckInDetailBlock checkin={checkin}/>)}                            </Row>
+                                {checkins.map (checkin => <CheckInDetailBlock checkin={checkin}/>)}
+                            </Row>
                         </Container>
                     </Tab>
                     <Tab eventKey="libraries" title="Libraries">
@@ -135,13 +134,14 @@ export function ProfileLanding() {
                 </Tabs>
             </div>
 
+
             <Container className={""} fluid="auto">
                 <Row className={"m-0 "} id={"profileSectionBlk4"}>
                     <Col>
                         <img src={headshot} alt={"llStock1"} id={"sectionImageBlk"} className={""} style={{width: '30rem'}}/>
                     </Col>
                     <Col className={"pt-3"}>
-                        <h1>Want to take a Better Headshot from Home?</h1>
+                        <h1>Want to Take a Better Headshot from Home?</h1>
                         <h3 className={"mb-31"}>Read more at Wired.com</h3>
                         <a target="_blank" href={"https://www.wired.com/story/how-to-professional-headshot-smartphone-camera/"}><Button className={"mb-3"}>Go to Article</Button></a>
                     </Col>
@@ -159,7 +159,7 @@ export function ProfileLanding() {
                 <Row className={"m-0 "} id={"profileSectionBlk3"}>
                     <Col>
                         <h1 className={""}>Learn to Speed Read</h1>
-                        <p>Speed reading a great way to train your brain to absorb information fast. The base concept entails learning to scan the page and omitting small words, allowing the brain to fill in the information automatically. Many successful individuals credit speed reading as a tool to become stronger readers and better time management. </p>
+                        <p>Speed reading a great way to train your brain to absorb information fast. The base concept entails learning to scan the page and omitting small words, allowing the brain to fill in the information automatically. Many successful individuals credit speed reading as a tool to become stronger readers and better time management.</p>
                         <p>Check out these sites for tips on speed reading to learn more.</p>
                         <Stack gap={2}>
                             <a target="_blank" href={"https://www.lifehack.org/articles/productivity/10-ways-increase-your-reading-speed.html"}>LifeHack.org: How to Read Faster: 11 Ways to Increase Your Reading Speed</a>
