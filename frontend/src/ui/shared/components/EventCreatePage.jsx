@@ -18,10 +18,12 @@ import {useDispatch, useSelector} from "react-redux";
 import {fetchAllLibraries} from "../../../store/libraries.js";
 import {DisplayStatus} from "./display-status/DisplayStatus";
 import eventImageBlk1 from "../../../../images/uiSharedImages/eventImgBlk1.jpg";
-import {Link} from "react-router-dom";
+import eventImageBlk3 from "../../../../images/uiSharedImages/eventImgBlk3.jpg";
 import eventImageBlk2 from "../../../../images/uiSharedImages/eventImgBlk2.jpg";
 import eventReadingGroup from "../../../../images/uiSharedImages/eventReadingGrp.jpg";
 import eventReadingGroup2 from "../../../../images/uiSharedImages/eventReadingGrp2.jpg";
+import eventReadingGroup3 from "../../../../images/uiSharedImages/eventReadingGrp3.jpg";
+
 
 const EventTypeSelect = ({ label, ...props }) => {
 	// useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
@@ -266,11 +268,17 @@ function EventCreateModalFormContent(props) {
 				</Row>
 			</Container>
 
+			<Container className={"m-0"} fluid="auto" id={"eventSectionBlk5"}>
+				<Row className={"m-0"}>
+					<img src={eventImageBlk3} alt={"eventImage5"} id={"sectionImageBlk"} className={"img-fluid"}/>
+				</Row>
+			</Container>
+
 
 			<Container className={""} fluid="auto">
 				<Row className={"m-0"} id={"eventSectionBlk4"}>
 					<Col>
-						<img src={eventReadingGroup2} alt={"eventReadingGroup2"} id={"sectionImageBlk"} className={""} style={{width: '30rem'}}/>
+						<img src={eventReadingGroup3} alt={"eventReadingGroup3"} id={"sectionImageBlk"} className={""} style={{width: '30rem'}}/>
 					</Col>
 					<Col>
 						<h1 className={""}>Why Plan an Event?</h1>
@@ -292,6 +300,25 @@ function EventCreateModalFormContent(props) {
 				</Row>
 			</Container>
 
+			<Container className={""} fluid="auto">
+				<Row className={"m-0"} id={"eventSectionBlk6"}>
+
+					<Col>
+						<h1 className={""}>Start a Book Club</h1>
+						<p>A simple and effective way to stay social post pandemic is to start or join a book club. One benefit of functioning during a world-wide pandemic was that many became comfortable navigating online meeting software.</p>
+						<p> As many readers look for ways to connect with like-minded individuals either in person or remotely there are options. It is a great way to educate yourself on numerous topics and meet new and exciting people</p>
+						<p>Learn more by researching the topic here.</p>
+						<Stack gap={2}>
+							<a target="_blank" href={"https://www.penguinrandomhouse.com/book-clubs/getting-started/"}>PenguinRandomHouse.com: Getting Started: How to Start a Book Club</a>
+							<a target="_blank" href={"https://bookriot.com/how-to-start-a-book-club/"}>BookRiot.com: How to Start a Book Club that Doesn't Suck</a>
+							<a target="_blank" href={"https://www.oprahdaily.com/entertainment/a27569720/how-to-start-a-book-club/"}>OprahDaily.com: How to Start a Book Club in 6 Simple Steps</a>
+						</Stack>
+					</Col>
+					<Col>
+						<img src={eventReadingGroup2} alt={"eventReadingGroup2"} id={"sectionImageBlk"} className={""} style={{width: '30rem'}}/>
+					</Col>
+				</Row>
+			</Container>
 
 			<Container className={"m-0"} fluid="auto" id={"eventSectionBlk2"}>
 				<Row className={"m-0"}>

@@ -296,6 +296,22 @@ body{
 }
 
 #eventSectionBlk4 {
+    background-color: #F3EAD2;
+    padding: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #2D3024;
+    font-size: large;
+    align-items: center;
+
+}
+#eventSectionBlk5 {
+    background-color: #50573F;
+    padding: 2rem;
+    margin-bottom: 30px;
+}
+
+#eventSectionBlk6 {
     background-color: #93A5AB;
     padding: 2rem;
     margin-bottom: 30px;
