@@ -28,5 +28,5 @@ checkInRoute.route('/checkInLibraryId/:checkInLibraryId')
     .get(asyncValidatorController( [check('checkInLibraryId', 'Please provide a valid checkInLibraryId').isUUID()]), getCheckInByCheckInLibraryIdController)
 
 checkInRoute.route('/checkInProfileId/:profileId')
-    .get(asyncValidatorController([check('profileId', 'Please provide a valid profileId')
+    .get(asyncValidatorController([check('profileId', 'Please provide a valid profileId (2)')
         .isUUID()]), getAllCheckInsForProfileTab)

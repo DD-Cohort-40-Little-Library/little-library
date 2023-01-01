@@ -18,7 +18,7 @@ export const CheckInDetailBlockProfile = (props) => {
     const amPm = startTime.getHours() > 12 ? 'AM' : 'PM'
     const finalTime = (hour + ":" + minutes + amPm)
 
-    console.log(checkin)
+    console.log("profile checkin tab - test 1")
 
     return(
         <>
