@@ -57,7 +57,7 @@ export function Home() {
 			<Container className={""} fluid="auto">
 			<Row className={"m-0 "} id={"homeSectionBlk4"}>
 				<Col>
-					<img src={homeImagePins} alt={"homeImagePins"} id={"homeSectionBlkImg"} className={""} style={{width: '45rem'}}/>
+					<img src={homeImagePins} alt={"homeImagePins"} id={"sectionImageBlk"} className={""} style={{width: '45rem'}}/>
 				</Col>
 				<Col>
 					<h1 className={""}>What are Specializations?</h1>
@@ -99,7 +99,7 @@ export function Home() {
 			</Container>
 			<Container className={"m-0"} fluid="auto" id={"homeSectionBlk1"}>
 				<Row className={"m-0"}>
-					<img src={homeImageBlk1} alt={"homeImage1"} id={"homeSectionBlkImg"} className={"img-fluid"}/>
+					<img src={homeImageBlk1} alt={"homeImage1"} id={"sectionImageBlk"} className={"img-fluid"}/>
 				</Row>
 			</Container>
 			<Container className={""} fluid="auto">
@@ -109,7 +109,7 @@ export function Home() {
 						<p>“Our Mission is to foster a social environment around literacy. Through the Little Library Locator, we aim to promote different interests around reading and highlight the unique personalities of the creators of Little Libraries around the world.” </p>
 					</Col>
 					<Col>
-						<img src={llStock1} alt={"llStock1"} id={"homeSectionBlkImg"} className={""} style={{width: '30rem'}}/>
+						<img src={llStock1} alt={"llStock1"} id={"sectionImageBlk"} className={""} style={{width: '30rem'}}/>
 					</Col>
 				</Row>
 			</Container>
@@ -118,7 +118,7 @@ export function Home() {
 					<h1>When is Your Next Event?</h1>
 					<h3 className={"mb-3"}>LogIn or Signup and Get Started!</h3>
 					<Link to='/event-create-page'><Button className={"mb-3"}>Plan An Event</Button></Link>
-					<img src={homeImageBlk2} alt={"homeImage2"} id={"homeSectionBlkImg"} className={"img-fluid"}/>
+					<img src={homeImageBlk2} alt={"homeImage2"} id={"sectionImageBlk"} className={"img-fluid"}/>
 				</Row>
 			</Container>
 		</>

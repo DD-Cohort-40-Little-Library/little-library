@@ -191,7 +191,7 @@ body{
     margin-bottom: 30px;
 }
 
-#homeSectionBlkImg {
+#sectionImageBlk {
     width: 100%;
     border-radius: 40px;
 }
@@ -222,15 +222,7 @@ body{
     font-size: large;
     align-items: center;
 }
-#eventSectionBlkImg {
-    width: 100%;
-    border-radius: 40px;
-}
 
-#eventSectionBlkImg2 {
-    width: 100%;
-    border-radius: 40px;
-}
 
 #eventSectionBlk2 {
     background-color: #CAB898;
@@ -240,4 +232,32 @@ body{
     color: #2D3024;
     font-size: large;
     align-items: center;
+}
+
+#profileSectionBlk1 {
+    background-color: #577F88;
+    padding: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #2D3024;
+    font-size: large;
+    align-items: center;
+
+}
+
+#profileSectionBlk2 {
+    background-color: #CDCDC1;
+    padding: 2rem;
+    margin-bottom: 30px;
+}
+
+#profileSectionBlk3 {
+    background-color: #93A5AB;
+    padding: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #2D3024;
+    font-size: large;
+    align-items: center;
+
 }

@@ -126,7 +126,7 @@ function EventCreateModalFormContent(props) {
 		<>
 			<Container className={"m-0"} fluid="auto" id={"homeSectionBlk1"}>
 				<Row className={"m-0"}>
-					<img src={eventImageBlk1} alt={"eventImage1"} id={"eventSectionBlkImg"} className={"img-fluid"}/>
+					<img src={eventImageBlk1} alt={"eventImage1"} id={"sectionImageBlk"} className={"img-fluid"}/>
 				</Row>
 			</Container>
 			<Container className="mt-3">
@@ -253,7 +253,7 @@ function EventCreateModalFormContent(props) {
 						</Col>
 					</Row>
 				<Row>
-					<img src={eventImageBlk2} alt={"eventImage2"} id={"eventSectionBlkImg2"} className={"img-fluid"}/>
+					<img src={eventImageBlk2} alt={"eventImage2"} id={"sectionImageBlk"} className={"img-fluid"}/>
 				</Row>
 			</Container>
 		</>
