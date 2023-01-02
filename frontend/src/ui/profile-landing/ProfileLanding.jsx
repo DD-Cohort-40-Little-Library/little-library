@@ -3,14 +3,14 @@ import {Col, Container, Row, Form, Image, Button, Tabs, Tab, FormText, Stack} fr
 import {EventListing} from "../shared/components/EventListing.jsx";
 import {CheckInDisplay} from "../shared/components/CheckInDisplay.jsx";
 import {Link, useParams} from "react-router-dom";
-import {LibraryDetailBlock} from "./LibraryDetailBlock.jsx"
+import {LibraryDetailBlockProfile} from "./LibraryDetailBlockProfile.jsx"
 import {useDispatch, useSelector} from "react-redux";
 import {fetchAuth} from "../../store/auth.js";
 import currentUser, {fetchCurrentUser} from "../../store/currentUser.js";
 import {ProfileUpdateModal} from "./ProfileUpdateModal.jsx";
 import {fetchAllLibraries, fetchLibrariesByProfileId} from "../../store/libraries.js";
 import {EventShortListing} from "../home/EventShortListing.jsx";
-import {EventDetailBlock} from "./EventDetailBlock";
+import {EventDetailBlockProfile} from "./EventDetailBlockProfile.jsx";
 import {fetchEventsByProfileId} from "../../store/events.js";
 import {fetchAllCheckInsForProfileTab, fetchCheckInsByProfileId} from "../../store/checkIn.js";
 import {CheckInDetailBlockProfile} from "./CheckInDetailBlockProfile.jsx";
@@ -97,7 +97,7 @@ export function ProfileLanding() {
                         <Container>
                             <Row>
                                 <Stack>
-                                     {events.map(event => <EventDetailBlock event={event}/>)}
+                                     {events.map(event => <EventDetailBlockProfile event={event}/>)}
                                 </Stack>
                             </Row>
                         </Container>
@@ -113,7 +113,7 @@ export function ProfileLanding() {
                         <Container>
                             <Row>
                                 <Stack>
-                                    {libraries.map (library => <LibraryDetailBlock library={library}/>)}
+                                    {libraries.map (library => <LibraryDetailBlockProfile library={library}/>)}
                                 </Stack>
                             </Row>
                         </Container>

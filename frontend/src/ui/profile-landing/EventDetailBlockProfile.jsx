@@ -1,7 +1,7 @@
 import {Container, Row} from "react-bootstrap";
 import React from "react";
 
-export const EventDetailBlock = (props) => {
+export const EventDetailBlockProfile = (props) => {
 
     const {library, event} = props
     const date = event.eventDate
