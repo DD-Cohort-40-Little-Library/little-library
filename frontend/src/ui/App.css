@@ -178,7 +178,7 @@ body{
 }
 
 #homeSectionBlk1 {
-    background-color: #93A5AB;
+    background-color: #426A73;
     padding: 2rem;
     margin-bottom: 30px;
 }
@@ -189,7 +189,7 @@ body{
 }
 
 #homeSectionBlk2 {
-    background-color: #CDCDC1;
+    background-color: #F3EAD2;
     padding: 2rem;
     margin-bottom: 30px;
     text-align: center;
@@ -198,7 +198,7 @@ body{
     align-items: center;
 }
 #homeSectionBlk3 {
-    background-color: #F3EAD2;
+    background-color: #CAB898;
     padding: 2rem;
     margin-bottom: 30px;
     text-align: center;
@@ -206,7 +206,7 @@ body{
 }
 
 #homeSectionBlk4 {
-    background-color: #CAB898;
+    background-color: #CDCDC1;
     padding: 2rem;
     margin-bottom: 30px;
     text-align: center;
@@ -215,6 +215,21 @@ body{
     align-items: center;
 }
 
+#homeSectionBlk5 {
+    background-color: #76999D;
+    padding: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #2D3024;
+    font-size: x-large;
+    align-items: center;
+}
+
+#homeSectionBlk6 {
+    background-color: #93A5AB;
+    padding: 2rem;
+    margin-bottom: 30px;
+}
 
 #eventSectionBlk2 {
     background-color: #CAB898;
