@@ -144,6 +144,8 @@ function EventCreateModalFormContent(props) {
 					<img src={eventImageBlk1} alt={"eventImage1"} id={"sectionImageBlk"} className={"img-fluid"}/>
 				</Row>
 			</Container>
+
+
 			<Container className="mt-3">
 			<Form onSubmit={handleSubmit}>
 				<Row>
@@ -166,7 +168,6 @@ function EventCreateModalFormContent(props) {
 									onBlur={handleBlur}
 								/>
 							</InputGroup>
-
 							<EventTypeSelect label={"Type of Event"} name={'eventType'} className={"mt-2"}>
 								<option value={''}>Select an event type</option>
 								<option value={'story-time-children'}>Story Time - Children</option>

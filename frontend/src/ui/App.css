@@ -10,8 +10,8 @@ body{
 #generalColBehavior {
     padding-top: 10px;
     padding-bottom: 10px;
-
 }
+
 #headLineONE {
     text-align: center;
     color: #2D3024;
@@ -25,7 +25,6 @@ body{
     margin: 0;
     padding: 1rem;
     font-size: large;
-
 }
 
 #signInUp-column {
@@ -120,7 +119,7 @@ body{
 
 #librarySectionDisplay {
     padding: 2rem;
-
+    background-color: #93A5AB;
 }
 
 #checkInDisplay {
@@ -129,6 +128,15 @@ body{
     padding: 1rem;
     margin: 1rem;
     border-radius: 10px;
+}
+
+#checkInDetailBlock {
+    background-color: #CAB898;
+    color: #2D3024;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 10px;
+
 }
 
 #eventListingDisplay {
@@ -156,16 +164,8 @@ body{
 }
 
 #libraryCreateFormGlobal {
-    background-color: #F3EAD2;
+    background-color: #93A5AB;
     color: #2D3024;
-}
-
-#checkInDetailBlock {
-    background-color: #CAB898;
-    color: #2D3024;
-    padding: 1rem;
-    margin: 1rem;
-    border-radius: 10px;
 
 }
 
@@ -179,6 +179,9 @@ body{
     background-color: #93A5AB;
     text-align: center;
     width: border-box;
+    padding-top: 2rem;
+    font-size: large;
+    border-radius: 0;
 }
 
 #personalStack {
@@ -242,7 +245,6 @@ body{
     color: #2D3024;
     font-size: large;
     align-items: center;
-
 }
 
 #profileSectionBlk2 {
@@ -259,7 +261,6 @@ body{
     color: #2D3024;
     font-size: large;
     align-items: center;
-
 }
 
 #profileSectionBlk4 {
@@ -270,8 +271,8 @@ body{
     color: #2D3024;
     font-size: large;
     align-items: center;
-
 }
+
 #profileSectionBlk5 {
     background-color: #A9986E;
     padding: 2rem;
@@ -286,7 +287,6 @@ body{
     color: #2D3024;
     font-size: large;
     align-items: center;
-
 }
 
 #eventSectionBlk1 {
@@ -319,5 +319,17 @@ body{
     color: #2D3024;
     font-size: large;
     align-items: center;
+}
 
+#librarySectionBlk1 {
+    background-color: #F3EAD2;
+    padding: 2rem;
+    margin-bottom: 30px;
+}
+
+
+#librarySectionBlk4 {
+    background-color: #76999D;
+    padding: 2rem;
+    margin-bottom: 30px;
 }
