@@ -112,7 +112,7 @@ export function ProfileLanding() {
                         <Container>
                             <Row>
                                 <Stack>
-                                     {events.slice(0,3).map(event => <EventDetailBlock library={libraries.filter(library => library.libraryId)[0]} event={event} key={event.eventId}/>)}
+                                     {events.slice(0).map(event => <EventDetailBlock library={libraries.filter(library => library.libraryId)[0]} event={event} key={event.eventId}/>)}
                                 </Stack>
                             </Row>
                         </Container>
@@ -120,7 +120,7 @@ export function ProfileLanding() {
                     <Tab eventKey="check-ins" title="Check-Ins">
                         <Container>
                             <Row>
-                                {checkins.map (checkin => <CheckInDetailBlockProfile checkin={checkin} user={user}/>)}
+                                {checkins.map (checkin => <CheckInDetailBlockProfile library={libraries.filter(library => library.libraryId)[0]} checkin={checkin} user={user} key={checkin.checkInId}/>)}
                             </Row>
                         </Container>
                     </Tab>
