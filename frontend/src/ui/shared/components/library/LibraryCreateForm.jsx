@@ -8,9 +8,9 @@ import {DisplayStatus} from "../display-status/DisplayStatus.jsx";
 import {useDropzone} from "react-dropzone";
 import libraryImageBlk1 from "../../../../../images/uiSharedImages/libraryImgBlk1.jpg";
 import libraryImageBlk2 from "../../../../../images/uiSharedImages/libraryImgBlk2.jpg";
-import llStock1 from "../../../../../images/uiSharedImages/homeLLStock1.jpg";
+import libraryLLStock1 from "../../../../../images/uiSharedImages/libraryLLStock1.jpg";
 import libraryImageCouple1 from "../../../../../images/uiSharedImages/libraryCouple1.jpg";
-import homeImageBlk1 from "../../../../../images/uiSharedImages/homeImgBlk1.jpg";
+
 
 
 
@@ -250,7 +250,7 @@ function LibraryCreateFormContent (props){
 
                     </Col>
                     <Col>
-                        <img src={llStock1} alt={"llStock1"} id={"sectionImageBlk"} className={""} style={{width: '20rem'}}/>
+                        <img src={libraryLLStock1} alt={"libraryLLStock"} id={"sectionImageBlk"} className={""} style={{width: '20rem'}}/>
                     </Col>
                 </Row>
             </Container>
