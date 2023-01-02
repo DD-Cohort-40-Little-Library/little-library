@@ -15,14 +15,17 @@ import {fetchEventsByLibraryId, fetchEventsByProfileId} from "../../store/events
 import {fetchAllCheckInsForProfileTab, fetchCheckInsByProfileId} from "../../store/checkIn.js";
 import {fetchCurrentUser} from "../../store/currentUser.js";
 import {fetchCheckInsByLibraryId} from "../../store/checkIn.js"
+import {EventShortListing} from "../home/EventShortListing.jsx";
+import {EventDetailBlockProfile} from "../profile-landing/EventDetailBlockProfile";
+import {EventDetailBlockLibrary} from "./EventDetailBlockLibrary.jsx";
 
 export function LibraryDetails() {
 
     let { libraryId } = useParams()
     const dispatch = useDispatch()
     const checkins = useSelector(state => state.checkIns ? state.checkIns : [])
-    // const events = useSelector(state => state.events ? state.events : [])
-    const library = useSelector(state => state.libraries ? state.libraries : {})
+    const events = useSelector(state => state.events ? state.events : [])
+    const libraries = useSelector(state => state.libraries ? state.libraries : {})
     // const library = useSelector(state => {return state.libraries ? state.libraries
     //     .filter(library => library.libraryId === libraryId)[0]
     //     : null})
@@ -42,8 +45,6 @@ export function LibraryDetails() {
         dispatch(fetchCheckInsByLibraryId(checkInLibraryId))
     }
     React.useEffect(initialEffects, [libraryId, checkInLibraryId, dispatch])
-
-console.log("is this thing on")
 
     return (
         <>
@@ -74,7 +75,9 @@ console.log("is this thing on")
                 <Container>
                     <Row>
                         <h1>TEST - EVENT LISTING - 1</h1>
-                        {/*<EventListing />*/}
+                        <EventListing />
+                        {libraries.length && events.slice.map(event => <EventDetailBlockLibrary library={libraries.filter(library => library.libraryId === event.eventLibraryId)[0]} event={event} key={event.eventId}/>)}
+
                     </Row>
                 </Container>
             </Tab>
@@ -82,7 +85,7 @@ console.log("is this thing on")
                 <Container>
                     <Row>
                         <h1>TEST - CHECKIN DISPLAY - 1</h1>
-                        {checkins.map (checkin => <CheckInDetailBlockLibrary checkin={checkin}/>)}
+                        {/*{checkins.map (checkin => <CheckInDetailBlockLibrary checkin={checkin}/>)}*/}
                     </Row>
                 </Container>
             </Tab>

@@ -3,7 +3,7 @@ import React from "react";
 
 export const CheckInDetailBlockProfile = (props) => {
 
-    const {checkin, user} = props
+    const {library, checkin, user} = props
 
     const date = checkin.checkInDate
     const D = new Date(date)
@@ -11,8 +11,8 @@ export const CheckInDetailBlockProfile = (props) => {
     const startTime = new Date(time)
     let hour = ((startTime.getHours() + 7) % 12) || 12
     let minutes = startTime.getMinutes()
-    if (startTime.getMinutes() === 0) {
-        minutes = minutes + '0'
+    if (startTime.getMinutes() < 10) {
+        minutes = '0' + minutes
     }
     const amPm = startTime.getHours() > 12 ? 'AM' : 'PM'
     const finalTime = (hour + ":" + minutes + amPm)
@@ -27,9 +27,8 @@ export const CheckInDetailBlockProfile = (props) => {
                     </Col>
                     <Col>
                         <Row xs={6}>Check-In Date/Time: {(D.getMonth() + 1) + '-' + ((D.getDate() + 1) + '-' + (D.getFullYear()) )} / {finalTime}</Row>
-                        {/*//TODO: Line 32/33 join working on backend, but issues bringing it in due to profileId pre initialization issue, work later. This will allow for all tabs once this is fixed.*/}
-                        {/*<Row xs={6}>Library Name: {checkin.libraryName}</Row>*/}
-                        {/*<Row xs={6}>Library Address: {checkin.libraryAddress}</Row>*/}
+                        <Row xs={6}>Library Name: {library.libraryName}</Row>
+                        <Row xs={6}>Library Address: {library.libraryAddress}</Row>
                         <Row xs={6}>Comment: {checkin.checkInComment}</Row>
                     </Col>
                     <Col xs={3}>

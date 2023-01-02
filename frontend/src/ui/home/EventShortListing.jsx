@@ -10,8 +10,8 @@ export const EventShortListing = ({event, library}) => {
 	const startTime = new Date(time)
 	let hour = ((startTime.getHours() + 7) % 12) || 12
 	let minutes = startTime.getMinutes()
-	if (startTime.getMinutes() === 0) {
-		minutes = minutes + '0'
+	if (startTime.getMinutes() < 10) {
+		minutes = '0' + minutes
 	}
 	const amPm = startTime.getHours() > 12 ? 'AM' : 'PM'
 	const finalTime = (hour + ":" + minutes + amPm)

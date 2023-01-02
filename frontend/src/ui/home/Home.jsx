@@ -1,5 +1,5 @@
 import React, {useEffect} from "react"
-import {Button, Col, Row, Stack} from "react-bootstrap";
+import {Button, Col, Container, Row, Stack} from "react-bootstrap";
 import {LibraryMap} from "./LibraryMap.jsx";
 import {EventShortListing} from "./EventShortListing.jsx";
 import {Link} from "react-router-dom";
@@ -9,6 +9,11 @@ import {fetchAllLibraries} from "../../store/libraries.js";
 import {SignOutComponent} from "../shared/components/main-nav/SignOut.jsx";
 import {SignInSignUpModal} from "../shared/components/main-nav/sign-in/SignInSignUpModal.jsx";
 import LLLLabelBrown from "../../../images/logoAssetsSVG/lLabel-brown.svg";
+import homeImageBlk1 from "../../../images/uiSharedImages/homeImgBlk1.jpg";
+import homeImageBlk2 from "../../../images/uiSharedImages/homeImgBlk2.jpg";
+import llStock1 from "../../../images/uiSharedImages/homeLLStock1.jpg";
+import homeImagePins from "../../../images/uiSharedImages/homeImagePins.jpg";
+
 
 export function Home() {
 
@@ -25,9 +30,10 @@ export function Home() {
 
 	return (
 		<>
-				<Row className={"mx-0"}>
-					<img src={LLLLabelBrown} alt={"logoBrow"} id={"LLLLabelBrown"} className={"llLogoBrown"}/>
-				</Row>
+
+			<Row className={"mx-0"}>
+				<img src={LLLLabelBrown} alt={"logoBrow"} id={"LLLLabelBrown"} className={"llLogoBrown"}/>
+			</Row>
 
 				<Row className={"mx-0"}>
 					<Col id={"events-column"} className={"flex order-last order-md-first"} md={2}>
@@ -44,13 +50,82 @@ export function Home() {
 					<Col id={"signInUp-column"} className={"flex order-first order-md-last"} md={1}>
 						<Stack gap={3}>
 							<SignInSignUpModal id={"signInSignUpModal"}/>
-							{/*<Link to='/profile-landing'><Button>Your Profile</Button></Link>*/}
 							<SignOutComponent/>
-							{/*<Link to='/event-create-page'><Button>Plan An Event</Button></Link>*/}
-							{/*<Link to='/library-create'><Button>Add A Library</Button></Link>*/}
-							{/*<Link to='/about-us'><Button>About Us</Button></Link>*/}
 						</Stack>
 					</Col>
 				</Row>
+			<Container className={""} fluid="auto">
+			<Row className={"m-0 "} id={"homeSectionBlk4"}>
+				<Col>
+					<img src={homeImagePins} alt={"homeImagePins"} id={"sectionImageBlk"} className={""} style={{width: '45rem'}}/>
+				</Col>
+				<Col>
+					<h1 className={""}>What are Specializations?</h1>
+						<p>Got a lot of children’s books at your Little Library? How about a great collect of romance novels you want to share? The Little Library Locator Map is enabled to highlight the book genre abundance that may be at a location at any time.</p>
+						<p>The following genres are selectable when creating or updating a library:</p>
+					<Row>
+						<Col>
+							<ul className={"text-start"}>
+								<li>Animals or Pets </li>
+								<li>Art</li>
+								<li>Automotive</li>
+								<li>Baby</li>
+								<li>Children</li>
+								<li>Cooking</li>
+								<li>Fantasy</li>
+								<li>Fiction</li>
+								<li>Finance</li>
+								<li>Fitness</li>
+								<li>History </li>
+							</ul>
+						</Col>
+						<Col>
+							<ul className={"text-start"}>
+								<li>Home Improvement</li>
+								<li>Horror</li>
+								<li>Nature</li>
+								<li>Religious</li>
+								<li>Romance</li>
+								<li>Satire</li>
+								<li>Self-Improvement</li>
+								<li>Space</li>
+								<li>Technical or Textbooks</li>
+								<li>Young Adult</li>
+							</ul>
+						</Col>
+					</Row>
+				</Col>
+			</Row>
+			</Container>
+			<Container className={"m-0"} fluid="auto" id={"homeSectionBlk1"}>
+				<Row className={"m-0"}>
+					<img src={homeImageBlk1} alt={"homeImage1"} id={"sectionImageBlk"} className={"img-fluid"}/>
+				</Row>
+			</Container>
+			<Container className={""} fluid="auto">
+				<Row className={"m-0 "} id={"homeSectionBlk2"}>
+					<Col>
+						<h1 className={""}>Our Mission</h1>
+						<p>“Our Mission is to foster a social environment around literacy. Through the Little Library Locator, we aim to promote different interests around reading and highlight the unique personalities of the creators of Little Libraries around the world.” </p>
+
+						<h2>Join the project.</h2>
+						<p style={{fontSize: "large"}}>Sign Up and Register Your Little Library</p>
+						<Link to='/library-create'><Button>Add A Library</Button></Link>
+
+					</Col>
+					<Col>
+						<img src={llStock1} alt={"llStock1"} id={"sectionImageBlk"} className={""} style={{width: '30rem'}}/>
+					</Col>
+				</Row>
+			</Container>
+			<Container className={"m-0"} fluid="auto" id={"homeSectionBlk3"}>
+				<Row className={"m-0"}>
+					<h1>When is Your Next Event?</h1>
+					<p style={{fontSize: "large"}} className={"mb-3"}>LogIn and Get Started!</p>
+					<Link to='/event-create-page'><Button className={"mb-3"}>Plan An Event</Button></Link>
+					<img src={homeImageBlk2} alt={"homeImage2"} id={"sectionImageBlk"} className={"img-fluid"}/>
+				</Row>
+			</Container>
 		</>
+
 	)}

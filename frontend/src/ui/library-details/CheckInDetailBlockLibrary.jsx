@@ -22,7 +22,6 @@ export const CheckInDetailBlockLibrary = (props) => {
     return(
         <>
             <Container id={"checkInDetailBlock"} className={"border border-dark rounded"}>
-                {/*I think this should actually be another join of the profileAvatarUrl via the checkInProfileId????*/}
                 {/*<Row xs={5}>{profile.profileAvatarUrl}</Row>*/}
                 <p xs={6}>Check-In Date/Time: {(D.getMonth() + 1) + '-' + ((D.getDate() + 1) + '-' + (D.getFullYear()) )} / {finalTime}</p>
                 <Row xs={5}>Comment: {checkin.checkInComment}</Row>

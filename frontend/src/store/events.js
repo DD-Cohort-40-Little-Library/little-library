@@ -34,9 +34,9 @@ export const fetchEventsByProfileId = () => async (dispatch, getState) => {
 //     dispatch(setAllEvents(data))
 // }
 
-export const fetchEventsByLibraryId = () => {
-    return async function (dispatch) {
-        const {data} = await httpConfig.get("/apis/event/eventLibraryId/")
+export const fetchEventsByLibraryId = (libraryId) => async (dispatch) => {
+    // return async function (dispatch) {
+        const {data} = await httpConfig.get(`/apis/event/eventLibraryId/${libraryId}`)
         dispatch(setAllEvents(data))
-    }
+    // }
 }
