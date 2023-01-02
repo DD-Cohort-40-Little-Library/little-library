@@ -15,13 +15,15 @@ import {fetchEventsByLibraryId, fetchEventsByProfileId} from "../../store/events
 import {fetchAllCheckInsForProfileTab, fetchCheckInsByProfileId} from "../../store/checkIn.js";
 import {fetchCurrentUser} from "../../store/currentUser.js";
 import {fetchCheckInsByLibraryId} from "../../store/checkIn.js"
+import {EventShortListing} from "../home/EventShortListing.jsx";
+import {EventDetailBlockLibrary} from "./EventDetailBlockLibrary.jsx";
 
 export function LibraryDetails() {
 
     let { libraryId } = useParams()
     const dispatch = useDispatch()
     const checkins = useSelector(state => state.checkIns ? state.checkIns : [])
-    // const events = useSelector(state => state.events ? state.events : [])
+    const events = useSelector(state => state.events ? state.events : [])
     const library = useSelector(state => state.libraries ? state.libraries : {})
     // const library = useSelector(state => {return state.libraries ? state.libraries
     //     .filter(library => library.libraryId === libraryId)[0]
@@ -34,11 +36,12 @@ export function LibraryDetails() {
     //     }
     // }
     const {checkInComment,checkInDate, checkInPhotoUrl} = checkins
-    // const {eventDate, eventDescription, eventName} = events
+    const {eventDate, eventDescription, eventTitle} = events
 
     const initialEffects = () => {
         dispatch(fetchLibraryByLibraryId(libraryId))
-        // dispatch(fetchEventsByLibraryId())
+        dispatch(fetchEventsByLibraryId(libraryId))
+        // fetchCheckInsByLibraryId(libraryId) below gives "/apis/event/eventLibraryId/function%20i()%20%7B%20...." error when enabled
         dispatch(fetchCheckInsByLibraryId(libraryId))
         // dispatch(fetchAllCheckInsForProfileTab(profileId))
     }
@@ -52,7 +55,7 @@ export function LibraryDetails() {
             <Card.Header>{library.libraryAddress}, {library.libraryType} </Card.Header>
             <Card.Body>
                 {/*Make backend library image connection, code freeze*/}
-                <Image src={'https://placekitten.com/g/200/200'} roundedCircle={true}/>
+                <Image src={library.libraryImageURL} fluid={true} alt={'Please upload a photo of your Little Library.'} ></Image>
                 <Card.Title><h3>{library.libraryName}</h3></Card.Title>
                     {/*<h5>{specialization}</h5>*/}
                 <Card.Text>{library.libraryDescription}</Card.Text>
@@ -74,7 +77,8 @@ export function LibraryDetails() {
                 <Container>
                     <Row>
                         <h1>TEST - EVENT LISTING - 1</h1>
-                        {/*<EventListing />*/}
+                        {console.log(events)}
+                        {events.map(event => <EventDetailBlockLibrary event={event}/>)}
                     </Row>
                 </Container>
             </Tab>

@@ -10,7 +10,7 @@ import currentUser, {fetchCurrentUser} from "../../store/currentUser.js";
 import {ProfileUpdateModal} from "./ProfileUpdateModal.jsx";
 import {fetchAllLibraries, fetchLibrariesByProfileId} from "../../store/libraries.js";
 import {EventShortListing} from "../home/EventShortListing.jsx";
-import {EventDetailBlock} from "./EventDetailBlock";
+import {EventDetailBlockProfile} from "./EventDetailBlockProfile.jsx";
 import {fetchEventsByProfileId} from "../../store/events.js";
 import {fetchAllCheckInsForProfileTab, fetchCheckInsByProfileId} from "../../store/checkIn.js";
 import {CheckInDetailBlockProfile} from "./CheckInDetailBlockProfile.jsx";
@@ -106,11 +106,11 @@ export function ProfileLanding() {
                     id="library-details-tabs"
                     className="mb-3"
                 >
-                    <Tab eventKey="event" title="Events">
+                    <Tab eventKey="events" title="Events">
                         <Container>
                             <Row>
                                 <Stack>
-                                     {events.map(event => <EventDetailBlock event={event}/>)}
+                                     {events.map(event => <EventDetailBlockProfile event={event}/>)}
                                 </Stack>
                             </Row>
                         </Container>
