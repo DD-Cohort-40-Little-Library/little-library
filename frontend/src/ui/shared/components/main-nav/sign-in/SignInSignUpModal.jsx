@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import {Button, Col, Container, Modal, Row} from 'react-bootstrap';
-import googleLogo from "../../../../../../images/uiSharedImages/google-logo-2.webp"
-import {Link} from "react-router-dom";
 import {SignInForm} from "./SignInForm.jsx";
 import {SignUpForm} from "./SignUpForm.jsx";
 

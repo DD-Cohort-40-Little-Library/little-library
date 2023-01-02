@@ -22,7 +22,6 @@ import headshot from "../../../images/uiSharedImages/profileImgBlk4.jpg";
 import profileImageBlk3 from "../../../images/uiSharedImages/profileImgBlk5.jpg";
 
 
-
 export function ProfileLanding() {
     const libraries = useSelector(state => state.libraries ? state.libraries : [])
     const events = useSelector(state => state.events ? state.events : [])

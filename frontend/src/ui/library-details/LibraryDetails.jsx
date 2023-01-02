@@ -33,17 +33,17 @@ export function LibraryDetails() {
     //         return library.librarySpecialization
     //     }
     // }
-    const {checkInComment,checkInDate, checkInPhotoUrl} = checkins
+    const {checkInComment,checkInDate, checkInPhotoUrl, checkInLibraryId} = checkins
     // const {eventDate, eventDescription, eventName} = events
 
     const initialEffects = () => {
         dispatch(fetchLibraryByLibraryId(libraryId))
         // dispatch(fetchEventsByLibraryId())
-        dispatch(fetchCheckInsByLibraryId(libraryId))
-        // dispatch(fetchAllCheckInsForProfileTab(profileId))
+        dispatch(fetchCheckInsByLibraryId(checkInLibraryId))
     }
-    React.useEffect(initialEffects, [libraryId, dispatch])
+    React.useEffect(initialEffects, [libraryId, checkInLibraryId, dispatch])
 
+console.log("is this thing on")
 
     return (
         <>
@@ -58,7 +58,7 @@ export function LibraryDetails() {
                 <Card.Text>{library.libraryDescription}</Card.Text>
                 <Row>
                 <Col style={{padding: '1rem'}}>
-                    <CheckInModal libraryId />
+                    <CheckInModal/>
                 </Col>
                 </Row>
             </Card.Body>

@@ -9,18 +9,18 @@ export const LibraryDetailBlock = (props) => {
         <>
             <Container className={"border border-dark rounded"}>
                 <Col>
-                </Col>
-                <Col>
-                    <Row xs={8}>Name: {library.libraryName}</Row>
-                    <Row xs={8}>Address: {library.libraryAddress}</Row>
-                    <Row xs={8}> Specialization: {library.librarySpecialization}</Row>
-                    <Row xs={8}>Description: {library.libraryDescription}</Row>
-                    <Row xs={8}>Type of Library: {library.libraryType}</Row>
+                    </Col>
+                        <Col>
+                            <Row xs={8}>Name: {library.libraryName}</Row>
+                            <Row xs={8}>Address: {library.libraryAddress}</Row>
+                            <Row xs={8}> Specialization: {library.librarySpecialization}</Row>
+                            <Row xs={8}>Description: {library.libraryDescription}</Row>
+                            <Row xs={8}>Type of Library: {library.libraryType}</Row>
 
-                    <Row xs={8}>Type of Library: {library.libraryName}</Row>
+                            <Row xs={8}>Type of Library: {library.libraryName}</Row>
 
-                </Col>
-                <Col>
+                        </Col>
+                    <Col>
                 </Col>
             </Container>
         </>
