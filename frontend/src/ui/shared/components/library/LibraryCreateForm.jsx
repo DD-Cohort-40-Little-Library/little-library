@@ -235,9 +235,6 @@ function LibraryCreateFormContent (props){
             <DisplayStatus status={status} />
             </Container>
 
-
-
-
             <Container className={""} fluid="auto">
                 <Row className={"m-0 "} id={"librarySectionBlk3"}>
                     <Col>
@@ -246,7 +243,7 @@ function LibraryCreateFormContent (props){
                         <p>The concept of the “Little Free” has also expanded beyond libraries to include pantries and share stores which have also been created from their model.</p>
                         <p>LittleLibraryLocator.com would not have been created without the amazing work of this program.</p>
                         <p style={{fontSize: "large"}}>Click Here to Explore LittleFreeLibrary.org</p>
-                        <a target="_blank" href={"www.https://littlefreelibrary.org"}><Button>Go to Site</Button></a>
+                        <a target="blank" href={"https://littlefreelibrary.org"}><Button>Go to Site</Button></a>
 
                     </Col>
                     <Col>

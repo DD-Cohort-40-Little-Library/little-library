@@ -356,10 +356,30 @@ body{
     margin-bottom: 30px;
 }
 
+#libDisSectionBlk2 {
+    background-color: #F3EAD2;
+    padding: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #2D3024;
+    font-size: x-large;
+    align-items: center;
+}
+
 #libDisSectionBlk3 {
     background-color: #A9986E;
     padding: 2rem;
     margin-bottom: 30px;
+}
+
+#libDisSectionBlk4 {
+    background-color: #CAB898;
+    padding: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #2D3024;
+    font-size: x-large;
+    align-items: center;
 }
 
 #libDisSectionBlk5 {
@@ -381,14 +401,4 @@ body{
     font-size: x-large;
     align-items: center;
    border-radius: 0;
-}
-
-#libDisSectionBlk2 {
-    background-color: #F3EAD2;
-    padding: 2rem;
-    margin-bottom: 30px;
-    text-align: center;
-    color: #2D3024;
-    font-size: x-large;
-    align-items: center;
 }

@@ -19,7 +19,7 @@ import libDisImageBlk1 from "../../../images/uiSharedImages/libDisImgBlk1.jpg";
 import libDisImageBlk5 from "../../../images/uiSharedImages/libDisImgBlk2.jpg";
 import libDisImageBlk3 from "../../../images/uiSharedImages/libDisImgBlk4.jpg";
 import libDisSuper from "../../../images/uiSharedImages/libDisSuper.jpg";
-
+import libDisFamRead from "../../../images/uiSharedImages/libDisFamRead.jpg";
 
 export function LibraryDetails() {
 
@@ -107,15 +107,13 @@ export function LibraryDetails() {
                 <Col>
                     <h1 className={""}>Can Reading Give You Super Powers?</h1>
                     <p>Empathy, stress relief, and life longevity are just a few things that reading regularly has been credited to do. The benefits of reading have well been documented that it is said that superpowers are gained. Decide for yourself by exploring these articles on the subject.</p>
-
                     <Stack gap={1}>
-                        <a target="_blank" href={"https://medium.com/@educasic/5-superpowers-you-get-from-reading-c7c35756ac9d"}>Medium.com: 5 superpowers you get from reading</a>
-                        <a target="_blank" href={"https://baos.pub/7-superpowers-that-books-can-grant-you-7cd76279a1a1"}>Baos.pub: 7 Superpowers That Books Can Grant You</a>
-                        <a target="_blank" href={"https://www.healthline.com/health/benefits-of-reading-books"}>Healthline.com: Benefits of Reading Books: How It Can Positively Affect Your Life</a>
-                        <a target="_blank" href={"https://www.realsimple.com/health/preventative-health/benefits-of-reading-real-books"}>RealSimple.com: 8 Science-Backed Reasons to Read a (Real) Book</a>
-                        <a target="_blank" href={"https://www.webmd.com/balance/health-benefits-of-reading-books"}>WebMD.com: Health Benefits of Reading Books</a>
+                        <a target="blank" href={"https://medium.com/@educasic/5-superpowers-you-get-from-reading-c7c35756ac9d"}>Medium.com: 5 superpowers you get from reading</a>
+                        <a target="blank" href={"https://baos.pub/7-superpowers-that-books-can-grant-you-7cd76279a1a1"}>Baos.pub: 7 Superpowers That Books Can Grant You</a>
+                        <a target="blank" href={"https://www.healthline.com/health/benefits-of-reading-books"}>Healthline.com: Benefits of Reading Books: How It Can Positively Affect Your Life</a>
+                        <a target="blank" href={"https://www.realsimple.com/health/preventative-health/benefits-of-reading-real-books"}>RealSimple.com: 8 Science-Backed Reasons to Read a (Real) Book</a>
+                        <a target="blank" href={"https://www.webmd.com/balance/health-benefits-of-reading-books"}>WebMD.com: Health Benefits of Reading Books</a>
                     </Stack>
-
                 </Col>
                 <Col>
                     <img src={libDisSuper} alt={"libDisSuper"} id={"sectionImageBlk"} className={""} style={{width: '30rem'}}/>
@@ -126,6 +124,26 @@ export function LibraryDetails() {
         <Container className={"m-0"} fluid="auto" id={"libDisSectionBlk3"}>
             <Row className={"m-0"}>
                 <img src={libDisImageBlk3} alt={"libDisImageBlk3"} id={"sectionImageBlk"} className={"img-fluid"}/>
+            </Row>
+        </Container>
+
+        <Container className={""} fluid="auto">
+            <Row className={"m-0 "} id={"libDisSectionBlk4"}>
+                <Col>
+                    <img src={libDisFamRead} alt={"libDisFamRead"} id={"sectionImageBlk"} className={""} style={{width: '30rem'}}/>
+                </Col>
+                <Col>
+                    <h1 className={""}>Start Teaching Reading Early and Often</h1>
+                    <p>We all want our children to be successful and reading to children at the early stages of development may be key. Not only will it help form a loving bond with your child, but it will also introduce your child to world and concepts that will help them develop quicker. It will teach listening and comprehension as well as expand their attention span which will be helpful when they enter school.</p>
+                    <p>Check out these articles to learn more:</p>
+                    <Stack gap={1}>
+                        <a target="blank" href={"https://www.nationwidechildrens.org/family-resources-education/700childrens/2022/11/benefits-of-starting-reading"}>NationwideChildrens.org: Benefits of Starting Reading at a Young Age</a>
+                        <a target="blank" href={"https://www.all4kids.org/news/blog/the-importance-of-reading-to-your-children/"}>All4Kids.org: The Importance of Reading to Your Children</a>
+                        <a target="blank" href={"https://www.waterford.org/education/how-young-is-too-young-to-read/"}>Waterford.org: How Young Is Too Young to Learn to Read?</a>
+                        <a target="blank" href={"https://www.ybrecdc.org/child-care-minnetonka/benefits-at-learning-to-read-at-an-early-age/"}>Ybrecdc.org: Benefits Of Learning To Read At An Early Age</a>
+                        <a target="blank" href={"https://www.healthline.com/health/childrens-health/reading-to-children"}>Healthline.com: Reading to Children: Why It’s So Important and How to Start</a>
+                    </Stack>
+                </Col>
             </Row>
         </Container>
 
