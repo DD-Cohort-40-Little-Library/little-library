@@ -2,10 +2,22 @@ import React, {useState} from "react";
 import {Formik, useField} from "formik";
 import * as Yup from "yup";
 import {httpConfig} from "../../utils/http-config.js";
-import {Button, Card, Col, Figure, Form, FormControl, FormSelect, InputGroup, Row} from "react-bootstrap";
+import {Button, Card, Col, Container, Figure, Form, FormControl, FormSelect, InputGroup, Row} from "react-bootstrap";
 import {DisplayError} from "../display-error/DisplayError.jsx";
 import {DisplayStatus} from "../display-status/DisplayStatus.jsx";
 import {useDropzone} from "react-dropzone";
+import libraryImageBlk1 from "../../../../../images/uiSharedImages/libraryImgBlk1.jpg";
+import libraryImageBlk2 from "../../../../../images/uiSharedImages/libraryImgBlk2.jpg";
+import {Link} from "react-router-dom";
+import llStock1 from "../../../../../images/uiSharedImages/homeLLStock1.jpg";
+
+
+
+
+
+
+
+
 
 const LibraryEventCheckbox = ({ children, ...props }) => {
     const [field, meta] = useField({ ...props, type: "checkbox" });
@@ -98,15 +110,22 @@ function LibraryCreateFormContent (props){
 
     return (
         <>
-            <div className={"text-center"} id={"libraryCreateFormGlobal"}>
-                <h1 id={"headLineONE"}>Register Your Library</h1>
+            <Container className={"m-0"} fluid="auto" id={"librarySectionBlk1"}>
+                <Row className={"m-0"}>
+                    <img src={libraryImageBlk2} alt={"libraryImage2"} id={"sectionImageBlk"} className={"img-fluid"}/>
+                </Row>
+            </Container>
+
+            <Container className={"m-0"} fluid="auto">
+            <div className={"text-center"} id={"libraryCreateFormGlobal"} className={"m-0"}>
+                <h1 id={"headLineONE"} className={"m-0"}>Register Your Library</h1>
             </div>
-            <Card id={"libraryRegisterCard"}>
-            <Form onSubmit={handleSubmit}>
+            <Card id={"libraryRegisterCard"} className={"m-0"}>
+            <Form onSubmit={handleSubmit} className={"m-0"}>
 
-                <Row>
+                <Row className={"m-0"}>
 
-                    <Col md={6} className={"m-2 text-center"}>
+                    <Col md={6} className={"m-0 text-center"}>
                             <Form.Group controlId={'libraryAddress'}>
                             <Form.Label>Library Address</Form.Label>
                             <InputGroup>
@@ -171,14 +190,14 @@ function LibraryCreateFormContent (props){
                         </Form.Group>
                     </Col>
 
-                    <Col md={5} className={"m-2 text-center"}>
+                    <Col md={5} className={"m-0 text-center"}>
 
                         <ImageDropZone
                             formikProps={{
                                 values, handleChange, handleBlur, setFieldValue, fieldValue:'libraryImageUrl', setSelectedImage: setSelectedImage
                             }}
                         />
-                        <div>
+                        <div className={"m-0"}>
                             {selectedImage !== null ? <img className={"w-50"} src={selectedImage}/> : ""}
                         </div>
 
@@ -199,11 +218,11 @@ function LibraryCreateFormContent (props){
                             <DisplayError errors={errors} touched={touched} field={'libraryDescription'}/>
                         </Form.Group>
                     </Col>
-                <Form.Group className={"m-4"}>
+                <Form.Group className={"m-0"}>
                     <Button className={"btn btn-primary m-4"} type={"submit"}>Submit</Button>
                     {" "}
                     <Button
-                        className={"btn btn-danger m-4"}
+                        className={"btn btn-danger m-0"}
                         onClick={handleReset}
                         disabled={!dirty || isSubmitting}
                     >Reset
@@ -213,6 +232,34 @@ function LibraryCreateFormContent (props){
             </Form>
             </Card>
             <DisplayStatus status={status} />
+            </Container>
+
+
+
+
+            <Container className={""} fluid="auto">
+                <Row className={"m-0 "} id={"homeSectionBlk2"}>
+                    <Col>
+                        <h1 className={""}>Our Mission</h1>
+                        <p>“Our Mission is to foster a social environment around literacy. Through the Little Library Locator, we aim to promote different interests around reading and highlight the unique personalities of the creators of Little Libraries around the world.” </p>
+
+                        <h2>Join the project.</h2>
+                        <p style={{fontSize: "large"}}>Sign Up and Register Your Little Library</p>
+                        <Link to='/library-create'><Button>Add A Library</Button></Link>
+
+                    </Col>
+                    <Col>
+                        <img src={llStock1} alt={"llStock1"} id={"sectionImageBlk"} className={""} style={{width: '30rem'}}/>
+                    </Col>
+                </Row>
+            </Container>
+
+            <Container className={"m-0"} fluid="auto" id={"librarySectionBlk4"}>
+                <Row className={"m-0"}>
+                    <img src={libraryImageBlk1} alt={"libraryImage1"} id={"sectionImageBlk"} className={"img-fluid"}/>
+                </Row>
+            </Container>
+
         </>
     )
 }

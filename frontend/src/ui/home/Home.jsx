@@ -54,6 +54,7 @@ export function Home() {
 						</Stack>
 					</Col>
 				</Row>
+
 			<Container className={""} fluid="auto">
 			<Row className={"m-0 "} id={"homeSectionBlk4"}>
 				<Col>
@@ -102,6 +103,8 @@ export function Home() {
 					<img src={homeImageBlk1} alt={"homeImage1"} id={"sectionImageBlk"} className={"img-fluid"}/>
 				</Row>
 			</Container>
+
+
 			<Container className={""} fluid="auto">
 				<Row className={"m-0 "} id={"homeSectionBlk2"}>
 					<Col>
@@ -118,6 +121,8 @@ export function Home() {
 					</Col>
 				</Row>
 			</Container>
+
+
 			<Container className={"m-0"} fluid="auto" id={"homeSectionBlk3"}>
 				<Row className={"m-0"}>
 					<h1>When is Your Next Event?</h1>
@@ -126,6 +131,8 @@ export function Home() {
 					<img src={homeImageBlk2} alt={"homeImage2"} id={"sectionImageBlk"} className={"img-fluid"}/>
 				</Row>
 			</Container>
+
+
 		</>
 
 	)}
