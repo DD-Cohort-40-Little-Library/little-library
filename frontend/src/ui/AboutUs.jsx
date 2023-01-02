@@ -1,4 +1,4 @@
-import {Col, Container, Image, Row, Stack} from "react-bootstrap";
+import {Button, Col, Container, Image, Row, Stack} from "react-bootstrap";
 import React from "react";
 import kelly from '../../images/uiSharedImages/kelly-bowman.jpg';
 import nycole from '../../images/uiSharedImages/nycole-davila.jpg';
@@ -8,13 +8,14 @@ import logoTag from '../../images/uiSharedImages/llLogoTag.svg';
 import git from '../../images/uiSharedImages/git-bk-rd-1.svg';
 import linkedIn from '../../images/uiSharedImages/link-bk-rd-1.svg';
 import email from '../../images/uiSharedImages/mail-bk-rd-1.svg';
+import ddcLogo from '../../images/uiSharedImages/ddcLogo.svg'
 
 export function AboutUs() {
     return (
         <>
-        <Container fluid='auto' style={{padding: '2rem', marginBottom: '30px'}}>
+        <Container fluid='auto' id={"aboutUsIntro"}>
             <Col>
-            <Row style={{padding: '2rem', alignContent: 'center'}}>
+            <Row>
                 <Image fluid='auto' src={logoTag} style={{height: "30rem", marginBottom: "20px"}}/>
             </Row>
             </Col>
@@ -27,13 +28,13 @@ export function AboutUs() {
             </Row>
         </Container>
 
-        <Container id={"personalStack"}>
+        <Container id={"aboutUsPersonalStack"}>
             <Stack gap={5}>
                 <Row style={{alignItems: "center"}}>
                 <Col>
                     <Image src={kelly} roundedCircle='true' style={{height: "12rem"}}/>
                 </Col>
-                <Col sm={9}>
+                <Col sm={9} style={{alignItems: "center"}}>
                     <h3>Kelly Bowman</h3>
 
                     <a target="_blank" href={"https://github.com/KSBowman"}><Image src={git} style={{height: "2rem", paddingRight: "10px"}}/></a>
@@ -44,7 +45,7 @@ export function AboutUs() {
                 </Col>
             </Row>
             <Row style={{alignItems: "center"}}>
-                <Col>
+                <Col style={{alignContent: "center"}}>
                     <Image src={nycole} roundedCircle='true' style={{height: "12rem"}}/>
                 </Col>
                 <Col sm={9}>
@@ -85,9 +86,19 @@ export function AboutUs() {
                     <p>Matt is a highly motivated professional with over 20 years of experience as a leader, entrepreneur, and manager.  On completion of the Full Stack Web Development Bootcamp, he will be relocating to New Zealand and entering the Tech Sector working on the Full Stack.</p>
                 </Col>
             </Row>
-
-
             </Stack>
+        </Container>
+        <Container fluid="auto" id={"aboutUsDDC"}>
+            <Row>
+                <Image src={ddcLogo} className={"img-fluid"}  alt={"ddcLogo"} id={"sectionImageBlk"} style={{height: "12rem"}}/>
+                <h1 className={""}>Change Your life By Learning A New Skill</h1>
+                <h3>Looking to change careers? Want to learn the latest technologies such as Full Stack Web Development or Internet of Things? Then a Deep Dive Coding Bootcamp may be for you.</h3>
+                <p style={{fontSize: "x-large"}}>These bootcamps have enabled people from different locations and backgrounds to gain the skills and knowledge necessary to make changes in their lives. Located in Albuquerque, NM, Deep Dive Coding has learning environments to meet both local and out of state learning needs. Their courses are base in real-world in-demand subjects and work with many programs that allow students to get the funding they need to attend.</p>
+                <p>LittleLibraryLocator.com was a project developed through the Deep Dive Coding Full Stack Web Development curriculum and in ten short weeks exposed our team to the skills to develop this application.</p>
+                <p>Thank you Deep Dive Coding For all that you guys do!</p>
+                <p style={{fontSize: "large"}}>Click Here to Explore DeepDiveCoding.com</p>
+                <a target="blank" href={"https://deepdivecoding.com"}><Button>Go to Site</Button></a>
+            </Row>
         </Container>
         </>
     )
