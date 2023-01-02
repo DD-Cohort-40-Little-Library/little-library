@@ -1,9 +1,8 @@
 import {Container, Row} from "react-bootstrap";
 import React from "react";
 
-export const EventDetailBlock = (props) => {
+export const EventDetailBlock = ({event, library}) => {
 
-    const {library, event} = props
     const date = event.eventDate
     const D = new Date(date)
     const time = event.eventStart
@@ -22,8 +21,8 @@ export const EventDetailBlock = (props) => {
                 <Row xs={5}>Title: {event.eventTitle}</Row>
                 <Row xs={5}>Date: {(D.getMonth() + 1) + '-' + ((D.getDate() + 1) + '-' + (D.getFullYear()))}</Row>
                 <Row xs={5}>Start time: {finalTime}</Row>
-                <p xs={6}>Library Name: {event.eventLibraryId} ***********NEED TO CHANGE THIS TO IT'S LIBRARY NAME**********</p>
-                <p xs={6}>Library Address: {event.eventLibraryId} ***********NEED TO CHANGE THIS TO IT'S LIBRARY ADDRESS**********</p>
+                <Row xs={6}>Library Name: {library.libraryName}</Row>
+                <Row xs={6}>Library Address: {library.libraryAddress}</Row>
                 <Row xs={7}>Description: {event.eventDescription}</Row>
             </Container>
         </>
