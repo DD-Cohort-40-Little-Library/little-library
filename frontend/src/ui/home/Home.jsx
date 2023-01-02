@@ -58,11 +58,11 @@ export function Home() {
 			<Container className={""} fluid="auto">
 			<Row className={"m-0 "} id={"homeSectionBlk4"}>
 				<Col>
-					<img src={homeImagePins} alt={"homeImagePins"} id={"sectionImageBlk"} className={""} style={{width: '45rem'}}/>
+					<img src={homeImagePins} alt={"homeImagePins"} id={"sectionImageBlk"} className={""} style={{width: '40rem'}}/>
 				</Col>
 				<Col>
 					<h1 className={""}>What are Specializations?</h1>
-						<p>Got a lot of children’s books at your Little Library? How about a great collect of romance novels you want to share? The Little Library Locator Map is enabled to highlight the book genre abundance that may be at a location at any time.</p>
+						<p style={{fontSize: "x-large"}}>Got a lot of children’s books at your Little Library? How about a great collect of romance novels you want to share? The Little Library Locator Map is enabled to highlight the book genre abundance that may be at a location at any time.</p>
 						<p>The following genres are selectable when creating or updating a library:</p>
 					<Row>
 						<Col>
@@ -117,7 +117,7 @@ export function Home() {
 
 					</Col>
 					<Col>
-						<img src={llStock1} alt={"llStock1"} id={"sectionImageBlk"} className={""} style={{width: '30rem'}}/>
+						<img src={llStock1} alt={"llStock1"} id={"sectionImageBlk"} className={""} style={{width: '20rem'}}/>
 					</Col>
 				</Row>
 			</Container>

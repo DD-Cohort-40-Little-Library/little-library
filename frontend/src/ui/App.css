@@ -205,7 +205,7 @@ body{
     margin-bottom: 30px;
     text-align: center;
     color: #2D3024;
-    font-size: xx-large;
+    font-size: x-large;
     align-items: center;
 }
 #homeSectionBlk3 {
@@ -322,7 +322,7 @@ body{
 }
 
 #librarySectionBlk1 {
-    background-color: #F3EAD2;
+    background-color: #A9986E;
     padding: 2rem;
     margin-bottom: 30px;
 }
@@ -330,6 +330,30 @@ body{
 
 #librarySectionBlk4 {
     background-color: #76999D;
+    padding: 2rem;
+    margin-bottom: 30px;
+}
+#librarySectionBlk3 {
+    background-color: #CDCDC1;
+    padding: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #2D3024;
+    font-size: x-large;
+    align-items: center;
+}
+
+#librarySectionBlk5 {
+    background-color: #76999D;
+    padding: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #2D3024;
+    font-size: x-large;
+    align-items: center;
+}
+#librarySectionBlk2 {
+    background-color: #F3EAD2;
     padding: 2rem;
     margin-bottom: 30px;
 }

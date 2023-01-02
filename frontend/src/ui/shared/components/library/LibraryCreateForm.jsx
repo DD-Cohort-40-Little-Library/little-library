@@ -8,8 +8,9 @@ import {DisplayStatus} from "../display-status/DisplayStatus.jsx";
 import {useDropzone} from "react-dropzone";
 import libraryImageBlk1 from "../../../../../images/uiSharedImages/libraryImgBlk1.jpg";
 import libraryImageBlk2 from "../../../../../images/uiSharedImages/libraryImgBlk2.jpg";
-import {Link} from "react-router-dom";
 import llStock1 from "../../../../../images/uiSharedImages/homeLLStock1.jpg";
+import libraryImageCouple1 from "../../../../../images/uiSharedImages/libraryCouple1.jpg";
+import homeImageBlk1 from "../../../../../images/uiSharedImages/homeImgBlk1.jpg";
 
 
 
@@ -116,12 +117,12 @@ function LibraryCreateFormContent (props){
                 </Row>
             </Container>
 
-            <Container className={"m-0"} fluid="auto">
-            <div className={"text-center"} id={"libraryCreateFormGlobal"} className={"m-0"}>
+            <Container className={"m-0"} fluid="auto" >
+            <div className={"text-center m-0"} id={"libraryCreateFormGlobal"}>
                 <h1 id={"headLineONE"} className={"m-0"}>Register Your Library</h1>
             </div>
             <Card id={"libraryRegisterCard"} className={"m-0"}>
-            <Form onSubmit={handleSubmit} className={"m-0"}>
+            <Form onSubmit={handleSubmit} className={"m-0"} style={{fontSize: "x-large"}}>
 
                 <Row className={"m-0"}>
 
@@ -238,23 +239,43 @@ function LibraryCreateFormContent (props){
 
 
             <Container className={""} fluid="auto">
-                <Row className={"m-0 "} id={"homeSectionBlk2"}>
+                <Row className={"m-0 "} id={"librarySectionBlk3"}>
                     <Col>
-                        <h1 className={""}>Our Mission</h1>
-                        <p>“Our Mission is to foster a social environment around literacy. Through the Little Library Locator, we aim to promote different interests around reading and highlight the unique personalities of the creators of Little Libraries around the world.” </p>
-
-                        <h2>Join the project.</h2>
-                        <p style={{fontSize: "large"}}>Sign Up and Register Your Little Library</p>
-                        <Link to='/library-create'><Button>Add A Library</Button></Link>
+                        <h1 className={""}>Learn Where It All Started</h1>
+                        <p>The Little Free Library project was started out of St. Paul Minnesota. They have grown to be a worldwide presence and inspired over 150,000 Little Free Libraries to be created and countless many to read through this program.</p>
+                        <p>The concept of the “Little Free” has also expanded beyond libraries to include pantries and share stores which have also been created from their model.</p>
+                        <p>LittleLibraryLocator.com would not have been created without the amazing work of this program.</p>
+                        <p style={{fontSize: "large"}}>Click Here to Explore LittleFreeLibrary.org</p>
+                        <a target="_blank" href={"www.https://littlefreelibrary.org"}><Button>Go to Site</Button></a>
 
                     </Col>
                     <Col>
-                        <img src={llStock1} alt={"llStock1"} id={"sectionImageBlk"} className={""} style={{width: '30rem'}}/>
+                        <img src={llStock1} alt={"llStock1"} id={"sectionImageBlk"} className={""} style={{width: '20rem'}}/>
                     </Col>
                 </Row>
             </Container>
 
-            <Container className={"m-0"} fluid="auto" id={"librarySectionBlk4"}>
+
+            <Container className={""} fluid="auto">
+                <Row className={"m-0 "} id={"librarySectionBlk5"}>
+                    <Col>
+                        <img src={libraryImageCouple1} alt={"libraryImageCouple1"} id={"sectionImageBlk"} className={""} style={{width: '30rem'}}/>
+                    </Col>
+                    <Col>
+                        <h1 className={""}>What to Consider Before Starting a Little Library</h1>
+                        <p>Here are a few things to consider before setting up your Little Library:</p>
+                        <ul className={"text-start"} style={{fontSize: "large"}}>
+                            <li>Are there any restrictions in your neighborhood or community?</li>
+                            <li>Will the Little Library be welcome?</li>
+                            <li>How accessible will the library be?</li>
+                            <li>How will the physical structure be built? What materials will be used?</li>
+                            <li>How involved int the community do you want to be?</li>
+                        </ul>
+                    </Col>
+                </Row>
+            </Container>
+
+            <Container className={"m-0"} fluid="auto" id={"librarySectionBlk2"}>
                 <Row className={"m-0"}>
                     <img src={libraryImageBlk1} alt={"libraryImage1"} id={"sectionImageBlk"} className={"img-fluid"}/>
                 </Row>
