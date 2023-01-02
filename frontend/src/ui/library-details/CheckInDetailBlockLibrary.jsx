@@ -5,7 +5,7 @@ export const CheckInDetailBlockLibrary = (props) => {
 
     console.log("Test - check in block 2")
 
-    const {checkin, profile} = props
+    const {checkin} = props
 
     const date = checkin.checkInDate
     const D = new Date(date)

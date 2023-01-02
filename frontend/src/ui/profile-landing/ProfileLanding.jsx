@@ -16,7 +16,6 @@ import {fetchAllCheckInsForProfileTab, fetchCheckInsByProfileId} from "../../sto
 import {CheckInDetailBlockProfile} from "./CheckInDetailBlockProfile.jsx";
 import plsSignIn from "../../../images/uiSharedImages/plsSignIn.svg";
 
-
 export function ProfileLanding() {
     const libraries = useSelector(state => state.libraries ? state.libraries : [])
     const events = useSelector(state => state.events ? state.events : [])
@@ -106,8 +105,7 @@ export function ProfileLanding() {
                     <Tab eventKey="check-ins" title="Check-Ins">
                         <Container>
                             <Row>
-                                {checkins.map (checkin =>
-                                    <CheckInDetailBlockProfile checkin={checkin} user={user}/>)}
+                                {checkins.map (checkin => <CheckInDetailBlockProfile checkin={checkin} user={user}/>)}
                             </Row>
                         </Container>
                     </Tab>
