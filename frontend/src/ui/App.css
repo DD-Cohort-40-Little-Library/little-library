@@ -22,7 +22,7 @@ body{
     background-color: #F3EAD2;
     text-align: center;
     color: #2D3024;
-    margin: 0rem;
+    margin: 0;
     padding: 1rem;
     font-size: large;
 
@@ -183,4 +183,141 @@ body{
 
 #personalStack {
     padding-bottom: 30px;
+}
+
+#homeSectionBlk1 {
+    background-color: #93A5AB;
+    padding: 2rem;
+    margin-bottom: 30px;
+}
+
+#sectionImageBlk {
+    width: 100%;
+    border-radius: 40px;
+}
+
+#homeSectionBlk2 {
+    background-color: #CDCDC1;
+    padding: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #2D3024;
+    font-size: xx-large;
+    align-items: center;
+}
+#homeSectionBlk3 {
+    background-color: #F3EAD2;
+    padding: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #2D3024;
+}
+
+#homeSectionBlk4 {
+    background-color: #CAB898;
+    padding: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #2D3024;
+    font-size: large;
+    align-items: center;
+}
+
+
+#eventSectionBlk2 {
+    background-color: #CAB898;
+    padding: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #2D3024;
+    font-size: large;
+    align-items: center;
+}
+
+#profileSectionBlk1 {
+    background-color: #577F88;
+    padding: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #2D3024;
+    font-size: large;
+    align-items: center;
+
+}
+
+#profileSectionBlk2 {
+    background-color: #CDCDC1;
+    padding: 2rem;
+    margin-bottom: 30px;
+}
+
+#profileSectionBlk3 {
+    background-color: #93A5AB;
+    padding: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #2D3024;
+    font-size: large;
+    align-items: center;
+
+}
+
+#profileSectionBlk4 {
+    background-color: #CAB898;
+    padding: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #2D3024;
+    font-size: large;
+    align-items: center;
+
+}
+#profileSectionBlk5 {
+    background-color: #A9986E;
+    padding: 2rem;
+    margin-bottom: 30px;
+}
+
+#eventSectionBlk3 {
+    background-color: #CDCDC1;
+    padding: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #2D3024;
+    font-size: large;
+    align-items: center;
+
+}
+
+#eventSectionBlk1 {
+    background-color: #76999D;
+    padding: 2rem;
+    margin-bottom: 30px;
+}
+
+#eventSectionBlk4 {
+    background-color: #F3EAD2;
+    padding: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #2D3024;
+    font-size: large;
+    align-items: center;
+
+}
+#eventSectionBlk5 {
+    background-color: #50573F;
+    padding: 2rem;
+    margin-bottom: 30px;
+}
+
+#eventSectionBlk6 {
+    background-color: #93A5AB;
+    padding: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #2D3024;
+    font-size: large;
+    align-items: center;
+
 }
