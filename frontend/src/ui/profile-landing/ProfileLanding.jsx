@@ -3,7 +3,7 @@ import {Col, Container, Row, Form, Image, Button, Tabs, Tab, FormText, Stack} fr
 import {EventListing} from "../shared/components/EventListing.jsx";
 import {CheckInDisplay} from "../shared/components/CheckInDisplay.jsx";
 import {Link, useParams} from "react-router-dom";
-import {LibraryDetailBlock} from "./LibraryDetailBlock.jsx"
+import {LibraryDetailBlockProfile} from "./LibraryDetailBlockProfile.jsx"
 import {useDispatch, useSelector} from "react-redux";
 import {fetchAuth} from "../../store/auth.js";
 import currentUser, {fetchCurrentUser} from "../../store/currentUser.js";
@@ -126,7 +126,7 @@ export function ProfileLanding() {
                         <Container>
                             <Row>
                                 <Stack>
-                                    {libraries.map (library => <LibraryDetailBlock library={library}/>)}
+                                    {libraries.map (library => <LibraryDetailBlockProfile library={library}/>)}
                                 </Stack>
                             </Row>
                         </Container>
