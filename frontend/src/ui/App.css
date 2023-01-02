@@ -417,3 +417,29 @@ body{
     align-items: center;
    border-radius: 0;
 }
+
+/**** About-Us Section ****/
+#aboutUsIntro{
+    padding: 2rem;
+    margin-bottom: 30px;
+    align-content: center;
+    background-color: #CDCDC1;
+    color: #2D3024;
+    text-align: center;
+}
+
+#aboutUsPersonalStack {
+    padding: 2rem;
+    margin-bottom: 30px;
+    align-content: center;
+    color: #2D3024;
+
+}
+
+#aboutUsDDC {
+    background-color: #93A5AB;
+    padding: 2rem;
+    margin-bottom: 0px;
+    text-align: center;
+    align-content: center;
+}
