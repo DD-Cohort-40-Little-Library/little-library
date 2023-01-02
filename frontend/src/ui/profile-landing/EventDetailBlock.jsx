@@ -9,8 +9,8 @@ export const EventDetailBlock = ({event, library}) => {
     const startTime = new Date(timeS)
     let hourS = ((startTime.getHours() + 7) % 12) || 12
     let minutesS = startTime.getMinutes()
-    if (startTime.getMinutes() === 0) {
-        minutesS = minutesS + '0'
+    if (startTime.getMinutes() < 10) {
+        minutesS = '0' + minutesS
     }
     const amPmS = startTime.getHours() > 12 ? 'AM' : 'PM'
     const finalStartTime = (hourS + ":" + minutesS + amPmS)
@@ -19,8 +19,8 @@ export const EventDetailBlock = ({event, library}) => {
     const endTime = new Date(timeE)
     let hourE = ((endTime.getHours() + 7) % 12) || 12
     let minutesE = endTime.getMinutes()
-    if (endTime.getMinutes() === 0) {
-        minutesE = minutesE + '0'
+    if (endTime.getMinutes() < 10) {
+            minutesE = '0' + minutesE
     }
     const amPmE = endTime.getHours() > 12 ? 'AM' : 'PM'
     const finalEndTime = (hourE + ":" + minutesE + amPmE)
