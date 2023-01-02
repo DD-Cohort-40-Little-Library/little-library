@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {Col, Container, Row, Form, Image, Button, Tabs, Tab, FormText, Stack} from "react-bootstrap";
 import {EventListing} from "../shared/components/EventListing.jsx";
 import {CheckInDisplay} from "../shared/components/CheckInDisplay.jsx";
@@ -22,7 +22,6 @@ import headshot from "../../../images/uiSharedImages/profileImgBlk4.jpg";
 import profileImageBlk3 from "../../../images/uiSharedImages/profileImgBlk5.jpg";
 
 
-
 export function ProfileLanding() {
     const libraries = useSelector(state => state.libraries ? state.libraries : [])
     const events = useSelector(state => state.events ? state.events : [])
@@ -31,7 +30,8 @@ export function ProfileLanding() {
     const user = useSelector(state => state.currentUser)
 
     const dispatch = useDispatch()
-    const initialEffects = () => {
+    // const initialEffects = () => {
+    const effects = () => {
         dispatch(fetchAuth())
         dispatch(fetchLibrariesByProfileId())
         dispatch(fetchEventsByProfileId())
@@ -39,7 +39,8 @@ export function ProfileLanding() {
         dispatch(fetchCurrentUser())
         // dispatch(fetchAllCheckInsForProfileTab())
     }
-    React.useEffect(initialEffects, [dispatch])
+    // React.useEffect(initialEffects, [dispatch])
+    useEffect(effects, [dispatch])
     // TODO: REMOVE 'const profile = null' to the end  from line below after pulling currentUser w/ useSelector=profile
     if (user === null) {
         return <div>
@@ -110,7 +111,7 @@ export function ProfileLanding() {
                         <Container>
                             <Row>
                                 <Stack>
-                                     {events.map(event => <EventDetailBlockProfile event={event}/>)}
+                                     {events.slice(0).map(event => <EventDetailBlock library={libraries.filter(library => library.libraryId)[0]} event={event} key={event.eventId}/>)}
                                 </Stack>
                             </Row>
                         </Container>
@@ -118,7 +119,7 @@ export function ProfileLanding() {
                     <Tab eventKey="check-ins" title="Check-Ins">
                         <Container>
                             <Row>
-                                {checkins.map (checkin => <CheckInDetailBlockProfile checkin={checkin} user={user}/>)}
+                                {checkins.map (checkin => <CheckInDetailBlockProfile library={libraries.filter(library => library.libraryId)[0]} checkin={checkin} user={user} key={checkin.checkInId}/>)}
                             </Row>
                         </Container>
                     </Tab>

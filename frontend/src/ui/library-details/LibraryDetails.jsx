@@ -35,18 +35,17 @@ export function LibraryDetails() {
     //         return library.librarySpecialization
     //     }
     // }
-    const {checkInComment,checkInDate, checkInPhotoUrl} = checkins
-    const {eventDate, eventDescription, eventTitle} = events
+    const {checkInComment,checkInDate, checkInPhotoUrl, checkInLibraryId} = checkins
+    // const {eventDate, eventDescription, eventName} = events
 
     const initialEffects = () => {
         dispatch(fetchLibraryByLibraryId(libraryId))
-        dispatch(fetchEventsByLibraryId(libraryId))
-        // fetchCheckInsByLibraryId(libraryId) below gives "/apis/event/eventLibraryId/function%20i()%20%7B%20...." error when enabled
-        dispatch(fetchCheckInsByLibraryId(libraryId))
-        // dispatch(fetchAllCheckInsForProfileTab(profileId))
+        // dispatch(fetchEventsByLibraryId())
+        dispatch(fetchCheckInsByLibraryId(checkInLibraryId))
     }
-    React.useEffect(initialEffects, [libraryId, dispatch])
+    React.useEffect(initialEffects, [libraryId, checkInLibraryId, dispatch])
 
+console.log("is this thing on")
 
     return (
         <>
@@ -61,7 +60,7 @@ export function LibraryDetails() {
                 <Card.Text>{library.libraryDescription}</Card.Text>
                 <Row>
                 <Col style={{padding: '1rem'}}>
-                    <CheckInModal libraryId />
+                    <CheckInModal/>
                 </Col>
                 </Row>
             </Card.Body>

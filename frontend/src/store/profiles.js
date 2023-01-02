@@ -1,5 +1,5 @@
 import {createSlice} from '@reduxjs/toolkit';
-import { httpConfig } from '../ui/shared/utils/httpConfig'
+import { httpConfig } from "../ui/shared/utils/http-config.js"
 //TODO: Line 2 http import is wrong but kills profile land when fixed, work later
 
 

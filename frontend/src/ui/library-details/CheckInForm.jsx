@@ -50,7 +50,9 @@ export function CheckInForm() {
         checkInFollowLibrary: false,
         // checkInPhotoName: "",
         checkInPhotoUrl: "",
-        checkInReport: false
+        checkInReport: false,
+        // libraryName: "",
+        // libraryAddress: ""
     }
 
     const submitCheckIn = (values, {resetForm, setStatus}) => {
@@ -98,7 +100,7 @@ function CheckInFormContent(props) {
         <>
             <Container style={{paddingBlock: '1rem', backgroundColor: 'lightgrey'}}>
                 <Form onSubmit={handleSubmit} className={"text-center"}>
-                    <label>Please Select Library</label>
+                    <label>Please let us know how your visit was.</label>
 
                         <Form.Group controlId="checkInComment">
                             <InputGroup>
@@ -126,7 +128,6 @@ function CheckInFormContent(props) {
                     <div>
                         {selectedImage !== null ? <img className={"w-50"} src={selectedImage}/> : ""}
                     </div>
-
                     <Form.Group className={"mt-3"}>
                         <Button className={"btn btn-primary"} onClick={handleSubmit}>Submit</Button>
                         {" "}
@@ -156,7 +157,7 @@ function ImageDropZone ({formikProps}) {
             formikProps.setSelectedImage(fileReader.result)
         })
 
-        console.log(formikProps.values.checkInPhotoUrl)
+        // console.log(formikProps.values.checkInPhotoUrl)
         formikProps.setFieldValue(formikProps.fieldValue, formData)
 
     }, [formikProps])
