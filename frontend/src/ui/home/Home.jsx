@@ -13,6 +13,8 @@ import homeImageBlk1 from "../../../images/uiSharedImages/homeImgBlk1.jpg";
 import homeImageBlk2 from "../../../images/uiSharedImages/homeImgBlk2.jpg";
 import llStock1 from "../../../images/uiSharedImages/homeLLStock1.jpg";
 import homeImagePins from "../../../images/uiSharedImages/homeImagePins.jpg";
+import lllLogoTag2 from "../../../images/uiSharedImages/mainlllLogoTag.jpg";
+import homeImageBlk4 from "../../../images/uiSharedImages/homeImgBlk4.jpg";
 
 
 export function Home() {
@@ -54,14 +56,15 @@ export function Home() {
 						</Stack>
 					</Col>
 				</Row>
+
 			<Container className={""} fluid="auto">
 			<Row className={"m-0 "} id={"homeSectionBlk4"}>
 				<Col>
-					<img src={homeImagePins} alt={"homeImagePins"} id={"sectionImageBlk"} className={""} style={{width: '45rem'}}/>
+					<img src={homeImagePins} alt={"homeImagePins"} id={"sectionImageBlk"} className={""} style={{width: '40rem'}}/>
 				</Col>
 				<Col>
 					<h1 className={""}>What are Specializations?</h1>
-						<p>Got a lot of children’s books at your Little Library? How about a great collect of romance novels you want to share? The Little Library Locator Map is enabled to highlight the book genre abundance that may be at a location at any time.</p>
+						<p style={{fontSize: "x-large"}}>Got a lot of children’s books at your Little Library? How about a great collect of romance novels you want to share? The Little Library Locator Map is enabled to highlight the book genre abundance that may be at a location at any time.</p>
 						<p>The following genres are selectable when creating or updating a library:</p>
 					<Row>
 						<Col>
@@ -97,27 +100,52 @@ export function Home() {
 				</Col>
 			</Row>
 			</Container>
+
+
+
 			<Container className={"m-0"} fluid="auto" id={"homeSectionBlk1"}>
 				<Row className={"m-0"}>
 					<img src={homeImageBlk1} alt={"homeImage1"} id={"sectionImageBlk"} className={"img-fluid"}/>
 				</Row>
 			</Container>
+
 			<Container className={""} fluid="auto">
 				<Row className={"m-0 "} id={"homeSectionBlk2"}>
 					<Col>
+						<img src={llStock1} alt={"llStock1"} id={"sectionImageBlk"} className={""} style={{width: '20rem'}}/>
+					</Col>
+					<Col>
 						<h1 className={""}>Our Mission</h1>
-						<p>“Our Mission is to foster a social environment around literacy. Through the Little Library Locator, we aim to promote different interests around reading and highlight the unique personalities of the creators of Little Libraries around the world.” </p>
+						<p>“Our Mission is to foster a social environment around literacy. Through the Little Library Locator, we aim to promote different interests around reading and highlight the unique personalities of the creators of Little Libraries around the world.”</p>
 
 						<h2>Join the project.</h2>
 						<p style={{fontSize: "large"}}>Sign Up and Register Your Little Library</p>
 						<Link to='/library-create'><Button>Add A Library</Button></Link>
-
-					</Col>
-					<Col>
-						<img src={llStock1} alt={"llStock1"} id={"sectionImageBlk"} className={""} style={{width: '30rem'}}/>
 					</Col>
 				</Row>
 			</Container>
+
+			<Container className={"m-0"} fluid="auto" id={"homeSectionBlk6"}>
+				<Row className={"m-0"}>
+					<img src={homeImageBlk4} alt={"homeImage4"} id={"sectionImageBlk"} className={"img-fluid"}/>
+				</Row>
+			</Container>
+
+			<Container className={""} fluid="auto">
+				<Row className={"m-0 "} id={"homeSectionBlk5"}>
+					<Col>
+						<h1 className={""}>Who We Are</h1>
+						<p>Four people from different worlds came together and built this site. A couple with some coding exposure and the others with none. Within ten weeks of intense coding experience, we became a great team. Together, we have created a great application had a fantastic time doing it!</p>
+						<h3>Meet the Team</h3>
+						<Link to='/about-us'><Button>About Us</Button></Link>
+					</Col>
+					<Col>
+						<img src={lllLogoTag2} alt={"lllLogoTag"} id={"sectionImageBlk"} className={""} style={{width: '30rem'}}/>
+					</Col>
+				</Row>
+			</Container>
+
+
 			<Container className={"m-0"} fluid="auto" id={"homeSectionBlk3"}>
 				<Row className={"m-0"}>
 					<h1>When is Your Next Event?</h1>
@@ -126,6 +154,8 @@ export function Home() {
 					<img src={homeImageBlk2} alt={"homeImage2"} id={"sectionImageBlk"} className={"img-fluid"}/>
 				</Row>
 			</Container>
+
+
 		</>
 
 	)}
