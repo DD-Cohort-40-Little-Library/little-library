@@ -105,6 +105,7 @@ export function ProfileLanding() {
                     defaultActiveKey="profile"
                     id="library-details-tabs"
                     className="mb-3"
+                    style={{fontSize: "xx-large"}}
                 >
                     <Tab eventKey="event" title="Events">
                         <Container>

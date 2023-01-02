@@ -10,7 +10,7 @@ import libraryImageBlk1 from "../../../../../images/uiSharedImages/libraryImgBlk
 import libraryImageBlk2 from "../../../../../images/uiSharedImages/libraryImgBlk2.jpg";
 import libraryLLStock1 from "../../../../../images/uiSharedImages/libraryLLStock1.jpg";
 import libraryImageCouple1 from "../../../../../images/uiSharedImages/libraryCouple1.jpg";
-
+import libraryImageBlk3 from "../../../../../images/uiSharedImages/libraryImgBlk3.jpg";
 
 
 
@@ -252,6 +252,13 @@ function LibraryCreateFormContent (props){
                     <Col>
                         <img src={libraryLLStock1} alt={"libraryLLStock"} id={"sectionImageBlk"} className={""} style={{width: '20rem'}}/>
                     </Col>
+                </Row>
+            </Container>
+
+
+            <Container className={"m-0"} fluid="auto" id={"librarySectionBlk4"}>
+                <Row className={"m-0"}>
+                    <img src={libraryImageBlk3} alt={"libraryImage3"} id={"sectionImageBlk"} className={"img-fluid"}/>
                 </Row>
             </Container>
 

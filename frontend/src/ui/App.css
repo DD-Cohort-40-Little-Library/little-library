@@ -111,17 +111,6 @@ body{
 }
 
 
-#libraryCardDisplay {
-    background-color: #93A5AB;
-    text-align: center;
-    color: #2D3024;
-}
-
-#librarySectionDisplay {
-    padding: 2rem;
-    background-color: #93A5AB;
-}
-
 #checkInDisplay {
     background-color: #CDCDC1;
     color: #2D3024;
@@ -238,7 +227,7 @@ body{
 }
 
 #profileSectionBlk1 {
-    background-color: #577F88;
+    background-color: #426A73;
     padding: 2rem;
     margin-bottom: 30px;
     text-align: center;
@@ -329,7 +318,7 @@ body{
 
 
 #librarySectionBlk4 {
-    background-color: #76999D;
+    background-color: #426A73;
     padding: 2rem;
     margin-bottom: 30px;
 }
@@ -344,7 +333,7 @@ body{
 }
 
 #librarySectionBlk5 {
-    background-color: #76999D;
+    background-color: #F3EAD2;
     padding: 2rem;
     margin-bottom: 30px;
     text-align: center;
@@ -353,7 +342,53 @@ body{
     align-items: center;
 }
 #librarySectionBlk2 {
+    background-color: #50573F;
+    padding: 2rem;
+    margin-bottom: 30px;
+}
+
+
+/**** Map PopUp Library Display Section ****/
+
+#libDisSectionBlk1 {
+    background-color: #50573F;
+    padding: 2rem;
+    margin-bottom: 30px;
+}
+
+#libDisSectionBlk3 {
+    background-color: #A9986E;
+    padding: 2rem;
+    margin-bottom: 30px;
+}
+
+#libDisSectionBlk5 {
+    background-color: #426A73;
+    padding: 2rem;
+    margin-bottom: 30px;
+}
+
+#librarySectionDisplay {
+    padding: 2rem;
+    background-color: #CDCDC1;
+}
+#libraryCardDisplay {
+    background-color: #CDCDC1;
+    padding: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #2D3024;
+    font-size: x-large;
+    align-items: center;
+   border-radius: 0;
+}
+
+#libDisSectionBlk2 {
     background-color: #F3EAD2;
     padding: 2rem;
     margin-bottom: 30px;
+    text-align: center;
+    color: #2D3024;
+    font-size: x-large;
+    align-items: center;
 }
