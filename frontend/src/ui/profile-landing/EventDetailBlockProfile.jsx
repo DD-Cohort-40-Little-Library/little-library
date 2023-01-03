@@ -1,8 +1,8 @@
-import {Button, Col, Container, Row} from "react-bootstrap";
+import {Button, Col, Container, Image, Row} from "react-bootstrap";
 import React from "react";
 import {Link} from "react-router-dom";
 
-export const EventDetailBlockProfile = ({event, library}) => {
+export const EventDetailBlockProfile = ({event, user, library}) => {
     // Event date
     const date = event.eventDate
     const D = new Date(date)
@@ -30,19 +30,25 @@ export const EventDetailBlockProfile = ({event, library}) => {
     return(
         <>
             <Container className={"border border-dark rounded"}>
-                <Col>
-                    {/*<Row xs={6}>Library Name: {library.libraryName}</Row>*/}
-                    <Row xs={5}>Date: {(D.getMonth() + 1) + '-' + ((D.getDate()) + '-' + (D.getFullYear()))}</Row>
-                    <Row xs={5}>Start time: {finalStartTime}</Row>
-                    <Row xs={5}>End time: {finalEndTime}</Row>
-                    <Row xs={5}>Event Title: {event.eventTitle}</Row>
-                    <Row xs={6}>Library Name: {library.libraryName}</Row>
-                    <Row xs={6}>Library Address: {library.libraryAddress}</Row>
-                    <Row xs={7}>Description: {event.eventDescription}</Row>
-                </Col>
-                <Col>
-                    <Link to={`/library-landing/${library.libraryId}`}><Button>Go To This Library</Button></Link>
-                </Col>
+                <Row>
+                    <Col xs={3} >
+                        {/*CAN'T USE 'USER', NEEDS A JOIN FOR THE EVENTPROFILEID TO CONNECT USER PROFILEAVATARURL*/}
+                        <Row>User Name: {user.profileName}</Row>
+                        <Image src={user.profileAvatarUrl} fluid={true} className={"rounded-circle"} alt={'Please select an avatar or upload a photo using the "Update Profile" button.'} ></Image>
+                    </Col>
+                    <Col>
+                        {/*<Row xs={6}>Library Name: {library.libraryName}</Row>*/}
+                        <Row xs={6}>Date: {(D.getMonth() + 1) + '-' + ((D.getDate()) + '-' + (D.getFullYear()))}</Row>
+                        <Row xs={6}>Start time: {finalStartTime}</Row>
+                        <Row xs={6}>End time: {finalEndTime}</Row>
+                        <Row xs={6}>Event Title: {event.eventTitle}</Row>
+                        <Row xs={6}>Library Name: {library.libraryName}</Row>
+                        <Row xs={6}>Library Address: {library.libraryAddress}</Row>
+                        <Row xs={6}>Description: {event.eventDescription}</Row>
+                        <Link to={`/library-landing/${library.libraryId}`}><Button>Go To This Library</Button></Link>
+                    </Col>
+                    <Col xs={3} fluid={true} className={"rounded-circle"} alt={'Please upload a photo of your Little Library using the "Update Library" option.'}>Library Image: {library.LibraryImageUrl}</Col>
+                </Row>
             </Container>
         </>
     )

@@ -111,7 +111,7 @@ export function ProfileLanding() {
                         <Container>
                             <Row>
                                 <Stack>
-                                     {events.slice(0).map(event => <EventDetailBlockProfile library={libraries.filter(library => library.libraryId)[0]} event={event} key={event.eventId}/>)}
+                                     {events.slice(0).map(event => <EventDetailBlockProfile library={libraries.filter(library => library.libraryId)[0]} user={{user}} event={event} key={event.eventId}/>)}
                                 </Stack>
                             </Row>
                         </Container>
@@ -127,7 +127,7 @@ export function ProfileLanding() {
                         <Container>
                             <Row>
                                 <Stack>
-                                    {libraries.map (library => <LibraryDetailBlockProfile library={library}/>)}
+                                    {libraries.map (library => <LibraryDetailBlockProfile library={library} user={user} key={library.libraryId}/>)}
                                 </Stack>
                             </Row>
                         </Container>

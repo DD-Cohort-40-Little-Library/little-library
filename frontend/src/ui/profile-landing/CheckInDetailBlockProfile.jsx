@@ -1,5 +1,6 @@
-import {Col, Container, Image, Row} from "react-bootstrap";
+import {Button, Col, Container, Image, Row} from "react-bootstrap";
 import React from "react";
+import {Link} from "react-router-dom";
 
 export const CheckInDetailBlockProfile = (props) => {
 
@@ -31,6 +32,7 @@ export const CheckInDetailBlockProfile = (props) => {
                         <Row xs={6}>Library Name: {library.libraryName}</Row>
                         <Row xs={6}>Library Address: {library.libraryAddress}</Row>
                         <Row xs={6}>Comment: {checkin.checkInComment}</Row>
+                        <Link to={`/library-landing/${library.libraryId}`}><Button>Go To This Library</Button></Link>
                     </Col>
                     <Col xs={3}>
                         <Row>Check-In Image:</Row>
