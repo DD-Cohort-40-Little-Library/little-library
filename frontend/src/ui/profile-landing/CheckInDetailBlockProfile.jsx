@@ -23,10 +23,10 @@ export const CheckInDetailBlockProfile = (props) => {
             <Container id={"checkInDetailBlock"} className={"border border-dark rounded text-center"}>
                 <Row >
                     <Col xs={3} >
-                        <Row>User Name: {user.profileName}</Row>
                         <Image src={user.profileAvatarUrl} fluid={true} className={"rounded-circle"} alt={'Please select an avatar or upload a photo using the "Update Profile" button.'} ></Image>
                     </Col>
                     <Col>
+                        <Row xs={6}>User Name: {user.profileName}</Row>
                         <Row xs={6}>Check-In Date/Time: {(D.getMonth() + 1) + '-' + ((D.getDate()) + '-' + (D.getFullYear()) )} / {finalTime}</Row>
                         {/*//TODO: Line 32/33 join working on backend, but issues bringing it in due to profileId pre initialization issue, work later. This will allow for all tabs once this is fixed.*/}
                         <Row xs={6}>Library Name: {library.libraryName}</Row>
@@ -35,7 +35,7 @@ export const CheckInDetailBlockProfile = (props) => {
                         <Link to={`/library-landing/${library.libraryId}`}><Button>Go To This Library</Button></Link>
                     </Col>
                     <Col xs={3}>
-                        <Row>Check-In Image:</Row>
+                        <Row>Check-In Image: REMOVE ONCE IMAGE POPULATES</Row>
                         <Image src={checkin.checkInPhotoUrl} fluid={true} className={"rounded-circle"} alt={'Please upload a photo of your Little Library visit using the "Update Check-in" option.'}></Image>
                     </Col>
                 </Row>

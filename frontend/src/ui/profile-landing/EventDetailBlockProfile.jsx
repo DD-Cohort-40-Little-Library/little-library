@@ -33,11 +33,10 @@ export const EventDetailBlockProfile = ({event, user, library}) => {
                 <Row>
                     <Col xs={3} >
                         {/*CAN'T USE 'USER', NEEDS A JOIN FOR THE EVENTPROFILEID TO CONNECT USER PROFILEAVATARURL*/}
-                        <Row>User Name: {user.profileName}</Row>
-                        <Image src={user.profileAvatarUrl} fluid={true} className={"rounded-circle"} alt={'Please select an avatar or upload a photo using the "Update Profile" button.'} ></Image>
+                        <Image src={user.profileAvatarUrl} fluid={true} className={"rounded-circle"} alt={'Host User has either not uploaded an image or the link is broken.'} ></Image>
                     </Col>
                     <Col>
-                        {/*<Row xs={6}>Library Name: {library.libraryName}</Row>*/}
+                        <Row xs={6}>Host User Name: {user.profileName}</Row>
                         <Row xs={6}>Date: {(D.getMonth() + 1) + '-' + ((D.getDate()) + '-' + (D.getFullYear()))}</Row>
                         <Row xs={6}>Start time: {finalStartTime}</Row>
                         <Row xs={6}>End time: {finalEndTime}</Row>
