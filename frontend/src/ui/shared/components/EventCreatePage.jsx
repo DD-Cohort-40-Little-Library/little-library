@@ -144,6 +144,8 @@ function EventCreateModalFormContent(props) {
 					<img src={eventImageBlk1} alt={"eventImage1"} id={"sectionImageBlk"} className={"img-fluid"}/>
 				</Row>
 			</Container>
+
+
 			<Container className="mt-3">
 			<Form onSubmit={handleSubmit}>
 				<Row>
@@ -166,7 +168,6 @@ function EventCreateModalFormContent(props) {
 									onBlur={handleBlur}
 								/>
 							</InputGroup>
-
 							<EventTypeSelect label={"Type of Event"} name={'eventType'} className={"mt-2"}>
 								<option value={''}>Select an event type</option>
 								<option value={'story-time-children'}>Story Time - Children</option>
@@ -292,9 +293,9 @@ function EventCreateModalFormContent(props) {
 						<p>Planned an event and looking for ways to increase participation? There is great information around the subject. </p>
 						<p>Check out these sites to learn more.</p>
 					<Stack gap={2}>
-							<a target="_blank" href={"https://clifonline.org/resources/literacy-activities/"}>ClifOnline.org: Literacy Activities</a>
-							<a target="_blank" href={"https://www.readingrockets.org/article/all-kinds-readers-guide-creating-inclusive-literacy-celebrations-kids-learning-and-attention"}>ReadingRockets.org: All Kinds of Readers: A Guide to Creating Inclusive Literacy Celebrations for Kids with Learning and Attention Issues</a>
-							<a target="_blank" href={"https://choiceliteracy.com/article/creative-literacy-events-for-families/"}>ChoiceLiteracy.com: Creative Literacy Events for Families</a>
+							<a target="blank" href={"https://clifonline.org/resources/literacy-activities/"}>ClifOnline.org: Literacy Activities</a>
+							<a target="blank" href={"https://www.readingrockets.org/article/all-kinds-readers-guide-creating-inclusive-literacy-celebrations-kids-learning-and-attention"}>ReadingRockets.org: All Kinds of Readers: A Guide to Creating Inclusive Literacy Celebrations for Kids with Learning and Attention Issues</a>
+							<a target="blank" href={"https://choiceliteracy.com/article/creative-literacy-events-for-families/"}>ChoiceLiteracy.com: Creative Literacy Events for Families</a>
 					</Stack>
 					</Col>
 				</Row>
@@ -309,9 +310,9 @@ function EventCreateModalFormContent(props) {
 						<p> As many readers look for ways to connect with like-minded individuals either in person or remotely there are options. It is a great way to educate yourself on numerous topics and meet new and exciting people</p>
 						<p>Learn more by researching the topic here.</p>
 						<Stack gap={2}>
-							<a target="_blank" href={"https://www.penguinrandomhouse.com/book-clubs/getting-started/"}>PenguinRandomHouse.com: Getting Started: How to Start a Book Club</a>
-							<a target="_blank" href={"https://bookriot.com/how-to-start-a-book-club/"}>BookRiot.com: How to Start a Book Club that Doesn't Suck</a>
-							<a target="_blank" href={"https://www.oprahdaily.com/entertainment/a27569720/how-to-start-a-book-club/"}>OprahDaily.com: How to Start a Book Club in 6 Simple Steps</a>
+							<a target="blank" href={"https://www.penguinrandomhouse.com/book-clubs/getting-started/"}>PenguinRandomHouse.com: Getting Started: How to Start a Book Club</a>
+							<a target="blank" href={"https://bookriot.com/how-to-start-a-book-club/"}>BookRiot.com: How to Start a Book Club that Doesn't Suck</a>
+							<a target="blank" href={"https://www.oprahdaily.com/entertainment/a27569720/how-to-start-a-book-club/"}>OprahDaily.com: How to Start a Book Club in 6 Simple Steps</a>
 						</Stack>
 					</Col>
 					<Col>

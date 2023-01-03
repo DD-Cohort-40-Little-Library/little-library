@@ -1,11 +1,11 @@
 import {Container, Row} from "react-bootstrap";
 import React from "react";
 
-export const CheckInDetailBlockLibrary = (props) => {
+export const CheckInDetailBlockLibrary = ({checkin, user}) => {
 
-    console.log("Test - check in block 2")
+    console.log("Test - check in block library")
 
-    const {checkin} = props
+    // const {checkin} = props
 
     const date = checkin.checkInDate
     const D = new Date(date)
