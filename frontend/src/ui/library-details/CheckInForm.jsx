@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import {Col, Container, FormControl, InputGroup, Row} from "react-bootstrap";
+import {Col, Container, FormControl, Image, InputGroup, Row} from "react-bootstrap";
 import * as Yup from 'yup'
 import {DisplayStatus} from "../shared/components/display-status/DisplayStatus.jsx";
 import {useDispatch, useSelector} from "react-redux";
@@ -170,7 +170,7 @@ function ImageDropZone ({formikProps}) {
                 {formikProps.values.checkInPhotoUrl &&
                     <>
                         <div className={"bg-transparent"}>
-                            {/*<Image fluid={true} height={200} thumbnail={true} width={200} alt={"checkin photo"} src={formikProps.values.checkInPhotoUrl} />*/}
+                            <Image fluid={true} height={200} thumbnail={true} width={200} alt={"checkin photo"} src={formikProps.values.checkInPhotoUrl} />
                         </div>
                     </>
                 }

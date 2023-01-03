@@ -36,6 +36,7 @@ export const EventDetailBlockProfile = ({event, library}) => {
                     <Row xs={5}>Start time: {finalStartTime}</Row>
                     <Row xs={5}>End time: {finalEndTime}</Row>
                     <Row xs={5}>Event Title: {event.eventTitle}</Row>
+                    <Row xs={6}>Library Name: {library.libraryName}</Row>
                     <Row xs={6}>Library Address: {library.libraryAddress}</Row>
                     <Row xs={7}>Description: {event.eventDescription}</Row>
                 </Col>
