@@ -1,7 +1,7 @@
 import {Col, Container, Row} from "react-bootstrap";
 import React from "react";
 
-export const LibraryDetailBlock = (props) => {
+export const LibraryDetailBlockProfile = (props) => {
 
     const {library} = props
 

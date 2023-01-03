@@ -12,9 +12,9 @@ import {library} from "@fortawesome/fontawesome-svg-core";
 import {fetchAuth} from "../../store/auth.js";
 import {fetchLibrariesByProfileId, fetchLibraryByLibraryId} from "../../store/libraries.js";
 import {fetchEventsByLibraryId, fetchEventsByProfileId} from "../../store/events.js";
-import {fetchAllCheckInsForProfileTab, fetchCheckInsByProfileId} from "../../store/checkIn.js";
 import {fetchCurrentUser} from "../../store/currentUser.js";
 import {fetchCheckInsByLibraryId} from "../../store/checkIn.js"
+import {EventDetailBlockLibrary} from "./EventDetailBlockLibrary.jsx";
 import libDisImageBlk1 from "../../../images/uiSharedImages/libDisImgBlk1.jpg";
 import libDisImageBlk5 from "../../../images/uiSharedImages/libDisImgBlk2.jpg";
 import libDisImageBlk3 from "../../../images/uiSharedImages/libDisImgBlk4.jpg";
@@ -26,8 +26,8 @@ export function LibraryDetails() {
     let { libraryId } = useParams()
     const dispatch = useDispatch()
     const checkins = useSelector(state => state.checkIns ? state.checkIns : [])
-    // const events = useSelector(state => state.events ? state.events : [])
-    const library = useSelector(state => state.libraries ? state.libraries : {})
+    const events = useSelector(state => state.events ? state.events : [])
+    const library = useSelector(state => state.libraries ? state.libraries : [])
     // const library = useSelector(state => {return state.libraries ? state.libraries
     //     .filter(library => library.libraryId === libraryId)[0]
     //     : null})
@@ -39,16 +39,14 @@ export function LibraryDetails() {
     //     }
     // }
     const {checkInComment,checkInDate, checkInPhotoUrl, checkInLibraryId} = checkins
-    // const {eventDate, eventDescription, eventName} = events
+    const {eventDate, eventDescription, eventName} = events
 
     const initialEffects = () => {
         dispatch(fetchLibraryByLibraryId(libraryId))
-        // dispatch(fetchEventsByLibraryId())
-        dispatch(fetchCheckInsByLibraryId(checkInLibraryId))
+        dispatch(fetchEventsByLibraryId(libraryId))
+        dispatch(fetchCheckInsByLibraryId(libraryId))
     }
-    React.useEffect(initialEffects, [libraryId, checkInLibraryId, dispatch])
-
-console.log("is this thing on")
+    React.useEffect(initialEffects, [libraryId, dispatch])
 
     return (
         <>
@@ -64,8 +62,8 @@ console.log("is this thing on")
             <Card.Header><h2>{library.libraryAddress}, {library.libraryType}</h2></Card.Header>
             <Card.Body>
                 {/*Make backend library image connection, code freeze*/}
-                <Image src={'https://placekitten.com/g/200/200'} roundedCircle={true}/>
-                <Card.Title><h2>{library.libraryName}</h2></Card.Title>
+                <Image src={library.libraryImageURL} fluid={true} alt={'Please upload a photo of your Little Library.'} ></Image>
+                <Card.Title><h3>{library.libraryName}</h3></Card.Title>
                     {/*<h5>{specialization}</h5>*/}
                 <Card.Text>{library.libraryDescription}</Card.Text>
                 <Row>
@@ -82,12 +80,10 @@ console.log("is this thing on")
             className="mb-3"
             style={{fontSize: "xx-large"}}
         >
-            {/* complete tabs, halted due to freeze */}
             <Tab eventKey="events" title="Events">
                 <Container>
                     <Row>
-                        <h3>TEST - EVENT LISTING - 1</h3>
-                        {/*<EventListing />*/}
+                        {events.slice().map(event => <EventDetailBlockLibrary library={library} event={event} key={event.eventId}/>)}
                     </Row>
                 </Container>
             </Tab>
@@ -95,8 +91,7 @@ console.log("is this thing on")
                 <Container>
                     <Row>
                         <h3>TEST - CHECKIN DISPLAY - 1</h3>
-                        {checkins.map (checkin => <CheckInDetailBlockLibrary checkin={checkin}/>)}
-                    </Row>
+                        {checkins.slice().map (checkin => <CheckInDetailBlockLibrary checkin={checkin} key={checkin.checkInId}/>)}</Row>
                 </Container>
             </Tab>
         </Tabs>

@@ -3,16 +3,16 @@ import {Col, Container, Row, Form, Image, Button, Tabs, Tab, FormText, Stack} fr
 import {EventListing} from "../shared/components/EventListing.jsx";
 import {CheckInDisplay} from "../shared/components/CheckInDisplay.jsx";
 import {Link, useParams} from "react-router-dom";
-import {LibraryDetailBlock} from "./LibraryDetailBlock.jsx"
+import {LibraryDetailBlockProfile} from "./LibraryDetailBlockProfile.jsx"
 import {useDispatch, useSelector} from "react-redux";
 import {fetchAuth} from "../../store/auth.js";
 import currentUser, {fetchCurrentUser} from "../../store/currentUser.js";
 import {ProfileUpdateModal} from "./ProfileUpdateModal.jsx";
 import {fetchAllLibraries, fetchLibrariesByProfileId} from "../../store/libraries.js";
 import {EventShortListing} from "../home/EventShortListing.jsx";
-import {EventDetailBlock} from "./EventDetailBlock";
+import {EventDetailBlockProfile} from "./EventDetailBlockProfile.jsx";
 import {fetchEventsByProfileId} from "../../store/events.js";
-import {fetchAllCheckInsForProfileTab, fetchCheckInsByProfileId} from "../../store/checkIn.js";
+import {fetchCheckInsByProfileId} from "../../store/checkIn.js";
 import {CheckInDetailBlockProfile} from "./CheckInDetailBlockProfile.jsx";
 import plsSignIn from "../../../images/uiSharedImages/plsSignIn.svg";
 import profileImageBlk1 from "../../../images/uiSharedImages/profileImgBlk1.jpg";
@@ -20,7 +20,6 @@ import profileImageBlk2 from "../../../images/uiSharedImages/profileImgBlk2.jpg"
 import reader from "../../../images/uiSharedImages/profileImgBlk3.jpg";
 import headshot from "../../../images/uiSharedImages/profileImgBlk4.jpg";
 import profileImageBlk3 from "../../../images/uiSharedImages/profileImgBlk5.jpg";
-
 
 export function ProfileLanding() {
     const libraries = useSelector(state => state.libraries ? state.libraries : [])
@@ -108,11 +107,11 @@ export function ProfileLanding() {
                     className="mb-3"
                     style={{fontSize: "xx-large"}}
                 >
-                    <Tab eventKey="event" title="Events">
+                    <Tab eventKey="events" title="Events">
                         <Container>
                             <Row>
                                 <Stack>
-                                     {events.slice(0).map(event => <EventDetailBlock library={libraries.filter(library => library.libraryId)[0]} event={event} key={event.eventId}/>)}
+                                     {events.slice(0).map(event => <EventDetailBlockProfile library={libraries.filter(library => library.libraryId)[0]} event={event} key={event.eventId}/>)}
                                 </Stack>
                             </Row>
                         </Container>
@@ -128,7 +127,7 @@ export function ProfileLanding() {
                         <Container>
                             <Row>
                                 <Stack>
-                                    {libraries.map (library => <LibraryDetailBlock library={library}/>)}
+                                    {libraries.map (library => <LibraryDetailBlockProfile library={library}/>)}
                                 </Stack>
                             </Row>
                         </Container>
