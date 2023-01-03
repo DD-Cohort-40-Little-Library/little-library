@@ -144,7 +144,7 @@ export function ProfileLanding() {
             <Container className={""} fluid="auto">
                 <Row className={"m-0"} id={"profileSectionBlk4"}>
                     <Col md={4} style={{paddingBottom: "20px"}}>
-                        <img src={headshot} alt={"llStock1"} id={"sectionImageBlk"} className={""}/>
+                        <img src={headshot} alt={"llStock1"} id={"sectionImageBlk"} className={"img-fluid"}/>
                     </Col>
                     <Col className={"pt-3"}>
                         <h1>Want to Take a Better Headshot from Home?</h1>

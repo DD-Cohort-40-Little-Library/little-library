@@ -455,6 +455,39 @@ body{
    border-radius: 0;
 }
 
+#libraryDisDetailTabsSec {
+    background-color: #93A5AB;
+    padding-top: 3rem;
+}
+
+
+#libraryDisCheckInTab {
+    background-color: #577F88;
+    padding: 3rem;
+    margin-bottom: 3rem;
+}
+
+#libraryDisEventsTab {
+    background-color: #426A73;
+    padding: 3rem;
+    margin-bottom: 3rem;
+}
+
+#libraryDisCheckInDetailBlock {
+    background-color: #CDCDC1;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 10px;
+    text-align: center;
+}
+
+#libraryDisEventDetailBlock {
+    background-color: #F3EAD2;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 10px;
+    text-align: center;
+}
 /**** About-Us Section ****/
 #aboutUsIntro{
     padding: 2rem;
