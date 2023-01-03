@@ -14,7 +14,7 @@ const styles = {
 	}
 }
 
-export function LibraryMap ({libraries}){
+export function LibraryMap (libraries){
 
 	return (
 		<>
@@ -29,8 +29,10 @@ export function LibraryMap ({libraries}){
 					 mapStyle='mapbox://styles/mapbox/satellite-streets-v12'
 					 style={styles.map}
 				>
-					{libraries.map((libraries, index)=>
-						<MapCustomPin libraries={libraries} index={index} key={index} />
+					{/*{libraries.map((libraries, index)=>*/}
+					{/*	<MapCustomPin libraries={libraries} index={index} key={index} />*/}
+					{libraries.map (library => <MapCustomPin libraries={libraries} key={library.libraryId}/>)}
+
 					)}
 				</Map>
 			</div>
