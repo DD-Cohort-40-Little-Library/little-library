@@ -174,8 +174,8 @@ export function ProfileLanding() {
                             <a target="blank" href={"https://www.speedreadinglounge.com/how-to-speed-read"}>SpeedReadingLounge.com: How To Speed Read – 6 Easy Techniques</a>
                         </Stack>
                     </Col>
-                    <Col>
-                        <img src={reader} alt={"reader"} id={"sectionImageBlk"} className={"md-4"}/>
+                    <Col className={"md-4"}>
+                        <img src={reader} alt={"reader"} id={"sectionImageBlk"} className={"img-fluid"}/>
                     </Col>
                 </Row>
             </Container>

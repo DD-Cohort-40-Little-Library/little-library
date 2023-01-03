@@ -32,13 +32,8 @@ export function Home() {
 
 	return (
 		<>
-
-			{/*<Row className={"mx-0"}>*/}
-			{/*	<img src={LLLLabelBrown} alt={"logoBrow"} id={"LLLLabelBrown"} className={"llLogoBrown"}/>*/}
-			{/*</Row>*/}
-
 				<Row className={"p-2 mx-0"}>
-					<img src={LLLLabelBrown} alt={"logoBrow"} id={"LLLLabelBrown"} className={"llLogoBrown"}/>
+					<img src={LLLLabelBrown} alt={"logoBrown"} id={"LLLLabelBrown"} className={"llLogoBrown"}/>
 				</Row>
 				<Row className={"mx-0"}>
 					<Col id={"events-column"} className={"flex order-last order-md-first"} md={3}>
@@ -112,8 +107,8 @@ export function Home() {
 			</Container>
 
 			<Container className={""} fluid="auto">
-				<Row className={"m-0 "} id={"homeSectionBlk2"}>
-					<Col  md={3}  style={{paddingBottom: "20px"}}>
+				<Row className={"m-0"} id={"homeSectionBlk2"}>
+					<Col md={3} style={{paddingBottom: "20px"}}>
 						<img src={llStock1} alt={"llStock1"} id={"sectionImageBlk"} className={""}/>
 					</Col>
 					<Col>

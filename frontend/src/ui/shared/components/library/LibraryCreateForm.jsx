@@ -125,8 +125,7 @@ function LibraryCreateFormContent (props){
             <Form onSubmit={handleSubmit} className={"m-0"} style={{fontSize: "x-large"}}>
 
                 <Row className={"m-0"}>
-
-                    <Col md={6} className={"m-0 text-center"}>
+                    <Col md={3} className={"m-1 text-center"}>
                             <Form.Group controlId={'libraryAddress'}>
                             <Form.Label>Library Address</Form.Label>
                             <InputGroup>
@@ -236,18 +235,17 @@ function LibraryCreateFormContent (props){
             </Container>
 
             <Container className={""} fluid="auto">
-                <Row className={"m-0 "} id={"librarySectionBlk3"}>
-                    <Col>
+                <Row className={"m-0"} id={"librarySectionBlk3"}>
+                    <Col md={9} style={{paddingBottom: "20px"}}>
                         <h1 className={""}>Learn Where It All Started</h1>
                         <p>The Little Free Library project was started out of St. Paul Minnesota. They have grown to be a worldwide presence and inspired over 150,000 Little Free Libraries to be created and countless many to read through this program.</p>
                         <p>The concept of the “Little Free” has also expanded beyond libraries to include pantries and share stores which have also been created from their model.</p>
                         <p>LittleLibraryLocator.com would not have been created without the amazing work of this program.</p>
-                        <p style={{fontSize: "large"}}>Click Here to Explore LittleFreeLibrary.org</p>
+                        <p className={"pb-3"} style={{fontSize: "large"}}>Click Here to Explore LittleFreeLibrary.org</p>
                         <a target="blank" href={"https://littlefreelibrary.org"}><Button>Go to Site</Button></a>
-
                     </Col>
                     <Col>
-                        <img src={libraryLLStock1} alt={"libraryLLStock"} id={"sectionImageBlk"} className={""} style={{width: '20rem'}}/>
+                        <img src={libraryLLStock1} alt={"libraryLLStock"} id={"sectionImageBlk"} className={"img-fluid"}/>
                     </Col>
                 </Row>
             </Container>
@@ -262,8 +260,8 @@ function LibraryCreateFormContent (props){
 
             <Container className={""} fluid="auto">
                 <Row className={"m-0 "} id={"librarySectionBlk5"}>
-                    <Col>
-                        <img src={libraryImageCouple1} alt={"libraryImageCouple1"} id={"sectionImageBlk"} className={""} style={{width: '30rem'}}/>
+                    <Col md={4} style={{paddingBottom: "20px"}}>
+                        <img src={libraryImageCouple1} alt={"libraryImageCouple1"} id={"sectionImageBlk"} className={"img-fluid"}/>
                     </Col>
                     <Col>
                         <h1 className={""}>What to Consider Before Starting a Little Library</h1>
