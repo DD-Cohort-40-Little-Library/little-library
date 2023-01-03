@@ -21,7 +21,7 @@ body{
     color: #CDCDC1;
     text-align: center;
     font-size: 1rem;
-    position: sticky;
+    position: -webkit-sticky;
     bottom: 0;
     left: 0;
 
@@ -109,8 +109,10 @@ body{
 #userRegistration {
     background-color: #93A5AB;
     padding: 1rem;
-    margin: 1rem;
+    margin: 0;
     border-radius: 10px;
+    text-align: center;
+    font-size: larger;
 }
 
 #eventShortListing {
@@ -194,7 +196,7 @@ body{
     padding: 1rem;
     margin: 1rem;
     border-radius: 10px;
-
+    text-align: center;
 }
 
 #eventListingDisplay {
@@ -272,6 +274,17 @@ body{
     background-color: #A9986E;
     padding: 2rem;
     margin-bottom: 30px;
+}
+
+#library-details-tabs {
+    background-color: #CDCDC1;
+}
+
+#profileCheckInTab {
+    background-color: #93A5AB;
+    padding: 3rem;
+    margin-bottom: 30px;
+
 }
 
 /**** Registration Event Display Section ****/

@@ -20,20 +20,20 @@ export const CheckInDetailBlockProfile = (props) => {
 
     return(
         <>
-            <Container id={"checkInDetailBlock"} className={"border border-dark rounded text-center"}>
+            <Container id={"checkInDetailBlock"} className={""}>
                 <Row >
-                    <Col xs={3} >
+                    <Col sm={3} >
                         <Image src={user.profileAvatarUrl} fluid={true} className={"rounded-circle"} alt={'Please select an avatar or upload a photo using the "Update Profile" button.'} ></Image>
                     </Col>
                     <Col>
-                        <Row xs={6}>User Name: {user.profileName}</Row>
-                        <Row xs={6}>Check-In Date/Time: {(D.getMonth() + 1) + '-' + ((D.getDate()) + '-' + (D.getFullYear()) )} / {finalTime}</Row>
-                        <Row xs={6}>Library Name: {library.libraryName}</Row>
-                        <Row xs={6}>Library Address: {library.libraryAddress}</Row>
-                        <Row xs={6}>Comment: {checkin.checkInComment}</Row>
+                        <Row sm={6} className={"text-start"}>User Name: {user.profileName}</Row>
+                        <Row sm={6} className={"text-start"}>Check-In Date/Time: {(D.getMonth() + 1) + '-' + ((D.getDate()) + '-' + (D.getFullYear()) )} / {finalTime}</Row>
+                        <Row sm={6} className={"text-start"}>Library Name: {library.libraryName}</Row>
+                        <Row sm={6} className={"text-start"}>Library Address: {library.libraryAddress}</Row>
+                        <Row sm={6} className={"text-start pb-4"}>Comment: {checkin.checkInComment}</Row>
                         <Link to={`/library-landing/${library.libraryId}`}><Button>Go To This Library</Button></Link>
                     </Col>
-                    <Col xs={3}>
+                    <Col sm={3}>
                         <Row>Check-In Image: REMOVE ONCE IMAGE POPULATES</Row>
                         <Image src={checkin.checkInPhotoUrl} fluid={true} className={"rounded-circle"} alt={'Please upload a photo of your Little Library visit using the "Update Check-in" option.'}></Image>
                     </Col>

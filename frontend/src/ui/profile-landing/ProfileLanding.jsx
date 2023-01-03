@@ -69,68 +69,69 @@ export function ProfileLanding() {
             <h1 id={"headLineONE"}>User Profile Information</h1>
             <Container>
                 <Row className={"gx-md-3 px-3 justify-content-around"}>
-                    <Col  md={4} className={"text-center"} >
-                        <h3 id={"headLineONE"}>User Information</h3>
+                    <Col  md={5} className={"text-center"} >
                         <div id={"userRegistration"} className={""}>
                             <div className="mb-3" >
-                                <div>First Name: </div>
+                                <h3>First Name: </h3>
                                 <div> {profileFirstName}</div>
                             </div>
 
                             <div className="mb-3" >
-                                <div>Last Name: </div>
+                                <h3>Last Name: </h3>
                                 <div>{profileLastName}</div>
                             </div>
 
                             <div className="mb-3" >
-                                <div>Email address: </div>
+                                <h3>Email address: </h3>
                                 <div>{profileEmail}</div>
                             </div>
 
                             <div className="mb-3">
-                                <div>User Name: </div>
+                                <h3>User Name: </h3>
                                 <div>{profileName}</div>
                             </div>
                         </div>
 
                         <ProfileUpdateModal className={""}/>
-                        <Link to={"/library-create"} className={"btn-primary"}> <Button className={"m-2"}>Add a Library</Button></Link>
+                        <Link to={"/library-create"} className={"btn-primary"}><Button className={"m-2"}>Add a Library</Button></Link>
 
                     </Col>
-                    <Col md={3} className={"text-center"} >
-                        <h3 id={"headLineONE"}>User Image</h3>
+                    <Col md={2} className={"text-center"} >
+                        <h1 id={"headLineONE"}>User Image</h1>
                         <Image src={profileAvatarUrl} className={"rounded-circle"} alt={'Please select an avatar or upload a photo using the "Update Profile" button.'} ></Image>
                     </Col>
                 </Row>
             </Container>
-            <div className={"p-5"}>
+            <div className={"p-1"} id="library-details-tabs">
                 <Tabs
                     defaultActiveKey="profile"
-                    id="library-details-tabs"
                     className="mb-3"
                     style={{fontSize: "xx-large"}}
+                    fluid="auto"
                 >
                     <Tab eventKey="events" title="Events">
-                        <Container>
+                        <Container md={4} style={{paddingBottom: "20px"}}>
                             <Row>
-                                <Stack>
+                                <Stack gap={3}>
                                     {/*WE ARE FETCHING LIBRARIES BY PROFILEID, CANNOT FOR EVENTS HELD AT OTHER OWNER'S LIBRARY (OR DO WE ONLY ALLOW OWNERS TO HOST AT THEIR LOCATIONS?)*/}
                                      {events.slice(0).map(event => <EventDetailBlockProfile library={libraries.filter(library => library.libraryId)[0]} user={user} event={event} key={event.eventId}/>)}
                                 </Stack>
                             </Row>
-                        </Container>
+                        </Container >
                     </Tab>
                     <Tab eventKey="check-ins" title="Check-Ins">
-                        <Container>
+                        <Container md={4} style={{paddingBottom: "20px"}} id={"profileCheckInTab"} >
                             <Row>
-                                {checkins.map (checkin => <CheckInDetailBlockProfile library={libraries.filter(library => library.libraryId)[0]} checkin={checkin} user={user} key={checkin.checkInId}/>)}
+                                <Stack gap={3}>
+                                    {checkins.map (checkin => <CheckInDetailBlockProfile library={libraries.filter(library => library.libraryId)[0]} checkin={checkin} user={user} key={checkin.checkInId}/>)}
+                                </Stack>
                             </Row>
                         </Container>
                     </Tab>
                     <Tab eventKey="libraries" title="Libraries">
-                        <Container>
+                        <Container md={4} style={{paddingBottom: "20px"}}>
                             <Row>
-                                <Stack>
+                                <Stack gap={3}>
                                     {libraries.map (library => <LibraryDetailBlockProfile library={library} user={user} key={library.libraryId}/>)}
                                 </Stack>
                             </Row>
@@ -142,9 +143,9 @@ export function ProfileLanding() {
 
 
             <Container className={""} fluid="auto">
-                <Row className={"m-0 "} id={"profileSectionBlk4"}>
-                    <Col>
-                        <img src={headshot} alt={"llStock1"} id={"sectionImageBlk"} className={""} style={{width: '30rem'}}/>
+                <Row className={"m-0"} id={"profileSectionBlk4"}>
+                    <Col md={4} style={{paddingBottom: "20px"}}>
+                        <img src={headshot} alt={"llStock1"} id={"sectionImageBlk"} className={""}/>
                     </Col>
                     <Col className={"pt-3"}>
                         <h1>Want to Take a Better Headshot from Home?</h1>
@@ -163,7 +164,7 @@ export function ProfileLanding() {
 
             <Container className={""} fluid="auto">
                 <Row className={"m-0 "} id={"profileSectionBlk3"}>
-                    <Col>
+                    <Col md={4} style={{paddingBottom: "20px"}}>
                         <h1 className={""}>Learn to Speed Read</h1>
                         <p>Speed reading a great way to train your brain to absorb information fast. The base concept entails learning to scan the page and omitting small words, allowing the brain to fill in the information automatically. Many successful individuals credit speed reading as a tool to become stronger readers and better time management.</p>
                         <p>Check out these sites for tips on speed reading to learn more.</p>
@@ -175,7 +176,7 @@ export function ProfileLanding() {
                         </Stack>
                     </Col>
                     <Col>
-                        <img src={reader} alt={"reader"} id={"sectionImageBlk"} className={""} style={{width: '30rem'}}/>
+                        <img src={reader} alt={"reader"} id={"sectionImageBlk"} className={"md-4"}/>
                     </Col>
                 </Row>
             </Container>
