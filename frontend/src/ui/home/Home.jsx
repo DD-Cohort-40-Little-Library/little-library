@@ -33,10 +33,13 @@ export function Home() {
 	return (
 		<>
 
-			<Row className={"mx-0"}>
-				<img src={LLLLabelBrown} alt={"logoBrow"} id={"LLLLabelBrown"} className={"llLogoBrown"}/>
-			</Row>
+			{/*<Row className={"mx-0"}>*/}
+			{/*	<img src={LLLLabelBrown} alt={"logoBrow"} id={"LLLLabelBrown"} className={"llLogoBrown"}/>*/}
+			{/*</Row>*/}
 
+				<Row className={"p-2 mx-0"}>
+					<img src={LLLLabelBrown} alt={"logoBrow"} id={"LLLLabelBrown"} className={"llLogoBrown"}/>
+				</Row>
 				<Row className={"mx-0"}>
 					<Col id={"events-column"} className={"flex order-last order-md-first"} md={2}>
 						<h2 id={"headLineONE"}>Upcoming Events</h2>
