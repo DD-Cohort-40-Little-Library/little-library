@@ -1,4 +1,5 @@
 import {sql} from '../database.utils'
+import {CheckIn} from "./CheckIn";
 
 export interface Event {
     eventId: string|null,
@@ -55,4 +56,34 @@ export async function selectEventByEventId (eventId: string): Promise<Event | nu
 
 export async function selectEventByEventDate (eventDate:Date): Promise<Event[]> {
     return <Event[]> <unknown> await sql `SELECT event_id, event_library_id, event_profile_id, event_date, event_description, event_end, event_start, event_title, event_type FROM event WHERE event_date = ${eventDate}`
+}
+
+export async function selectAllEventByProfileIdForProfileTab (profileId: string): Promise<Event[]> {
+    console.log(profileId + "Events.ts test line 62")
+    const data: Event[] = await sql <Event[]>`
+        SELECT  event_id,
+                event_library_id,
+                event_profile_id,
+                event_date,
+                event_description,
+                event_end,
+                event_start,
+                event_title,
+                event_type,
+                library_id,
+                library_profile_id,
+                library_address,
+                library_description,
+                library_event_opt_in,
+                library_name,
+                library_specialization,
+                profile_id,
+                profile_avatar_url,
+                profile_name
+        FROM check_in
+                 INNER JOIN library
+                            ON library.library_id = event.event_library_id
+                 INNER JOIN profile
+                            ON profile.profile_id = event.event_profile_id`
+    return data
 }

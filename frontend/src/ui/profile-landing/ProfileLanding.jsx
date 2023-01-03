@@ -11,8 +11,8 @@ import {ProfileUpdateModal} from "./ProfileUpdateModal.jsx";
 import {fetchAllLibraries, fetchLibrariesByProfileId} from "../../store/libraries.js";
 import {EventShortListing} from "../home/EventShortListing.jsx";
 import {EventDetailBlockProfile} from "./EventDetailBlockProfile.jsx";
-import {fetchEventsByProfileId} from "../../store/events.js";
-import {fetchCheckInsByProfileId} from "../../store/checkIn.js";
+import {fetchAllEventsForProfileTab, fetchEventsByProfileId} from "../../store/events.js";
+import {fetchAllCheckInsForProfileTab, fetchCheckInsByProfileId} from "../../store/checkIn.js";
 import {CheckInDetailBlockProfile} from "./CheckInDetailBlockProfile.jsx";
 import plsSignIn from "../../../images/uiSharedImages/plsSignIn.svg";
 import profileImageBlk1 from "../../../images/uiSharedImages/profileImgBlk1.jpg";
@@ -37,6 +37,7 @@ export function ProfileLanding() {
         dispatch(fetchCheckInsByProfileId())
         dispatch(fetchCurrentUser())
         // dispatch(fetchAllCheckInsForProfileTab())
+        // dispatch(fetchAllEventsForProfileTab())
     }
     // React.useEffect(initialEffects, [dispatch])
     useEffect(effects, [dispatch])
@@ -53,6 +54,8 @@ export function ProfileLanding() {
     const {eventDate, eventDescription, eventName} = events
     const {checkInComment,checkInDate, checkInPhotoUrl} = checkins
     // const {checkInId, checkInLibraryId, checkInProfileId, checkInComment, checkInDate, checkInPhotoUrl, checkInReport, libraryId, libraryProfileId, libraryAddress, libraryDescription, libraryEventOptIn, libraryName, librarySpecialization, profileId, profileFirstName, profileLastName, profileEmail, profileAvatarUrl, profileName} = checkins
+    // const {eventDate, eventDescription, eventName} = events
+
 
     return (
         <>
@@ -96,7 +99,7 @@ export function ProfileLanding() {
                     </Col>
                     <Col md={3} className={"text-center"} >
                         <h3 id={"headLineONE"}>User Image</h3>
-                        <Image src={profileAvatarUrl} fluid={true} className={"rounded-circle"} alt={'Please select an avatar or upload a photo using the "Update Profile" button.'} ></Image>
+                        <Image src={profileAvatarUrl} className={"rounded-circle"} alt={'Please select an avatar or upload a photo using the "Update Profile" button.'} ></Image>
                     </Col>
                 </Row>
             </Container>
@@ -111,7 +114,8 @@ export function ProfileLanding() {
                         <Container>
                             <Row>
                                 <Stack>
-                                     {events.slice(0).map(event => <EventDetailBlockProfile library={libraries.filter(library => library.libraryId)[0]} user={{user}} event={event} key={event.eventId}/>)}
+                                    {/*WE ARE FETCHING LIBRARIES BY PROFILEID, CANNOT FOR EVENTS HELD AT OTHER OWNER'S LIBRARY (OR DO WE ONLY ALLOW OWNERS TO HOST AT THEIR LOCATIONS?)*/}
+                                     {events.slice(0).map(event => <EventDetailBlockProfile library={libraries.filter(library => library.libraryId)[0]} user={user} event={event} key={event.eventId}/>)}
                                 </Stack>
                             </Row>
                         </Container>

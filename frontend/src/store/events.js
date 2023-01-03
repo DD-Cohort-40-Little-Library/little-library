@@ -2,6 +2,7 @@ import {create} from "yup/lib/Lazy.js";
 import {createSlice} from "@reduxjs/toolkit";
 import {httpConfig} from "../ui/shared/utils/http-config.js";
 import {setAllLibraries} from "./libraries.js";
+import {setAllCheckIns} from "./checkIn.js";
 
 const eventsSlice = createSlice({
     name: "events",
@@ -39,4 +40,9 @@ export const fetchEventsByLibraryId = (libraryId) => async (dispatch) => {
         const {data} = await httpConfig.get(`/apis/event/eventLibraryId/${libraryId}`)
         dispatch(setAllEvents(data))
     // }
+}
+
+export const fetchAllEventsForProfileTab = () => async (dispatch, profileId) => {
+    const {data} = await httpConfig(`/apis/event/eventProfileId/${profileId})`);
+    dispatch(setAllCheckIns(data));
 }

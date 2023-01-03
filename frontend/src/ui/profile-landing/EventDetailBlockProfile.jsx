@@ -46,7 +46,7 @@ export const EventDetailBlockProfile = ({event, user, library}) => {
                         <Row xs={6}>Description: {event.eventDescription}</Row>
                         <Link to={`/library-landing/${library.libraryId}`}><Button>Go To This Library</Button></Link>
                     </Col>
-                    <Col xs={3} fluid={true} className={"rounded-circle"} alt={'Please upload a photo of your Little Library using the "Update Library" option.'}>Library Image: {library.LibraryImageUrl}</Col>
+                    <Col xs={3} fluid={true} className={"rounded-circle"} alt={'Please upload a photo of your Little Library using the "Update Library" option.'}>Library Image: REMOVE ONCE IMAGE POPULATES {library.LibraryImageUrl}</Col>
                 </Row>
             </Container>
         </>

@@ -8,7 +8,7 @@ import {
     selectEventByEventId,
     selectEventByEventDate,
     Event,
-    selectAllEventsByEventProfileId
+    selectAllEventsByEventProfileId, selectAllEventByProfileIdForProfileTab
 } from '../../utils/models/Events';
 import {Status} from "../../utils/interfaces/Status";
 import {Profile} from "../../utils/models/Profile";
@@ -128,3 +128,14 @@ export async function deleteEventController (request: Request, response: Respons
     }
 }
 
+export async function getAllEventForProfileTabController (request: Request, response: Response): Promise<Response<Status>> {
+    try{
+        const { profileId } = request.params
+        const mySqlResult = await selectAllEventByProfileIdForProfileTab(profileId)
+        const data = mySqlResult ?? null
+        const status: Status = { status: 200, data, message: null }
+        return response.json(status)
+    } catch (error: any) {
+        return (response.json({ status: 400, data: null, message: error.message }))
+    }
+}
