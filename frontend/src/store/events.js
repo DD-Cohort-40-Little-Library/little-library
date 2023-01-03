@@ -25,6 +25,7 @@ export const fetchAllEvents = () => {
 
 export const fetchEventsByProfileId = () => async (dispatch, getState) => {
     const auth = getState().auth
+    // const {data} = await httpConfig(`/apis/event/eventProfileId/${auth.profileId}`)
     const {data} = await httpConfig(`/apis/event/eventProfileId/${auth.profileId}`)
     dispatch(setAllEvents(data))
 }
