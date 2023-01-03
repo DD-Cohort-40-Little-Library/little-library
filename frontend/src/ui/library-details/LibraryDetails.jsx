@@ -84,7 +84,7 @@ export function LibraryDetails() {
             <Tab eventKey="events" title="Events">
                 <Container>
                     <Row>
-                        {events.slice().map(event => <EventDetailBlockLibrary library={library} event={event} key={event.eventId}/>)}
+                        {events.slice(0).map (event => <EventDetailBlockProfile library={library} event={event} key={event.eventId}/>)}
                     </Row>
                 </Container>
             </Tab>
@@ -92,7 +92,7 @@ export function LibraryDetails() {
                 <Container>
                     <Row>
                         <h3>TEST - CHECKIN DISPLAY - 1</h3>
-                        {checkins.slice().map (checkin => <CheckInDetailBlockLibrary checkin={checkin} key={checkin.checkInId}/>)}</Row>
+                        {checkins.map (checkin => <CheckInDetailBlockLibrary checkin={checkin} key={checkin.checkInId}/>)}</Row>
                 </Container>
             </Tab>
         </Tabs>

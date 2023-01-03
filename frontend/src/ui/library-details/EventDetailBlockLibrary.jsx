@@ -39,9 +39,9 @@ export const EventDetailBlockLibrary = ({event, library}) => {
                     <Row xs={5}>End time: {finalEndTime}</Row>
                     <Row xs={7}>Description: {event.eventDescription}</Row>
                 </Col>
-                <Col>
-                    <Link to={`/library-landing/${library.libraryId}`}><Button>Go To This Library</Button></Link>
-                </Col>
+                {/*<Col>*/}
+                {/*    <Link to={`/library-landing/${library.libraryId}`}><Button>Go To This Library</Button></Link>*/}
+                {/*</Col>*/}
             </Container>
         </>
     )

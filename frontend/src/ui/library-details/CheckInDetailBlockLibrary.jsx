@@ -3,9 +3,7 @@ import React from "react";
 
 export const CheckInDetailBlockLibrary = ({checkin, user}) => {
 
-    console.log("Test - check in block library")
-
-    // const {checkin} = props
+    console.log(checkin)
 
     const date = checkin.checkInDate
     const D = new Date(date)

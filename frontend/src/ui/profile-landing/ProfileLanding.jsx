@@ -50,7 +50,7 @@ export function ProfileLanding() {
     const currentProfileId = auth.profileId
 
     const {libraryName,libraryAddress, libraryDescription, librarySpecialization, libraryEventOptIn, libraryType} = libraries
-    const {eventDate, eventDescription, eventName} = events
+    const {eventDate, eventStart, eventEnd, eventDescription, eventName} = events
     const {checkInComment,checkInDate, checkInPhotoUrl} = checkins
     // const {checkInId, checkInLibraryId, checkInProfileId, checkInComment, checkInDate, checkInPhotoUrl, checkInReport, libraryId, libraryProfileId, libraryAddress, libraryDescription, libraryEventOptIn, libraryName, librarySpecialization, profileId, profileFirstName, profileLastName, profileEmail, profileAvatarUrl, profileName} = checkins
 
@@ -127,7 +127,7 @@ export function ProfileLanding() {
                         <Container>
                             <Row>
                                 <Stack>
-                                    {libraries.map (library => <LibraryDetailBlockProfile library={library}/>)}
+                                    {libraries.map (library => <LibraryDetailBlockProfile library={library} key={library.libraryId}/>)}
                                 </Stack>
                             </Row>
                         </Container>
