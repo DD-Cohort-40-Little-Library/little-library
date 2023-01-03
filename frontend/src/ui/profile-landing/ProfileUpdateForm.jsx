@@ -208,7 +208,7 @@ function ImageDropZone ({formikProps}) {
                 {formikProps.values.profileAvatarUrl &&
                     <>
                         <div className={"bg-transparent"}>
-                            <Image fluid={true} height={200} thumbnail={true} width={200} alt={"profile avatar"} src={formikProps.values.profileAvatarUrl} />
+                            <Image fluid="auto" height={200} thumbnail={true} width={200} alt={"profile avatar"} src={formikProps.values.profileAvatarUrl} />
                         </div>
                     </>
                 }

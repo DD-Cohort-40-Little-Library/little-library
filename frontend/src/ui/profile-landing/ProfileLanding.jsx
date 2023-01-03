@@ -65,7 +65,6 @@ export function ProfileLanding() {
                 </Row>
             </Container>
 
-
             <h1 id={"headLineONE"}>User Profile Information</h1>
             <Container>
                 <Row className={"gx-md-3 px-3 justify-content-around"}>
@@ -96,13 +95,13 @@ export function ProfileLanding() {
                         <Link to={"/library-create"} className={"btn-primary"}><Button className={"m-2"}>Add a Library</Button></Link>
 
                     </Col>
-                    <Col md={2} className={"text-center"} >
+                    <Col md={2} className={"text-center pb-4"} fluid="auto">
                         <h1 id={"headLineONE"}>User Image</h1>
                         <Image src={profileAvatarUrl} className={"rounded-circle"} alt={'Please select an avatar or upload a photo using the "Update Profile" button.'} ></Image>
                     </Col>
                 </Row>
             </Container>
-            <div className={"p-1"} id="library-details-tabs">
+            <div className={"pt-3"} id={"profileDetailTabsSec"}>
                 <Tabs
                     defaultActiveKey="profile"
                     className="mb-3"
@@ -110,28 +109,28 @@ export function ProfileLanding() {
                     fluid="auto"
                 >
                     <Tab eventKey="events" title="Events">
-                        <Container md={4} style={{paddingBottom: "20px"}}>
+                        <Container md={4} id={"profileEventsTab"}>
                             <Row>
-                                <Stack gap={3}>
+                                <Stack gap={3} className={"align-items-center"}>
                                     {/*WE ARE FETCHING LIBRARIES BY PROFILEID, CANNOT FOR EVENTS HELD AT OTHER OWNER'S LIBRARY (OR DO WE ONLY ALLOW OWNERS TO HOST AT THEIR LOCATIONS?)*/}
                                      {events.slice(0).map(event => <EventDetailBlockProfile library={libraries.filter(library => library.libraryId)[0]} user={user} event={event} key={event.eventId}/>)}
                                 </Stack>
                             </Row>
                         </Container >
                     </Tab>
-                    <Tab eventKey="check-ins" title="Check-Ins">
+                    <Tab eventKey="check-ins" title="Check-Ins" id={"profileLibraryTab"}>
                         <Container md={4} style={{paddingBottom: "20px"}} id={"profileCheckInTab"} >
                             <Row>
-                                <Stack gap={3}>
+                                <Stack gap={3} className={"align-items-center"}>
                                     {checkins.map (checkin => <CheckInDetailBlockProfile library={libraries.filter(library => library.libraryId)[0]} checkin={checkin} user={user} key={checkin.checkInId}/>)}
                                 </Stack>
                             </Row>
                         </Container>
                     </Tab>
                     <Tab eventKey="libraries" title="Libraries">
-                        <Container md={4} style={{paddingBottom: "20px"}}>
+                        <Container md={4} style={{paddingBottom: "20px"}} id={"profileLibraryTab"}>
                             <Row>
-                                <Stack gap={3}>
+                                <Stack gap={3} className={"align-items-center"}>
                                     {libraries.map (library => <LibraryDetailBlockProfile library={library} user={user} key={library.libraryId}/>)}
                                 </Stack>
                             </Row>

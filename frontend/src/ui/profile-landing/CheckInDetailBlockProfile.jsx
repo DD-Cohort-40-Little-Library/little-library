@@ -20,10 +20,10 @@ export const CheckInDetailBlockProfile = (props) => {
 
     return(
         <>
-            <Container id={"checkInDetailBlock"} className={""}>
-                <Row >
-                    <Col sm={3} >
-                        <Image src={user.profileAvatarUrl} fluid={true} className={"rounded-circle"} alt={'Please select an avatar or upload a photo using the "Update Profile" button.'} ></Image>
+            <Container id={"profileCheckInDetailBlock"} className={""}>
+                <Row>
+                    <Col sm={2} className={"pt-4 rounded-circle"} fluid="auto">
+                        <Image src={user.profileAvatarUrl} className={"rounded-circle"} alt={'Please select an avatar or upload a photo using the "Update Profile" button.'} ></Image>
                     </Col>
                     <Col>
                         <Row sm={6} className={"text-start"}>User Name: {user.profileName}</Row>
@@ -33,9 +33,9 @@ export const CheckInDetailBlockProfile = (props) => {
                         <Row sm={6} className={"text-start pb-4"}>Comment: {checkin.checkInComment}</Row>
                         <Link to={`/library-landing/${library.libraryId}`}><Button>Go To This Library</Button></Link>
                     </Col>
-                    <Col sm={3}>
+                    <Col sm={3} className={"pt-4 rounded-circle"} fluid="auto">
                         <Row>Check-In Image: REMOVE ONCE IMAGE POPULATES</Row>
-                        <Image src={checkin.checkInPhotoUrl} fluid={true} className={"rounded-circle"} alt={'Please upload a photo of your Little Library visit using the "Update Check-in" option.'}></Image>
+                        <Image src={checkin.checkInPhotoUrl} className={"rounded-circle"} alt={'Please upload a photo of your Little Library visit using the "Update Check-in" option.'}></Image>
                     </Col>
                 </Row>
             </Container>

@@ -62,7 +62,7 @@ export function LibraryDetails() {
             <Card.Header><h2>{library.libraryAddress}, {library.libraryType}</h2></Card.Header>
             <Card.Body>
                 {/*Make backend library image connection, code freeze*/}
-                <Image src={library.libraryImageURL} fluid={true} alt={'Please upload a photo of your Little Library.'} ></Image>
+                <Image src={library.libraryImageURL} alt={'Please upload a photo of your Little Library.'} ></Image>
                 <Card.Title><h3>{library.libraryName}</h3></Card.Title>
                     {/*<h5>{specialization}</h5>*/}
                 <Card.Text>{library.libraryDescription}</Card.Text>
