@@ -109,7 +109,7 @@ export function Home() {
 				<Row className={"m-0 "} id={"homeSectionBlk2"}>
 					<Col>
 						<h1 className={""}>Our Mission</h1>
-						<p>“Our Mission is to foster a social environment around literacy. Through the Little Library Locator, we aim to promote different interests around reading and highlight the unique personalities of the creators of Little Libraries around the world.” </p>
+						<p>“Our Mission is to foster a social environment around literacy. Through the Little Library Locator, we aim to promote different interests around reading and highlight the unique personalities of the creators of Little Libraries around the world.”</p>
 
 						<h2>Join the project.</h2>
 						<p style={{fontSize: "large"}}>Sign Up and Register Your Little Library</p>
