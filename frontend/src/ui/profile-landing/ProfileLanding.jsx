@@ -12,7 +12,7 @@ import {fetchAllLibraries, fetchLibrariesByProfileId} from "../../store/librarie
 import {EventShortListing} from "../home/EventShortListing.jsx";
 import {EventDetailBlockProfile} from "./EventDetailBlockProfile.jsx";
 import {fetchEventsByProfileId} from "../../store/events.js";
-import {fetchAllCheckInsForProfileTab, fetchCheckInsByProfileId} from "../../store/checkIn.js";
+import {fetchCheckInsByProfileId} from "../../store/checkIn.js";
 import {CheckInDetailBlockProfile} from "./CheckInDetailBlockProfile.jsx";
 import plsSignIn from "../../../images/uiSharedImages/plsSignIn.svg";
 import profileImageBlk1 from "../../../images/uiSharedImages/profileImgBlk1.jpg";
@@ -20,7 +20,6 @@ import profileImageBlk2 from "../../../images/uiSharedImages/profileImgBlk2.jpg"
 import reader from "../../../images/uiSharedImages/profileImgBlk3.jpg";
 import headshot from "../../../images/uiSharedImages/profileImgBlk4.jpg";
 import profileImageBlk3 from "../../../images/uiSharedImages/profileImgBlk5.jpg";
-
 
 export function ProfileLanding() {
     const libraries = useSelector(state => state.libraries ? state.libraries : [])
@@ -112,7 +111,7 @@ export function ProfileLanding() {
                         <Container>
                             <Row>
                                 <Stack>
-                                     {events.slice(0).map(event => <EventDetailBlock library={libraries.filter(library => library.libraryId)[0]} event={event} key={event.eventId}/>)}
+                                     {events.slice(0).map(event => <EventDetailBlockProfile library={libraries.filter(library => library.libraryId)[0]} event={event} key={event.eventId}/>)}
                                 </Stack>
                             </Row>
                         </Container>

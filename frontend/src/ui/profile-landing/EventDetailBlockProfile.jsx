@@ -2,7 +2,7 @@ import {Button, Col, Container, Row} from "react-bootstrap";
 import React from "react";
 import {Link} from "react-router-dom";
 
-export const EventDetailBlock = ({event, library}) => {
+export const EventDetailBlockProfile = ({event, library}) => {
     // Event date
     const date = event.eventDate
     const D = new Date(date)
@@ -31,12 +31,12 @@ export const EventDetailBlock = ({event, library}) => {
         <>
             <Container className={"border border-dark rounded"}>
                 <Col>
-                    <Row xs={6}>Library Name: {library.libraryName}</Row>
-                    <Row xs={6}>Library Address: {library.libraryAddress}</Row>
-                    <Row xs={5}>Event: {event.eventTitle}</Row>
+                    {/*<Row xs={6}>Library Name: {library.libraryName}</Row>*/}
                     <Row xs={5}>Date: {(D.getMonth() + 1) + '-' + ((D.getDate()) + '-' + (D.getFullYear()))}</Row>
                     <Row xs={5}>Start time: {finalStartTime}</Row>
                     <Row xs={5}>End time: {finalEndTime}</Row>
+                    <Row xs={5}>Event Title: {event.eventTitle}</Row>
+                    <Row xs={6}>Library Address: {library.libraryAddress}</Row>
                     <Row xs={7}>Description: {event.eventDescription}</Row>
                 </Col>
                 <Col>
