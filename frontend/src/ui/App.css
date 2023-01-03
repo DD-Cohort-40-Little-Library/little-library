@@ -1,3 +1,5 @@
+/**** Global CSS Functionality ****/
+
 body{
     background-color: #F3EAD2;
     color: #2D3024;
@@ -30,6 +32,7 @@ body{
     width: 100%;
 
 }
+
 #generalColBehavior {
     padding-top: 10px;
     padding-bottom: 10px;
@@ -37,23 +40,24 @@ body{
 
 #headLineONE {
     text-align: center;
-    color: #2D3024;
     padding: 5px;
 }
-
+/**** Map CSS Functionality ****/
 #mapPopUp {
     background-color: #F3EAD2;
     text-align: center;
-    color: #2D3024;
     margin: 0;
-    padding: 1rem;
+    padding: 2vh;
     font-size: large;
 }
 
+
+/**** Home CSS Functionality ****/
 #signInUp-column {
     padding: 2vh;
     align-content: center;
 }
+
 
 #profileRegProfile {
     text-align: center;
@@ -62,12 +66,11 @@ body{
 
 #profileRegForm {
     background-color: #76999D;
-    /*border: light;*/
     padding: 15px;
 }
 
 #events-column {
-    padding: 2vh;
+    padding: 4vh;
     background-color: #76999D;
 }
 
@@ -80,13 +83,7 @@ body{
 
 }
 
-#generalPhotoBehavior {
-    width: 100%;
-
-}
-
 #pleaseSignIn {
-    /*height: 50vh;*/
     width: 100%;
 
 }
@@ -99,7 +96,8 @@ body{
 #LLLLabelBrown {
     height: 4rem;
     width: 100%;
-
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 #signUpIn {
@@ -108,80 +106,22 @@ body{
     width: border-box;
 }
 
-#eventShortListing {
-    background-color: #CDCDC1;
-    border-radius: 10px;
-    margin: 1vh;
-}
-#eventUpdateModal {
-    background-color: #CDCDC1;
-}
-
-
-#checkInDisplay {
-    background-color: #CDCDC1;
-    color: #2D3024;
-    padding: 1rem;
-    margin: 1rem;
-    border-radius: 10px;
-}
-
-#checkInDetailBlock {
-    background-color: #CAB898;
-    color: #2D3024;
-    padding: 1rem;
-    margin: 1rem;
-    border-radius: 10px;
-
-}
-
-#eventListingDisplay {
-    background-color: #CAB898;
-    color: #2D3024;
-    padding: 1rem;
-    margin: 1rem;
-    border-radius: 10px;
-}
-
 #userRegistration {
     background-color: #93A5AB;
-    color: #2D3024;
     padding: 1rem;
     margin: 1rem;
     border-radius: 10px;
 }
 
-#libraryDisplayBlock {
-    background-color: #76999D;
-    color: #2D3024;
-    padding: 1rem;
-    margin: 1rem;
+#eventShortListing {
+    background-color: #426A73;
     border-radius: 10px;
-}
-
-#libraryCreateFormGlobal {
-    background-color: #93A5AB;
-    color: #2D3024;
-
-}
-
-#profileUpdateForm {
-    background-color: #93A5AB;
-    text-align: center;
-    width: border-box;
-}
-
-#libraryRegisterCard {
-    background-color: #93A5AB;
-    text-align: center;
-    width: border-box;
-    padding-top: 2rem;
+    margin: 1vh;
+    color: #CDCDC1;
     font-size: large;
-    border-radius: 0;
-}
+    padding: 10px;
+    text-align: center;
 
-#personalStack {
-    padding-bottom: 30px;
 }
 
 #homeSectionBlk1 {
@@ -200,7 +140,6 @@ body{
     padding: 2rem;
     margin-bottom: 30px;
     text-align: center;
-    color: #2D3024;
     font-size: x-large;
     align-items: center;
 }
@@ -209,7 +148,6 @@ body{
     padding: 2rem;
     margin-bottom: 30px;
     text-align: center;
-    color: #2D3024;
 }
 
 #homeSectionBlk4 {
@@ -217,7 +155,6 @@ body{
     padding: 2rem;
     margin-bottom: 30px;
     text-align: center;
-    color: #2D3024;
     font-size: large;
     align-items: center;
 }
@@ -227,7 +164,6 @@ body{
     padding: 2rem;
     margin-bottom: 30px;
     text-align: center;
-    color: #2D3024;
     font-size: x-large;
     align-items: center;
 }
@@ -238,22 +174,72 @@ body{
     margin-bottom: 30px;
 }
 
-#eventSectionBlk2 {
-    background-color: #CAB898;
-    padding: 2rem;
-    margin-bottom: 30px;
-    text-align: center;
-    color: #2D3024;
-    font-size: large;
-    align-items: center;
+/**** Various Modal CSS Functionality ****/
+
+#eventUpdateModal {
+    background-color: #CDCDC1;
 }
+
+/**** Various Tab CSS Functionality ****/
+
+#checkInDisplay {
+    background-color: #CDCDC1;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 10px;
+}
+
+#checkInDetailBlock {
+    background-color: #CAB898;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 10px;
+
+}
+
+#eventListingDisplay {
+    background-color: #CAB898;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 10px;
+}
+
+
+#libraryDisplayBlock {
+    background-color: #76999D;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 10px;
+}
+
+#libraryCreateFormGlobal {
+    background-color: #93A5AB;
+
+}
+
+#profileUpdateForm {
+    background-color: #93A5AB;
+    text-align: center;
+    width: border-box;
+}
+
+#libraryRegisterCard {
+    background-color: #93A5AB;
+    text-align: center;
+    width: border-box;
+    padding-top: 2rem;
+    font-size: large;
+    border-radius: 0;
+}
+
+
+/**** Registration Profile Display Section ****/
 
 #profileSectionBlk1 {
     background-color: #426A73;
     padding: 2rem;
     margin-bottom: 30px;
     text-align: center;
-    color: #2D3024;
     font-size: large;
     align-items: center;
 }
@@ -269,7 +255,6 @@ body{
     padding: 2rem;
     margin-bottom: 30px;
     text-align: center;
-    color: #2D3024;
     font-size: large;
     align-items: center;
 }
@@ -279,7 +264,6 @@ body{
     padding: 2rem;
     margin-bottom: 30px;
     text-align: center;
-    color: #2D3024;
     font-size: large;
     align-items: center;
 }
@@ -290,20 +274,29 @@ body{
     margin-bottom: 30px;
 }
 
+/**** Registration Event Display Section ****/
+#eventSectionBlk1 {
+    background-color: #76999D;
+    padding: 2rem;
+    margin-bottom: 30px;
+}
+
+#eventSectionBlk2 {
+    background-color: #CAB898;
+    padding: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: large;
+    align-items: center;
+}
+
 #eventSectionBlk3 {
     background-color: #CDCDC1;
     padding: 2rem;
     margin-bottom: 30px;
     text-align: center;
-    color: #2D3024;
     font-size: large;
     align-items: center;
-}
-
-#eventSectionBlk1 {
-    background-color: #76999D;
-    padding: 2rem;
-    margin-bottom: 30px;
 }
 
 #eventSectionBlk4 {
@@ -311,7 +304,6 @@ body{
     padding: 2rem;
     margin-bottom: 30px;
     text-align: center;
-    color: #2D3024;
     font-size: large;
     align-items: center;
 
@@ -327,10 +319,10 @@ body{
     padding: 2rem;
     margin-bottom: 30px;
     text-align: center;
-    color: #2D3024;
     font-size: large;
     align-items: center;
 }
+/**** Registration Library Display Section ****/
 
 #librarySectionBlk1 {
     background-color: #A9986E;
@@ -349,7 +341,6 @@ body{
     padding: 2rem;
     margin-bottom: 30px;
     text-align: center;
-    color: #2D3024;
     font-size: x-large;
     align-items: center;
 }
@@ -359,7 +350,6 @@ body{
     padding: 2rem;
     margin-bottom: 30px;
     text-align: center;
-    color: #2D3024;
     font-size: x-large;
     align-items: center;
 }
@@ -383,7 +373,6 @@ body{
     padding: 2rem;
     margin-bottom: 30px;
     text-align: center;
-    color: #2D3024;
     font-size: x-large;
     align-items: center;
 }
@@ -399,7 +388,6 @@ body{
     padding: 2rem;
     margin-bottom: 30px;
     text-align: center;
-    color: #2D3024;
     font-size: x-large;
     align-items: center;
 }
@@ -419,7 +407,6 @@ body{
     padding: 2rem;
     margin-bottom: 30px;
     text-align: center;
-    color: #2D3024;
     font-size: x-large;
     align-items: center;
    border-radius: 0;
@@ -431,7 +418,6 @@ body{
     margin-bottom: 30px;
     align-content: center;
     background-color: #CDCDC1;
-    color: #2D3024;
     text-align: center;
 }
 
@@ -446,7 +432,11 @@ body{
 #aboutUsDDC {
     background-color: #93A5AB;
     padding: 2rem;
-    margin-bottom: 0px;
+    margin-bottom: 0;
     text-align: center;
     align-content: center;
+}
+
+#personalStack {
+    padding-bottom: 30px;
 }

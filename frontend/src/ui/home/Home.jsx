@@ -41,19 +41,18 @@ export function Home() {
 					<img src={LLLLabelBrown} alt={"logoBrow"} id={"LLLLabelBrown"} className={"llLogoBrown"}/>
 				</Row>
 				<Row className={"mx-0"}>
-					<Col id={"events-column"} className={"flex order-last order-md-first"} md={2}>
-						<h2 id={"headLineONE"}>Upcoming Events</h2>
-						<Stack gap={3}>
+					<Col id={"events-column"} className={"flex order-last order-md-first"} md={3}>
+						<h1 id={"headLineONE"} style={{color:"#F3EAD2"}}>Upcoming Events</h1>
+						<Stack gap={2}>
 							{libraries.length && events.slice(0,3).map(event => <EventShortListing library={libraries.filter(library => library.libraryId === event.eventLibraryId)[0]} event={event} key={event.eventId}/>)}
 						</Stack>
 					</Col>
-
 					<Col className={"flex order-md-1"} md={8}>
 						<LibraryMap libraries={libraries}/>
 					</Col>
 
 					<Col id={"signInUp-column"} className={"flex order-first order-md-last"} md={1}>
-						<Stack gap={3}>
+						<Stack gap={4}>
 							<SignInSignUpModal id={"signInSignUpModal"}/>
 							<SignOutComponent/>
 						</Stack>
@@ -61,11 +60,11 @@ export function Home() {
 				</Row>
 
 			<Container className={""} fluid="auto">
-			<Row className={"m-0 "} id={"homeSectionBlk4"}>
-				<Col>
-					<img src={homeImagePins} alt={"homeImagePins"} id={"sectionImageBlk"} className={""} style={{width: '40rem'}}/>
+			<Row className={"m-0"} id={"homeSectionBlk4"}>
+				<Col md={4} style={{paddingBottom: "20px"}}>
+					<img src={homeImagePins} alt={"homeImagePins"} id={"sectionImageBlk"} className={""} />
 				</Col>
-				<Col>
+				<Col >
 					<h1 className={""}>What are Specializations?</h1>
 						<p style={{fontSize: "x-large"}}>Got a lot of children’s books at your Little Library? How about a great collect of romance novels you want to share? The Little Library Locator Map is enabled to highlight the book genre abundance that may be at a location at any time.</p>
 						<p>The following genres are selectable when creating or updating a library:</p>
@@ -114,8 +113,8 @@ export function Home() {
 
 			<Container className={""} fluid="auto">
 				<Row className={"m-0 "} id={"homeSectionBlk2"}>
-					<Col>
-						<img src={llStock1} alt={"llStock1"} id={"sectionImageBlk"} className={""} style={{width: '20rem'}}/>
+					<Col  md={3}  style={{paddingBottom: "20px"}}>
+						<img src={llStock1} alt={"llStock1"} id={"sectionImageBlk"} className={""}/>
 					</Col>
 					<Col>
 						<h1 className={""}>Our Mission</h1>
@@ -123,7 +122,7 @@ export function Home() {
 
 						<h2>Join the project.</h2>
 						<p style={{fontSize: "large"}}>Sign Up and Register Your Little Library</p>
-						<Link to='/library-create'><Button>Add A Library</Button></Link>
+						<a href='/library-create'><Button>Add A Library</Button></a>
 					</Col>
 				</Row>
 			</Container>
@@ -136,14 +135,14 @@ export function Home() {
 
 			<Container className={""} fluid="auto">
 				<Row className={"m-0 "} id={"homeSectionBlk5"}>
-					<Col>
+					<Col style={{paddingBottom: "20px"}}>
 						<h1 className={""}>Who We Are</h1>
-						<p>Four people from different worlds came together and built this site. A couple with some coding exposure and the others with none. Within ten weeks of intense coding experience, we became a great team. Together, we have created a great application had a fantastic time doing it!</p>
+						<p>Four people from different worlds came together and built this site. A couple with some coding exposure and the others with none. Within ten weeks of intense training, we became a team. Together, we have created a great application had a fantastic time doing it!</p>
 						<h3>Meet the Team</h3>
-						<Link to='/about-us'><Button>About Us</Button></Link>
+						<a href="/about-us"><Button>About Us</Button></a>
 					</Col>
-					<Col>
-						<img src={lllLogoTag2} alt={"lllLogoTag"} id={"sectionImageBlk"} className={""} style={{width: '30rem'}}/>
+					<Col md={5}>
+						<img src={lllLogoTag2} alt={"lllLogoTag"} id={"sectionImageBlk"} className={""}/>
 					</Col>
 				</Row>
 			</Container>
@@ -153,7 +152,7 @@ export function Home() {
 				<Row className={"m-0"}>
 					<h1>When is Your Next Event?</h1>
 					<p style={{fontSize: "large"}} className={"mb-3"}>LogIn and Get Started!</p>
-					<Link to='/event-create-page'><Button className={"mb-3"}>Plan An Event</Button></Link>
+					<a href='/event-create-page'><Button className={"mb-3"}>Plan An Event</Button></a>
 					<img src={homeImageBlk2} alt={"homeImage2"} id={"sectionImageBlk"} className={"img-fluid"}/>
 				</Row>
 			</Container>
