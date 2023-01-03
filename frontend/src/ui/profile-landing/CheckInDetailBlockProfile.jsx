@@ -28,7 +28,6 @@ export const CheckInDetailBlockProfile = (props) => {
                     <Col>
                         <Row xs={6}>User Name: {user.profileName}</Row>
                         <Row xs={6}>Check-In Date/Time: {(D.getMonth() + 1) + '-' + ((D.getDate()) + '-' + (D.getFullYear()) )} / {finalTime}</Row>
-                        {/*//TODO: Line 32/33 join working on backend, but issues bringing it in due to profileId pre initialization issue, work later. This will allow for all tabs once this is fixed.*/}
                         <Row xs={6}>Library Name: {library.libraryName}</Row>
                         <Row xs={6}>Library Address: {library.libraryAddress}</Row>
                         <Row xs={6}>Comment: {checkin.checkInComment}</Row>

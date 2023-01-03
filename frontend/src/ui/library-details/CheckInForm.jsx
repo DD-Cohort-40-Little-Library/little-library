@@ -9,7 +9,7 @@ import {httpConfig} from "../shared/utils/http-config.js";
 import {Formik} from "formik";
 import {DisplayError} from "../shared/components/display-error/DisplayError.jsx";
 import {useParams} from "react-router-dom";
-import {fetchAuth} from "../../store/auth.js";
+import {fetchAuth, getAuth} from "../../store/auth.js";
 import {FormDebugger} from "../shared/components/FormDebugger.jsx";
 import {useDropzone} from "react-dropzone";
 
@@ -66,6 +66,20 @@ export function CheckInForm() {
                 }
                 setStatus({message, type})
             })
+    }
+
+    if (selectedImage !== null) {
+        httpConfig.post(`/apis/image-upload/`, values.checkInPhotoUrl)
+            .then(reply => {
+                    let {message, type} = reply
+                    if (reply.status === 200) {
+                        checkInPro({...values, checkInPhotoUrl: message})
+                        dispatch(getAuth({...values, checkInPhotoUrl: message}))
+                    } else {
+                        setStatus({message, type})
+                    }
+                }
+            )
     }
     return (
         <Formik
