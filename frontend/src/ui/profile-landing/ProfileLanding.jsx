@@ -14,7 +14,7 @@ import {EventDetailBlockProfile} from "./EventDetailBlockProfile.jsx";
 import {fetchEventsByProfileId} from "../../store/events.js";
 import {fetchCheckInsByProfileId} from "../../store/checkIn.js";
 import {CheckInDetailBlockProfile} from "./CheckInDetailBlockProfile.jsx";
-import plsSignIn from "../../../images/uiSharedImages/plsSignIn.svg";
+import plsSignIn from "../../../images/uiSharedImages/pleaseSignIn.svg";
 import profileImageBlk1 from "../../../images/uiSharedImages/profileImgBlk1.jpg";
 import profileImageBlk2 from "../../../images/uiSharedImages/profileImgBlk2.jpg";
 import reader from "../../../images/uiSharedImages/profileImgBlk3.jpg";
