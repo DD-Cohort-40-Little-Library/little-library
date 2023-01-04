@@ -68,19 +68,19 @@ export function CheckInForm() {
             })
     }
 
-    if (selectedImage !== null) {
-        httpConfig.post(`/apis/image-upload/`, values.checkInPhotoUrl)
-            .then(reply => {
-                    let {message, type} = reply
-                    if (reply.status === 200) {
-                        checkInPro({...values, checkInPhotoUrl: message})
-                        dispatch(getAuth({...values, checkInPhotoUrl: message}))
-                    } else {
-                        setStatus({message, type})
-                    }
-                }
-            )
-    }
+    // if (selectedImage !== null) {
+    //     httpConfig.post(`/apis/image-upload/`, values.checkInPhotoUrl)
+    //         .then(reply => {
+    //                 let {message, type} = reply
+    //                 if (reply.status === 200) {
+    //                     checkInPro({...values, checkInPhotoUrl: message})
+    //                     dispatch(getAuth({...values, checkInPhotoUrl: message}))
+    //                 } else {
+    //                     setStatus({message, type})
+    //                 }
+    //             }
+    //         )
+    // }
     return (
         <Formik
             initialValues={checkIn}
@@ -107,7 +107,7 @@ function CheckInFormContent(props) {
         handleReset
     } = props
 
-    const [selectedImage, setSelectedImage] = useState(null)
+    // const [selectedImage, setSelectedImage] = useState(null)
 
     return (
 
@@ -134,14 +134,14 @@ function CheckInFormContent(props) {
                             <DisplayError errors={errors} touched={touched} field={"checkinComment"} />
                         </Form.Group>
 
-                    <ImageDropZone
-                        formikProps={{
-                            values, handleChange, handleBlur, setFieldValue, fieldValue:'checkInPhotoUrl', setSelectedImage: setSelectedImage
-                        }}
-                    />
-                    <div>
-                        {selectedImage !== null ? <img className={"w-50"} src={selectedImage}/> : ""}
-                    </div>
+                    {/*<ImageDropZone*/}
+                    {/*    formikProps={{*/}
+                    {/*        values, handleChange, handleBlur, setFieldValue, fieldValue:'checkInPhotoUrl', setSelectedImage: setSelectedImage*/}
+                    {/*    }}*/}
+                    {/*/>*/}
+                    {/*<div>*/}
+                    {/*    {selectedImage !== null ? <img className={"w-50"} src={selectedImage}/> : ""}*/}
+                    {/*</div>*/}
                     <Form.Group className={"mt-3"}>
                         <Button className={"btn btn-primary"} onClick={handleSubmit}>Submit</Button>
                         {" "}
