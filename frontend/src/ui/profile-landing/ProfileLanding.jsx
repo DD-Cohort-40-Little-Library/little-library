@@ -23,6 +23,13 @@ import profileImageBlk3 from "../../../images/uiSharedImages/profileImgBlk5.jpg"
 
 export function ProfileLanding() {
     const libraries = useSelector(state => state.libraries ? state.libraries : [])
+    const profileLibraries = useSelector(state => {
+        const profileId = state.auth?.profileId
+        if (profileId) {
+            return state.libraries.filter(library => library.libraryProfileId === profileId)
+        }
+        return []
+    })
     const events = useSelector(state => state.events ? state.events : [])
     const checkins = useSelector(state => state.checkIns ? state.checkIns : [])
     const auth = useSelector(state => state.auth ? state.auth : state.auth)
@@ -32,7 +39,7 @@ export function ProfileLanding() {
     // const initialEffects = () => {
     const effects = () => {
         dispatch(fetchAuth())
-        dispatch(fetchLibrariesByProfileId())
+        dispatch(fetchAllLibraries())
         dispatch(fetchEventsByProfileId())
         dispatch(fetchCheckInsByProfileId())
         dispatch(fetchCurrentUser())
@@ -122,7 +129,7 @@ export function ProfileLanding() {
                         <Container md={4} style={{paddingBottom: "20px"}} id={"profileCheckInTab"} >
                             <Row>
                                 <Stack gap={3} className={"align-items-center"}>
-                                    {checkins.map (checkin => <CheckInDetailBlockProfile library={libraries.filter(library => library.libraryId)[0]} checkin={checkin} user={user} key={checkin.checkInId}/>)}
+                                    {checkins.map (checkin => <CheckInDetailBlockProfile checkin={checkin} user={user} key={checkin.checkInId}/>)}
                                 </Stack>
                             </Row>
                         </Container>
@@ -131,7 +138,7 @@ export function ProfileLanding() {
                         <Container md={4} style={{paddingBottom: "20px"}} id={"profileLibraryTab"}>
                             <Row>
                                 <Stack gap={3} className={"align-items-center"}>
-                                    {libraries.map (library => <LibraryDetailBlockProfile library={library} user={user} key={library.libraryId}/>)}
+                                    {profileLibraries.map (library => <LibraryDetailBlockProfile library={library} user={user} key={library.libraryId}/>)}
                                 </Stack>
                             </Row>
                         </Container>

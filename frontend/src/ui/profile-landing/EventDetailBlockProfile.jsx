@@ -1,8 +1,19 @@
 import {Button, Col, Container, Image, Row} from "react-bootstrap";
 import React from "react";
 import {Link} from "react-router-dom";
+import {useSelector} from "react-redux";
 
-export const EventDetailBlockProfile = ({event, user, library}) => {
+export const EventDetailBlockProfile = ({event, user}) => {
+
+    const library = useSelector(state => {
+        if (state.libraries.length === 0) {
+            return null
+        }
+        return state.libraries.find(library => library.libraryId === event.eventLibraryId)
+    })
+        if (library === null) {
+            return (<></>)
+        }
     // Event date
     const date = event.eventDate
     const D = new Date(date)

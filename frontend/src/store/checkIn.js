@@ -38,6 +38,6 @@ export const fetchAllCheckInsForProfileTab = () => async (dispatch, profileId) =
 export const fetchCheckInsByLibraryId = (libraryId) => async (dispatch) => {
 	// return async function (dispatch) {
 	const {data} = await httpConfig.get(`/apis/check-in/checkInLibraryId/${libraryId}`)
-	dispatch(setAllEvents(data))
+	dispatch(setAllCheckIns(data))
 	// }
 }
