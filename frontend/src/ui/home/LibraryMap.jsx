@@ -5,11 +5,11 @@ import {MapCustomPin} from "./MapCustomPin.jsx";
 
 const styles = {
 	map:{
-		height: "100vh",
+		height: "80vh",
 		width: "100%",
 	},
 	mapBox:{
-		height: "100vh",
+		height: "80vh",
 		width: "100%",
 	}
 }

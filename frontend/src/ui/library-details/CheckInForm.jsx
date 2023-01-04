@@ -184,7 +184,7 @@ function ImageDropZone ({formikProps}) {
                 {formikProps.values.checkInPhotoUrl &&
                     <>
                         <div className={"bg-transparent"}>
-                            <Image fluid={true} height={200} thumbnail={true} width={200} alt={"checkin photo"} src={formikProps.values.checkInPhotoUrl} />
+                            <Image fluid="auto" height={200} thumbnail={true} width={200} alt={"checkin photo"} src={formikProps.values.checkInPhotoUrl} />
                         </div>
                     </>
                 }

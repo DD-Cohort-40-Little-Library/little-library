@@ -13,7 +13,7 @@ export const LibraryUpdate = () => {
 					{/*Row 1 with User image and upload image*/}
 					<Row className={"mx-0"}>
 						<Col md={6} className={"m-2 text-center"}>
-							<Figure fluid="true">
+							<Figure fluid="auto">
 								<Figure.Image
 									alt={"placeholder kitten"}
 									src={"http://placekitten.com/210/210"}
@@ -51,7 +51,7 @@ export const LibraryUpdate = () => {
 							</Card>
 						</Col>
 						<Col md={5} className={"m-2 text-center"}>
-							<Figure fluid="true">
+							<Figure fluid="auto">
 								<Figure.Image
 									alt={"placeholder kitten"}
 									src={"http://placekitten.com/300/300"}

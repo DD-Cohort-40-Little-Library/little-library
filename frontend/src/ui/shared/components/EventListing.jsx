@@ -6,14 +6,14 @@ export const EventListing = () => {
 		<>
 			<Container className={""} id={"eventListingDisplay"}>
 				<Row className={"my-3"}>
-					<Col xs={5}>Library Name</Col>
-					<Col xs={7}>Library Address</Col>
+					<Col sm={6} className={"text-start"}>Library Name</Col>
+					<Col sm={6} className={"text-start"}>Library Address</Col>
 				</Row>
 				<Row className={"my-3"}>
-					<Col xs={3}>Event Date</Col>
-					<Col xs={2}>Event Start</Col>
-					<Col xs={2}>Event End</Col>
-					<Col xs={5}>Event Type</Col>
+					<Col sm={6} className={"text-start"}>Event Date</Col>
+					<Col sm={6} className={"text-start"}>Event Start</Col>
+					<Col sm={6} className={"text-start"}>Event End</Col>
+					<Col sm={6} className={"text-start"}>Event Type</Col>
 				</Row>
 				<Row className={"my-3"}>
 					<Col>Event Title</Col>

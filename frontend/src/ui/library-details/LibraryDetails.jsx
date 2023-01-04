@@ -58,27 +58,28 @@ export function LibraryDetails() {
 
 
         <div id={"librarySectionDisplay"}>
-        <Card className={""} id={"libraryCardDisplay"} >
-            <Card.Header><h2>{library.libraryAddress}, {library.libraryType}</h2></Card.Header>
-            <Card.Body>
-                {/*Make backend library image connection, code freeze*/}
-                <Image src={library.libraryImageURL} fluid={true} alt={'Please upload a photo of your Little Library.'} ></Image>
-                <Card.Title><h3>{library.libraryName}</h3></Card.Title>
-                    {/*<h5>{specialization}</h5>*/}
-                <Card.Text>{library.libraryDescription}</Card.Text>
-                <Row>
-                <Col style={{padding: '1rem'}}>
-                    <CheckInModal/>
-                </Col>
-                </Row>
-            </Card.Body>
-        </Card>
-
+            <Card className={""} id={"libraryCardDisplay"} >
+                <Card.Header><h2>{library.libraryAddress}, {library.libraryType}</h2></Card.Header>
+                <Card.Body>
+                    {/*Make backend library image connection, code freeze*/}
+                    <Image src={library.libraryImageURL} alt={'Please upload a photo of your Little Library.'} ></Image>
+                    <Card.Title><h3>{library.libraryName}</h3></Card.Title>
+                        {/*<h5>{specialization}</h5>*/}
+                    <Card.Text>{library.libraryDescription}</Card.Text>
+                    <Row>
+                    <Col style={{padding: '1rem'}}>
+                        <CheckInModal/>
+                    </Col>
+                    </Row>
+                </Card.Body>
+            </Card>
+        </div>
+        <div className={"pt-3"} id={"libraryDisDetailTabsSec"}>
         <Tabs
             defaultActiveKey="profile"
-            id="library-details-tabs"
             className="mb-3"
-            style={{fontSize: "xx-large"}}
+            style={{fontSize: "x-large"}}
+            fluid="auto"
         >
             <Tab eventKey="events" title="Events">
                 <Container>
@@ -100,7 +101,7 @@ export function LibraryDetails() {
 
         <Container className={""} fluid="auto">
             <Row className={"m-0 "} id={"libDisSectionBlk2"}>
-                <Col>
+                <Col md={7} style={{paddingBottom: "20px"}} className={"flex order-last order-md-first"}>
                     <h1 className={""}>Can Reading Give You Super Powers?</h1>
                     <p>Empathy, stress relief, and life longevity are just a few things that reading regularly has been credited to do. The benefits of reading have well been documented that it is said that superpowers are gained. Decide for yourself by exploring these articles on the subject.</p>
                     <Stack gap={1}>
@@ -111,8 +112,8 @@ export function LibraryDetails() {
                         <a target="blank" href={"https://www.webmd.com/balance/health-benefits-of-reading-books"}>WebMD.com: Health Benefits of Reading Books</a>
                     </Stack>
                 </Col>
-                <Col>
-                    <img src={libDisSuper} alt={"libDisSuper"} id={"sectionImageBlk"} className={""} style={{width: '30rem'}}/>
+                <Col md={4}  style={{paddingBottom: "20px"}} className={"flex order-first order-md-last"}>
+                    <img src={libDisSuper} alt={"libDisSuper"} id={"sectionImageBlk"} className={"img-fluid"}/>
                 </Col>
             </Row>
         </Container>
@@ -125,8 +126,8 @@ export function LibraryDetails() {
 
         <Container className={""} fluid="auto">
             <Row className={"m-0 "} id={"libDisSectionBlk4"}>
-                <Col>
-                    <img src={libDisFamRead} alt={"libDisFamRead"} id={"sectionImageBlk"} className={""} style={{width: '30rem'}}/>
+                <Col md={5} style={{paddingBottom: "20px"}}>
+                    <img src={libDisFamRead} alt={"libDisFamRead"} id={"sectionImageBlk"} className={"img-fluid"}/>
                 </Col>
                 <Col>
                     <h1 className={""}>Start Teaching Reading Early and Often</h1>

@@ -249,7 +249,7 @@ function EventCreateModalFormContent(props) {
 
 			<Container className={""} fluid="auto">
 				<Row className={"m-0 "} id={"eventSectionBlk3"}>
-					<Col>
+					<Col md={8} style={{paddingBottom: "20px"}} className={"flex order-last order-md-first"}>
 						<h1 className={""}>Tips for Hosting a Great Event</h1>
 						<p style={{fontSize: "x-large"}}>Be a responsible host. A little pre-planning can go a long way to making sure your event is rememberable and safe.</p>
 						<p>Follow these tips for setting up and hosting a literacy event:</p>
@@ -263,8 +263,8 @@ function EventCreateModalFormContent(props) {
 							<li>Plan activities aimed for attendee participation</li>
 						</ul>
 					</Col>
-					<Col>
-						<img src={eventReadingGroup} alt={"eventReaderGp"} id={"sectionImageBlk"} className={""} style={{width: '30rem'}}/>
+					<Col md={4}  style={{paddingBottom: "20px"}} className={"flex order-first order-md-last"}>
+						<img src={eventReadingGroup} alt={"eventReaderGp"} id={"sectionImageBlk"} className={"img-fluid"}/>
 					</Col>
 				</Row>
 			</Container>
@@ -278,10 +278,10 @@ function EventCreateModalFormContent(props) {
 
 			<Container className={""} fluid="auto">
 				<Row className={"m-0"} id={"eventSectionBlk4"}>
-					<Col>
-						<img src={eventReadingGroup3} alt={"eventReadingGroup3"} id={"sectionImageBlk"} className={""} style={{width: '30rem'}}/>
+					<Col  md={4} style={{paddingBottom: "20px"}}>
+						<img src={eventReadingGroup3} alt={"eventReadingGroup3"} id={"sectionImageBlk"} className={"img-fluid"}/>
 					</Col>
-					<Col>
+					<Col className={"md-6"}>
 						<h1 className={""}>Why Plan an Event?</h1>
 						<h3>Literacy Events Come in All Shapes and Sizes.</h3>
 						<ul className={"text-start"}>
@@ -289,7 +289,6 @@ function EventCreateModalFormContent(props) {
 							<li>Thinking of starting a book club?</li>
 							<li>Hosting a book fair?</li>
 						</ul>
-
 						<p>Planned an event and looking for ways to increase participation? There is great information around the subject. </p>
 						<p>Check out these sites to learn more.</p>
 					<Stack gap={2}>
@@ -303,8 +302,7 @@ function EventCreateModalFormContent(props) {
 
 			<Container className={""} fluid="auto">
 				<Row className={"m-0"} id={"eventSectionBlk6"}>
-
-					<Col>
+					<Col md={8} style={{paddingBottom: "20px"}} className={"flex order-last order-md-first"}>
 						<h1 className={""}>Start a Book Club</h1>
 						<p>A simple and effective way to stay social post pandemic is to start or join a book club. One benefit of functioning during a world-wide pandemic was that many became comfortable navigating online meeting software.</p>
 						<p> As many readers look for ways to connect with like-minded individuals either in person or remotely there are options. It is a great way to educate yourself on numerous topics and meet new and exciting people</p>
@@ -315,21 +313,21 @@ function EventCreateModalFormContent(props) {
 							<a target="blank" href={"https://www.oprahdaily.com/entertainment/a27569720/how-to-start-a-book-club/"}>OprahDaily.com: How to Start a Book Club in 6 Simple Steps</a>
 						</Stack>
 					</Col>
-					<Col>
-						<img src={eventReadingGroup2} alt={"eventReadingGroup2"} id={"sectionImageBlk"} className={""} style={{width: '30rem'}}/>
+					<Col md={4}  style={{paddingBottom: "20px"}} className={"flex order-first order-md-last"}>
+						<img src={eventReadingGroup2} alt={"eventReadingGroup2"} id={"sectionImageBlk"} className={"img-fluid"}/>
 					</Col>
 				</Row>
 			</Container>
 
 			<Container className={"m-0"} fluid="auto" id={"eventSectionBlk2"}>
 				<Row className={"m-0"}>
-					<h1>Be Sure to Attend an Event Safe and Successfully</h1>
+					<h3>Be Sure to Attend an Event Safe and Successfully</h3>
 				</Row>
 				<Row className={"align-items-center"}>
-						<Col>
-						<p style={{fontSize: "x-large"}} className={"mb-3"}>Gathering with others can be a great tool for increasing literacy. It can also be a fantastic step to enrich young lives with an enjoyable social experience. Any additional time you make to promote literacy will be an adventure; however, be sure to do it safely.</p>
+						<Col md={4} style={{paddingBottom: "20px"}}>
+						<p style={{fontSize: "larger"}} className={"mb-3"}>Gathering with others can be a great tool for increasing literacy. It can also be a fantastic step to enrich young lives with an enjoyable social experience. Any additional time you make to promote literacy will be an adventure; however, be sure to do it safely.</p>
 						</Col>
-						<Col>
+						<Col md={4} style={{paddingBottom: "20px"}}>
 							<p>When considering planning or attending an event with the Little Library Locator please take the following steps to protect yourselves, friends, and family: </p>
 							<ul className={"text-start"}>
 								<li>Don’t let minors attend alone</li>
