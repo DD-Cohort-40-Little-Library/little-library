@@ -101,7 +101,7 @@ export function LibraryDetails() {
 
         <Container className={""} fluid="auto">
             <Row className={"m-0 "} id={"libDisSectionBlk2"}>
-                <Col md={7} style={{paddingBottom: "20px"}}>
+                <Col md={7} style={{paddingBottom: "20px"}} className={"flex order-last order-md-first"}>
                     <h1 className={""}>Can Reading Give You Super Powers?</h1>
                     <p>Empathy, stress relief, and life longevity are just a few things that reading regularly has been credited to do. The benefits of reading have well been documented that it is said that superpowers are gained. Decide for yourself by exploring these articles on the subject.</p>
                     <Stack gap={1}>
@@ -112,7 +112,7 @@ export function LibraryDetails() {
                         <a target="blank" href={"https://www.webmd.com/balance/health-benefits-of-reading-books"}>WebMD.com: Health Benefits of Reading Books</a>
                     </Stack>
                 </Col>
-                <Col>
+                <Col md={4}  style={{paddingBottom: "20px"}} className={"flex order-first order-md-last"}>
                     <img src={libDisSuper} alt={"libDisSuper"} id={"sectionImageBlk"} className={"img-fluid"}/>
                 </Col>
             </Row>

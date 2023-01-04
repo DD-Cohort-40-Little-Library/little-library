@@ -249,7 +249,7 @@ function EventCreateModalFormContent(props) {
 
 			<Container className={""} fluid="auto">
 				<Row className={"m-0 "} id={"eventSectionBlk3"}>
-					<Col md={4} style={{paddingBottom: "20px"}}>
+					<Col md={8} style={{paddingBottom: "20px"}} className={"flex order-last order-md-first"}>
 						<h1 className={""}>Tips for Hosting a Great Event</h1>
 						<p style={{fontSize: "x-large"}}>Be a responsible host. A little pre-planning can go a long way to making sure your event is rememberable and safe.</p>
 						<p>Follow these tips for setting up and hosting a literacy event:</p>
@@ -263,7 +263,7 @@ function EventCreateModalFormContent(props) {
 							<li>Plan activities aimed for attendee participation</li>
 						</ul>
 					</Col>
-					<Col>
+					<Col md={4}  style={{paddingBottom: "20px"}} className={"flex order-first order-md-last"}>
 						<img src={eventReadingGroup} alt={"eventReaderGp"} id={"sectionImageBlk"} className={"img-fluid"}/>
 					</Col>
 				</Row>
@@ -289,7 +289,6 @@ function EventCreateModalFormContent(props) {
 							<li>Thinking of starting a book club?</li>
 							<li>Hosting a book fair?</li>
 						</ul>
-
 						<p>Planned an event and looking for ways to increase participation? There is great information around the subject. </p>
 						<p>Check out these sites to learn more.</p>
 					<Stack gap={2}>
@@ -303,7 +302,7 @@ function EventCreateModalFormContent(props) {
 
 			<Container className={""} fluid="auto">
 				<Row className={"m-0"} id={"eventSectionBlk6"}>
-					<Col md={4} style={{paddingBottom: "20px"}}>
+					<Col md={8} style={{paddingBottom: "20px"}} className={"flex order-last order-md-first"}>
 						<h1 className={""}>Start a Book Club</h1>
 						<p>A simple and effective way to stay social post pandemic is to start or join a book club. One benefit of functioning during a world-wide pandemic was that many became comfortable navigating online meeting software.</p>
 						<p> As many readers look for ways to connect with like-minded individuals either in person or remotely there are options. It is a great way to educate yourself on numerous topics and meet new and exciting people</p>
@@ -314,7 +313,7 @@ function EventCreateModalFormContent(props) {
 							<a target="blank" href={"https://www.oprahdaily.com/entertainment/a27569720/how-to-start-a-book-club/"}>OprahDaily.com: How to Start a Book Club in 6 Simple Steps</a>
 						</Stack>
 					</Col>
-					<Col>
+					<Col md={4}  style={{paddingBottom: "20px"}} className={"flex order-first order-md-last"}>
 						<img src={eventReadingGroup2} alt={"eventReadingGroup2"} id={"sectionImageBlk"} className={"img-fluid"}/>
 					</Col>
 				</Row>

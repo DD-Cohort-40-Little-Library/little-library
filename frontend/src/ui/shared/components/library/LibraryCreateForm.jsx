@@ -236,7 +236,7 @@ function LibraryCreateFormContent (props){
 
             <Container className={""} fluid="auto">
                 <Row className={"m-0"} id={"librarySectionBlk3"}>
-                    <Col md={9} style={{paddingBottom: "20px"}}>
+                    <Col md={9} style={{paddingBottom: "20px"}} className={"flex order-last order-md-first"}>
                         <h1 className={""}>Learn Where It All Started</h1>
                         <p>The Little Free Library project was started out of St. Paul Minnesota. They have grown to be a worldwide presence and inspired over 150,000 Little Free Libraries to be created and countless many to read through this program.</p>
                         <p>The concept of the “Little Free” has also expanded beyond libraries to include pantries and share stores which have also been created from their model.</p>
@@ -244,7 +244,7 @@ function LibraryCreateFormContent (props){
                         <p className={"pb-3"} style={{fontSize: "large"}}>Click Here to Explore LittleFreeLibrary.org</p>
                         <a target="blank" href={"https://littlefreelibrary.org"}><Button>Go to Site</Button></a>
                     </Col>
-                    <Col>
+                    <Col md={3}  style={{paddingBottom: "20px"}} className={"flex order-first order-md-last"}>
                         <img src={libraryLLStock1} alt={"libraryLLStock"} id={"sectionImageBlk"} className={"img-fluid"}/>
                     </Col>
                 </Row>

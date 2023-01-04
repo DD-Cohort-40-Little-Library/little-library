@@ -130,13 +130,13 @@ export function Home() {
 
 			<Container className={""} fluid="auto">
 				<Row className={"m-0 "} id={"homeSectionBlk5"}>
-					<Col style={{paddingBottom: "20px"}}>
+					<Col md={7} style={{paddingBottom: "20px"}} className={"flex order-last order-md-first"}>
 						<h1 className={""}>Who We Are</h1>
 						<p>Four people from different worlds came together and built this site. A couple with some coding exposure and the others with none. Within ten weeks of intense training, we became a team. Together, we have created a great application had a fantastic time doing it!</p>
 						<h3>Meet the Team</h3>
 						<a href="/about-us"><Button>About Us</Button></a>
 					</Col>
-					<Col md={5}>
+					<Col md={5}  style={{paddingBottom: "20px"}} className={"flex order-first order-md-last"}>
 						<img src={lllLogoTag2} alt={"lllLogoTag"} id={"sectionImageBlk"} className={""}/>
 					</Col>
 				</Row>

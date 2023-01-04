@@ -163,7 +163,7 @@ export function ProfileLanding() {
 
             <Container className={""} fluid="auto">
                 <Row className={"m-0 "} id={"profileSectionBlk3"}>
-                    <Col md={4} style={{paddingBottom: "20px"}}>
+                    <Col md={8} style={{paddingBottom: "20px"}} className={"flex order-last order-md-first"}>
                         <h1 className={""}>Learn to Speed Read</h1>
                         <p>Speed reading a great way to train your brain to absorb information fast. The base concept entails learning to scan the page and omitting small words, allowing the brain to fill in the information automatically. Many successful individuals credit speed reading as a tool to become stronger readers and better time management.</p>
                         <p>Check out these sites for tips on speed reading to learn more.</p>
@@ -174,7 +174,7 @@ export function ProfileLanding() {
                             <a target="blank" href={"https://www.speedreadinglounge.com/how-to-speed-read"}>SpeedReadingLounge.com: How To Speed Read – 6 Easy Techniques</a>
                         </Stack>
                     </Col>
-                    <Col className={"md-4"}>
+                    <Col md={4}  style={{paddingBottom: "20px"}} className={"flex order-first order-md-last"}>
                         <img src={reader} alt={"reader"} id={"sectionImageBlk"} className={"img-fluid"}/>
                     </Col>
                 </Row>
