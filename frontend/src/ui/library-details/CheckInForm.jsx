@@ -12,6 +12,8 @@ import {useParams} from "react-router-dom";
 import {fetchAuth, getAuth} from "../../store/auth.js";
 import {FormDebugger} from "../shared/components/FormDebugger.jsx";
 import {useDropzone} from "react-dropzone";
+import {fetchCheckInsByLibraryId} from "../../store/checkIn.js";
+import plsSignIn from "../../../images/uiSharedImages/pleaseSignIn.svg";
 
 
 export function CheckInForm() {
@@ -35,8 +37,12 @@ export function CheckInForm() {
 
     React.useEffect(initialEffects, [dispatch])
 
+    const [selectedImage, setSelectedImage] = useState(null)
+
     if (auth === null) {
-        return <h1>Please sign in</h1>
+        return <div>
+            <Image src={plsSignIn} alt={"pleaseSignIn"} id={"pleaseSignIn"}/>
+        </div>
     }
 
     let profileId = auth.profileId
@@ -48,117 +54,111 @@ export function CheckInForm() {
         checkInComment: "",
         checkInDate: new Date(),
         checkInFollowLibrary: false,
-        // checkInPhotoName: "",
         checkInPhotoUrl: "",
         checkInReport: false,
-        // libraryName: "",
-        // libraryAddress: ""
     }
+
 
     const submitCheckIn = (values, {resetForm, setStatus}) => {
-
-        httpConfig.post('/apis/check-in/', values)
-            .then(reply => {
-                let {message, type} = reply
-                if (reply.status === 200) {
-                    resetForm()
-                    //force reload page
-                }
-                setStatus({message, type})
-            })
+        if (selectedImage !== null) {
+            httpConfig.post(`/apis/image-upload/`, values.checkInPhotoUrl)
+                .then(reply => {
+                        let {message, type} = reply
+                        if (reply.status === 200) {
+                            handleCheckIn({...values, checkInPhotoUrl: message})
+                            dispatch(fetchCheckInsByLibraryId(libraryId))
+                        } else {
+                            setStatus({message, type})
+                        }
+                    }
+                )
+        } else {
+            handleCheckIn(values)
+        }
+        function handleCheckIn (values) {
+            httpConfig.post('/apis/check-in/', values)
+                .then(reply => {
+                    let {message, type} = reply
+                    if (reply.status === 200) {
+                        resetForm()
+                        //force reload page
+                    }
+                    setStatus({message, type})
+                })
+        }
     }
-
-    // if (selectedImage !== null) {
-    //     httpConfig.post(`/apis/image-upload/`, values.checkInPhotoUrl)
-    //         .then(reply => {
-    //                 let {message, type} = reply
-    //                 if (reply.status === 200) {
-    //                     checkInPro({...values, checkInPhotoUrl: message})
-    //                     dispatch(getAuth({...values, checkInPhotoUrl: message}))
-    //                 } else {
-    //                     setStatus({message, type})
-    //                 }
-    //             }
-    //         )
-    // }
     return (
         <Formik
             initialValues={checkIn}
             onSubmit={submitCheckIn}
             validationSchema={validator}
         >
-            {CheckInFormContent}
+            {(props) => {
+                const {
+                    setFieldValue,
+                    status,
+                    values,
+                    errors,
+                    touched,
+                    dirty,
+                    isSubmitting,
+                    handleChange,
+                    handleBlur,
+                    handleSubmit,
+                    handleReset
+                } = props
+
+                return (
+                <>
+                <Container style={{paddingBlock: '1rem', backgroundColor: 'lightgrey'}}>
+                <Form onSubmit={handleSubmit} className={"text-center"}>
+                <label>Please let us know how your visit was.</label>
+
+                <Form.Group controlId="checkInComment">
+                <InputGroup>
+                <Form.Control
+                className={"form-control"}
+                as={"textarea"}
+                aria-label={"commentText"}
+                rows={4}
+                type={"text"}
+                value={values.checkInComment}
+                name={"checkInComment"}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                placeholder={"Your comments must be 8-255 characters long. Your comments will be displayed and monitored. Please refrain from using offensive language and hate speech. Thank you."}
+                />
+                </InputGroup>
+                <DisplayError errors={errors} touched={touched} field={"checkinComment"} />
+                </Form.Group>
+
+            <ImageDropZone
+                formikProps={{
+                    values, handleChange, handleBlur, setFieldValue, fieldValue:'checkInPhotoUrl', setSelectedImage: setSelectedImage
+                }}
+            />
+            <div>
+                {selectedImage !== null ? <img className={"w-50"} src={selectedImage}/> : ""}
+            </div>
+                <Form.Group className={"mt-3"}>
+                <Button className={"btn btn-primary"} onClick={handleSubmit}>Submit</Button>
+            {" "}
+                <Button
+                className={"btn btn-danger"}
+                onClick={handleReset}
+                disabled={!dirty || isSubmitting}
+                >Reset
+                </Button>
+                </Form.Group>
+                </Form>
+                </Container>
+                <DisplayStatus status={status}/>
+                </>
+                )
+            }}
         </Formik>
     )
 }
-
-function CheckInFormContent(props) {
-    const {
-        setFieldValue,
-        status,
-        values,
-        errors,
-        touched,
-        dirty,
-        isSubmitting,
-        handleChange,
-        handleBlur,
-        handleSubmit,
-        handleReset
-    } = props
-
-    // const [selectedImage, setSelectedImage] = useState(null)
-
-    return (
-
-        <>
-            <Container style={{paddingBlock: '1rem', backgroundColor: 'lightgrey'}}>
-                <Form onSubmit={handleSubmit} className={"text-center"}>
-                    <label>Please let us know how your visit was.</label>
-
-                        <Form.Group controlId="checkInComment">
-                            <InputGroup>
-                                <Form.Control
-                                    className={"form-control"}
-                                    as={"textarea"}
-                                    aria-label={"commentText"}
-                                    rows={4}
-                                    type={"text"}
-                                    value={values.checkInComment}
-                                    name={"checkInComment"}
-                                    onChange={handleChange}
-                                    onBlur={handleBlur}
-                                    placeholder={"Your comments must be 8-255 characters long. Your comments will be displayed and monitored. Please refrain from using offensive language and hate speech. Thank you."}
-                                />
-                            </InputGroup>
-                            <DisplayError errors={errors} touched={touched} field={"checkinComment"} />
-                        </Form.Group>
-
-                    {/*<ImageDropZone*/}
-                    {/*    formikProps={{*/}
-                    {/*        values, handleChange, handleBlur, setFieldValue, fieldValue:'checkInPhotoUrl', setSelectedImage: setSelectedImage*/}
-                    {/*    }}*/}
-                    {/*/>*/}
-                    {/*<div>*/}
-                    {/*    {selectedImage !== null ? <img className={"w-50"} src={selectedImage}/> : ""}*/}
-                    {/*</div>*/}
-                    <Form.Group className={"mt-3"}>
-                        <Button className={"btn btn-primary"} onClick={handleSubmit}>Submit</Button>
-                        {" "}
-                        <Button
-                            className={"btn btn-danger"}
-                            onClick={handleReset}
-                            disabled={!dirty || isSubmitting}
-                        >Reset
-                        </Button>
-                    </Form.Group>
-                </Form>
-            </Container>
-            <DisplayStatus status={status}/>
-        </>
-    )
-}
-
 
 function ImageDropZone ({formikProps}) {
     const onDrop = React.useCallback(acceptedFiles => {
