@@ -14,7 +14,7 @@ import {FormDebugger} from "../shared/components/FormDebugger.jsx";
 import {useDropzone} from "react-dropzone";
 
 
-export function CheckInForm() {
+export function CheckInFormLibrary() {
 
     const validator = Yup.object().shape({
         checkInLibraryId: Yup.string()
@@ -32,6 +32,8 @@ export function CheckInForm() {
     const initialEffects = () => {
         dispatch(fetchAuth())
     }
+
+    // const [selectedImage, setSelectedImage] = useState(null)
 
     React.useEffect(initialEffects, [dispatch])
 
@@ -68,19 +70,20 @@ export function CheckInForm() {
             })
     }
 
-    if (selectedImage !== null) {
-        httpConfig.post(`/apis/image-upload/`, values.checkInPhotoUrl)
-            .then(reply => {
-                    let {message, type} = reply
-                    if (reply.status === 200) {
-                        checkInPro({...values, checkInPhotoUrl: message})
-                        dispatch(getAuth({...values, checkInPhotoUrl: message}))
-                    } else {
-                        setStatus({message, type})
-                    }
-                }
-            )
-    }
+    // if (selectedImage !== null) {
+    //     httpConfig.post(`/apis/image-upload/`, values.checkInPhotoUrl)
+    //         .then(reply => {
+    //                 let {message, type} = reply
+    //                 if (reply.status === 200) {
+    //                     // checkInPro({...values, checkInPhotoUrl: message})
+    //                     dispatch(getAuth({...values, checkInPhotoUrl: message}))
+    //                 } else {
+    //                     setStatus({message, type})
+    //                 }
+    //             }
+    //         )
+    // }
+
     return (
         <Formik
             initialValues={checkIn}
@@ -108,6 +111,21 @@ function CheckInFormContent(props) {
     } = props
 
     const [selectedImage, setSelectedImage] = useState(null)
+
+    if (selectedImage !== null) {
+        httpConfig.post(`/apis/image-upload/`, values.checkInPhotoUrl)
+            .then(reply => {
+                    let {message, type} = reply
+                    if (reply.status === 200) {
+                        // checkInPro({...values, checkInPhotoUrl: message})
+                        // dispatch(getAuth({...values, checkInPhotoUrl: message}))
+                    } else {
+                        // setStatus({message, type})
+                        return (reply)
+                    }
+                }
+            )
+    }
 
     return (
 
@@ -171,7 +189,9 @@ function ImageDropZone ({formikProps}) {
             formikProps.setSelectedImage(fileReader.result)
         })
 
-        // console.log(formikProps.values.checkInPhotoUrl)
+        console.log('CHECK IN FORM - IMAGE DROP ZONE TEST 1***************************************************')
+
+
         formikProps.setFieldValue(formikProps.fieldValue, formData)
 
     }, [formikProps])
