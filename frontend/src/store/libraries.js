@@ -1,5 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { httpConfig } from "../ui/shared/utils/http-config.js";
+import {createSelector, createSlice} from "@reduxjs/toolkit"
+import { httpConfig } from "../ui/shared/utils/http-config.js"
 
 
 const librariesSlice = createSlice({
@@ -9,18 +9,14 @@ const librariesSlice = createSlice({
         setAllLibraries: (libraries, action) => action.payload,
         setInitialLibraries: (libraries, action) => {return action.payload},
         setSingleLibrary: (libraries, action) => {return action.payload},
-        setLibraryByLibraryId: (libraries, action) => {
-            libraries[action.payload.id] = action.payload.data
-        }
+        setLibraryByLibraryId: (libraries, action) => {libraries[action.payload.id] = action.payload.data}
     }
 })
 
-export const {setAllLibraries, setInitialLibraries, setSingleLibrary} = librariesSlice.actions
-
-export default librariesSlice.reducer
+export const {setAllLibraries, setInitialLibraries, setSingleLibrary, setLibraryByLibraryId} = librariesSlice.actions
 
 export const fetchAllLibraries = () => async dispatch => {
-    const {data} = await httpConfig("/apis/library/")
+    const {data} = await httpConfig(`/apis/library/`)
 
     if (Array.isArray(data) === false) {
         throw new Error('Data is malformed')
@@ -41,9 +37,19 @@ export const fetchLibrariesByProfileId = () => async (dispatch, getState) => {
     dispatch(setAllLibraries(data));
 }
 
-export const fetchLibraryByLibraryId = (libraryId) => async (dispatch) => {
-    // return async function (dispatch) {
-        const {data} = await httpConfig.get(`/apis/library/${libraryId}`);
-        dispatch(setSingleLibrary(data));
-    // }
+export const fetchLibraryByLibraryId = (id) => async (dispatch, getState) => {
+    const libraries = getState().libraries
+    if (libraries[id] === undefined) {
+        const {data} = await httpConfig(`/apis/library/${id}`)
+        dispatch(setLibraryByLibraryId({id, data}))
+    }
 }
+
+export const selectLibraryByLibraryId = (id) =>
+    createSelector(
+        state => state?.libraries[id]
+        ? state?.libraries[id]
+            : null
+    )
+
+export default librariesSlice.reducer

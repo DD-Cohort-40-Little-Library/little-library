@@ -5,14 +5,14 @@ import {Link} from "react-router-dom";
 export const LibraryDetailBlockProfile = (props) => {
 
     const {library, user} = props
-console.log(library)
+    console.log(library)
     return(
         <>
             <Container className={"border border-dark rounded"}>
                 <Row>
                     <Col xs={3} >
                         {/*CAN'T USE 'USER', NEEDS A JOIN FOR THE EVENTPROFILEID TO CONNECT USER PROFILEAVATARURL*/}
-                        <Image src={user.profileAvatarUrl} fluid={true} className={"rounded-circle"} alt={'Please select an avatar or upload a photo using the "Update Profile" button.'} ></Image>
+                        {/*<Image src={user.profileAvatarUrl} fluid={true} className={"rounded-circle"} alt={'Please select an avatar or upload a photo using the "Update Profile" button.'} ></Image>*/}
                     </Col>
                     <Col>
                     <Row xs={6}>Owner Name: {user.profileName}</Row>

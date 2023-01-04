@@ -8,8 +8,12 @@ import {useDispatch, useSelector} from "react-redux";
 import {fetchAuth} from "../../store/auth.js";
 import currentUser, {fetchCurrentUser} from "../../store/currentUser.js";
 import {ProfileUpdateModal} from "./ProfileUpdateModal.jsx";
-import {fetchAllLibraries, fetchLibrariesByProfileId} from "../../store/libraries.js";
-import {EventShortListing} from "../home/EventShortListing.jsx";
+import {
+    fetchAllLibraries,
+    fetchLibrariesByProfileId,
+    fetchLibraryByLibraryId,
+    selectLibraryByLibraryId
+} from "../../store/libraries.js";
 import {EventDetailBlockProfile} from "./EventDetailBlockProfile.jsx";
 import {fetchAllEventsForProfileTab, fetchEventsByProfileId} from "../../store/events.js";
 import {
@@ -34,6 +38,7 @@ export function ProfileLanding() {
             return []
         }
     })
+    console.log(libraries)
     const events = useSelector(state => state.events ? state.events : [])
     const checkins = useSelector(state => state.checkIns ? state.checkIns : [])
     const auth = useSelector(state => state.auth ? state.auth : state.auth)
@@ -44,6 +49,7 @@ export function ProfileLanding() {
     const effects = () => {
         dispatch(fetchAuth())
         dispatch(fetchLibrariesByProfileId())
+        dispatch(fetchLibraryByLibraryId)
         dispatch(fetchEventsByProfileId())
         dispatch(fetchCheckInsByProfileId())
         dispatch(fetchCurrentUser())
@@ -67,7 +73,7 @@ export function ProfileLanding() {
     const {checkInComment,checkInDate, checkInPhotoUrl} = checkins
     // const {checkInId, checkInLibraryId, checkInProfileId, checkInComment, checkInDate, checkInPhotoUrl, checkInReport, libraryId, libraryProfileId, libraryAddress, libraryDescription, libraryEventOptIn, libraryName, librarySpecialization, profileId, profileFirstName, profileLastName, profileEmail, profileAvatarUrl, profileName} = checkins
     // const {eventDate, eventDescription, eventName} = events
-
+    // const library = useSelector(selectLibraryByLibraryId(libraryId))
 
     return (
         <>
@@ -109,10 +115,10 @@ export function ProfileLanding() {
                         <Link to={"/library-create"} className={"btn-primary"}> <Button className={"m-2"}>Add a Library</Button></Link>
 
                     </Col>
-                    <Col md={3} className={"text-center"} >
-                        <h3 id={"headLineONE"}>User Image</h3>
-                        <Image src={profileAvatarUrl} className={"rounded-circle"} alt={'Please select an avatar or upload a photo using the "Update Profile" button.'} ></Image>
-                    </Col>
+                    {/*<Col md={3} className={"text-center"} >*/}
+                    {/*    <h3 id={"headLineONE"}>User Image</h3>*/}
+                    {/*    <Image src={profileAvatarUrl} className={"rounded-circle"} alt={'Please select an avatar or upload a photo using the "Update Profile" button.'} ></Image>*/}
+                    {/*</Col>*/}
                 </Row>
             </Container>
             <div className={"p-5"}>
@@ -127,7 +133,7 @@ export function ProfileLanding() {
                             <Row>
                                 <Stack>
                                     {/*WE ARE FETCHING LIBRARIES BY PROFILEID, CANNOT FOR EVENTS HELD AT OTHER OWNER'S LIBRARY (OR DO WE ONLY ALLOW OWNERS TO HOST AT THEIR LOCATIONS?)*/}
-                                     {events.slice(0).map(event => <EventDetailBlockProfile library={libraries.filter(library => library.libraryId)[0]} user={user} event={event} key={event.eventId}/>)}
+                                     {events.map(event => <EventDetailBlockProfile library={libraries.filter(library => library.libraryId)} user={user} event={event} key={event.eventId}/>)}
                                 </Stack>
                             </Row>
                         </Container>
@@ -135,7 +141,7 @@ export function ProfileLanding() {
                     <Tab eventKey="check-ins" title="Check-Ins">
                         <Container>
                             <Row>
-                                {checkins.map (checkin => <CheckInDetailBlockProfile library={libraries.filter(library => library.libraryId)[0]} checkin={checkin} user={user} key={checkin.checkInId}/>)}
+                                {checkins.map (checkin => <CheckInDetailBlockProfile library={libraries.filter(library => library.libraryId)} checkin={checkin} user={user} key={checkin.checkInId}/>)}
                             </Row>
                         </Container>
                     </Tab>
@@ -143,7 +149,7 @@ export function ProfileLanding() {
                         <Container>
                             <Row>
                                 <Stack>
-                                    {libraries.map (library => <LibraryDetailBlockProfile library={library} user={user} key={library.libraryId}/>)}
+                                    {libraries.slice().map (library => <LibraryDetailBlockProfile library={libraries.filter(library => library.libraryId)[0]} user={user} key={library.libraryId}/>)}
                                 </Stack>
                             </Row>
                         </Container>
