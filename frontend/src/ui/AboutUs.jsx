@@ -91,9 +91,9 @@ export function AboutUs() {
         <Container fluid="auto" id={"aboutUsDDC"}>
             <Row>
                 <Image src={ddcLogo} className={"img-fluid"}  alt={"ddcLogo"} id={"sectionImageBlk"} style={{height: "12rem"}}/>
-                <h1 className={""}>Change Your life By Learning A New Skill</h1>
-                <h3>Looking to change careers? Want to learn the latest technologies such as Full Stack Web Development or Internet of Things? Then a Deep Dive Coding Bootcamp may be for you.</h3>
-                <p style={{fontSize: "x-large"}}>These bootcamps have enabled people from different locations and backgrounds to gain the skills and knowledge necessary to make changes in their lives. Located in Albuquerque, NM, Deep Dive Coding has learning environments to meet both local and out of state learning needs. Their courses are base in real-world in-demand subjects and work with many programs that allow students to get the funding they need to attend.</p>
+                <h3 className={""}>Change Your life By Learning A New Skill</h3>
+                <p style={{fontSize: "larger"}}>Looking to change careers? Want to learn the latest technologies such as Full Stack Web Development or Internet of Things? Then a Deep Dive Coding Bootcamp may be for you.</p>
+                <p style={{fontSize: "large"}}>These bootcamps have enabled people from different locations and backgrounds to gain the skills and knowledge necessary to make changes in their lives. Located in Albuquerque, NM, Deep Dive Coding has learning environments to meet both local and out of state learning needs. Their courses are base in real-world in-demand subjects and work with many programs that allow students to get the funding they need to attend.</p>
                 <p>LittleLibraryLocator.com was a project developed through the Deep Dive Coding Full Stack Web Development curriculum and in ten short weeks exposed our team to the skills to develop this application.</p>
                 <p>Thank you Deep Dive Coding For all that you guys do!</p>
                 <p style={{fontSize: "large"}}>Click Here to Explore DeepDiveCoding.com</p>
