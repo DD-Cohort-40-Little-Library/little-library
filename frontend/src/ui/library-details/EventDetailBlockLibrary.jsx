@@ -2,7 +2,7 @@ import {Button, Col, Container, Image, Row} from "react-bootstrap";
 import React from "react";
 import {Link} from "react-router-dom";
 
-export const EventDetailBlockLibrary = ({event, library}) => {
+export const EventDetailBlockLibrary = ({event, library, }) => {
 
     // const {event} = props
     const date = event.eventDate
@@ -26,8 +26,8 @@ export const EventDetailBlockLibrary = ({event, library}) => {
                 </Col>
                 <Col>
                     <Row xs={6}>Title: {event.eventTitle}</Row>
-                    <Row xs={6}>Library Name:{library.libraryName}</Row>
-                    <Row xs={6}>Library Address:{library.libraryAddress}</Row>
+                    {/*<Row xs={6}>Library Name:{library.libraryName}</Row>*/}
+                    {/*<Row xs={6}>Library Address:{library.libraryAddress}</Row>*/}
                     <Row xs={6}>Date: {(D.getMonth() + 1) + '-' + ((D.getDate() + 1) + '-' + (D.getFullYear()))}</Row>
                     <Row xs={6}>Start time: {finalTime}</Row>
                     <Row xs={6}>Library Type:{library.libraryType}</Row>

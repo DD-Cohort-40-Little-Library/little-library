@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import Card from 'react-bootstrap/Card';
 import {Button, Col, Container, Image, Row, Stack, Tab, Tabs} from "react-bootstrap";
 import {EventListing} from "../shared/components/EventListing.jsx";
@@ -28,6 +28,13 @@ export function LibraryDetails() {
     const checkins = useSelector(state => state.checkIns ? state.checkIns : [])
     const events = useSelector(state => state.events ? state.events : [])
     const library = useSelector(state => state.libraries ? state.libraries : [])
+    const libraryImage = useSelector(state => {for (let checkIn of state.checkIns) {
+        if (checkIn.checkInPhotoUrl !== "") {
+            return checkIn.checkInPhotoUrl
+        }
+    }})
+console.log(libraryImage)
+
     // const library = useSelector(state => {return state.libraries ? state.libraries
     //     .filter(library => library.libraryId === libraryId)[0]
     //     : null})
@@ -62,7 +69,7 @@ export function LibraryDetails() {
                 <Card.Header><h2>{library.libraryAddress}, {library.libraryType}</h2></Card.Header>
                 <Card.Body>
                     {/*Make backend library image connection, code freeze*/}
-                    <Image src={library.libraryImageURL} alt={'Please upload a photo of your Little Library.'} ></Image>
+                    {libraryImage && <Image src={libraryImage} alt={'Please upload a photo of your Little Library.'} ></Image>}
                     <Card.Title><h3>{library.libraryName}</h3></Card.Title>
                         {/*<h5>{specialization}</h5>*/}
                     <Card.Text>{library.libraryDescription}</Card.Text>
