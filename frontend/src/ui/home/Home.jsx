@@ -38,7 +38,7 @@ export function Home() {
 				<Row className={"mx-0"}>
 					<Col id={"events-column"} className={"flex order-last order-md-first"} md={3}>
 						<h1 id={"headLineONE"} style={{color:"#F3EAD2"}}>Upcoming Events</h1>
-						<Stack gap={2}>
+						<Stack gap={1} className={"align-items-center"}>
 							{libraries.length && events.slice(0,3).map(event => <EventShortListing library={libraries.filter(library => library.libraryId === event.eventLibraryId)[0]} event={event} key={event.eventId}/>)}
 						</Stack>
 					</Col>

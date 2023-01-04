@@ -16,7 +16,7 @@ export function AboutUs() {
         <Container fluid='auto' id={"aboutUsIntro"}>
             <Col>
             <Row>
-                <Image fluid='auto' src={logoTag} style={{height: "30rem", marginBottom: "20px"}}/>
+                <Image fluid='auto' src={logoTag} style={{height: "20rem", marginBottom: "20px"}}/>
             </Row>
             </Col>
             <Row>

@@ -75,7 +75,7 @@ body{
 }
 
 #events-column {
-    padding: 4vh;
+    padding: 1vh;
     background-color: #76999D;
 }
 
@@ -496,7 +496,6 @@ body{
 /**** About-Us Section ****/
 #aboutUsIntro{
     padding: 2rem;
-    margin-bottom: 30px;
     align-content: center;
     background-color: #CDCDC1;
     text-align: center;
