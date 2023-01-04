@@ -68,7 +68,7 @@ export function ProfileLanding() {
             <h1 id={"headLineONE"}>User Profile Information</h1>
             <Container>
                 <Row className={"gx-md-3 px-3 justify-content-around"}>
-                    <Col  md={5} className={"text-center"} >
+                    <Col  md={9} className={"text-center"} >
                         <div id={"userRegistration"} className={""}>
                             <div className="mb-3" >
                                 <h3>First Name: </h3>
@@ -95,9 +95,9 @@ export function ProfileLanding() {
                         <Link to={"/library-create"} className={"btn-primary"}><Button className={"m-2"}>Add a Library</Button></Link>
 
                     </Col>
-                    <Col md={2} className={"text-center pb-4"} fluid="auto">
+                    <Col md={1} className={"text-center pb-4"} fluid="auto">
                         <h1 id={"headLineONE"}>User Image</h1>
-                        <Image src={profileAvatarUrl} className={"rounded-circle"} alt={'Please select an avatar or upload a photo using the "Update Profile" button.'} ></Image>
+                        <Image src={profileAvatarUrl} className={"img-fluid rounded-circle"} alt={'Please select an avatar or upload a photo using the "Update Profile" button.'} ></Image>
                     </Col>
                 </Row>
             </Container>

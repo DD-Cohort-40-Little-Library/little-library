@@ -31,9 +31,9 @@ export const EventDetailBlockProfile = ({event, user, library}) => {
         <>
             <Container id={"profileEventsDetailBlock"} className={""}>
                 <Row>
-                    <Col sm={2} className={"pt-4 rounded-circle"} fluid="auto">
+                    <Col sm={2} className={"pt-4"} fluid="auto">
                         {/*CAN'T USE 'USER', NEEDS A JOIN FOR THE EVENTPROFILEID TO CONNECT USER PROFILEAVATARURL*/}
-                        <Image src={user.profileAvatarUrl} className={"rounded-circle"} alt={'Host User has either not uploaded an image or the link is broken.'} ></Image>
+                        <Image src={user.profileAvatarUrl} className={"img-fluid rounded-circle"} alt={'Host User has either not uploaded an image or the link is broken.'} ></Image>
                     </Col>
                     <Col>
                         <Row sm={6} className={"text-start"}>Host User Name: {user.profileName}</Row>

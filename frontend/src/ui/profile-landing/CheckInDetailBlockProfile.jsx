@@ -22,8 +22,8 @@ export const CheckInDetailBlockProfile = (props) => {
         <>
             <Container id={"profileCheckInDetailBlock"} className={""}>
                 <Row>
-                    <Col sm={2} className={"pt-4 rounded-circle"} fluid="auto">
-                        <Image src={user.profileAvatarUrl} className={"rounded-circle"} alt={'Please select an avatar or upload a photo using the "Update Profile" button.'} ></Image>
+                    <Col sm={2} className={"pt-4"} fluid="auto">
+                        <Image src={user.profileAvatarUrl} className={"img-fluid rounded-circle"} alt={'Please select an avatar or upload a photo using the "Update Profile" button.'} ></Image>
                     </Col>
                     <Col>
                         <Row sm={6} className={"text-start"}>User Name: {user.profileName}</Row>
