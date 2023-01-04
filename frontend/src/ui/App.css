@@ -51,6 +51,11 @@ body{
     font-size: large;
 }
 
+#mapPaddingScroll {
+    padding-right: 1rem;
+    padding-left: 1rem;
+    align-items: center;
+}
 
 /**** Home CSS Functionality ****/
 #signInUp-column {

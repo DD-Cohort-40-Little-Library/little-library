@@ -105,7 +105,7 @@ export function ProfileLanding() {
                 <Tabs
                     defaultActiveKey="profile"
                     className="mb-3"
-                    style={{fontSize: "xx-large"}}
+                    style={{fontSize: "x-large"}}
                     fluid="auto"
                 >
                     <Tab eventKey="events" title="Events">

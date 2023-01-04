@@ -42,7 +42,7 @@ export function Home() {
 							{libraries.length && events.slice(0,3).map(event => <EventShortListing library={libraries.filter(library => library.libraryId === event.eventLibraryId)[0]} event={event} key={event.eventId}/>)}
 						</Stack>
 					</Col>
-					<Col className={"flex order-md-1"} md={8}>
+					<Col className={"flex order-md-1"} md={8} id={"#mapPaddingScroll"}>
 						<LibraryMap libraries={libraries}/>
 					</Col>
 
