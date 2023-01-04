@@ -26,7 +26,6 @@ export function LibraryDetails() {
     let { libraryId } = useParams()
     const dispatch = useDispatch()
     const checkins = useSelector(state => state.checkIns ? state.checkIns : [])
-    console.log(checkins)
     const events = useSelector(state => state.events ? state.events : [])
     const library = useSelector(state => state.libraries ? state.libraries : [])
     // const library = useSelector(state => {return state.libraries ? state.libraries
@@ -92,7 +91,6 @@ export function LibraryDetails() {
             <Tab eventKey="check-ins" title="Check-Ins">
                 <Container>
                     <Row>
-                        <h3>TEST - CHECKIN DISPLAY - 1</h3>
                         {checkins.slice().map (checkin => <CheckInDetailBlockLibrary library={library} checkin={checkin} key={checkin.checkInId}/>)}
                     </Row>
                 </Container>

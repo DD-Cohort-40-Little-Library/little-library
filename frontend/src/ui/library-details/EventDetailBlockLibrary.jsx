@@ -1,4 +1,4 @@
-import {Button, Col, Container, Row} from "react-bootstrap";
+import {Button, Col, Container, Image, Row} from "react-bootstrap";
 import React from "react";
 import {Link} from "react-router-dom";
 
@@ -20,18 +20,23 @@ export const EventDetailBlockLibrary = ({event, library}) => {
     return(
         <>
             <Container className={"border border-dark rounded"}>
-                <Col>
-                    <Row xs={8}>Title: {event.eventTitle}</Row>
-                    <Row xs={8}>Library Name:{library.libraryName}</Row>
-                    <Row xs={8}>Library Address:{library.libraryAddress}</Row>
-                    <Row xs={8}>Date: {(D.getMonth() + 1) + '-' + ((D.getDate() + 1) + '-' + (D.getFullYear()))}</Row>
-                    <Row xs={8}>Start time: {finalTime}</Row>
-                    <Row xs={8}>Library Type:{library.libraryType}</Row>
-                    <Row xs={8}>Description: {event.eventDescription}</Row>
+                <Col xs={3}>
+                    <Row> HOSTING Profile URL/img here: REMOVE ONCE IMAGE POPULATES </Row>
+                    {/*<Image src={} className={"rounded-circle"} alt={'Please select an avatar or upload a photo using the "Update Profile" button.'}></Image>                */}
                 </Col>
-                {/*<Col>*/}
-                {/*    <Link to={`/library-landing/${library.libraryId}`}><Button>Go To This Library</Button></Link>*/}
-                {/*</Col>*/}
+                <Col>
+                    <Row xs={6}>Title: {event.eventTitle}</Row>
+                    <Row xs={6}>Library Name:{library.libraryName}</Row>
+                    <Row xs={6}>Library Address:{library.libraryAddress}</Row>
+                    <Row xs={6}>Date: {(D.getMonth() + 1) + '-' + ((D.getDate() + 1) + '-' + (D.getFullYear()))}</Row>
+                    <Row xs={6}>Start time: {finalTime}</Row>
+                    <Row xs={6}>Library Type:{library.libraryType}</Row>
+                    <Row xs={6}>Description: {event.eventDescription}</Row>
+                </Col>
+                <Col xs={3}>
+                    <Row>Check-In Image: REMOVE ONCE IMAGE POPULATES</Row>
+                    {/*    <Link to={`/library-landing/${library.libraryId}`}><Button>Go To This Library</Button></Link>*/}
+                </Col>
             </Container>
         </>
     )

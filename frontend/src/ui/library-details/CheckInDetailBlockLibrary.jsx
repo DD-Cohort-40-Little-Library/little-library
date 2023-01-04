@@ -1,9 +1,7 @@
-import {Container, Row} from "react-bootstrap";
+import {Col, Container, Image, Row} from "react-bootstrap";
 import React from "react";
 
 export const CheckInDetailBlockLibrary = ({checkin, user}) => {
-
-    console.log("Test - check in block library")
 
     // const {checkin} = props
 
@@ -22,11 +20,21 @@ export const CheckInDetailBlockLibrary = ({checkin, user}) => {
     return(
         <>
             <Container id={"checkInDetailBlock"} className={"border border-dark rounded"}>
-                {/*I think this should actually be another join of the profileAvatarUrl via the checkInProfileId????*/}
-                {/*<Row xs={5}>{profile.profileAvatarUrl}</Row>*/}
-                <p xs={6}>Check-In Date/Time: {(D.getMonth() + 1) + '-' + ((D.getDate() + 1) + '-' + (D.getFullYear()) )} / {finalTime}</p>
-                <Row xs={5}>Comment: {checkin.checkInComment}</Row>
-                <Row xs={5}>Photo: {checkin.checkInPhotoUrl}</Row>
+                <Col xs={3}>
+                    <Row> Posting Profile URL/img here: REMOVE ONCE IMAGE POPULATES </Row>
+                    {/*<Image src={} className={"rounded-circle"} alt={'Please select an avatar or upload a photo using the "Update Profile" button.'}></Image>                */}
+                </Col>
+                <Col>
+                    {/*I think this should actually be another join of the profileAvatarUrl via the checkInProfileId????*/}
+                    {/*<Row xs={5}>{profile.profileAvatarUrl}</Row>*/}
+                    <p xs={6}>Check-In Date/Time: {(D.getMonth() + 1) + '-' + ((D.getDate() + 1) + '-' + (D.getFullYear()) )} / {finalTime}</p>
+                    <Row xs={5}>Comment: {checkin.checkInComment}</Row>
+                    {/*<Row xs={5}>Photo: {checkin.checkInPhotoUrl}</Row>*/}
+                </Col>
+                <Col xs={3}>
+                    {/*<Row>Check-In Image: REMOVE ONCE IMAGE POPULATES</Row>*/}
+                    <Image src={checkin.checkInPhotoUrl} className={"rounded-circle"} alt={'Please select an avatar or upload a photo using the "Update Profile" button.'}></Image>
+                </Col>
             </Container>
         </>
     )
