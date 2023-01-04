@@ -47,7 +47,7 @@ export const ProfileRegistration = () => {
                     </Col>
                     <Col id={"generalColBehavior"} md={3}>
                         <h3 id={"headLineONE"}>Selected Avatar</h3>
-                        <Image src={'http://placekitten.com/400/400'} fluid={true} className={"rounded-circle"} alt={'selected avatar'} ></Image>
+                        <Image src={'http://placekitten.com/400/400'} fluid="auto" className={"rounded-circle"} alt={'selected avatar'} ></Image>
                     </Col>
                     <Col id={"generalColBehavior"} md={5}>
                         <h3 id={"headLineONE"}>User Avatars</h3>

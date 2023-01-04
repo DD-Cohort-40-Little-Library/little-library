@@ -8,22 +8,22 @@ export const LibraryDetailBlockProfile = (props) => {
 
     return(
         <>
-            <Container className={"border border-dark rounded"}>
+            <Container id={"profileLibraryDetailBlock"} className={""}>
                 <Row>
-                    <Col xs={3} >
+                    <Col sm={2} className={"pt-4 rounded-circle"} fluid="auto">
                         {/*CAN'T USE 'USER', NEEDS A JOIN FOR THE EVENTPROFILEID TO CONNECT USER PROFILEAVATARURL*/}
-                        <Image src={user.profileAvatarUrl} fluid={true} className={"rounded-circle"} alt={'Please select an avatar or upload a photo using the "Update Profile" button.'} ></Image>
+                        <Image src={user.profileAvatarUrl} fluid="auto" className={"rounded-circle"} alt={'Please select an avatar or upload a photo using the "Update Profile" button.'} ></Image>
                     </Col>
                     <Col>
-                    <Row xs={6}>Owner Name: {user.profileName}</Row>
-                    <Row xs={6}>Name: {library.libraryName}</Row>
-                    <Row xs={6}>Address: {library.libraryAddress}</Row>
-                    <Row xs={6}> Specialization: {library.librarySpecialization}</Row>
-                    <Row xs={6}>Description: {library.libraryDescription}</Row>
-                    <Row xs={6}>Type of Library: {library.libraryType}</Row>
+                    <Row sm={6} className={"text-start"}>Owner Name: {user.profileName}</Row>
+                    <Row sm={6} className={"text-start"}>Name: {library.libraryName}</Row>
+                    <Row sm={6} className={"text-start"}>Address: {library.libraryAddress}</Row>
+                    <Row sm={6} className={"text-start"}> Specialization: {library.librarySpecialization}</Row>
+                    <Row sm={6} className={"text-start"}>Description: {library.libraryDescription}</Row>
+                    <Row sm={6} className={"text-start pb-4"}>Type of Library: {library.libraryType}</Row>
                     <Link to={`/library-landing/${library.libraryId}`}><Button>Go To This Library</Button></Link>
                 </Col>
-                <Col xs={3} fluid={true} className={"rounded-circle"} alt={'Please upload a photo of your Little Library using the "Update Library" option.'}>Library Image: REMOVE ONCE IMAGE POPULATES {library.LibraryImageUrl}</Col>
+                <Col sm={3} className={"pt-4 rounded-circle"} fluid="auto" alt={'Please upload a photo of your Little Library using the "Update Library" option.'}>Library Image: REMOVE ONCE IMAGE POPULATES {library.LibraryImageUrl}</Col>
                 </Row>
             </Container>
         </>

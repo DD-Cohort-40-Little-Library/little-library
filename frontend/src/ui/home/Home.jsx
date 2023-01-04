@@ -32,22 +32,17 @@ export function Home() {
 
 	return (
 		<>
-
-			{/*<Row className={"mx-0"}>*/}
-			{/*	<img src={LLLLabelBrown} alt={"logoBrow"} id={"LLLLabelBrown"} className={"llLogoBrown"}/>*/}
-			{/*</Row>*/}
-
 				<Row className={"p-2 mx-0"}>
-					<img src={LLLLabelBrown} alt={"logoBrow"} id={"LLLLabelBrown"} className={"llLogoBrown"}/>
+					<img src={LLLLabelBrown} alt={"logoBrown"} id={"LLLLabelBrown"} className={"llLogoBrown"}/>
 				</Row>
 				<Row className={"mx-0"}>
 					<Col id={"events-column"} className={"flex order-last order-md-first"} md={3}>
 						<h1 id={"headLineONE"} style={{color:"#F3EAD2"}}>Upcoming Events</h1>
-						<Stack gap={2}>
+						<Stack gap={1} className={"align-items-center"}>
 							{libraries.length && events.slice(0,3).map(event => <EventShortListing library={libraries.filter(library => library.libraryId === event.eventLibraryId)[0]} event={event} key={event.eventId}/>)}
 						</Stack>
 					</Col>
-					<Col className={"flex order-md-1"} md={8}>
+					<Col className={"flex order-md-1"} md={8} id={"#mapPaddingScroll"}>
 						<LibraryMap libraries={libraries}/>
 					</Col>
 
@@ -64,7 +59,7 @@ export function Home() {
 				<Col md={4} style={{paddingBottom: "20px"}}>
 					<img src={homeImagePins} alt={"homeImagePins"} id={"sectionImageBlk"} className={""} />
 				</Col>
-				<Col >
+				<Col>
 					<h1 className={""}>What are Specializations?</h1>
 						<p style={{fontSize: "x-large"}}>Got a lot of children’s books at your Little Library? How about a great collect of romance novels you want to share? The Little Library Locator Map is enabled to highlight the book genre abundance that may be at a location at any time.</p>
 						<p>The following genres are selectable when creating or updating a library:</p>
@@ -112,8 +107,8 @@ export function Home() {
 			</Container>
 
 			<Container className={""} fluid="auto">
-				<Row className={"m-0 "} id={"homeSectionBlk2"}>
-					<Col  md={3}  style={{paddingBottom: "20px"}}>
+				<Row className={"m-0"} id={"homeSectionBlk2"}>
+					<Col md={3} style={{paddingBottom: "20px"}}>
 						<img src={llStock1} alt={"llStock1"} id={"sectionImageBlk"} className={""}/>
 					</Col>
 					<Col>
@@ -135,13 +130,13 @@ export function Home() {
 
 			<Container className={""} fluid="auto">
 				<Row className={"m-0 "} id={"homeSectionBlk5"}>
-					<Col style={{paddingBottom: "20px"}}>
+					<Col md={7} style={{paddingBottom: "20px"}} className={"flex order-last order-md-first"}>
 						<h1 className={""}>Who We Are</h1>
 						<p>Four people from different worlds came together and built this site. A couple with some coding exposure and the others with none. Within ten weeks of intense training, we became a team. Together, we have created a great application had a fantastic time doing it!</p>
 						<h3>Meet the Team</h3>
 						<a href="/about-us"><Button>About Us</Button></a>
 					</Col>
-					<Col md={5}>
+					<Col md={5}  style={{paddingBottom: "20px"}} className={"flex order-first order-md-last"}>
 						<img src={lllLogoTag2} alt={"lllLogoTag"} id={"sectionImageBlk"} className={""}/>
 					</Col>
 				</Row>

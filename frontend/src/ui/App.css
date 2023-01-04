@@ -21,7 +21,7 @@ body{
     color: #CDCDC1;
     text-align: center;
     font-size: 1rem;
-    position: sticky;
+    position: -webkit-sticky;
     bottom: 0;
     left: 0;
 
@@ -51,6 +51,11 @@ body{
     font-size: large;
 }
 
+#mapPaddingScroll {
+    padding-right: 1rem;
+    padding-left: 1rem;
+    align-items: center;
+}
 
 /**** Home CSS Functionality ****/
 #signInUp-column {
@@ -70,7 +75,7 @@ body{
 }
 
 #events-column {
-    padding: 4vh;
+    padding: 1vh;
     background-color: #76999D;
 }
 
@@ -109,8 +114,10 @@ body{
 #userRegistration {
     background-color: #93A5AB;
     padding: 1rem;
-    margin: 1rem;
+    margin: 0;
     border-radius: 10px;
+    text-align: center;
+    font-size: larger;
 }
 
 #eventShortListing {
@@ -187,14 +194,6 @@ body{
     padding: 1rem;
     margin: 1rem;
     border-radius: 10px;
-}
-
-#checkInDetailBlock {
-    background-color: #CAB898;
-    padding: 1rem;
-    margin: 1rem;
-    border-radius: 10px;
-
 }
 
 #eventListingDisplay {
@@ -274,6 +273,55 @@ body{
     margin-bottom: 30px;
 }
 
+#profileDetailTabsSec {
+    background-color: #93A5AB;
+    padding-top: 3rem;
+}
+
+#profileCheckInTab {
+    background-color: #76999D;
+    padding: 3rem;
+    margin-bottom: 3rem;
+
+}
+
+#profileEventsTab {
+    background-color: #577F88;
+    padding: 3rem;
+    margin-bottom: 3rem;
+
+}
+
+#profileLibraryTab {
+    background-color: #426A73;
+    padding: 3rem;
+    margin-bottom: 3rem;
+}
+
+#profileCheckInDetailBlock {
+    background-color: #CAB898;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 10px;
+    text-align: center;
+}
+
+#profileEventsDetailBlock {
+    background-color: #F3EAD2;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 10px;
+    text-align: center;
+}
+
+#profileLibraryDetailBlock {
+    background-color: #CDCDC1;
+    padding: 1rem;
+    margin: 2rem;
+    border-radius: 10px;
+    text-align: center;
+}
+
 /**** Registration Event Display Section ****/
 #eventSectionBlk1 {
     background-color: #76999D;
@@ -341,7 +389,7 @@ body{
     padding: 2rem;
     margin-bottom: 30px;
     text-align: center;
-    font-size: x-large;
+    font-size: larger;
     align-items: center;
 }
 
@@ -412,10 +460,42 @@ body{
    border-radius: 0;
 }
 
+#libraryDisDetailTabsSec {
+    background-color: #93A5AB;
+    padding-top: 3rem;
+}
+
+
+#libraryDisCheckInTab {
+    background-color: #577F88;
+    padding: 3rem;
+    margin-bottom: 3rem;
+}
+
+#libraryDisEventsTab {
+    background-color: #426A73;
+    padding: 3rem;
+    margin-bottom: 3rem;
+}
+
+#libraryDisCheckInDetailBlock {
+    background-color: #CDCDC1;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 10px;
+    text-align: center;
+}
+
+#libraryDisEventDetailBlock {
+    background-color: #F3EAD2;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 10px;
+    text-align: center;
+}
 /**** About-Us Section ****/
 #aboutUsIntro{
     padding: 2rem;
-    margin-bottom: 30px;
     align-content: center;
     background-color: #CDCDC1;
     text-align: center;
