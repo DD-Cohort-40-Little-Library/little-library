@@ -12,7 +12,11 @@ import {fetchAllLibraries, fetchLibrariesByProfileId} from "../../store/librarie
 import {EventShortListing} from "../home/EventShortListing.jsx";
 import {EventDetailBlockProfile} from "./EventDetailBlockProfile.jsx";
 import {fetchAllEventsForProfileTab, fetchEventsByProfileId} from "../../store/events.js";
-import {fetchAllCheckInsForProfileTab, fetchCheckInsByProfileId} from "../../store/checkIn.js";
+import {
+    fetchAllCheckInsForProfileTab,
+    fetchCheckInsAndLibrariesByCheckInProfileId,
+    fetchCheckInsByProfileId
+} from "../../store/checkIn.js";
 import {CheckInDetailBlockProfile} from "./CheckInDetailBlockProfile.jsx";
 import plsSignIn from "../../../images/uiSharedImages/pleaseSignIn.svg";
 import profileImageBlk1 from "../../../images/uiSharedImages/profileImgBlk1.jpg";
@@ -22,7 +26,14 @@ import headshot from "../../../images/uiSharedImages/profileImgBlk4.jpg";
 import profileImageBlk3 from "../../../images/uiSharedImages/profileImgBlk5.jpg";
 
 export function ProfileLanding() {
-    const libraries = useSelector(state => state.libraries ? state.libraries : [])
+
+    const libraries = useSelector(state => {
+        if (state?.libraries.constructor.name === "Object"){
+            return Object.values(state.libraries)
+        } else {
+            return []
+        }
+    })
     const events = useSelector(state => state.events ? state.events : [])
     const checkins = useSelector(state => state.checkIns ? state.checkIns : [])
     const auth = useSelector(state => state.auth ? state.auth : state.auth)
@@ -36,6 +47,7 @@ export function ProfileLanding() {
         dispatch(fetchEventsByProfileId())
         dispatch(fetchCheckInsByProfileId())
         dispatch(fetchCurrentUser())
+        dispatch(fetchCheckInsAndLibrariesByCheckInProfileId())
         // dispatch(fetchAllCheckInsForProfileTab())
         // dispatch(fetchAllEventsForProfileTab())
     }

@@ -21,7 +21,14 @@ export function Home() {
 
 	const events = useSelector(state => state.events ? state.events : [])
 
-	const libraries = useSelector(state => state.libraries ?? [])
+	// const libraries = useSelector(state => state.libraries ?? [])
+	const libraries = useSelector(state => {
+		if(state?.libraries.constructor.name === "Object"){
+			return Object.values(state.libraries)
+		} else {
+			return []
+		}
+	})
 	const dispatch = useDispatch()
 	const effects = () => {
 		dispatch(fetchAllEvents())

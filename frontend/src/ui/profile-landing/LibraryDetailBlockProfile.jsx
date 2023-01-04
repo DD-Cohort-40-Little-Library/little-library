@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 export const LibraryDetailBlockProfile = (props) => {
 
     const {library, user} = props
-
+console.log(library)
     return(
         <>
             <Container className={"border border-dark rounded"}>

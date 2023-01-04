@@ -28,10 +28,10 @@ export const CheckInDetailBlockProfile = (props) => {
                     <Col>
                         <Row xs={6}>User Name: {user.profileName}</Row>
                         <Row xs={6}>Check-In Date/Time: {(D.getMonth() + 1) + '-' + ((D.getDate()) + '-' + (D.getFullYear()) )} / {finalTime}</Row>
-                        <Row xs={6}>Library Name: {library.libraryName}</Row>
-                        <Row xs={6}>Library Address: {library.libraryAddress}</Row>
+                        {/*<Row xs={6}>Library Name: {library.libraryName}</Row>*/}
+                        {/*<Row xs={6}>Library Address: {library.libraryAddress}</Row>*/}
                         <Row xs={6}>Comment: {checkin.checkInComment}</Row>
-                        <Link to={`/library-landing/${library.libraryId}`}><Button>Go To This Library</Button></Link>
+                        {/*<Link to={`/library-landing/${library.libraryId}`}><Button>Go To This Library</Button></Link>*/}
                     </Col>
                     <Col xs={3}>
                         <Row>Check-In Image: REMOVE ONCE IMAGE POPULATES</Row>
