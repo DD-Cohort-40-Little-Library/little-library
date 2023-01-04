@@ -26,6 +26,7 @@ export function LibraryDetails() {
     let { libraryId } = useParams()
     const dispatch = useDispatch()
     const checkins = useSelector(state => state.checkIns ? state.checkIns : [])
+    console.log(checkins)
     const events = useSelector(state => state.events ? state.events : [])
     const library = useSelector(state => state.libraries ? state.libraries : [])
     // const library = useSelector(state => {return state.libraries ? state.libraries

@@ -1,10 +1,21 @@
 import {Button, Col, Container, Image, Row} from "react-bootstrap";
 import React from "react";
 import {Link} from "react-router-dom";
+import {useSelector} from "react-redux";
 
 export const CheckInDetailBlockProfile = (props) => {
 
-    const {library, checkin, user} = props
+    const {checkin, user} = props
+
+    const library = useSelector(state => {
+        if (state.libraries.length === 0) {
+            return null
+        }
+        return state.libraries.find(library => library.libraryId === checkin.checkInLibraryId)
+    })
+    if (library === null) {
+        return (<></>)
+    }
 
     const date = checkin.checkInDate
     const D = new Date(date)
