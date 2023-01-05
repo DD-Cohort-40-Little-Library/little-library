@@ -1,4 +1,4 @@
-import {Button, Col, Container, Row} from "react-bootstrap";
+import {Button, Col, Container, Image, Row} from "react-bootstrap";
 import React from "react";
 import {Link} from "react-router-dom";
 import {useSelector} from "react-redux";
@@ -25,6 +25,8 @@ export const EventDetailBlockLibrary = ({event, library}) => {
         <>
             <Container className={"border border-dark rounded"}>
                 <Col>
+                    //TODO: image needs styling
+                    <Row xs={8}><Image src={profile && profile.profileAvatarUrl}/></Row>
                     <Row xs={8}>Event Planner: {profile && profile.profileName}</Row>
                     <Row xs={8}>Title: {event.eventTitle}</Row>
                     <Row xs={8}>Library Name:{library.libraryName}</Row>

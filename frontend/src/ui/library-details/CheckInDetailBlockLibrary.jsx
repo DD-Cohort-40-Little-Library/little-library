@@ -1,4 +1,4 @@
-import {Container, Row} from "react-bootstrap";
+import {Container, Image, Row} from "react-bootstrap";
 import React from "react";
 import {useSelector} from "react-redux";
 
@@ -20,12 +20,11 @@ export const CheckInDetailBlockLibrary = ({checkin, library}) => {
     const amPm = startTime.getHours() < 12 ? 'AM' : 'PM'
     const finalTime = (hour + ":" + minutes + amPm)
 
-    console.log(checkin)
-
     return(
         <>
             <Container id={"checkInDetailBlock"} className={"border border-dark rounded"}>
-                {/*<Row xs={5}>{profile.profileAvatarUrl}</Row>*/}
+                //TODO: image needs styling
+                <Row xs={8}><Image src={profile && profile.profileAvatarUrl}/></Row>
                 <Row xs={6}>Check-In User Name: {profile && profile.profileName}</Row>
                 <Row xs={6}>Check-In Date/Time: {(D.getMonth() + 1) + '-' + ((D.getDay() + 1) + '-' + (D.getFullYear()) )} / {finalTime}</Row>
                 <Row xs={5}>Comment: {checkin.checkInComment}</Row>

@@ -30,6 +30,14 @@ export function LibraryDetails() {
     }
     useEffect(effects,[libraryId, dispatch])
 
+    const specialization = () => {
+        if (specialization === "") {
+            return  ""
+        } else {
+            return specialization
+        }
+    }
+
     return (
         <>
         <Container className={"m-0"} fluid="auto" id={"libDisSectionBlk1"}>
@@ -37,7 +45,6 @@ export function LibraryDetails() {
                 <img src={libDisImageBlk1} alt={"libDisImageBlk1"} id={"sectionImageBlk"} className={"img-fluid"}/>
             </Row>
         </Container>
-
 
         <div id={"librarySectionDisplay"}>
             <Card className={""} id={"libraryCardDisplay"} >

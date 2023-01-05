@@ -208,7 +208,6 @@ export function MapCustomPin(props) {
                 <Popup longitude={lng} latitude={lat} key={index} onClose={() => setShowPopup(false)} offset={30}
                        className={"libraryPopup"}>
                     <div className={"text-center"} id={"mapPopUp"}>
-                        {/*{libraryImageUrl}*/}
                         <Link to={`/library-landing/${libraryId}`}><h3>{libraryName}</h3></Link>
                         <p>{libraryAddress}</p>
                         <p>{libraryType}</p>
