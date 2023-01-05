@@ -15,28 +15,42 @@ export const EventDetailBlockProfile = ({event, user}) => {
             return (<></>)
         }
     // Event date
-    const date = event.eventDate
-    const D = new Date(date)
+    const date = event.eventDate.split("T")[0]
+    const [year, month, day] = date.split('-')
+    const fixedDate = `${month}/${day}/${year}`
+
     // Event Start Time calculation
-    const timeS = event.eventStart
-    const startTime = new Date(timeS)
-    let hourS = ((startTime.getHours() + 7) % 12) || 12
-    let minutesS = startTime.getMinutes()
-    if (startTime.getMinutes() < 10) {
-        minutesS = '0' + minutesS
+    const timeS = event.eventStart.split("T")[1]
+    const startTime = timeS.substring(0, 5).split(":")
+    let hourS = Number(startTime[0])
+    let minutesS = Number(startTime[1])
+    let timeValueS
+    if (hourS > 0 && hourS <= 12) {
+        timeValueS = "" + hourS
+    } else if (hourS > 12) {
+        timeValueS = "" + (hourS - 12)
+    } else if (hourS == 0) {
+        timeValueS = "12"
     }
-    const amPmS = startTime.getHours() > 12 ? 'AM' : 'PM'
-    const finalStartTime = (hourS + ":" + minutesS + amPmS)
+    timeValueS += (minutesS < 10) ? ":0" + minutesS : ":" + minutesS
+    timeValueS += (hourS >= 12) ? "PM" : "AM"
+    const finalStartTime = (timeValueS)
     // Event End Time calculation
-    const timeE = event.eventEnd
-    const endTime = new Date(timeE)
-    let hourE = ((endTime.getHours() + 7) % 12) || 12
-    let minutesE = endTime.getMinutes()
-    if (endTime.getMinutes() < 10) {
-            minutesE = '0' + minutesE
+    const timeE = event.eventEnd.split("T")[1]
+    const endTime = timeE.substring(0, 5).split(":")
+    let hourE = Number(endTime[0])
+    let minutesE = Number(endTime[1])
+    let timeValueE
+    if (hourE > 0 && hourE <= 12) {
+        timeValueE = "" + hourE
+    } else if (hourE > 12) {
+        timeValueE = "" + (hourE - 12)
+    } else if (hourE == 0) {
+        timeValueE = "12"
     }
-    const amPmE = endTime.getHours() > 12 ? 'AM' : 'PM'
-    const finalEndTime = (hourE + ":" + minutesE + amPmE)
+    timeValueE += (minutesE < 10) ? ":0" + minutesE : ":" + minutesE
+    timeValueE += (hourE >= 12) ? "PM" : "AM"
+    const finalEndTime = (timeValueE)
 
     return(
         <>
@@ -47,7 +61,7 @@ export const EventDetailBlockProfile = ({event, user}) => {
                     </Col>
                     <Col>
                         <Row sm={6} className={"text-start"}>Host User Name: {user.profileName}</Row>
-                        <Row sm={6} className={"text-start"}>Date: {(D.getMonth() + 1) + '-' + ((D.getDate()) + '-' + (D.getFullYear()))}</Row>
+                        <Row sm={6} className={"text-start"}>Date: {fixedDate}</Row>
                         <Row sm={6} className={"text-start"}>Start time: {finalStartTime}</Row>
                         <Row sm={6} className={"text-start"}>End time: {finalEndTime}</Row>
                         <Row sm={6} className={"text-start"}>Event Title: {event.eventTitle}</Row>

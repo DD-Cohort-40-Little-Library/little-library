@@ -9,17 +9,25 @@ export const EventDetailBlockLibrary = ({event, library}) => {
     }
     const profile = useSelector(state => state.profiles[event.eventProfileId])
 
-    const date = event.eventDate
-    const D = new Date(date)
-    const time = event.eventStart
-    const startTime = new Date(time)
-    let hour = ((startTime.getHours() + 7) % 12) || 12
-    let minutes = startTime.getMinutes()
-    if (startTime.getMinutes() === 0) {
-        minutes = minutes + '0'
+    const date = event.eventDate.split("T")[0]
+    const [year, month, day] = date.split('-')
+    const fixedDate = `${month}/${day}/${year}`
+
+    const time = event.eventStart.split("T")[1]
+    const startTime = time.substring(0, 5).split(":")
+    let hour = Number(startTime[0])
+    let minutes = Number(startTime[1])
+    let timeValue
+    if (hour > 0 && hour <= 12) {
+        timeValue = "" + hour
+    } else if (hour > 12) {
+        timeValue = "" + (hour - 12)
+    } else if (hour == 0) {
+        timeValue = "12"
     }
-    const amPm = startTime.getHours() < 12 ? 'AM' : 'PM'
-    const finalTime = (hour + ":" + minutes + amPm)
+    timeValue += (minutes < 10) ? ":0" + minutes : ":" + minutes
+    timeValue += (hour >= 12) ? "PM" : "AM"
+    const finalTime = (timeValue)
 
     return(
         <>
@@ -31,7 +39,7 @@ export const EventDetailBlockLibrary = ({event, library}) => {
                     <Row xs={8}>Title: {event.eventTitle}</Row>
                     <Row xs={8}>Library Name:{library.libraryName}</Row>
                     <Row xs={8}>Library Address:{library.libraryAddress}</Row>
-                    <Row xs={8}>Date: {(D.getMonth() + 1) + '-' + ((D.getDate() + 1) + '-' + (D.getFullYear()))}</Row>
+                    <Row xs={8}>Date: {fixedDate}</Row>
                     <Row xs={8}>Start time: {finalTime}</Row>
                     <Row xs={8}>Library Type:{library.libraryType}</Row>
                     <Row xs={8}>Description: {event.eventDescription}</Row>
