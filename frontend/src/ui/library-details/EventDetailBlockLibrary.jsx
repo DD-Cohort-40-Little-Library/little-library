@@ -35,7 +35,6 @@ export const EventDetailBlockLibrary = ({event, library, }) => {
                 </Col>
                 <Col xs={3}>
                     <Row>Check-In Image: REMOVE ONCE IMAGE POPULATES</Row>
-                    {/*    <Link to={`/library-landing/${library.libraryId}`}><Button>Go To This Library</Button></Link>*/}
                 </Col>
             </Container>
         </>
