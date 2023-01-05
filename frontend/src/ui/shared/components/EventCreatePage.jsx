@@ -149,14 +149,14 @@ function EventCreateModalFormContent(props) {
 			<Container className="mt-3">
 			<Form onSubmit={handleSubmit}>
 				<Row>
-					<div className={"mx-0 text-center "}>
-						<h1 className={"text-center"}>Plan An Event</h1>
+					<h1 className={"text-center"}>Plan An Event</h1>
 						<select  name={'eventLibraryId'} onChange={handleChange} onBlur={handleBlur} >
 							<option value={''}>Select a library for your event</option>
 							{libraries.map((library,index) => <option key={index} value={library.libraryId}>{library.libraryName}: located at {library.libraryAddress}</option>)}
 						</select>
-					</div>
-					<Col>
+				</Row>
+				<Row>
+					<Col md={4}>
 						<Form.Group controlId={'eventDate'} className={"m-3"} >
 							<Form.Label>Event Date</Form.Label>
 							<InputGroup className={"mb-2"}>
@@ -181,7 +181,7 @@ function EventCreateModalFormContent(props) {
 							</EventTypeSelect>
 						</Form.Group>
 					</Col>
-					<Col>
+					<Col md={4}>
 						<Form.Group className={"m-3"} >
 							<Form.Label>Event Start Time</Form.Label>
 								<InputGroup>
@@ -212,37 +212,41 @@ function EventCreateModalFormContent(props) {
 						</Form.Group>
 					</Col>
 				</Row>
-				<Form.Group className={"m-3"} id={"eventTitle"}>
-					<Form.Label>Event Title </Form.Label>
-						<InputGroup>
+				<div>
+					<Form.Group className={"m-3"} id={"eventTitle"}>
+						<Form.Label>Event Title </Form.Label>
+							<InputGroup>
+								<Field
+									name="eventTitle"
+									type={"input"}
+									placeholder={"Title of your event"}
+									style={{width: '350px'}}
+								/>
+							</InputGroup>
+					</Form.Group>
+				</div>
+				<div fluid="auto">
+					<Form.Group className={"m-3"} id={"eventDescription.ControlTextarea"} >
+						<FloatingLabel id="floatingTextarea">
 							<Field
-								name="eventTitle"
-								type={"input"}
-								placeholder={"Title of your event"}
-								style={{width: '350px'}}
+								placeholder="Describe your event (256 characters max)"
+								name="eventDescription"
+								as="textarea"
+								style={{
+									height: '225px',
+									width: '425px'
+								}}
 							/>
-						</InputGroup>
-				</Form.Group>
+						</FloatingLabel>
+					</Form.Group>
+				</div>
 
-				<Form.Group className={"m-3"} id={"eventDescription.ControlTextarea"}>
-					<FloatingLabel id="floatingTextarea">
-						<Field
-							placeholder="Describe your event (256 characters max)"
-							name="eventDescription"
-							as="textarea"
-							style={{
-								height: '125px',
-								width: '550px'
-							}}
-						/>
-					</FloatingLabel>
-				</Form.Group>
-
-				<Form.Group className={"mt-3"}>
-					<Button className={"btn btn-primary m-3"} type={"submit"}>Submit</Button>
+				<Form.Group className={"mt-3"} style={{textAlign: "center"}}>
+					<Button className={"btn btn-primary m-4"} type={"submit"}>Submit</Button>
 					{" "}
-					<Button className={"btn btn-danger m-3"} onClick={handleReset} disabled={!dirty || isSubmitting}>Reset</Button>
+					<Button className={"btn btn-danger m-4"} onClick={handleReset} disabled={!dirty || isSubmitting}>Reset</Button>
 				</Form.Group>
+
 			</Form>
 			<DisplayStatus status={status}/>
 			</Container>

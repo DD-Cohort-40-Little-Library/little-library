@@ -83,9 +83,11 @@ export function LibraryDetails() {
             fluid="auto"
         >
             <Tab eventKey="events" title="Events">
-                <Container>
+                <Container md={4} id={"libraryDisEventsTab"}>
                     <Row>
-                        {events.slice().map (event => <EventDetailBlockLibrary library={library} event={event} key={event.eventId}/>)}
+                        <Stack gap={3} className={"align-items-center"}>
+                            {events.slice().map (event => <EventDetailBlockLibrary library={library} event={event} key={event.eventId}/>)}
+                        </Stack>
                     </Row>
                 </Container>
             </Tab>

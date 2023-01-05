@@ -23,7 +23,7 @@ export const LibraryDetailBlockProfile = (props) => {
                     <Row sm={6} className={"text-start pb-4"}>Type of Library: {library.libraryType}</Row>
                     <Link to={`/library-landing/${library.libraryId}`}><Button>Go To This Library</Button></Link>
                 </Col>
-                <Col sm={3} className={"pt-4 rounded-circle"} fluid="auto" alt={'Please upload a photo of your Little Library using the "Update Library" option.'}>Library Image: REMOVE ONCE IMAGE POPULATES {library.LibraryImageUrl}</Col>
+                <Col sm={3} className={"pt-4 img-fluid rounded-circle"} fluid="auto" alt={'Please upload a photo of your Little Library using the "Update Library" option.'}>Library Image: REMOVE ONCE IMAGE POPULATES {library.LibraryImageUrl}</Col>
                 </Row>
             </Container>
         </>
