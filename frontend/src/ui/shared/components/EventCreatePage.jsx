@@ -255,14 +255,14 @@ function EventCreateModalFormContent(props) {
 				<Row className={"m-0 "} id={"eventSectionBlk3"}>
 					<Col md={8} style={{paddingBottom: "20px"}} className={"flex order-last order-md-first"}>
 						<h1 className={""}>Tips for Hosting a Great Event</h1>
-						<p style={{fontSize: "x-large"}}>Be a responsible host. A little pre-planning can go a long way to making sure your event is rememberable and safe.</p>
+						<p style={{fontSize: "x-large"}}>Be a responsible host. A little pre-planning can go a long way to making sure your event is memorable and safe.</p>
 						<p>Follow these tips for setting up and hosting a literacy event:</p>
 						<ul className={"text-start"}>
 							<li>Research the event location</li>
 							<li>Give attendees plenty of notification time</li>
-							<li>If snacks or food is provided, be mindful a allergy restrictions</li>
+							<li>If snacks or food is provided, be mindful of allergy restrictions</li>
 							<li>Encourage parents of minors to attend</li>
-							<li>Choose a public setting is possible</li>
+							<li>Choose a public setting if possible</li>
 							<li>Provide age appropriate reading material</li>
 							<li>Plan activities aimed for attendee participation</li>
 						</ul>
@@ -293,7 +293,7 @@ function EventCreateModalFormContent(props) {
 							<li>Thinking of starting a book club?</li>
 							<li>Hosting a book fair?</li>
 						</ul>
-						<p>Planned an event and looking for ways to increase participation? There is great information around the subject. </p>
+						<p>Planned an event and looking for ways to increase participation? There is great information about the subject. </p>
 						<p>Check out these sites to learn more.</p>
 					<Stack gap={2}>
 							<a target="blank" href={"https://clifonline.org/resources/literacy-activities/"}>ClifOnline.org: Literacy Activities</a>
