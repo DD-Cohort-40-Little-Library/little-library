@@ -1,8 +1,8 @@
-import {create} from "yup/lib/Lazy.js";
 import {createSlice} from "@reduxjs/toolkit";
 import {httpConfig} from "../ui/shared/utils/http-config.js";
-import {setAllLibraries} from "./libraries.js";
 import {setAllCheckIns} from "./checkIn.js";
+import _ from "lodash";
+import {fetchProfileByProfileId} from "./profiles.js";
 
 const eventsSlice = createSlice({
     name: "events",
@@ -18,32 +18,28 @@ export default eventsSlice.reducer
 
 export const fetchAllEvents = () => {
     return async function (dispatch) {
-        const {data} = await httpConfig.get("/apis/event/")
+        const {data} = await httpConfig.get(`/apis/event/`)
         dispatch(setAllEvents(data))
     }
 }
 
 export const fetchEventsByProfileId = () => async (dispatch, getState) => {
     const auth = getState().auth
-    // const {data} = await httpConfig(`/apis/event/eventProfileId/${auth.profileId}`)
-    const {data} = await httpConfig(`/apis/event/eventProfileId/${auth.profileId}`)
+    const {data} = await httpConfig(`/apis/event/`)
     dispatch(setAllEvents(data))
 }
 
-
-// export const fetchEventsByLibraryId = () => async (dispatch, eventLibraryId) => {
-//     const {data} = await httpConfig(`/apis/event/eventLibraryId/${eventLibraryId}`)
-//     dispatch(setAllEvents(data))
-// }
-
 export const fetchEventsByLibraryId = (libraryId) => async (dispatch) => {
-    // return async function (dispatch) {
         const {data} = await httpConfig.get(`/apis/event/eventLibraryId/${libraryId}`)
         dispatch(setAllEvents(data))
-    // }
+        const userIds = _.uniq(_.map(data, "eventProfileId"));
+        userIds.forEach(id => dispatch(fetchProfileByProfileId(id)));
+
 }
 
 export const fetchAllEventsForProfileTab = () => async (dispatch, profileId) => {
     const {data} = await httpConfig(`/apis/event/eventProfileId/${profileId})`);
     dispatch(setAllCheckIns(data));
+    const userIds = _.uniq(_.map(data, "eventProfileId"));
+    userIds.forEach(id => dispatch(fetchProfileByProfileId(id)));
 }

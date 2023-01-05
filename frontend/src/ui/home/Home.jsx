@@ -61,7 +61,7 @@ export function Home() {
 				</Col>
 				<Col>
 					<h1 className={""}>What are Specializations?</h1>
-						<p style={{fontSize: "x-large"}}>Got a lot of children’s books at your Little Library? How about a great collect of romance novels you want to share? The Little Library Locator Map is enabled to highlight the book genre abundance that may be at a location at any time.</p>
+						<p style={{fontSize: "x-large"}}>Got a lot of children’s books at your Little Library? How about a great collection of romance novels you want to share? The Little Library Locator Map is enabled to highlight the book genre abundance that may be at a location at any time.</p>
 						<p>The following genres are selectable when creating or updating a library:</p>
 					<Row>
 						<Col>

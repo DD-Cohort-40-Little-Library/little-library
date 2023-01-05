@@ -44,7 +44,6 @@ export function ProfileLanding() {
         dispatch(fetchCheckInsByProfileId())
         dispatch(fetchCurrentUser())
     }
-
     useEffect(effects, [dispatch])
 
     if (user === null) {
@@ -58,7 +57,6 @@ export function ProfileLanding() {
     const {libraryName,libraryAddress, libraryDescription, librarySpecialization, libraryEventOptIn, libraryType} = libraries
     const {eventDate, eventDescription, eventName} = events
     const {checkInComment,checkInDate, checkInPhotoUrl} = checkins
-
 
     return (
         <>
@@ -167,7 +165,7 @@ export function ProfileLanding() {
                 <Row className={"m-0 "} id={"profileSectionBlk3"}>
                     <Col md={8} style={{paddingBottom: "20px"}} className={"flex order-last order-md-first"}>
                         <h1 className={""}>Learn to Speed Read</h1>
-                        <p>Speed reading a great way to train your brain to absorb information fast. The base concept entails learning to scan the page and omitting small words, allowing the brain to fill in the information automatically. Many successful individuals credit speed reading as a tool to become stronger readers and better time management.</p>
+                        <p>Speed reading is a great way to train your brain to absorb information fast. The base concept entails learning to scan the page and omitting small words, allowing the brain to fill in the information automatically. Many successful individuals credit speed reading as a tool to become stronger readers and be better at time management.</p>
                         <p>Check out these sites for tips on speed reading to learn more.</p>
                         <Stack gap={2}>
                             <a target="blank" href={"https://www.lifehack.org/articles/productivity/10-ways-increase-your-reading-speed.html"}>LifeHack.org: How to Read Faster: 11 Ways to Increase Your Reading Speed</a>

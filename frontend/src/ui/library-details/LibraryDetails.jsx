@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect} from "react";
 import Card from 'react-bootstrap/Card';
 import {Col, Container, Image, Row, Stack, Tab, Tabs} from "react-bootstrap";
 import {useDispatch, useSelector} from "react-redux";
@@ -18,7 +18,6 @@ import libDisFamRead from "../../../images/uiSharedImages/libDisFamRead.jpg";
 export function LibraryDetails() {
 
     let { libraryId } = useParams()
-    const dispatch = useDispatch()
     const checkins = useSelector(state => state.checkIns ? state.checkIns : [])
     const events = useSelector(state => state.events ? state.events : [])
     const library = useSelector(state => state.libraries ? state.libraries : [])
@@ -30,13 +29,22 @@ export function LibraryDetails() {
 
     const {checkInComment,checkInDate, checkInPhotoUrl, checkInLibraryId} = checkins
     const {eventDate, eventDescription, eventName} = events
+    const dispatch = useDispatch()
 
-    const initialEffects = () => {
+    const effects = () => {
         dispatch(fetchLibraryByLibraryId(libraryId))
         dispatch(fetchEventsByLibraryId(libraryId))
         dispatch(fetchCheckInsByLibraryId(libraryId))
     }
-    React.useEffect(initialEffects, [libraryId, dispatch])
+    useEffect(effects,[libraryId, dispatch])
+
+    const specialization = () => {
+        if (specialization === "") {
+            return  ""
+        } else {
+            return specialization
+        }
+    }
 
     return (
         <>
@@ -46,15 +54,13 @@ export function LibraryDetails() {
             </Row>
         </Container>
 
-
         <div id={"librarySectionDisplay"}>
             <Card className={""} id={"libraryCardDisplay"} >
                 <Card.Header><h2>{library.libraryAddress}, {library.libraryType}</h2></Card.Header>
                 <Card.Body>
-                    {/*Make backend library image connection, code freeze*/}
                     {libraryImage && <Image src={libraryImage} alt={'Please upload a photo of your Little Library.'} ></Image>}
                     <Card.Title><h3>{library.libraryName}</h3></Card.Title>
-                        {/*<h5>{specialization}</h5>*/}
+                        <h5>{library.librarySpecialization}</h5>
                     <Card.Text>{library.libraryDescription}</Card.Text>
                     <Row>
                     <Col style={{padding: '1rem'}}>
@@ -74,16 +80,14 @@ export function LibraryDetails() {
             <Tab eventKey="events" title="Events">
                 <Container md={4} id={"libraryDisEventsTab"}>
                     <Row>
-                        <Stack gap={3} className={"align-items-center"}>
-                            {events.slice().map (event => <EventDetailBlockLibrary library={library} event={event} key={event.eventId}/>)}
-                        </Stack>
+                        {events.map (event => <EventDetailBlockLibrary library={library} event={event} key={event.eventId}/>)}
                     </Row>
                 </Container>
             </Tab>
             <Tab eventKey="check-ins" title="Check-Ins">
                 <Container>
                     <Row>
-                        {checkins.slice().map (checkin => <CheckInDetailBlockLibrary library={library} checkin={checkin} key={checkin.checkInId}/>)}
+                        {checkins.map (checkin => <CheckInDetailBlockLibrary library={library} checkin={checkin} key={checkin.checkInId}/>)}
                     </Row>
                 </Container>
             </Tab>
