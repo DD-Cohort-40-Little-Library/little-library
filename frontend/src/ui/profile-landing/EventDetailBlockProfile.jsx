@@ -1,4 +1,4 @@
-import {Button, Col, Container, Image, Row} from "react-bootstrap";
+import {Anchor, Button, Col, Container, Image, Row} from "react-bootstrap";
 import React from "react";
 import {Link} from "react-router-dom";
 import {useSelector} from "react-redux";
@@ -43,7 +43,6 @@ export const EventDetailBlockProfile = ({event, user}) => {
             <Container id={"profileEventsDetailBlock"} className={""}>
                 <Row>
                     <Col sm={2} className={"pt-4"} fluid="auto">
-                        {/*CAN'T USE 'USER', NEEDS A JOIN FOR THE EVENTPROFILEID TO CONNECT USER PROFILEAVATARURL*/}
                         <Image src={user.profileAvatarUrl} className={"img-fluid rounded-circle"} alt={'Host User has either not uploaded an image or the link is broken.'} ></Image>
                     </Col>
                     <Col>
@@ -55,7 +54,7 @@ export const EventDetailBlockProfile = ({event, user}) => {
                         <Row sm={6} className={"text-start"}>Library Name: {library.libraryName}</Row>
                         <Row sm={6} className={"text-start"}>Library Address: {library.libraryAddress}</Row>
                         <Row sm={6} className={"text-start pb-4"}>Description: {event.eventDescription}</Row>
-                        <Link to={`/library-landing/${library.libraryId}`}><Button>Go To This Library</Button></Link>
+                        <Anchor href={`/library-landing/${library.libraryId}`}><Button>Go To This Library</Button></Anchor>
                     </Col>
                     <Col sm={3} className={"pt-4 rounded-circle"} fluid="auto" alt={'Please upload a photo of your Little Library using the "Update Library" option.'}>Library Image: REMOVE ONCE IMAGE POPULATES {library.LibraryImageUrl}</Col>
                 </Row>

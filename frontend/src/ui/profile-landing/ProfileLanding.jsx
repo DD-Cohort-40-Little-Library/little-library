@@ -36,19 +36,17 @@ export function ProfileLanding() {
     const user = useSelector(state => state.currentUser)
 
     const dispatch = useDispatch()
-    // const initialEffects = () => {
+
     const effects = () => {
         dispatch(fetchAuth())
         dispatch(fetchAllLibraries())
         dispatch(fetchEventsByProfileId())
         dispatch(fetchCheckInsByProfileId())
         dispatch(fetchCurrentUser())
-        // dispatch(fetchAllCheckInsForProfileTab())
-        // dispatch(fetchAllEventsForProfileTab())
     }
-    // React.useEffect(initialEffects, [dispatch])
+
     useEffect(effects, [dispatch])
-    // TODO: REMOVE 'const profile = null' to the end  from line below after pulling currentUser w/ useSelector=profile
+
     if (user === null) {
         return <div>
                     <Image src={plsSignIn} alt={"pleaseSignIn"} id={"pleaseSignIn"}/>
@@ -60,8 +58,6 @@ export function ProfileLanding() {
     const {libraryName,libraryAddress, libraryDescription, librarySpecialization, libraryEventOptIn, libraryType} = libraries
     const {eventDate, eventDescription, eventName} = events
     const {checkInComment,checkInDate, checkInPhotoUrl} = checkins
-    // const {checkInId, checkInLibraryId, checkInProfileId, checkInComment, checkInDate, checkInPhotoUrl, checkInReport, libraryId, libraryProfileId, libraryAddress, libraryDescription, libraryEventOptIn, libraryName, librarySpecialization, profileId, profileFirstName, profileLastName, profileEmail, profileAvatarUrl, profileName} = checkins
-    // const {eventDate, eventDescription, eventName} = events
 
 
     return (
@@ -119,7 +115,6 @@ export function ProfileLanding() {
                         <Container md={4} id={"profileEventsTab"}>
                             <Row>
                                 <Stack gap={3} className={"align-items-center"}>
-                                    {/*WE ARE FETCHING LIBRARIES BY PROFILEID, CANNOT FOR EVENTS HELD AT OTHER OWNER'S LIBRARY (OR DO WE ONLY ALLOW OWNERS TO HOST AT THEIR LOCATIONS?)*/}
                                      {events.slice(0).map(event => <EventDetailBlockProfile library={libraries.filter(library => library.libraryId)[0]} user={user} event={event} key={event.eventId}/>)}
                                 </Stack>
                             </Row>

@@ -16,7 +16,7 @@ import {fetchCheckInsByLibraryId} from "../../store/checkIn.js";
 import plsSignIn from "../../../images/uiSharedImages/pleaseSignIn.svg";
 
 
-export function CheckInForm() {
+export function CheckInFormLibrary() {
 
     const validator = Yup.object().shape({
         checkInLibraryId: Yup.string()
@@ -34,6 +34,8 @@ export function CheckInForm() {
     const initialEffects = () => {
         dispatch(fetchAuth())
     }
+
+    // const [selectedImage, setSelectedImage] = useState(null)
 
     React.useEffect(initialEffects, [dispatch])
 
@@ -160,6 +162,89 @@ export function CheckInForm() {
     )
 }
 
+function CheckInFormContent(props) {
+    const {
+        setFieldValue,
+        status,
+        values,
+        errors,
+        touched,
+        dirty,
+        isSubmitting,
+        handleChange,
+        handleBlur,
+        handleSubmit,
+        handleReset
+    } = props
+
+    const [selectedImage, setSelectedImage] = useState(null)
+
+    if (selectedImage !== null) {
+        httpConfig.post(`/apis/image-upload/`, values.checkInPhotoUrl)
+            .then(reply => {
+                    let {message, type} = reply
+                    if (reply.status === 200) {
+                        // checkInPro({...values, checkInPhotoUrl: message})
+                        // dispatch(getAuth({...values, checkInPhotoUrl: message}))
+                    } else {
+                        // setStatus({message, type})
+                        return (reply)
+                    }
+                }
+            )
+    }
+
+    return (
+
+        <>
+            <Container style={{paddingBlock: '1rem', backgroundColor: 'lightgrey'}}>
+                <Form onSubmit={handleSubmit} className={"text-center"}>
+                    <label>Please let us know how your visit was.</label>
+
+                        <Form.Group controlId="checkInComment">
+                            <InputGroup>
+                                <Form.Control
+                                    className={"form-control"}
+                                    as={"textarea"}
+                                    aria-label={"commentText"}
+                                    rows={4}
+                                    type={"text"}
+                                    value={values.checkInComment}
+                                    name={"checkInComment"}
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                    placeholder={"Your comments must be 8-255 characters long. Your comments will be displayed and monitored. Please refrain from using offensive language and hate speech. Thank you."}
+                                />
+                            </InputGroup>
+                            <DisplayError errors={errors} touched={touched} field={"checkinComment"} />
+                        </Form.Group>
+
+                    <ImageDropZone
+                        formikProps={{
+                            values, handleChange, handleBlur, setFieldValue, fieldValue:'checkInPhotoUrl', setSelectedImage: setSelectedImage
+                        }}
+                    />
+                    <div>
+                        {selectedImage !== null ? <img className={"w-50"} src={selectedImage}/> : ""}
+                    </div>
+                    <Form.Group className={"mt-3"}>
+                        <Button className={"btn btn-primary"} onClick={handleSubmit}>Submit</Button>
+                        {" "}
+                        <Button
+                            className={"btn btn-danger"}
+                            onClick={handleReset}
+                            disabled={!dirty || isSubmitting}
+                        >Reset
+                        </Button>
+                    </Form.Group>
+                </Form>
+            </Container>
+            <DisplayStatus status={status}/>
+        </>
+    )
+}
+
+
 function ImageDropZone ({formikProps}) {
     const onDrop = React.useCallback(acceptedFiles => {
         const formData = new FormData()
@@ -171,7 +256,9 @@ function ImageDropZone ({formikProps}) {
             formikProps.setSelectedImage(fileReader.result)
         })
 
-        // console.log(formikProps.values.checkInPhotoUrl)
+        console.log('CHECK IN FORM - IMAGE DROP ZONE TEST 1***************************************************')
+
+
         formikProps.setFieldValue(formikProps.fieldValue, formData)
 
     }, [formikProps])

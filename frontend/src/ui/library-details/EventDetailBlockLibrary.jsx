@@ -1,10 +1,8 @@
-import {Button, Col, Container, Row} from "react-bootstrap";
+import {Col, Container, Row} from "react-bootstrap";
 import React from "react";
-import {Link} from "react-router-dom";
 
-export const EventDetailBlockLibrary = ({event, library}) => {
+export const EventDetailBlockLibrary = ({event, library, }) => {
 
-    // const {event} = props
     const date = event.eventDate
     const D = new Date(date)
     const time = event.eventStart
@@ -19,19 +17,18 @@ export const EventDetailBlockLibrary = ({event, library}) => {
 
     return(
         <>
-            <Container className={""} id={"libDisEventsBlk"}>
-                <Col>
-                    <Row sm={6} className={"text-start"}>Title: {event.eventTitle}</Row>
-                    <Row sm={6} className={"text-start"}>Library Name:{library.libraryName}</Row>
-                    <Row sm={6} className={"text-start"}>Library Address:{library.libraryAddress}</Row>
-                    <Row sm={6} className={"text-start"}>Date: {(D.getMonth() + 1) + '-' + ((D.getDate() + 1) + '-' + (D.getFullYear()))}</Row>
-                    <Row sm={6} className={"text-start"}>Start time: {finalTime}</Row>
-                    <Row sm={6} className={"text-start"}>Library Type:{library.libraryType}</Row>
-                    <Row sm={6} className={"text-start pb-2"}>Description: {event.eventDescription}</Row>
+            <Container className={"border border-dark rounded"}>
+                <Col xs={3}>
+                    <Row> HOSTING Profile URL/img here: REMOVE ONCE IMAGE POPULATES </Row>
                 </Col>
-                {/*<Col sm={3} className={"pt-4 rounded-circle"} fluid="auto">*/}
-                {/*    <Link to={`/library-landing/${library.libraryId}`}><Button>Go To This Library</Button></Link>*/}
-                {/*</Col>*/}
+                <Col>
+                    <Row xs={6}>Title: {event.eventTitle}</Row>
+                    <Row xs={6}>Date: {(D.getMonth() + 1) + '-' + ((D.getDate() + 1) + '-' + (D.getFullYear()))}</Row>
+                    <Row xs={6}>Start time: {finalTime}</Row>
+                    <Row xs={6}>Library Type:{library.libraryType}</Row>
+                    <Row xs={6}>Description: {event.eventDescription}</Row>
+                </Col>
+
             </Container>
         </>
     )

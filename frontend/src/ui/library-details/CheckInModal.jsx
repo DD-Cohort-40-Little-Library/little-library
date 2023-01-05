@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import {Button, Col, FloatingLabel, Form, InputGroup, Modal, Row} from "react-bootstrap";
-import {CheckInForm} from "./CheckInForm.jsx";
+import {CheckInFormLibrary} from "./CheckInFormLibrary.jsx";
 import {useParams} from "react-router-dom";
 import {useDispatch} from "react-redux";
 
@@ -31,7 +31,7 @@ export function CheckInModal(){
                         <div>
                             <fieldset>
                                 <InputGroup>
-                                    <CheckInForm libraryId />
+                                    <CheckInFormLibrary libraryId />
                                 </InputGroup>
                             </fieldset>
                         </div>
