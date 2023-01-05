@@ -21,6 +21,7 @@ NDavila1@cnm.edu
 
 Test Account & App Demo Instructions:
 For best demo experience please run our data-downloader (directions included in the directory);however, accounts,libraries, events,and check-ins can all be created locally
+**Note: Known validation bug- Upon new user sign up, response states "forbidden" instead of  "Profile successfully created". Please just continue on, the profile is actually created.
 
 
 Team information:
