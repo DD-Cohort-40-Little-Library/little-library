@@ -1,4 +1,4 @@
-import {Button, Col, Container, Image, Row} from "react-bootstrap";
+import {Anchor, Button, Col, Container, Image, Row} from "react-bootstrap";
 import React from "react";
 import {Link} from "react-router-dom";
 import {useSelector} from "react-redux";
@@ -42,7 +42,7 @@ export const CheckInDetailBlockProfile = (props) => {
                         <Row sm={6} className={"text-start"}>Library Name: {library.libraryName}</Row>
                         <Row sm={6} className={"text-start"}>Library Address: {library.libraryAddress}</Row>
                         <Row sm={6} className={"text-start pb-4"}>Comment: {checkin.checkInComment}</Row>
-                        <Link to={`/library-landing/${library.libraryId}`}><Button>Go To This Library</Button></Link>
+                        <Anchor to={`/library-landing/${library.libraryId}`}><Button>Go To This Library</Button></Anchor>
                     </Col>
                     <Col sm={3} className={"pt-4 rounded-circle"} fluid="auto">
                         <Row>Check-In Image: REMOVE ONCE IMAGE POPULATES</Row>

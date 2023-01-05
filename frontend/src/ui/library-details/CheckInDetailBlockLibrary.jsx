@@ -25,11 +25,8 @@ export const CheckInDetailBlockLibrary = ({checkin, user}) => {
                     {/*<Image src={} className={"rounded-circle"} alt={'Please select an avatar or upload a photo using the "Update Profile" button.'}></Image>                */}
                 </Col>
                 <Col>
-                    {/*I think this should actually be another join of the profileAvatarUrl via the checkInProfileId????*/}
-                    {/*<Row xs={5}>{profile.profileAvatarUrl}</Row>*/}
                     <p xs={6}>Check-In Date/Time: {(D.getMonth() + 1) + '-' + ((D.getDate() + 1) + '-' + (D.getFullYear()) )} / {finalTime}</p>
                     <Row xs={5}>Comment: {checkin.checkInComment}</Row>
-                    {/*<Row xs={5}>Photo: {checkin.checkInPhotoUrl}</Row>*/}
                 </Col>
                 <Col xs={3}>
                     <Image src={checkin.checkInPhotoUrl} className={"rounded-circle"} alt={'Please upload a picture of the Little Library during your next visit.'}></Image>

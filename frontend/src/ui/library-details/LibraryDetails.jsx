@@ -1,18 +1,12 @@
 import React, {useState} from "react";
 import Card from 'react-bootstrap/Card';
-import {Button, Col, Container, Image, Row, Stack, Tab, Tabs} from "react-bootstrap";
-import {EventListing} from "../shared/components/EventListing.jsx";
-import {CheckInDisplay} from "../shared/components/CheckInDisplay.jsx";
+import {Col, Container, Image, Row, Stack, Tab, Tabs} from "react-bootstrap";
 import {useDispatch, useSelector} from "react-redux";
-import {Link, useParams} from "react-router-dom";
+import {useParams} from "react-router-dom";
 import {CheckInModal} from "./CheckInModal";
 import {CheckInDetailBlockLibrary} from "./CheckInDetailBlockLibrary";
-import {CheckInDetailBlockProfile} from "../profile-landing/CheckInDetailBlockProfile.jsx";
-import {library} from "@fortawesome/fontawesome-svg-core";
-import {fetchAuth} from "../../store/auth.js";
-import {fetchLibrariesByProfileId, fetchLibraryByLibraryId} from "../../store/libraries.js";
-import {fetchEventsByLibraryId, fetchEventsByProfileId} from "../../store/events.js";
-import {fetchCurrentUser} from "../../store/currentUser.js";
+import {fetchLibraryByLibraryId} from "../../store/libraries.js";
+import {fetchEventsByLibraryId} from "../../store/events.js";
 import {fetchCheckInsByLibraryId} from "../../store/checkIn.js"
 import {EventDetailBlockLibrary} from "./EventDetailBlockLibrary.jsx";
 import libDisImageBlk1 from "../../../images/uiSharedImages/libDisImgBlk1.jpg";
@@ -33,18 +27,7 @@ export function LibraryDetails() {
             return checkIn.checkInPhotoUrl
         }
     }})
-console.log(libraryImage)
 
-    // const library = useSelector(state => {return state.libraries ? state.libraries
-    //     .filter(library => library.libraryId === libraryId)[0]
-    //     : null})
-    // const specialization = () => {
-    //     if(library.librarySpecialization === null){
-    //         return ""
-    //     } else {
-    //         return library.librarySpecialization
-    //     }
-    // }
     const {checkInComment,checkInDate, checkInPhotoUrl, checkInLibraryId} = checkins
     const {eventDate, eventDescription, eventName} = events
 
