@@ -17,13 +17,16 @@ export async function signUpController(request: Request, response: Response) {
         } = request.body
         const profileHash = await setHash(profilePassword)
         const profileActivationToken = setActivationToken()
-        const basePath: string = `${request.protocol}://${request
-            .hostname}${request.originalUrl}activation/${profileActivationToken}`
+        const basePath: string = `${request.protocol}://${request.hostname}${request.originalUrl}/activation/${profileActivationToken}`
         const message = `<h2>Welcome to the Little Library Locator!</h2>
-in order to post photos of your Little Library, you must confirm your account
-<a href="${basePath}">${basePath}</a>`
+        In order to fully interact with the Little Library Locator, you must confirm your account first by 
+        <a href="${basePath}">following this link.</a>
+        
+        If you feel that you received this email in error please notifiy Info@LittleLibraryLocator.com.
+        
+        Thank you for doing your part in expanding literacy in your community from the crew at the Little Library Locator!`
         const mailGunMessage = {
-            from: `Mailgun Sandbox <postmaster@${process.env.MAILGUN_DOMAIN as string}>`,
+            from: `Little Library Locator <postmaster@${process.env.MAILGUN_DOMAIN as string}>`,
             to: profileEmail,
             subject: 'Account verification for Little Library Locator.',
             html: message

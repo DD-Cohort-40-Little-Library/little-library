@@ -203,12 +203,12 @@ function ImageDropZone ({formikProps}) {
 
     return (
         <Form.Group {...getRootProps()}>
-            <Form.Label>Change Avatar</Form.Label>
+            <Form.Label>Change Avatar or Image</Form.Label>
             <InputGroup size={"lg"} className={"border border-dark justify-content-center"}>
                 {formikProps.values.profileAvatarUrl &&
                     <>
                         <div className={"bg-transparent"}>
-                            {/*<Image fluid={true} height={200} thumbnail={true} width={200} alt={"profile avatar"} src={formikProps.values.profileAvatarUrl} />*/}
+                            <Image fluid="auto" height={200} thumbnail={true} width={200} alt={"profile avatar"} src={formikProps.values.profileAvatarUrl} />
                         </div>
                     </>
                 }
@@ -225,7 +225,7 @@ function ImageDropZone ({formikProps}) {
                     {
                         isDragActive ?
                             <span className={"align-content-center"}>Drop image here</span> :
-                            <span className={"align-content-center"}>Drag and drop image here, or click here to select an image</span> }
+                            <span className={"align-content-center"}>Drag and drop image here, or click here to select an image. File size limit is 10MB.</span> }
                 </div>
             </InputGroup>
         </Form.Group>

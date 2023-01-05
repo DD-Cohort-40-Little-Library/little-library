@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import {Button, Col, FloatingLabel, Form, InputGroup, Modal, Row} from "react-bootstrap";
-import {CheckInForm} from "./CheckInForm.jsx";
+import {CheckInFormLibrary} from "./CheckInFormLibrary.jsx";
 import {useParams} from "react-router-dom";
 import {useDispatch} from "react-redux";
 
@@ -22,21 +22,21 @@ export function CheckInModal(){
             <Modal
                 show={show}
                 onHide={handleClose}
-                backdrop="static"
+                // backdrop="static"
                 keyboard={false}
             >
-                <Form>
+                <div>
                     <Row>
                         <h3 className={"text-center"}>Check In</h3>
-                        <Form>
+                        <div>
                             <fieldset>
                                 <InputGroup>
-                                    <CheckInForm libraryId />
+                                    <CheckInFormLibrary libraryId />
                                 </InputGroup>
                             </fieldset>
-                        </Form>
+                        </div>
                     </Row>
-                </Form>
+                </div>
                 <Modal.Footer>
                     <Button variant="light" onClick={handleClose}>Close</Button>
                 </Modal.Footer>

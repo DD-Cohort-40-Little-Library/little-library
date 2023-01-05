@@ -1,9 +1,11 @@
 import React from "react"
+import {Image} from "react-bootstrap";
+import fourOhFour from "../../images/uiSharedImages/lllFourOhFour.svg";
 
 export const FourOhFour = () => {
 	return (
 		<>
-			<h1>This is not the page you were looking for</h1>
+			<Image src={fourOhFour} />
 		</>
 	)
 };

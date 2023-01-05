@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import {Button, Col, Container, Modal, Row} from 'react-bootstrap';
-import googleLogo from "../../../../../../images/uiSharedImages/google-logo-2.webp"
-import {Link} from "react-router-dom";
 import {SignInForm} from "./SignInForm.jsx";
 import {SignUpForm} from "./SignUpForm.jsx";
 
@@ -31,7 +29,7 @@ export function SignInSignUpModal() {
                     <Row>
                         <Col className={"pb-2"}>
                             <p>By creating an account on our site you agree to our terms of use.</p>
-                            <Button variant="secondary" onClick={handleClose}>Cancel</Button>
+                            <Button variant="secondary" onClick={handleClose}>Close</Button>
                         </Col>
                     </Row>
                 </Container>

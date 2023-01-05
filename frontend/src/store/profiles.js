@@ -1,13 +1,25 @@
 import {createSlice} from '@reduxjs/toolkit';
-import { httpConfig } from '../ui/shared/utils/httpConfig'
+import { httpConfig } from "../ui/shared/utils/http-config.js"
+import {setAllLibraries} from "./libraries.js";
+//TODO: Line 2 http import is wrong but kills profile land when fixed, work later
+
 
 const profileIdSlice = createSlice( {
     name: "profiles",
-    initialState: [],
+    initialState: {},
     reducers: {
-        setProfile: (profiles, action) => profiles[action.payload.profileId] = action.payload.data
+        setProfile: (profiles, action) => {
+            profiles[action.payload.profileId] = action.payload.data
+        }
     }
 })
+
+// export const fetchAllProfiles = () => {
+//     return async function (dispatch) {
+//         const {data} = await httpConfig.get(`/apis/profile/`);
+//         dispatch(setAllProfiles(data));
+//     }
+// }
 
 export const {setProfile} = profileIdSlice.actions
 
@@ -22,3 +34,4 @@ export const fetchProfileByProfileId = (profileId) => async (dispatch, getState)
 }
 
 export default profileIdSlice.reducer
+

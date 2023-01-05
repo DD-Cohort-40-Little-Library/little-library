@@ -1,47 +1,18 @@
+/**** Global CSS Functionality ****/
+
 body{
     background-color: #F3EAD2;
     color: #2D3024;
-}
-
-#generalPhotoBehavior {
-    width: 100%;
 
 }
-#generalColBehavior {
-    padding-top: 10px;
-    padding-bottom: 10px;
-
-}
-#headLineONE {
-    text-align: center;
-    color: #2D3024;
-    padding: 5px;
-}
-
-#signInUp-column {
-    padding: 2vh;
-    align-content: center;
-}
-
-#profileRegProfile {
-    text-align: center;
-    color: #2D3024;
-}
-
-#profileRegForm {
-    background-color: #76999D;
-    border: light;
-    padding: 15px;
-}
-
-#events-column {
-    padding: 2vh;
-    background-color: #76999D;
-}
-
 
 #navFootBgColor {
     background-color: #835A4E;
+}
+
+#navText{
+    color: #CDCDC1;
+    font-size: 1.75rem;
 }
 
 
@@ -50,8 +21,65 @@ body{
     color: #CDCDC1;
     text-align: center;
     font-size: 1rem;
+    position: -webkit-sticky;
+    bottom: 0;
+    left: 0;
 
 }
+
+
+#generalPhotoBehavior {
+    width: 100%;
+
+}
+
+#generalColBehavior {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#headLineONE {
+    text-align: center;
+    padding: 5px;
+}
+/**** Map CSS Functionality ****/
+#mapPopUp {
+    background-color: #F3EAD2;
+    text-align: center;
+    margin: 0;
+    padding: 2vh;
+    font-size: large;
+}
+
+#mapPaddingScroll {
+    padding-right: 1rem;
+    padding-left: 1rem;
+    align-items: center;
+}
+
+/**** Home CSS Functionality ****/
+#signInUp-column {
+    padding: 2vh;
+    align-content: center;
+}
+
+
+#profileRegProfile {
+    text-align: center;
+    color: #2D3024;
+}
+
+#profileRegForm {
+    background-color: #76999D;
+    padding: 15px;
+}
+
+#events-column {
+    padding: 1vh;
+    background-color: #76999D;
+}
+
+
 
 #lLLLogoBase {
     padding-right: 2vh;
@@ -60,45 +88,109 @@ body{
 
 }
 
-#generalPhotoBehavior {
+#pleaseSignIn {
     width: 100%;
 
 }
 
 #LLLLabel {
-    height: 7vh;
+    height: 4rem;
     width: 100%;
 }
+
+#LLLLabelBrown {
+    height: 4rem;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 #signUpIn {
     background-color: #93A5AB;
     text-align: center;
     width: border-box;
 }
 
+#userRegistration {
+    background-color: #93A5AB;
+    padding: 1rem;
+    margin: 0;
+    border-radius: 10px;
+    text-align: center;
+    font-size: x-large;
+}
+
 #eventShortListing {
-    background-color: #CDCDC1;
+    background-color: #426A73;
     border-radius: 10px;
     margin: 1vh;
+    color: #CDCDC1;
+    font-size: large;
+    padding: 10px;
+    text-align: center;
+
 }
+
+#homeSectionBlk1 {
+    background-color: #426A73;
+    padding: 2rem;
+    margin-bottom: 30px;
+}
+
+#sectionImageBlk {
+    width: 100%;
+    border-radius: 40px;
+}
+
+#homeSectionBlk2 {
+    background-color: #F3EAD2;
+    padding: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: x-large;
+    align-items: center;
+}
+#homeSectionBlk3 {
+    background-color: #CAB898;
+    padding: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+#homeSectionBlk4 {
+    background-color: #CDCDC1;
+    padding: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: large;
+    align-items: center;
+}
+
+#homeSectionBlk5 {
+    background-color: #76999D;
+    padding: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: x-large;
+    align-items: center;
+}
+
+#homeSectionBlk6 {
+    background-color: #93A5AB;
+    padding: 2rem;
+    margin-bottom: 30px;
+}
+
+/**** Various Modal CSS Functionality ****/
+
 #eventUpdateModal {
     background-color: #CDCDC1;
 }
 
-
-#libraryCardDisplay {
-    background-color: #93A5AB;
-    text-align: center;
-    color: #2D3024;
-}
-
-#librarySectionDisplay {
-    padding: 2rem;
-
-}
+/**** Various Tab CSS Functionality ****/
 
 #checkInDisplay {
     background-color: #CDCDC1;
-    color: #2D3024;
     padding: 1rem;
     margin: 1rem;
     border-radius: 10px;
@@ -106,39 +198,21 @@ body{
 
 #eventListingDisplay {
     background-color: #CAB898;
-    color: #2D3024;
     padding: 1rem;
     margin: 1rem;
     border-radius: 10px;
 }
 
-#userRegistration {
-    background-color: #93A5AB;
-    color: #2D3024;
-    padding: 1rem;
-    margin: 1rem;
-    border-radius: 10px;
-}
 
 #libraryDisplayBlock {
     background-color: #76999D;
-    color: #2D3024;
     padding: 1rem;
     margin: 1rem;
     border-radius: 10px;
 }
 
 #libraryCreateFormGlobal {
-    background-color: #F3EAD2;
-    color: #2D3024;
-}
-
-#checkInDetailBlock {
-    background-color: #CAB898;
-    color: #2D3024;
-    padding: 1rem;
-    margin: 1rem;
-    border-radius: 10px;
+    background-color: #93A5AB;
 
 }
 
@@ -152,6 +226,295 @@ body{
     background-color: #93A5AB;
     text-align: center;
     width: border-box;
+    padding-top: 2rem;
+    font-size: large;
+    border-radius: 0;
+}
+
+
+/**** Registration Profile Display Section ****/
+
+#profileSectionBlk1 {
+    background-color: #426A73;
+    padding: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: large;
+    align-items: center;
+}
+
+#profileSectionBlk2 {
+    background-color: #CDCDC1;
+    padding: 2rem;
+    margin-bottom: 30px;
+}
+
+#profileSectionBlk3 {
+    background-color: #93A5AB;
+    padding: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: large;
+    align-items: center;
+}
+
+#profileSectionBlk4 {
+    background-color: #CAB898;
+    padding: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: large;
+    align-items: center;
+}
+
+#profileSectionBlk5 {
+    background-color: #A9986E;
+    padding: 2rem;
+    margin-bottom: 30px;
+}
+
+#profileDetailTabsSec {
+    background-color: #93A5AB;
+    padding-top: 3rem;
+}
+
+#profileCheckInTab {
+    background-color: #76999D;
+    padding: 3rem;
+    margin-bottom: 3rem;
+
+}
+
+#profileEventsTab {
+    background-color: #577F88;
+    padding: 3rem;
+    margin-bottom: 3rem;
+
+}
+
+#profileLibraryTab {
+    background-color: #426A73;
+    padding: 3rem;
+    margin-bottom: 3rem;
+}
+
+#profileCheckInDetailBlock {
+    background-color: #CAB898;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 10px;
+    text-align: center;
+}
+
+#profileEventsDetailBlock {
+    background-color: #F3EAD2;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 10px;
+    text-align: center;
+}
+
+#profileLibraryDetailBlock {
+    background-color: #CDCDC1;
+    padding: 1rem;
+    margin: 2rem;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/**** Registration Event Display Section ****/
+#eventSectionBlk1 {
+    background-color: #76999D;
+    padding: 2rem;
+    margin-bottom: 30px;
+}
+
+#eventSectionBlk2 {
+    background-color: #CAB898;
+    padding: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: large;
+    align-items: center;
+}
+
+#eventSectionBlk3 {
+    background-color: #CDCDC1;
+    padding: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: large;
+    align-items: center;
+}
+
+#eventSectionBlk4 {
+    background-color: #F3EAD2;
+    padding: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: large;
+    align-items: center;
+
+}
+#eventSectionBlk5 {
+    background-color: #50573F;
+    padding: 2rem;
+    margin-bottom: 30px;
+}
+
+#eventSectionBlk6 {
+    background-color: #93A5AB;
+    padding: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: large;
+    align-items: center;
+}
+/**** Registration Library Display Section ****/
+
+#librarySectionBlk1 {
+    background-color: #A9986E;
+    padding: 2rem;
+    margin-bottom: 30px;
+}
+
+
+#librarySectionBlk4 {
+    background-color: #426A73;
+    padding: 2rem;
+    margin-bottom: 30px;
+}
+#librarySectionBlk3 {
+    background-color: #CDCDC1;
+    padding: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: larger;
+    align-items: center;
+}
+
+#librarySectionBlk5 {
+    background-color: #F3EAD2;
+    padding: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: x-large;
+    align-items: center;
+}
+#librarySectionBlk2 {
+    background-color: #50573F;
+    padding: 2rem;
+    margin-bottom: 30px;
+}
+
+
+/**** Map PopUp Library Display Section ****/
+
+#libDisSectionBlk1 {
+    background-color: #50573F;
+    padding: 2rem;
+    margin-bottom: 30px;
+}
+
+#libDisSectionBlk2 {
+    background-color: #F3EAD2;
+    padding: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: x-large;
+    align-items: center;
+}
+
+#libDisSectionBlk3 {
+    background-color: #A9986E;
+    padding: 2rem;
+    margin-bottom: 30px;
+}
+
+#libDisSectionBlk4 {
+    background-color: #CAB898;
+    padding: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: x-large;
+    align-items: center;
+}
+
+#libDisSectionBlk5 {
+    background-color: #426A73;
+    padding: 2rem;
+    margin-bottom: 30px;
+}
+
+#librarySectionDisplay {
+    padding: 2rem;
+    background-color: #CDCDC1;
+}
+#libraryCardDisplay {
+    background-color: #CDCDC1;
+    padding: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: x-large;
+    align-items: center;
+   border-radius: 0;
+}
+
+#libraryDisDetailTabsSec {
+    background-color: #93A5AB;
+    padding-top: 3rem;
+}
+
+
+#libraryDisCheckInTab {
+    background-color: #577F88;
+    padding: 3rem;
+    margin-bottom: 3rem;
+}
+
+#libraryDisEventsTab {
+    background-color: #426A73;
+    padding: 3rem;
+    margin-bottom: 3rem;
+}
+
+#libDisCheckInBlock {
+    background-color: #CDCDC1;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 10px;
+    text-align: center;
+}
+
+#libDisEventsBlk {
+    background-color: #F3EAD2;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 10px;
+    text-align: center;
+}
+/**** About-Us Section ****/
+#aboutUsIntro{
+    padding: 2rem;
+    align-content: center;
+    background-color: #CDCDC1;
+    text-align: center;
+}
+
+#aboutUsPersonalStack {
+    padding: 2rem;
+    margin-bottom: 30px;
+    align-content: center;
+    color: #2D3024;
+
+}
+
+#aboutUsDDC {
+    background-color: #93A5AB;
+    padding: 2rem;
+    margin-bottom: 0;
+    text-align: center;
+    align-content: center;
 }
 
 #personalStack {

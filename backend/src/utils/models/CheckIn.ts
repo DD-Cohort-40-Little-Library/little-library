@@ -40,7 +40,7 @@ export async function selectCheckInByCheckInProfileId (checkInProfileId: string)
 }
 
 export async function selectAllCheckInByCheckInProfileId (checkInProfileId:string): Promise<CheckIn[]> {
-   return <CheckIn[]> await sql `SELECT check_in_id, check_in_library_id, check_in_profile_id, check_in_comment, check_in_date, check_in_follow_library, check_in_photo_name, check_in_photo_url, check_in_report FROM check_in WHERE check_in_profile_id = ${checkInProfileId}`
+   return <CheckIn[]> await sql `SELECT check_in_id, check_in_library_id, check_in_profile_id, check_in_comment, check_in_date, check_in_follow_library, check_in_photo_name, check_in_photo_url, check_in_report FROM check_in WHERE check_in_profile_id = ${checkInProfileId} ORDER BY check_in_date DESC`
 }
 
 export async function selectCheckInByCheckInLibraryId (checkInLibraryId: string): Promise<CheckIn[]> {
@@ -55,4 +55,32 @@ export async function deleteCheckIn (checkIn: CheckIn): Promise<string>{
         return 'CheckIn does not exist'
     }
     return 'CheckIn was deleted'
+}
+
+export async function selectAllCheckInByProfileIdForProfileTab (profileId: string): Promise<CheckIn[]> {
+    console.log(profileId)
+    const data: CheckIn[] = await sql <CheckIn[]>`
+        SELECT  check_in_id,
+                check_in_library_id,
+                check_in_profile_id,
+                check_in_comment,
+                check_in_date,
+                check_in_photo_url,
+                check_in_report,
+                library_id,
+                library_profile_id,
+                library_address,
+                library_description,
+                library_event_opt_in,
+                library_name,
+                library_specialization,
+                profile_id,
+                profile_avatar_url,
+                profile_name
+        FROM check_in
+                 INNER JOIN library
+                            ON library.library_id = check_in.check_in_library_id
+                 INNER JOIN profile
+                            ON profile.profile_id = check_in.check_in_profile_id`
+    return data
 }
