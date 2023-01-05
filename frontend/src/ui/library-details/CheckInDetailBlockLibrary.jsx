@@ -32,8 +32,7 @@ export const CheckInDetailBlockLibrary = ({checkin, user}) => {
                     {/*<Row xs={5}>Photo: {checkin.checkInPhotoUrl}</Row>*/}
                 </Col>
                 <Col xs={3}>
-                    {/*<Row>Check-In Image: REMOVE ONCE IMAGE POPULATES</Row>*/}
-                    <Image src={checkin.checkInPhotoUrl} className={"rounded-circle"} alt={'Please select an avatar or upload a photo using the "Update Profile" button.'}></Image>
+                    <Image src={checkin.checkInPhotoUrl} className={"rounded-circle"} alt={'Please upload a picture of the Little Library during your next visit.'}></Image>
                 </Col>
             </Container>
         </>
