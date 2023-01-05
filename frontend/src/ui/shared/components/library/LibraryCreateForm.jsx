@@ -192,15 +192,6 @@ function LibraryCreateFormContent (props){
 
                     <Col md={5} className={"m-0 text-center"}>
 
-                        <ImageDropZone
-                            formikProps={{
-                                values, handleChange, handleBlur, setFieldValue, fieldValue:'libraryImageUrl', setSelectedImage: setSelectedImage
-                            }}
-                        />
-                        <div className={"m-0"}>
-                            {selectedImage !== null ? <img className={"w-50"} src={selectedImage}/> : ""}
-                        </div>
-
                         <Form.Group controlId={'libraryDescription'}>
                             <Form.Label>Library Description</Form.Label>
                             <InputGroup>
@@ -284,53 +275,5 @@ function LibraryCreateFormContent (props){
             </Container>
 
         </>
-    )
-}
-
-function ImageDropZone ({formikProps}) {
-    const onDrop = React.useCallback(acceptedFiles => {
-        const formData = new FormData()
-        formData.append('image', acceptedFiles[0])
-
-        const fileReader = new FileReader()
-        fileReader.readAsDataURL(acceptedFiles[0])
-        fileReader.addEventListener("load", () => {
-            formikProps.setSelectedImage(fileReader.result)
-        })
-
-        console.log(formikProps.values.libraryImageURL)
-        formikProps.setFieldValue(formikProps.fieldValue, formData)
-
-    }, [formikProps])
-    const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
-
-    return (
-        <Form.Group {...getRootProps()}>
-            <Form.Label>Change Avatar</Form.Label>
-            <InputGroup size={"lg"} className={"border border-dark justify-content-center"}>
-                {formikProps.values.libraryImageURL &&
-                    <>
-                        <div className={"bg-transparent"}>
-                            {/*<Image fluid="auto" height={200} thumbnail={true} width={200} alt={"profile avatar"} src={formikProps.values.profileAvatarUrl} />*/}
-                        </div>
-                    </>
-                }
-                <div className={"d-flex flex-fill bg-light justify-content-center align-content-center border-dark border"}>
-                    <FormControl
-                        aria-label={"Library Image file drag and drop zone"}
-                        aria-describedby={"image drag and drop area"}
-                        className={"form-control-file"}
-                        accept={"image/*"}
-                        onChange={formikProps.handleChange}
-                        onBlur={formikProps.handleBlur}
-                        {...getInputProps()}
-                    />
-                    {
-                        isDragActive ?
-                            <span className={"align-content-center"}>Drop image here</span> :
-                            <span className={"align-content-center"}>Drag and drop image here, or click here to select an image. File size limit is 10MB.</span> }
-                </div>
-            </InputGroup>
-        </Form.Group>
     )
 }

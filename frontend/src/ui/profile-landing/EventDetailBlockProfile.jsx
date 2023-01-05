@@ -1,6 +1,5 @@
 import {Anchor, Button, Col, Container, Image, Row} from "react-bootstrap";
 import React from "react";
-import {Link} from "react-router-dom";
 import {useSelector} from "react-redux";
 
 export const EventDetailBlockProfile = ({event, user}) => {
@@ -14,6 +13,14 @@ export const EventDetailBlockProfile = ({event, user}) => {
         if (library === null) {
             return (<></>)
         }
+    const libraryImage = useSelector(state => {
+        const currentLibraryCheckIns = state.checkIns.filter(checkin => checkin.checkInLibraryId === library.libraryId)
+        for (let checkIn of currentLibraryCheckIns) {
+            if (checkIn.checkInPhotoUrl !== "") {
+                return checkIn.checkInPhotoUrl
+            }
+        }})
+
     // Event date
     const date = event.eventDate
     const D = new Date(date)
@@ -56,7 +63,9 @@ export const EventDetailBlockProfile = ({event, user}) => {
                         <Row sm={6} className={"text-start pb-4"}>Description: {event.eventDescription}</Row>
                         <Anchor href={`/library-landing/${library.libraryId}`}><Button>Go To This Library</Button></Anchor>
                     </Col>
-                    <Col sm={3} className={"pt-4 rounded-circle"} fluid="auto" alt={'Please upload a photo of your Little Library using the "Update Library" option.'}>Library Image: REMOVE ONCE IMAGE POPULATES {library.LibraryImageUrl}</Col>
+                    <Col>
+                        {libraryImage && <Image className={"img-fluid"} src={libraryImage} alt={'Please upload a photo of your Little Library.'} ></Image>}
+                    </Col>
                 </Row>
             </Container>
         </>

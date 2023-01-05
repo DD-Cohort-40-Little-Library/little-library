@@ -53,12 +53,11 @@ export function LibraryDetails() {
                 <img src={libDisImageBlk1} alt={"libDisImageBlk1"} id={"sectionImageBlk"} className={"img-fluid"}/>
             </Row>
         </Container>
-
         <div id={"librarySectionDisplay"}>
             <Card className={""} id={"libraryCardDisplay"} >
                 <Card.Header><h2>{library.libraryAddress}, {library.libraryType}</h2></Card.Header>
                 <Card.Body>
-                    {libraryImage && <Image src={libraryImage} alt={'Please upload a photo of your Little Library.'} ></Image>}
+                    {libraryImage && <Image src={libraryImage} alt={'Please be the first to CheckIn and upload a photo of this Little Library.'} ></Image>}
                     <Card.Title><h3>{library.libraryName}</h3></Card.Title>
                         <h5>{library.librarySpecialization}</h5>
                     <Card.Text>{library.libraryDescription}</Card.Text>
