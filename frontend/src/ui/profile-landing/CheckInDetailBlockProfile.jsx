@@ -36,7 +36,7 @@ export const CheckInDetailBlockProfile = (props) => {
                     <Col sm={2} className={"pt-4"} fluid="auto">
                         <Image src={user.profileAvatarUrl} className={"img-fluid rounded-circle"} alt={'Please select an avatar or upload a photo using the "Update Profile" button.'} ></Image>
                     </Col>
-                    <Col>
+                    <Col className={"pt-4"}>
                         <Row sm={6} className={"text-start"}>User Name: {user.profileName}</Row>
                         <Row sm={6} className={"text-start"}>Check-In Date/Time: {(D.getMonth() + 1) + '-' + ((D.getDate()) + '-' + (D.getFullYear()) )} / {finalTime}</Row>
                         <Row sm={6} className={"text-start"}>Library Name: {library.libraryName}</Row>
@@ -44,10 +44,9 @@ export const CheckInDetailBlockProfile = (props) => {
                         <Row sm={6} className={"text-start pb-4"}>Comment: {checkin.checkInComment}</Row>
                         <Anchor href={`/library-landing/${library.libraryId}`}><Button>Go To This Library</Button></Anchor>
                     </Col>
-                    <Col sm={3} className={"pt-4 rounded-circle"} fluid="auto">
-                        {/*//TODO: image below too big*/}
+                    <Row sm={3} className={"pt-4 rounded-circle"} fluid="auto">
                         <Image src={checkin.checkInPhotoUrl} className={"rounded-circle"} alt={'Please upload a photo of your Little Library visit using the "Update Check-in" option.'}></Image>
-                    </Col>
+                    </Row>
                 </Row>
             </Container>
         </>

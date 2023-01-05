@@ -1,4 +1,4 @@
-import {Container, Image, Row} from "react-bootstrap";
+import {Col, Container, Image, Row} from "react-bootstrap";
 import React from "react";
 import {useSelector} from "react-redux";
 
@@ -22,13 +22,20 @@ export const CheckInDetailBlockLibrary = ({checkin, library}) => {
 
     return(
         <>
-            <Container id={"checkInDetailBlock"} className={"border border-dark rounded"}>
-                //TODO: image needs styling
-                <Row xs={8}><Image src={profile && profile.profileAvatarUrl}/></Row>
-                <Row xs={6}>Check-In User Name: {profile && profile.profileName}</Row>
-                <Row xs={6}>Check-In Date/Time: {(D.getMonth() + 1) + '-' + ((D.getDay() + 1) + '-' + (D.getFullYear()) )} / {finalTime}</Row>
-                <Row xs={5}>Comment: {checkin.checkInComment}</Row>
-                <Row xs={5}>Photo: {checkin.checkInPhotoUrl}</Row>
+            <Container id={"libDisCheckInBlock"} >
+                <Col className={"pt-4"}>
+                <Col sm={2} className={"pt-4"} fluid="auto">
+                    <Image src={profile && profile.profileAvatarUrl} className={"img-fluid rounded-circle"}/></Col>
+                </Col>
+                <Col className={"pt-4"}>
+                <Row sm={6} className={"text-start"}>Check-In User Name: {profile && profile.profileName}</Row>
+                <Row sm={6} className={"text-start"}>Check-In Date/Time: {(D.getMonth() + 1) + '-' + ((D.getDay() + 1) + '-' + (D.getFullYear()) )} / {finalTime}</Row>
+                <Row sm={6} className={"text-start"}>Comment: {checkin.checkInComment}</Row>
+                </Col>
+
+                <Col className={"pt-4"}>
+                    <Image sm={2} className={"pt-4 rounded-circle"} fluid="auto" alt={'Please upload a photo of your Little Library using the "Update Library" option.'}  src={checkin.checkInPhotoUrl}/>
+                </Col>
             </Container>
         </>
     )

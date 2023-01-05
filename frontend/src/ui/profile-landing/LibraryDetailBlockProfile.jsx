@@ -22,7 +22,7 @@ export const LibraryDetailBlockProfile = (props) => {
                     <Col sm={2} className={"pt-4 rounded-circle"} fluid="auto">
                         <Image src={user.profileAvatarUrl} fluid="auto" className={"rounded-circle"} alt={'Please select an avatar or upload a photo using the "Update Profile" button.'} ></Image>
                     </Col>
-                    <Col>
+                    <Col className={"pt-4"}>
                         <Row sm={6} className={"text-start"}>Owner Name: {user.profileName}</Row>
                         <Row sm={6} className={"text-start"}>Name: {library.libraryName}</Row>
                         <Row sm={6} className={"text-start"}>Address: {library.libraryAddress}</Row>
@@ -31,9 +31,8 @@ export const LibraryDetailBlockProfile = (props) => {
                         <Row sm={6} className={"text-start pb-4"}>Type of Library: {library.libraryType}</Row>
                         <Anchor href={`/library-landing/${library.libraryId}`}><Button>Go To This Library</Button></Anchor>
                     </Col>
-                    <Col sm={2}>
-                        {/*//TODO: Image below, too big*/}
-                        {libraryImage && <Image src={libraryImage} alt={'Please upload a photo of your Little Library.'} ></Image>}
+                    <Col sm={3} >
+                        {libraryImage && <Image src={libraryImage} alt={'Please upload a photo of your Little Library.'} sm={3} className={"pt-4 rounded-circle"} fluid="auto" ></Image>}
                     </Col>
                 </Row>
             </Container>
