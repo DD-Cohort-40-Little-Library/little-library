@@ -1,10 +1,14 @@
 import {Button, Col, Container, Row} from "react-bootstrap";
 import React from "react";
 import {Link} from "react-router-dom";
+import {useSelector} from "react-redux";
 
 export const EventDetailBlockLibrary = ({event, library}) => {
+    if (event === null) {
+        return (<></>)
+    }
+    const profile = useSelector(state => state.profiles[event.eventProfileId])
 
-    // const {event} = props
     const date = event.eventDate
     const D = new Date(date)
     const time = event.eventStart
@@ -21,6 +25,7 @@ export const EventDetailBlockLibrary = ({event, library}) => {
         <>
             <Container className={"border border-dark rounded"}>
                 <Col>
+                    <Row xs={8}>Event Planner: </Row>
                     <Row xs={8}>Title: {event.eventTitle}</Row>
                     <Row xs={8}>Library Name:{library.libraryName}</Row>
                     <Row xs={8}>Library Address:{library.libraryAddress}</Row>
@@ -29,9 +34,9 @@ export const EventDetailBlockLibrary = ({event, library}) => {
                     <Row xs={8}>Library Type:{library.libraryType}</Row>
                     <Row xs={8}>Description: {event.eventDescription}</Row>
                 </Col>
-                {/*<Col>*/}
+                <Col>
                 {/*    <Link to={`/library-landing/${library.libraryId}`}><Button>Go To This Library</Button></Link>*/}
-                {/*</Col>*/}
+                </Col>
             </Container>
         </>
     )

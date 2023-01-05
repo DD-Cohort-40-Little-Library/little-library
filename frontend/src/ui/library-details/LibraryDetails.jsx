@@ -1,18 +1,12 @@
-import React from "react";
+import React, {useEffect} from "react";
 import Card from 'react-bootstrap/Card';
 import {Button, Col, Container, Image, Row, Stack, Tab, Tabs} from "react-bootstrap";
-import {EventListing} from "../shared/components/EventListing.jsx";
-import {CheckInDisplay} from "../shared/components/CheckInDisplay.jsx";
 import {useDispatch, useSelector} from "react-redux";
 import {Link, useParams} from "react-router-dom";
 import {CheckInModal} from "./CheckInModal";
 import {CheckInDetailBlockLibrary} from "./CheckInDetailBlockLibrary";
-import {CheckInDetailBlockProfile} from "../profile-landing/CheckInDetailBlockProfile.jsx";
-import {library} from "@fortawesome/fontawesome-svg-core";
-import {fetchAuth} from "../../store/auth.js";
-import {fetchLibrariesByProfileId, fetchLibraryByLibraryId} from "../../store/libraries.js";
-import {fetchEventsByLibraryId, fetchEventsByProfileId} from "../../store/events.js";
-import {fetchCurrentUser} from "../../store/currentUser.js";
+import {fetchLibraryByLibraryId} from "../../store/libraries.js";
+import {fetchEventsByLibraryId} from "../../store/events.js";
 import {fetchCheckInsByLibraryId} from "../../store/checkIn.js"
 import {EventDetailBlockLibrary} from "./EventDetailBlockLibrary.jsx";
 import libDisImageBlk1 from "../../../images/uiSharedImages/libDisImgBlk1.jpg";
@@ -24,30 +18,17 @@ import libDisFamRead from "../../../images/uiSharedImages/libDisFamRead.jpg";
 export function LibraryDetails() {
 
     let { libraryId } = useParams()
-    const dispatch = useDispatch()
     const checkins = useSelector(state => state.checkIns ? state.checkIns : [])
-    console.log(checkins)
     const events = useSelector(state => state.events ? state.events : [])
     const library = useSelector(state => state.libraries ? state.libraries : [])
-    // const library = useSelector(state => {return state.libraries ? state.libraries
-    //     .filter(library => library.libraryId === libraryId)[0]
-    //     : null})
-    // const specialization = () => {
-    //     if(library.librarySpecialization === null){
-    //         return ""
-    //     } else {
-    //         return library.librarySpecialization
-    //     }
-    // }
-    const {checkInComment,checkInDate, checkInPhotoUrl, checkInLibraryId} = checkins
-    const {eventDate, eventDescription, eventName} = events
+    const dispatch = useDispatch()
 
-    const initialEffects = () => {
+    const effects = () => {
         dispatch(fetchLibraryByLibraryId(libraryId))
         dispatch(fetchEventsByLibraryId(libraryId))
         dispatch(fetchCheckInsByLibraryId(libraryId))
     }
-    React.useEffect(initialEffects, [libraryId, dispatch])
+    useEffect(effects,[libraryId, dispatch])
 
     return (
         <>
@@ -62,10 +43,9 @@ export function LibraryDetails() {
             <Card className={""} id={"libraryCardDisplay"} >
                 <Card.Header><h2>{library.libraryAddress}, {library.libraryType}</h2></Card.Header>
                 <Card.Body>
-                    {/*Make backend library image connection, code freeze*/}
                     <Image src={library.libraryImageURL} alt={'Please upload a photo of your Little Library.'} ></Image>
                     <Card.Title><h3>{library.libraryName}</h3></Card.Title>
-                        {/*<h5>{specialization}</h5>*/}
+                        <h5>{library.librarySpecialization}</h5>
                     <Card.Text>{library.libraryDescription}</Card.Text>
                     <Row>
                     <Col style={{padding: '1rem'}}>
@@ -92,8 +72,7 @@ export function LibraryDetails() {
             <Tab eventKey="check-ins" title="Check-Ins">
                 <Container>
                     <Row>
-                        <h3>TEST - CHECKIN DISPLAY - 1</h3>
-                        {checkins.slice().map (checkin => <CheckInDetailBlockLibrary library={library} checkin={checkin} key={checkin.checkInId}/>)}
+                        {checkins.map (checkin => <CheckInDetailBlockLibrary library={library} checkin={checkin} key={checkin.checkInId}/>)}
                     </Row>
                 </Container>
             </Tab>
