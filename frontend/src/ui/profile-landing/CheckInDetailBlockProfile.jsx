@@ -45,7 +45,7 @@ export const CheckInDetailBlockProfile = (props) => {
                         <Anchor href={`/library-landing/${library.libraryId}`}><Button>Go To This Library</Button></Anchor>
                     </Col>
                     <Col sm={3} className={"pt-4 rounded-circle"} fluid="auto">
-                        //TODO: image below too big
+                        {/*//TODO: image below too big*/}
                         <Image src={checkin.checkInPhotoUrl} className={"rounded-circle"} alt={'Please upload a photo of your Little Library visit using the "Update Check-in" option.'}></Image>
                     </Col>
                 </Row>

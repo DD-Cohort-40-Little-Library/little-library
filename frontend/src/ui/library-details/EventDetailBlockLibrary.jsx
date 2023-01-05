@@ -20,7 +20,6 @@ export const EventDetailBlockLibrary = ({event, library, }) => {
             <Container className={"border border-dark rounded"}>
                 <Col xs={3}>
                     <Row> HOSTING Profile URL/img here: REMOVE ONCE IMAGE POPULATES </Row>
-                    {/*<Image src={} className={"rounded-circle"} alt={'Please select an avatar or upload a photo using the "Update Profile" button.'}></Image>                */}
                 </Col>
                 <Col>
                     <Row xs={6}>Title: {event.eventTitle}</Row>

@@ -5,7 +5,10 @@ import {useSelector} from "react-redux";
 export const LibraryDetailBlockProfile = (props) => {
 
     const {library, checkin, user} = props
-    const libraryImage = useSelector(state => {for (let checkIn of state.checkIns) {
+
+    const libraryImage = useSelector(state => {
+    const currentLibraryCheckIns = state.checkIns.filter(checkin => checkin.checkInLibraryId === library.libraryId)
+        for (let checkIn of currentLibraryCheckIns) {
         if (checkIn.checkInPhotoUrl !== "") {
             return checkIn.checkInPhotoUrl
         }
@@ -28,11 +31,8 @@ export const LibraryDetailBlockProfile = (props) => {
                         <Row sm={6} className={"text-start pb-4"}>Type of Library: {library.libraryType}</Row>
                         <Anchor href={`/library-landing/${library.libraryId}`}><Button>Go To This Library</Button></Anchor>
                     </Col>
-                {/*<Col sm={3} className={"pt-4 rounded-circle"} fluid="auto" alt={'Please upload a photo of your Little Library using the "Update Library" option.'}>${library.LibraryImageUrl}</Col>*/}
                     <Col sm={2}>
-                        <Row>Library Image: REMOVE ONCE IMAGE POPULATES</Row>
-                        {/*<Image src={library.libraryImageURL} className={"rounded-circle"} alt={'Please upload a photo of the Little Library during your next CheckIn.'}></Image>*/}
-                        //TODO: Image below, too big
+                        {/*//TODO: Image below, too big*/}
                         {libraryImage && <Image src={libraryImage} alt={'Please upload a photo of your Little Library.'} ></Image>}
                     </Col>
                 </Row>
