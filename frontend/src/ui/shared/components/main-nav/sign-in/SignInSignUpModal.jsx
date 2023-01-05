@@ -29,7 +29,7 @@ export function SignInSignUpModal() {
                     <Row>
                         <Col className={"pb-2"}>
                             <p>By creating an account on our site you agree to our terms of use.</p>
-                            <Button variant="secondary" onClick={handleClose}>Cancel</Button>
+                            <Button variant="secondary" onClick={handleClose}>Close</Button>
                         </Col>
                     </Row>
                 </Container>

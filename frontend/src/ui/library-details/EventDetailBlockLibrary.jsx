@@ -19,17 +19,17 @@ export const EventDetailBlockLibrary = ({event, library}) => {
 
     return(
         <>
-            <Container className={"border border-dark rounded"}>
+            <Container className={""} id={"libDisEventsBlk"}>
                 <Col>
-                    <Row xs={8}>Title: {event.eventTitle}</Row>
-                    <Row xs={8}>Library Name:{library.libraryName}</Row>
-                    <Row xs={8}>Library Address:{library.libraryAddress}</Row>
-                    <Row xs={8}>Date: {(D.getMonth() + 1) + '-' + ((D.getDate() + 1) + '-' + (D.getFullYear()))}</Row>
-                    <Row xs={8}>Start time: {finalTime}</Row>
-                    <Row xs={8}>Library Type:{library.libraryType}</Row>
-                    <Row xs={8}>Description: {event.eventDescription}</Row>
+                    <Row sm={6} className={"text-start"}>Title: {event.eventTitle}</Row>
+                    <Row sm={6} className={"text-start"}>Library Name:{library.libraryName}</Row>
+                    <Row sm={6} className={"text-start"}>Library Address:{library.libraryAddress}</Row>
+                    <Row sm={6} className={"text-start"}>Date: {(D.getMonth() + 1) + '-' + ((D.getDate() + 1) + '-' + (D.getFullYear()))}</Row>
+                    <Row sm={6} className={"text-start"}>Start time: {finalTime}</Row>
+                    <Row sm={6} className={"text-start"}>Library Type:{library.libraryType}</Row>
+                    <Row sm={6} className={"text-start pb-2"}>Description: {event.eventDescription}</Row>
                 </Col>
-                {/*<Col>*/}
+                {/*<Col sm={3} className={"pt-4 rounded-circle"} fluid="auto">*/}
                 {/*    <Link to={`/library-landing/${library.libraryId}`}><Button>Go To This Library</Button></Link>*/}
                 {/*</Col>*/}
             </Container>
