@@ -1,7 +1,5 @@
-import {create} from "yup/lib/Lazy.js";
 import {createSlice} from "@reduxjs/toolkit";
 import {httpConfig} from "../ui/shared/utils/http-config.js";
-import {setAllLibraries} from "./libraries.js";
 import {setAllCheckIns} from "./checkIn.js";
 import _ from "lodash";
 import {fetchProfileByProfileId} from "./profiles.js";
@@ -27,7 +25,7 @@ export const fetchAllEvents = () => {
 
 export const fetchEventsByProfileId = () => async (dispatch, getState) => {
     const auth = getState().auth
-    const {data} = await httpConfig(`/apis/event/eventProfileId/${auth.profileId}`)
+    const {data} = await httpConfig(`/apis/event/`)
     dispatch(setAllEvents(data))
 }
 

@@ -20,11 +20,13 @@ export const CheckInDetailBlockLibrary = ({checkin, library}) => {
     const amPm = startTime.getHours() < 12 ? 'AM' : 'PM'
     const finalTime = (hour + ":" + minutes + amPm)
 
+    console.log(checkin)
+
     return(
         <>
             <Container id={"checkInDetailBlock"} className={"border border-dark rounded"}>
                 {/*<Row xs={5}>{profile.profileAvatarUrl}</Row>*/}
-                <Row xs={6}>Check-In User Name: </Row>
+                <Row xs={6}>Check-In User Name: {profile && profile.profileName}</Row>
                 <Row xs={6}>Check-In Date/Time: {(D.getMonth() + 1) + '-' + ((D.getDay() + 1) + '-' + (D.getFullYear()) )} / {finalTime}</Row>
                 <Row xs={5}>Comment: {checkin.checkInComment}</Row>
                 <Row xs={5}>Photo: {checkin.checkInPhotoUrl}</Row>

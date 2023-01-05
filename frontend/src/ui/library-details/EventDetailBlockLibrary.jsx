@@ -18,14 +18,14 @@ export const EventDetailBlockLibrary = ({event, library}) => {
     if (startTime.getMinutes() === 0) {
         minutes = minutes + '0'
     }
-    const amPm = startTime.getHours() > 12 ? 'AM' : 'PM'
+    const amPm = startTime.getHours() < 12 ? 'AM' : 'PM'
     const finalTime = (hour + ":" + minutes + amPm)
 
     return(
         <>
             <Container className={"border border-dark rounded"}>
                 <Col>
-                    <Row xs={8}>Event Planner: </Row>
+                    <Row xs={8}>Event Planner: {profile && profile.profileName}</Row>
                     <Row xs={8}>Title: {event.eventTitle}</Row>
                     <Row xs={8}>Library Name:{library.libraryName}</Row>
                     <Row xs={8}>Library Address:{library.libraryAddress}</Row>

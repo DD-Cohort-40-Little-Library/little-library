@@ -1,7 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
 import {httpConfig} from "../ui/shared/utils/http-config.js";
-import {setAllLibraries} from "./libraries.js";
-import {setAllEvents} from "./events.js";
 import {fetchProfileByProfileId} from "./profiles.js";
 import _ from "lodash"
 
