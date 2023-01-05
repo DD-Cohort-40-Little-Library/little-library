@@ -33,9 +33,6 @@ export const EventDetailBlockLibrary = ({event, library, }) => {
                     <Row xs={6}>Library Type:{library.libraryType}</Row>
                     <Row xs={6}>Description: {event.eventDescription}</Row>
                 </Col>
-                <Col xs={3}>
-                    <Row>Check-In Image: REMOVE ONCE IMAGE POPULATES</Row>
-                </Col>
             </Container>
         </>
     )
