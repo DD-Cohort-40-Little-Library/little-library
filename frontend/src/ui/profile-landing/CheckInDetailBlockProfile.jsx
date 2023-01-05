@@ -42,7 +42,7 @@ export const CheckInDetailBlockProfile = (props) => {
                         <Row sm={6} className={"text-start"}>Library Name: {library.libraryName}</Row>
                         <Row sm={6} className={"text-start"}>Library Address: {library.libraryAddress}</Row>
                         <Row sm={6} className={"text-start pb-4"}>Comment: {checkin.checkInComment}</Row>
-                        <Anchor to={`/library-landing/${library.libraryId}`}><Button>Go To This Library</Button></Anchor>
+                        <Anchor href={`/library-landing/${library.libraryId}`}><Button>Go To This Library</Button></Anchor>
                     </Col>
                     <Col sm={3} className={"pt-4 rounded-circle"} fluid="auto">
                         //TODO: image below too big
