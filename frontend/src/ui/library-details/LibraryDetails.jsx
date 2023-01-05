@@ -58,7 +58,7 @@ export function LibraryDetails() {
             <Card className={""} id={"libraryCardDisplay"} >
                 <Card.Header><h2>{library.libraryAddress}, {library.libraryType}</h2></Card.Header>
                 <Card.Body>
-                    {libraryImage && <Image src={libraryImage} alt={'Please upload a photo of your Little Library.'} ></Image>}
+                    {libraryImage && <Image src={libraryImage} className={"pt-4 rounded-circle"} fluid="auto" alt={'Please upload a photo of your Little Library.'} ></Image>}
                     <Card.Title><h3>{library.libraryName}</h3></Card.Title>
                         <h5>{library.librarySpecialization}</h5>
                     <Card.Text>{library.libraryDescription}</Card.Text>
@@ -80,14 +80,18 @@ export function LibraryDetails() {
             <Tab eventKey="events" title="Events">
                 <Container md={4} id={"libraryDisEventsTab"}>
                     <Row>
-                        {events.map (event => <EventDetailBlockLibrary library={library} event={event} key={event.eventId}/>)}
+                        <Stack gap={3} className={"align-items-center"}>
+                            {events.map (event => <EventDetailBlockLibrary library={library} event={event} key={event.eventId}/>)}
+                        </Stack>
                     </Row>
                 </Container>
             </Tab>
             <Tab eventKey="check-ins" title="Check-Ins">
                 <Container>
                     <Row>
-                        {checkins.map (checkin => <CheckInDetailBlockLibrary library={library} checkin={checkin} key={checkin.checkInId}/>)}
+                        <Stack gap={3} className={"align-items-center"}>
+                            {checkins.map (checkin => <CheckInDetailBlockLibrary library={library} checkin={checkin} key={checkin.checkInId}/>)}
+                        </Stack>
                     </Row>
                 </Container>
             </Tab>

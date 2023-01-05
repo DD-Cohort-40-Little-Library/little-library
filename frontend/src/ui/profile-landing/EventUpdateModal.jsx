@@ -54,7 +54,9 @@ export function EventUpdateModal(){
 					</Form.Group>
 					<Form.Group className={"m-3"} id={"eventDescription.ControlTextarea"}>
 						<FloatingLabel id="floatingTextarea" label="Describe your event (256 characters max)">
-							<Form.Control as="textarea" style={{ height: '100px' }}/>
+							<Form.Control as="textarea" style={{
+								height: "100px",
+								width: "200px"}}/>
 						</FloatingLabel>
 					</Form.Group>
 				</Form>

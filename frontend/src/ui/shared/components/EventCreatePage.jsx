@@ -234,7 +234,7 @@ function EventCreateModalFormContent(props) {
 								as="textarea"
 								style={{
 									height: '225px',
-									width: '425px'
+									width: '320px'
 								}}
 							/>
 						</FloatingLabel>

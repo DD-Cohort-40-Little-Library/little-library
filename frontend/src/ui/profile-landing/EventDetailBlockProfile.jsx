@@ -1,6 +1,5 @@
 import {Anchor, Button, Col, Container, Image, Row} from "react-bootstrap";
 import React from "react";
-import {Link} from "react-router-dom";
 import {useSelector} from "react-redux";
 
 export const EventDetailBlockProfile = ({event, user}) => {
@@ -11,9 +10,17 @@ export const EventDetailBlockProfile = ({event, user}) => {
         }
         return state.libraries.find(library => library.libraryId === event.eventLibraryId)
     })
-        if (library === null) {
-            return (<></>)
-        }
+    if (library === null) {
+        return (<></>)
+    }
+    const libraryImage = useSelector(state => {
+        const currentLibraryCheckIns = state.checkIns.filter(checkin => checkin.checkInLibraryId === library.libraryId)
+        for (let checkIn of currentLibraryCheckIns) {
+            if (checkIn.checkInPhotoUrl !== "") {
+                return checkIn.checkInPhotoUrl
+            }
+        }})
+
     // Event date
     const date = event.eventDate
     const D = new Date(date)
@@ -33,7 +40,7 @@ export const EventDetailBlockProfile = ({event, user}) => {
     let hourE = ((endTime.getHours() + 7) % 12) || 12
     let minutesE = endTime.getMinutes()
     if (endTime.getMinutes() < 10) {
-            minutesE = '0' + minutesE
+        minutesE = '0' + minutesE
     }
     const amPmE = endTime.getHours() > 12 ? 'AM' : 'PM'
     const finalEndTime = (hourE + ":" + minutesE + amPmE)
@@ -45,7 +52,7 @@ export const EventDetailBlockProfile = ({event, user}) => {
                     <Col sm={2} className={"pt-4"} fluid="auto">
                         <Image src={user.profileAvatarUrl} className={"img-fluid rounded-circle"} alt={'Host User has either not uploaded an image or the link is broken.'} ></Image>
                     </Col>
-                    <Col>
+                    <Col className={"pt-4"}>
                         <Row sm={6} className={"text-start"}>Host User Name: {user.profileName}</Row>
                         <Row sm={6} className={"text-start"}>Date: {(D.getMonth() + 1) + '-' + ((D.getDate()) + '-' + (D.getFullYear()))}</Row>
                         <Row sm={6} className={"text-start"}>Start time: {finalStartTime}</Row>
@@ -56,7 +63,9 @@ export const EventDetailBlockProfile = ({event, user}) => {
                         <Row sm={6} className={"text-start pb-4"}>Description: {event.eventDescription}</Row>
                         <Anchor href={`/library-landing/${library.libraryId}`}><Button>Go To This Library</Button></Anchor>
                     </Col>
-                    <Col sm={3} className={"pt-4 rounded-circle"} fluid="auto" alt={'Please upload a photo of your Little Library using the "Update Library" option.'}>Library Image: REMOVE ONCE IMAGE POPULATES {library.LibraryImageUrl}</Col>
+                    <Row>
+                        {libraryImage && <Image src={libraryImage} alt={'Please upload a photo of your Little Library.'} className={"img-fluid pt-4 rounded-circle"}></Image>}
+                    </Row>
                 </Row>
             </Container>
         </>

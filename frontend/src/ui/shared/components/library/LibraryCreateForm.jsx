@@ -125,7 +125,7 @@ function LibraryCreateFormContent (props){
             <Form onSubmit={handleSubmit} className={"m-0"} style={{fontSize: "x-large"}}>
 
                 <Row className={"m-0"}>
-                    <Col md={3} className={"m-1 text-center"}>
+                    <Col md={3} className={"m-0 text-center"}>
                             <Form.Group controlId={'libraryAddress'}>
                             <Form.Label>Library Address</Form.Label>
                             <InputGroup>
