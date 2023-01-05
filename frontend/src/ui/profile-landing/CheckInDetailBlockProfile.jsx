@@ -45,7 +45,7 @@ export const CheckInDetailBlockProfile = (props) => {
                         <Link to={`/library-landing/${library.libraryId}`}><Button>Go To This Library</Button></Link>
                     </Col>
                     <Col sm={3} className={"pt-4 rounded-circle"} fluid="auto">
-                        <Row>Check-In Image: REMOVE ONCE IMAGE POPULATES</Row>
+                        //TODO: image below too big
                         <Image src={checkin.checkInPhotoUrl} className={"rounded-circle"} alt={'Please upload a photo of your Little Library visit using the "Update Check-in" option.'}></Image>
                     </Col>
                 </Row>
